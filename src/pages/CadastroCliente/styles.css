@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --preto: #000000;
+  --icones: #234b45;
+  --texto: #126339;
+  --formulario: #118b56;
+  --botao: #118c40;
+  --branco: #ffffff;
+}
+/*body*/
+.cadcliente {
+  font-family: arial, sans-serif;
+  background-image: radial-gradient(circle, #118b56 35%, #234b45, #000000);
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+/*Formulario*/
+.main {
+  background-color: transparent;
+  border-radius: 20px;
+  text-align: center;
+  padding: 2rem 4rem 2rem 4rem;
+  box-shadow: 0 0 56px #000000;
+  border: 1px solid black;
+  width: 35rem;
+  height: 80%;
+}
+.form-cadcliente {
+  display: flex;
+  height: 80%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+/*Sumario*/
+.header-cadcliente {
+  text-align: right;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/*Campo de preenchimento*/
+.formulario {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 30%;
+}
+.floatingInput {
+  position: relative;
+}
+.floatingInput__control {
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  height: 4.3rem;
+  width: 98%;
+  text-transform: uppercase;
+  border: transparent;
+}
+.floatingInput__control::placeholder {
+  opacity: 0;
+}
+.floatingInput__control:not(:placeholder-shown) + .floatingInput__label,
+.floatingInput__control:focus + .floatingInput__label {
+  top: 0.2rem;
+  font-size: 1.3rem;
+}
+.floatingInput__label {
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transition: all 0.2s;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+/*Botão de login/salvar*/
+.formulario-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  width: 30%;
+  border-radius: 20px;
+  background-color: var(--botao);
+  height: 4.3rem;
+}
+.btn:hover {
+  color: var(--branco);
+  background-color: var(--preto);
+}

@@ -1,0 +1,311 @@
+:root {
+  --pretofundo: #000000;
+  --telas: #191c24;
+  --icones: #028a0f;
+  --texto: #517293;
+}
+/* ICONES*/
+@import url("https://unpkg.com/css.gg@2.0.0/icons/css/profile.css"); /* user*/
+@import url("https://unpkg.com/css.gg@2.0.0/icons/css/user-add.css"); /* add usuer*/
+@import url("https://unpkg.com/css.gg@2.0.0/icons/css/user-remove.css"); /* remover user*/
+@import url("https://unpkg.com/css.gg@2.0.0/icons/css/software-upload.css"); /* Enviar guias*/
+
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #6c7293;
+  vertical-align: top;
+}
+tr {
+  text-align: left;
+  color: var(--texto);
+  font-size: 1.7rem;
+}
+td {
+  border-radius: 0.3rem;
+  border: 0.1rem solid rgb(105, 102, 102);
+  color: var(--texto);
+  font: 1.6rem "open sans", sans-serif;
+  padding: 1.3rem;
+}
+.tdi {
+  border-radius: 0.3rem;
+  border: 0.1rem solid rgb(105, 102, 102);
+  color: whitesmoke;
+  font: 1.6rem "open sans", sans-serif;
+  padding: 1.3rem;
+}
+
+/* ICONES*/
+
+.logo {
+  margin: 0rem 0.2rem -2.4rem 28rem;
+  height: 6rem;
+  width: 6rem;
+}
+.nav {
+  background-color: var(--telas);
+  width: auto;
+  height: 3rem;
+}
+.texto {
+  color: var(--texto);
+  size: 2rem;
+}
+
+.busca {
+  background-color: #b6b8b9;
+  padding-left: 0.5rem;
+  font-style: italic;
+  font-size: 1.5rem;
+  border: none;
+  height: 3.2rem;
+  width: 20rem;
+  margin-left: 2rem;
+  margin-top: -3rem;
+  border-radius: 1rem;
+}
+
+.menu {
+  display: block;
+  list-style: none;
+  border: 0.1rem solid #ffffff;
+  float: right;
+  margin-right: 1rem;
+  border-radius: 1rem;
+  margin-top: -0.2rem;
+  font-size: 1.4rem;
+  padding: 0rem;
+}
+
+.menu li {
+  position: relative;
+  float: left;
+  border-right: 0.1rem solid #ffffff;
+  border-radius: 1rem;
+}
+.menu li a {
+  color: var(--texto);
+  text-decoration: none;
+  padding: 5px 10px;
+  display: block;
+}
+
+.menu li a:hover {
+  background: rgb(46, 46, 46);
+  color: #ffffff;
+  border-radius: 1rem;
+}
+.menu li ul {
+  position: absolute;
+  top: 2.5rem;
+  left: 1rem;
+  background-color: rgb(46, 46, 46);
+  display: none;
+}
+.menu li:hover ul,
+.menu li.over ul {
+  display: block;
+}
+
+.menu li ul li {
+  border: 0px solid #191c24;
+  display: block;
+  margin-left: -4rem;
+  border-radius: 1rem;
+}
+
+.aside {
+  width: 20rem;
+  height: 100%;
+  border-radius: 0.9rem;
+  background-color: var(--telas);
+  position: absolute; /* Pode mudar ára fixed ou outra */
+  margin-top: 3rem; /* mudar com que alguem saiba */
+}
+.blocousuario {
+  width: auto;
+  height: 7.3rem;
+  margin-left: auto;
+  background-color: rgb(199, 199, 199);
+  border-radius: 1rem;
+  margin-top: 1rem;
+
+  /*display: flex;
+    gap: 1rem; */
+}
+.nomeusuario {
+  color: var(--texto);
+  size: 2rem;
+  margin: -6rem 0 0rem 9rem;
+}
+.cargo {
+  color: var(--texto);
+  size: 2rem;
+  margin: 1rem 0 0rem 8rem;
+}
+
+.foto {
+  border: 0.1rem solid red;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 95px;
+  margin-top: 0%;
+  margin-left: left;
+  display: flex;
+}
+.navlateral {
+  width: 20rem;
+  height: 35rem;
+  border-radius: 0.9rem;
+
+  position: absolute; /* Pode mudar ára fixed ou outra */
+  margin-top: 0rem; /* mudar com que alguem saiba */
+}
+.menulateral {
+  text-decoration: none;
+  color: var(--texto);
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  display: block;
+}
+.menulateral a:hover {
+  /*  pq quando coloquei o A ele ficou unico em  vez de geral*/
+  background-color: rgb(46, 46, 46);
+  color: whitesmoke;
+  border: 0.1rem solid whitesmoke;
+}
+.dashbord {
+  width: auto;
+  height: 81rem;
+  margin: 3rem 0 0rem 25rem;
+}
+
+.financeiras {
+  width: auto;
+  height: 13rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.boxfinanceiras {
+  background-color: var(--telas);
+  width: 29rem;
+  height: 13rem;
+  border-radius: 2rem;
+}
+
+.notasfiscais {
+  background-color: var(--telas);
+  margin-top: 2rem;
+  width: auto;
+  height: 42rem;
+  border-radius: 2rem;
+}
+.tarefas {
+  margin-top: 2rem;
+  width: auto;
+  height: 30rem;
+  display: flex;
+  justify-content: space-between;
+}
+.boxtarefas {
+  background-color: var(--telas);
+  width: 39rem;
+  height: auto;
+  border-radius: 2rem;
+}
+.teste {
+  display: block;
+  list-style: none;
+  border: 0.1rem solid #ffffff;
+  float: right;
+  margin-right: 1rem;
+  border-radius: 1rem;
+  margin-top: -0.2rem;
+  font-size: 1.4rem;
+  padding: 0rem;
+}
+
+@media (max-width: 1440px) {
+  div.boxfinanceiras {
+    margin-top: 1.62rem;
+    width: 25rem;
+    height: 9rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  div.boxtarefas {
+    margin-top: 8rem;
+    background-color: var(--telas);
+    width: 35rem;
+    height: 23rem;
+    border-radius: 3rem;
+  }
+  section.tarefas {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1024px) /* Deixar o AISDE E MENU RESPONSIVO*/ {
+  div.boxfinanceiras {
+    margin-top: 1.62rem;
+    width: 18rem;
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  ul.menu {
+    display: none;
+  }
+
+  div.boxtarefas {
+    margin-top: 8rem;
+    background-color: var(--telas);
+    width: 23rem;
+    height: 18rem;
+    border-radius: 3rem;
+  }
+  section.tarefas {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  div.boxfinanceiras {
+    margin-top: 1.62rem;
+    width: 12rem;
+    height: 9rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  ul.menu {
+    display: none;
+  }
+
+  div.boxtarefas {
+    margin-top: 8rem;
+    background-color: var(--telas);
+    width: 15rem;
+    height: 19rem;
+    border-radius: 3rem;
+  }
+  section.tarefas {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  td.tdi,
+  tr,
+  td {
+    border-radius: 0rem;
+    border-radius: 2rem;
+    border: 0.1rem solid rgb(105, 102, 102);
+    color: var(--texto);
+    font: 1.6rem "open sans", sans-serif;
+    padding: 0.27rem;
+  }
+}
