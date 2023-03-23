@@ -168,6 +168,7 @@ td {
   font-size: 1.5rem;
   padding: 0.5rem;
   display: block;
+  border: 0.1rem solid transparent; /* Coloquei para o A não quebrar no hover */
 }
 .menulateral a:hover {
   /*  pq quando coloquei o A ele ficou unico em  vez de geral*/

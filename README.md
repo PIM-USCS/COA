@@ -4,6 +4,12 @@ Sempre rodar o comando "npm install" no seu cmd dentro da pasta que está o proj
 
 para rodar o projeto, não utilizar o livePreview, utilizar o comando "npm start" ou "npm run start"
 
+tambem é possivel utilizar o YARN:
+
+Sempre rodar o comando "yarn" no seu cmd dentro da pasta que está o projeto
+
+para rodar o projeto, não utilizar o livePreview, utilizar o comando "yarn start"
+
 ## Referenciar imagem
 
 Para referenciar as imagens no código, utilizar a seguinte sintaxe:
