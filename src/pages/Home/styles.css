@@ -1,8 +1,5 @@
 :root {
-  --pretofundo: #000000;
-  --telas: #191c24;
-  --icones: #028a0f;
-  --texto: #517293;
+  
 }
 /* ICONES*/
 @import url("https://unpkg.com/css.gg@2.0.0/icons/css/profile.css"); /* user*/
