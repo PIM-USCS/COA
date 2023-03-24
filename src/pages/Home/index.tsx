@@ -108,6 +108,21 @@ export function Home() {
               </button>
             </div>
           </div>
+
+          <div className="div-guias">
+            <div className="guias">
+              <h3>Guias próximo mês</h3>
+            </div>
+            <div className="guias">
+              <h3>Guias em aberto</h3>
+            </div>
+            <div className="guias">
+              <h3>Guias em análise</h3>
+            </div>
+            <div className="guias">
+              <h3>Guias retornadas</h3>
+            </div>
+          </div>
         </body>
       </main>
     </>

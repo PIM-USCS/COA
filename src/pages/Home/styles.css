@@ -82,6 +82,8 @@ body {
   width: 20%;
   height: 700px;
   background-color: var(--secondary);
+  position: relative;
+  left: 0;
 }
 
 .usuario-barra-lateral {
@@ -179,3 +181,20 @@ body {
   background-color: var(--dark);
 }
 /*BARRA LATERAL*/
+
+/*MENU*/
+
+.div-guias {
+  display: grid;
+  position: absolute;
+  top: 0;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 80px;
+}
+
+.guias {
+  width: 100%;
+  background-color: var(--light);
+}
+
+/*MENU*/
