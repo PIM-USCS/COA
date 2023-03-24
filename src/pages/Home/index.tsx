@@ -9,21 +9,14 @@ export function Home() {
   const [isOpenEnviar, setIsOpenEnviar] = useState(false); /*Modal*/
   return (
     <>
-      <body>
-        <CadastroCliente1 isOpen={isOpen} setIsOpen={setIsOpen} />
-        <EnviarGuia1
-          isOpenEnviar={isOpenEnviar}
-          setIsOpenEnviar={setIsOpenEnviar}
-        />
+      <main>
         <header>
-          <div>
-            <img src={logoTransparente} />
-            <input type="source" placeholder="busca"></input>
+          <div className="div-header">
+            <div className="div-header-esquerda"></div>
+            <div className="div-header-direita"></div>
           </div>
         </header>
-
-        <button onClick={() => setIsOpen(true)}>oi</button>
-      </body>
+      </main>
     </>
   );
 }
