@@ -4,7 +4,7 @@ import { useState } from "react"; /* Modal*/
 import "./styles.css";
 import Logo from "../../img/logo sem fundo.png";
 import GuiBalbino from "../../img/GuiBalbinoFT.jpeg";
-import { Gauge, FileText } from "phosphor-react";
+import { Gauge, FileText, CaretDown, CaretUp } from "phosphor-react";
 
 // import { ChartLineUp } from "phosphor-react";
 // <ChartLineUp size={32} weight="bold" />
@@ -13,6 +13,15 @@ export function Home() {
   // const [isOpen, setIsOpen] = useState(false); /*Modal*/
   // const [isOpenEnviar, setIsOpenEnviar] = useState(false); /*Modal*/
 
+  const [isOpenPages, setIsOpenPages] = useState(false);
+
+  function HabilitarSubPaginas() {
+    if (isOpenPages === false) {
+      setIsOpenPages(true);
+    } else {
+      setIsOpenPages(false);
+    }
+  }
   return (
     <>
       <main>
@@ -46,9 +55,56 @@ export function Home() {
                 <Gauge size={32} weight="fill" />
                 Dashboard
               </button>
-              <button className="botao-pages">
+              <button className="botao-pages" onClick={HabilitarSubPaginas}>
                 <FileText size={32} weight="fill" />
                 Pages
+                <CaretDown
+                  size={16}
+                  weight="bold"
+                  style={{
+                    display: isOpenPages ? "none" : "flex",
+                    marginLeft: "48px",
+                  }}
+                />
+                <CaretUp
+                  size={16}
+                  weight="bold"
+                  style={{
+                    display: isOpenPages ? "flex" : "none",
+                    marginLeft: "48px",
+                  }}
+                />
+              </button>
+
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}>
+                Deslogar
+              </button>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}>
+                Cadastrar colaborador
+              </button>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}>
+                Cadastrar cliente
+              </button>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}>
+                Alterar senha
+              </button>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}>
+                Enviar guias
+              </button>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}>
+                Finanças
               </button>
             </div>
           </div>
