@@ -1,3 +1,7 @@
+## NODE
+
+Utilizar a versão do node 16.18
+
 ## Ao baixar o projeto para sua maquina
 
 Sempre rodar o comando "npm install" no seu cmd dentro da pasta que está o projeto
@@ -69,3 +73,15 @@ Seu código
 }
 
 Após isso criar o <Route path="/SuaPagina" element={<SuaPagina />} /> conforme os outros exemplos
+
+## Recomendações em cada arquivo css
+
+Recomendado sempre iniciar o código com:
+
+- {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+Alguns navegadores tem uma margin ou padding padrão dentro deles, isto faz com que remova este padrão e deixe todas as paginas padronizadas em qualquer navegador
