@@ -5,4 +5,134 @@
 }
 
 :root {
+  --primary: #028a0f;
+  --secondary: #191c24;
+  --light: #6c7293;
+  --dark: #000000;
 }
+
+body {
+  background-color: var(--dark);
+}
+
+/* HEADER */
+
+.div-header {
+  width: 100%;
+  height: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--secondary);
+  font-family: "Roboto", sans-serif;
+}
+
+.div-header-esquerda {
+  display: flex;
+  align-items: center;
+  color: var(--primary);
+  font-size: 20px;
+}
+
+.botao-home {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-left: 32px;
+  gap: 8px;
+}
+
+.botao-home img {
+  width: 60px;
+  height: 55px;
+}
+
+.div-header-direita {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  color: var(--light);
+  font-family: "Open-sans", sans-serif;
+  font-size: 18px;
+}
+
+.botao-usuario {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 32px;
+}
+
+.botao-usuario:hover {
+  color: var(--primary);
+}
+
+.botao-usuario img {
+  width: 40px;
+  height: 40px;
+  border-radius: 99px;
+}
+/* HEADER */
+
+/*BARRA LATERAL*/
+
+.barra-lateral {
+  width: 20%;
+  height: 600px;
+  background-color: var(--secondary);
+}
+
+.usuario-barra-lateral {
+  height: 100px;
+  background-color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  gap: 18px;
+  padding-top: 18px;
+}
+.usuario-barra-lateral span {
+  font-family: "Open-sans", sans-serif;
+  color: var(--light);
+  font-weight: 300;
+}
+
+.usuario-barra-lateral img {
+  width: 40px;
+  height: 40px;
+  border-radius: 99px;
+}
+
+.div-botoes {
+  display: flex;
+  flex-direction: column;
+  font-family: "Open-sans", sans-serif;
+  font-size: 20px;
+}
+
+.botao-dashboard {
+  all: unset;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: var(--light);
+  gap: 14px;
+}
+
+.botao-pages {
+  all: unset;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: var(--light);
+  gap: 14px;
+  margin-top: 8px;
+}
+
+/*BARRA LATERAL*/
