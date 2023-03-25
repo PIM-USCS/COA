@@ -4,7 +4,17 @@ import { useState } from "react"; /* Modal*/
 import "./styles.css";
 import Logo from "../../img/logo sem fundo.png";
 import GuiBalbino from "../../img/GuiBalbinoFT.jpeg";
-import { Gauge, FileText, CaretDown, CaretUp } from "phosphor-react";
+import {
+  Gauge,
+  FileText,
+  CaretDown,
+  CaretUp,
+  ChartLine,
+  ChartLineUp,
+  ChartBar,
+  File,
+  FolderOpen,
+} from "phosphor-react";
 
 // import { ChartLineUp } from "phosphor-react";
 // <ChartLineUp size={32} weight="bold" />
@@ -42,7 +52,7 @@ export function Home() {
           </div>
         </header>
         <body>
-          <div className="barra-lateral">
+          <section className="barra-lateral">
             <div className="usuario-barra-lateral">
               <img src={GuiBalbino} alt="Foto usuario" />
               <div>
@@ -78,50 +88,174 @@ export function Home() {
 
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 Deslogar
               </button>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 Cadastrar colaborador
               </button>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 Cadastrar cliente
               </button>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 Alterar senha
               </button>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 Enviar guias
               </button>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 Finanças
               </button>
             </div>
-          </div>
+          </section>
 
-          <div className="div-guias">
-            <div className="guias">
-              <h3>Guias próximo mês</h3>
+          <div className="container-menu">
+            <div className="div-guias">
+              <div className="guias">
+                <ChartLineUp size={48} weight="bold" />
+                <div>
+                  <h3>Guias próximo mês</h3>
+                  <span>01</span>
+                </div>
+              </div>
+              <div className="guias">
+                <ChartBar size={48} weight="fill" />
+                <div>
+                  <h3>Guias em aberto</h3>
+                  <span>01</span>
+                </div>
+              </div>
+              <div className="guias">
+                <File size={48} weight="fill" />
+                <div>
+                  <h3>Guias em análise</h3>
+                  <span>01</span>
+                </div>
+              </div>
+
+              <div className="guias">
+                <FolderOpen size={48} weight="fill" />
+                <div>
+                  <h3>Guias retornadas</h3>
+                  <span>01</span>
+                </div>
+              </div>
             </div>
-            <div className="guias">
-              <h3>Guias em aberto</h3>
-            </div>
-            <div className="guias">
-              <h3>Guias em análise</h3>
-            </div>
-            <div className="guias">
-              <h3>Guias retornadas</h3>
-            </div>
+
+            <table className="tabela">
+              <thead>
+                <tr className="head-tabela">
+                  <th scope="col">
+                    <input className="" type="checkbox" />
+                  </th>
+                  <th scope="col">Código</th>
+                  <th scope="col">Cliente</th>
+                  <th scope="col">Valor</th>
+                  <th scope="col">Vencimento</th>
+                  <th scope="col">Mês Referente</th>
+                  <th scope="col">Estatus</th>
+                  <th scope="col">Detalhes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input className="" type="checkbox" />
+                  </td>
+                  <td>INV-0123</td>
+                  <td>Silas Roberto LTDA</td>
+                  <td>$123</td>
+                  <td>01 Jan 2045</td>
+                  <td>Nov 2022</td>
+                  <td>Regularizada</td>
+                  <td>
+                    <a className="" href="">
+                      Detail
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input className="" type="checkbox" />
+                  </td>
+                  <td>INV-0123</td>
+                  <td>Guilherme Balbino LTDA</td>
+                  <td>$123</td>
+                  <td>01 Jan 2045</td>
+                  <td>Nov 2022</td>
+                  <td>Regularizada</td>
+                  <td>
+                    <a className="" href="">
+                      Detail
+                    </a>
+                  </td>
+                </tr>
+                <td>
+                  <input className="" type="checkbox" />
+                </td>
+                <td>INV-0123</td>
+                <td>Glauber Balsani EIRELI</td>
+                <td>$123</td>
+                <td>01 Jan 2045</td>
+                <td>Nov 2022</td>
+                <td>Regularizada</td>
+                <td>
+                  <a className="" href="">
+                    Detail
+                  </a>
+                </td>
+                <tr />
+
+                <tr>
+                  <td>
+                    <input className="" type="checkbox" />
+                  </td>
+                  <td>INV-0123</td>
+                  <td>Gustavo Akira S.A</td>
+                  <td>$123</td>
+                  <td>01 Jan 2045</td>
+                  <td>Nov 2022</td>
+                  <td>Regularizada</td>
+                  <td>
+                    <a className="" href="">
+                      Detail
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input className="" type="checkbox" />
+                  </td>
+                  <td>INV-0123</td>
+                  <td>Lucas Aparecido S.A</td>
+                  <td>$123</td>
+                  <td>01 Jan 2045</td>
+                  <td>Nov 2022</td>
+                  <td>Regularizada</td>
+                  <td>
+                    <a className="" href="">
+                      Detail
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </body>
       </main>
