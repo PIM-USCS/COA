@@ -73,7 +73,7 @@ export function Home() {
                   weight="bold"
                   style={{
                     display: isOpenPages ? "none" : "flex",
-                    marginLeft: "48px",
+                    marginLeft: "64px",
                   }}
                 />
                 <CaretUp
@@ -81,7 +81,7 @@ export function Home() {
                   weight="bold"
                   style={{
                     display: isOpenPages ? "flex" : "none",
-                    marginLeft: "48px",
+                    marginLeft: "64px",
                   }}
                 />
               </button>
