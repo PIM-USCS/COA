@@ -2,6 +2,10 @@
 
 Utilizar a versão do node 16.18
 
+## Atualizar dependencias 
+
+npm i
+
 ## Ao baixar o projeto para sua maquina
 
 Sempre rodar o comando "npm install" no seu cmd dentro da pasta que está o projeto
