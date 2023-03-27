@@ -148,6 +148,104 @@ export function Home() {
               </div>
             </div>
           </div>
+          <table className="tabela">
+            <thead>
+              <tr className="head-tabela">
+                <th scope="col">
+                  <input className="" type="checkbox" />
+                </th>
+                <th scope="col">Código</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Vencimento</th>
+                <th scope="col">Mês Referente</th>
+                <th scope="col">Estatus</th>
+                <th scope="col">Detalhes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input className="" type="checkbox" />
+                </td>
+                <td>INV-0123</td>
+                <td>Silas Roberto LTDA</td>
+                <td>$123</td>
+                <td>01 Jan 2045</td>
+                <td>Nov 2022</td>
+                <td>Regularizada</td>
+                <td>
+                  <a className="" href="">
+                    Detail
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input className="" type="checkbox" />
+                </td>
+                <td>INV-0123</td>
+                <td>Guilherme Balbino LTDA</td>
+                <td>$123</td>
+                <td>01 Jan 2045</td>
+                <td>Nov 2022</td>
+                <td>Regularizada</td>
+                <td>
+                  <a className="" href="">
+                    Detail
+                  </a>
+                </td>
+              </tr>
+              <td>
+                <input className="" type="checkbox" />
+              </td>
+              <td>INV-0123</td>
+              <td>Glauber Balsani EIRELI</td>
+              <td>$123</td>
+              <td>01 Jan 2045</td>
+              <td>Nov 2022</td>
+              <td>Regularizada</td>
+              <td>
+                <a className="" href="">
+                  Detail
+                </a>
+              </td>
+              <tr />
+
+              <tr>
+                <td>
+                  <input className="" type="checkbox" />
+                </td>
+                <td>INV-0123</td>
+                <td>Gustavo Akira S.A</td>
+                <td>$123</td>
+                <td>01 Jan 2045</td>
+                <td>Nov 2022</td>
+                <td>Regularizada</td>
+                <td>
+                  <a className="" href="">
+                    Detail
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input className="" type="checkbox" />
+                </td>
+                <td>INV-0123</td>
+                <td>Lucas Aparecido S.A</td>
+                <td>$123</td>
+                <td>01 Jan 2045</td>
+                <td>Nov 2022</td>
+                <td>Regularizada</td>
+                <td>
+                  <a className="" href="">
+                    Detail
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </body>
       </main>
     </>
