@@ -15,14 +15,33 @@ body {
   background-color: var(--dark);
 }
 
-.teste {
+.container-grid-home {
+  width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 80px 500px 20px;
+  grid-template-areas: "header header" "sidenav content";
+}
+
+.div-header-home {
+  grid-area: header;
+}
+
+.div-sidenav-home {
+  width: 85%;
+  height: 520px;
+  grid-area: sidenav;
+  background-color: var(--secondary);
+}
+
+.div-content-home {
+  grid-area: content;
 }
 
 /* HEADER */
 
 .div-header {
+  grid-area: "header";
   width: 100%;
   height: 80px;
   display: grid;
@@ -82,14 +101,6 @@ body {
 /* HEADER */
 
 /*BARRA LATERAL*/
-
-.barra-lateral {
-  width: 20%;
-  height: 700px;
-  background-color: var(--secondary);
-  position: absolute;
-  left: 0;
-}
 
 .usuario-barra-lateral {
   height: 100px;
@@ -194,13 +205,8 @@ body {
 
 .div-guias {
   display: grid;
-  position: absolute;
-  top: 0;
-  right: 0;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-top: 80px;
-  width: 75%;
-  margin-right: 32px;
+  width: 95%;
   column-gap: 10px;
 }
 
@@ -224,18 +230,16 @@ body {
 }
 
 .container-menu {
-  width: 75%;
+  width: 100%;
   height: 500px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 25rem;
   gap: 100px;
 }
 
 .tabela {
-  width: 100%;
+  width: 50%;
   font-size: 18px;
   background-color: var(--secondary);
 }
