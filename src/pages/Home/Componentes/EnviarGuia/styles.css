@@ -1,0 +1,124 @@
+:root {
+  --primary: #028a0f;
+  --secondary: #191c24;
+  --light: #6c7293;
+  --dark: #000000;
+}
+
+.container-enviar-guia {
+  width: 100%;
+  position: fixed;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 60%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.enviar-guia {
+  width: 40%;
+  height: 400px;
+  background-color: var(--secondary);
+}
+
+.div-header-enviar-guia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.div-header-enviar-guia svg {
+  color: var(--primary);
+}
+
+.div-header-enviar-guia h1 {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 32px;
+}
+
+.div-body-enviar-guia {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.input-cnpj-cpf {
+  all: unset;
+  color: var(--light);
+  background-color: #000000;
+  width: 60%;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 0 12px;
+}
+
+.input-cnpj-cpf::placeholder {
+  color: var(--light);
+}
+
+.input-cliente {
+  all: unset;
+  color: var(--light);
+  background-color: #000000;
+  width: 60%;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 0 12px;
+}
+
+.input-cliente::placeholder {
+  color: var(--light);
+}
+
+.input-enviar-guia {
+  color: var(--light);
+  width: 50%;
+  margin-top: 8px;
+}
+.input-enviar-guia::placeholder {
+  color: var(--light);
+}
+
+.enviar-guia-botao {
+  all: unset;
+  margin-top: 12px;
+  border-radius: 8px;
+  width: 50%;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  font-size: 16px;
+  font-family: "Opens-sans", sans-serif;
+  cursor: pointer;
+  color: white;
+}
+
+.enviar-guia-botao:hover {
+  background-color: red;
+  transition: 1s;
+}
+.fechar-modal {
+  display: flex;
+  justify-content: end;
+  padding: 0 8px;
+  margin-top: 8px;
+}
+
+.fechar-modal button {
+  all: unset;
+  cursor: pointer;
+  color: var(--primary);
+}

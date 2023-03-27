@@ -1,6 +1,4 @@
 import { useState } from "react"; /* Modal*/
-// import { CadastroCliente1 } from "./Componentes/CadastroCliente1";
-// import { EnviarGuia1 } from "./Componentes/EnviarGuia1";
 import "./styles.css";
 import Logo from "../../img/logo sem fundo.png";
 import GuiBalbino from "../../img/GuiBalbinoFT.jpeg";
@@ -14,14 +12,10 @@ import {
   File,
   FolderOpen,
 } from "phosphor-react";
-
-// import { ChartLineUp } from "phosphor-react";
-// <ChartLineUp size={32} weight="bold" />
+import { EnviarGuia } from "./Componentes/EnviarGuia";
 
 export function Home() {
-  // const [isOpen, setIsOpen] = useState(false); /*Modal*/
-  // const [isOpenEnviar, setIsOpenEnviar] = useState(false); /*Modal*/
-
+  const [isOpenEnviar, setIsOpenEnviar] = useState(false); /*Modal*/
   const [isOpenPages, setIsOpenPages] = useState(false);
 
   function HabilitarSubPaginas() {
@@ -33,6 +27,10 @@ export function Home() {
   }
   return (
     <>
+      <EnviarGuia
+        isOpenEnviar={isOpenEnviar}
+        setIsOpenEnviar={setIsOpenEnviar}
+      />
       <main className="container-grid-home">
         <header className="div-header-home">
           <div className="div-header">
@@ -105,6 +103,7 @@ export function Home() {
               Alterar senha
             </button>
             <button
+              onClick={() => setIsOpenEnviar(true)}
               className="botao-secundario"
               style={{ display: isOpenPages ? "flex" : "none" }}>
               Enviar guias
