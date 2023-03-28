@@ -1,6 +1,7 @@
 import { useState } from "react"; /* Modal*/
 import "./styles.css";
 import Logo from "../../img/logo sem fundo.png";
+import { NavLink } from "react-router-dom";
 import GuiBalbino from "../../img/GuiBalbinoFT.jpeg";
 import {
   Gauge,
@@ -81,27 +82,32 @@ export function Home() {
                 }}
               />
             </button>
-
-            <button
-              className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}>
-              Deslogar
-            </button>
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}>
+                Deslogar
+              </button>
+            </NavLink>
             <button
               className="botao-secundario"
               style={{ display: isOpenPages ? "flex" : "none" }}>
               Cadastrar colaborador
             </button>
-            <button
-              className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}>
-              Cadastrar cliente
-            </button>
-            <button
-              className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}>
-              Alterar senha
-            </button>
+            <NavLink to="/cadastro-cliente" style={{ textDecoration: "none" }}>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}>
+                Cadastrar cliente
+              </button>
+            </NavLink>
+            <NavLink to="/trocar-senha" style={{ textDecoration: "none" }}>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}>
+                Alterar senha
+              </button>
+            </NavLink>
             <button
               onClick={() => setIsOpenEnviar(true)}
               className="botao-secundario"
