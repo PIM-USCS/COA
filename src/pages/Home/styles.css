@@ -238,12 +238,68 @@ body {
   background-color: var(--secondary);
 }
 
-.head-tabela {
-  color: white;
+.div-tabela {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 20px;
+  width: 95%;
+  background-color: var(--secondary);
 }
 
-td,
-th,
-tr {
-  border: 1px solid black;
+.div-tabela h3 {
+  color: white;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.div-tabela-header {
+  display: flex;
+  width: 95%;
+  background-color: var(--secondary);
+  font-size: 16px;
+  gap: 20px;
+  justify-content: center;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+.div-tabela button {
+  all: unset;
+  color: var(--primary);
+  font-size: 18px;
+  font-family: "Opens-sans", sans-serif;
+  cursor: pointer;
+}
+
+.header-codigo {
+  width: 80px;
+}
+
+.codigo {
+  width: 80px;
+}
+
+.header-cliente {
+  width: 120px;
+}
+
+.cliente {
+  width: 120px;
+}
+
+.div-tabela button:hover {
+  color: rgb(172, 8, 8);
+}
+
+.div-tabela-body {
+  display: flex;
+  width: 95%;
+  font-size: 16px;
+  background-color: var(--secondary);
+  justify-content: space-around;
+  color: var(--light);
+  padding-top: 10px;
 }

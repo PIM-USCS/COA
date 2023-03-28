@@ -107,7 +107,7 @@
 }
 
 .enviar-guia-botao:hover {
-  background-color: red;
+  background-color: rgb(172, 8, 8);
   transition: 1s;
 }
 .fechar-modal {
