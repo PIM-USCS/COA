@@ -4,9 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-size: 62.5%; /*  CONVERTE O REM 16PX PARA 10PX */
-}
 :root {
   --preto: #000000;
   --icones: #234b45;
