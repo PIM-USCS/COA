@@ -5,21 +5,9 @@ import Logo from "../../img/COA linha/COA/default_transparent_765x625 recortada.
 
 export function Login() {
   return (
-    <body className="login">
-      {/* LOGO   */}
-      <div className="logo">
-        {/* colocar imagem do coa */}
-
-        <img
-          // src="./img/COA linha/COA/default_transparent_765x625 recortada.png"
-          src={Logo}
-          width="550rem"
-          alt=""
-        />
-      </div>
-      {/* FIM LOGO */}
+    <body className="login">    
       {/* FORMULARIO */}
-      <main className="main">
+      <main className="main-login">
         <header className="header-login">
           <h1>Login</h1>
         </header>

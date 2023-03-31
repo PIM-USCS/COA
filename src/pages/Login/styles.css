@@ -17,16 +17,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   height: 100vh;
 }
-/*logo*/
-.logo {
-  margin-top: -1rem;
-}
+
 /*formulario*/
-.main {
-  background-color: transparent;
+.main-login {
+  background-color: var(--secondary);
   border-radius: 20px;
   text-align: center;
   padding: 2rem 4rem 2rem 4rem;
