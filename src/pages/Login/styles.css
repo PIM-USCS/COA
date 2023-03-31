@@ -4,17 +4,15 @@
   box-sizing: border-box;
 }
 :root {
-  --preto: #000000;
-  --icones: #234b45;
-  --texto: #126339;
-  --formulario: #118b56;
-  --botao: #118c40;
-  --branco: #ffffff;
+  --primary: #028a0f;
+  --secondary: #191c24;
+  --light: #6c7293;
+  --dark: #000000;
 }
 /*body*/
 .login {
   font-family: arial, sans-serif;
-  background-image: linear-gradient(125deg, #ffffff, #118b56, #000000);
+  background-color: var(--dark);
   font-size: 14px;
   display: flex;
   justify-content: center;
