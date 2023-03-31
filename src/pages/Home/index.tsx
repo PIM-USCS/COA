@@ -14,6 +14,7 @@ import {
   FolderOpen,
 } from "phosphor-react";
 import { EnviarGuia } from "./Componentes/EnviarGuia";
+import { Guias } from "./Componentes/Guias";
 
 export function Home() {
   const [isOpenEnviar, setIsOpenEnviar] = useState(false); /*Modal*/
@@ -152,28 +153,6 @@ export function Home() {
                 <span>01</span>
               </div>
             </div>
-          </div>
-          <div className="div-tabela">
-            <h3>Guias recentes</h3>
-            <button>Mostrar todas</button>
-          </div>
-          <div className="div-tabela-header">
-            <p className="header-codigo">Código</p>
-            <p className="header-cliente">Cliente</p>
-            <p className="header-valor">Valor</p>
-            <p className="header-vencimento">Vencimento</p>
-            <p className="header-mes">Mês referente</p>
-            <p className="header-status">Status</p>
-            <p className="header-detalhes">Detalhes</p>
-          </div>
-          <div className="div-tabela-body">
-            <p className="codigo">INV-0123</p>
-            <p className="cliente">Silas Roberto LTDA</p>
-            <p className="valor">R$123,00</p>
-            <p className="vencimento">01 Jan 2045</p>
-            <p className="mes">Nov 2022</p>
-            <p className="status">Regularizada</p>
-            <button className="detalhes">Detalhes</button>
           </div>
         </body>
       </main>

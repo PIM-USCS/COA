@@ -1,0 +1,9 @@
+.div-tabela-body {
+  display: flex;
+  width: 95%;
+  font-size: 16px;
+  background-color: var(--secondary);
+  justify-content: space-around;
+  color: var(--light);
+  padding-top: 10px;
+}

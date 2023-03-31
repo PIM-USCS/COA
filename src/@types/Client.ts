@@ -1,4 +1,5 @@
 export interface ClienteProps {
+  id: string;
   tipo_cliente: string;
   regime: string;
   cnpj: string;

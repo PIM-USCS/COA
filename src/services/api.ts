@@ -9,6 +9,9 @@ const getClientByCpf = (cpf: string): AxiosPromise<ClienteProps> =>
 const getClientByCNPJ = (cnpj: string): AxiosPromise<ClienteProps> =>
   xhr.get(`clientes/${cnpj}`);
 
+const getClientByID = (id: string): AxiosPromise<ClienteProps> =>
+  xhr.get(`clientes/${id}`);
+
 /*CLIENTES*/
 
-export { getClientByCpf, getClientByCNPJ };
+export { getClientByCpf, getClientByCNPJ, getClientByID };
