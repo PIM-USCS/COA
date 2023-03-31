@@ -5,14 +5,18 @@ import Logo from "../../img/COA linha/COA/default_transparent_765x625 recortada.
 
 export function Login() {
   return (
-    <body className="login">    
+    <body className="login">
       {/* FORMULARIO */}
       <main className="main-login">
+        {/* CABEÇALHO */}
         <header className="header-login">
           <h1>Login</h1>
         </header>
+        {/*FIM CABEÇALO*/}
+        {/*FORMULARIO*/}
         <section>
           <form className="form-login">
+            {/* Email */}
             <div className="floatingInput">
               <input
                 type="email"
@@ -22,6 +26,8 @@ export function Login() {
               />
               <label className="floatingInput__label">Login</label>
             </div>
+            {/* FIM Email */}
+            {/* SENHA */}
             <div className="floatingInput">
               <input
                 id="password"
@@ -31,28 +37,32 @@ export function Login() {
               />
               <label className="floatingInput__label">Senha</label>
             </div>
-            <div className="form-btn">
+            {/* FIM SENHA */}
+            {/* CHECKBOX + LEMBRAR SENHA */}
+            <div className="checkbox-esquecisenha-login">
+              <div className="checkbox-login">
+                <input type="checkbox" id="checkbox1" className="" />
+                <label className="">Lembrar Usuario</label>
+              </div>
+              <NavLink to="/TrocarSenha" className="esquecisenha-login">                
+                <a>Esqueci minha senha</a>
+              </NavLink>
+            </div>
+            {/* FIM CHECKBOX + LEMBRAR SENHA */}
+            {/* BOTÃO LOGIN*/}
+            <div>
               {/* <a href="Paginaprincipal.html"> Não é necessário, usar o NavLink*/}
-              <NavLink to="/Home">
+              <NavLink to="/Home" className="bnt-login">
                 <button type="submit" className="btn">
                   login
                 </button>
               </NavLink>
               {/* </a> */}
             </div>
+            {/* FIM BOTÃO LOGIN*/}
           </form>
-          <div className="checkbox">
-            <div className="checkbox1">
-              <input type="checkbox" id="checkbox1" className="" />
-              <label className="">Lembrar Usuario</label>
-            </div>
-            <NavLink
-              to="/TrocarSenha"
-              style={{ textDecoration: "none", color: "black" }}>
-              <a className="esquecisenha">Esqueci minha senha</a>
-            </NavLink>
-          </div>
         </section>
+        {/* FIM FORMULARIO*/}
       </main>
       {/* FIM FORMULARIO  */}
     </body>

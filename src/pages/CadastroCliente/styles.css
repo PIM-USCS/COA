@@ -1,4 +1,4 @@
-* {
+/** {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,7 +13,7 @@
   --branco: #ffffff;
 }
 /*body*/
-.cadcliente {
+/*.cadcliente {
   font-family: arial, sans-serif;
   background-image: radial-gradient(circle, #118b56 35%, #234b45, #000000);
   font-size: 14px;
@@ -24,7 +24,7 @@
   height: 100vh;
 }
 /*Formulario*/
-.main {
+/*.main {
   background-color: transparent;
   border-radius: 20px;
   text-align: center;
@@ -41,7 +41,7 @@
   justify-content: space-between;
 }
 /*Sumario*/
-.header-cadcliente {
+/*.header-cadcliente {
   text-align: right;
   color: white;
   display: flex;
@@ -51,7 +51,7 @@
 }
 
 /*Campo de preenchimento*/
-.formulario {
+/*.formulario {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -88,19 +88,20 @@
   font-size: 15px;
 }
 /*Botão de login/salvar*/
-.formulario-btn {
+/*.formulario-btn {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.btn {
+}*/
+/*.btn {
   width: 30%;
   border-radius: 20px;
   background-color: var(--botao);
   height: 4.3rem;
-}
+}*/
 .btn:hover {
   color: var(--branco);
   background-color: var(--preto);
 }
+

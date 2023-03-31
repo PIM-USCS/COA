@@ -1,4 +1,4 @@
-* {
+/** {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,7 +13,7 @@
   --branco: #ffffff;
 }
 /*body*/
-.trocarsenha {
+/*.trocarsenha {
   font-family: arial, sans-serif;
   background-image: radial-gradient(circle, #118b56 35%, #234b45, #000000);
   font-size: 14px;
@@ -23,7 +23,7 @@
   height: 100vh;
 }
 /*formulario*/
-.main {
+/*.main {
   background-color: transparent;
   border-radius: 20px;
   text-align: center;
@@ -33,7 +33,7 @@
   border: 1px solid black;
 }
 /*Sumario*/
-.header-trocarsenha {
+/*.header-trocarsenha {
   text-align: right;
   color: white;
   display: flex;
@@ -42,9 +42,9 @@
   margin-bottom: 2rem;
 }
 /*Campo de preenchimento*/
-.form-trocarsenha {
+/*.form-trocarsenha {
   height: 28rem; /*Espaço entre os campos*/
-  display: flex;
+  /*display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 2rem;
@@ -80,7 +80,7 @@
   font-size: 15px;
 }
 /*Botão de login/salvar*/
-.btn {
+/*.btn {
   text-transform: uppercase;
   font-size: 18px;
   font-weight: bold;
