@@ -35,7 +35,7 @@
   color: white;
   justify-content: flex-end;
   padding-bottom:50px;
-}
+}/* FIM Sumario*/
 
 /*Campo de preenchimento*/
 .form-login {
@@ -75,38 +75,60 @@
   font-weight: bold;
   text-transform: uppercase;
   font-size: 15px;
-}
+}/* FIM Campo de preenchimento*/
+
+/*checkbox e esqueci senha */
 .checkbox-esquecisenha-login{  
   display: flex;
   justify-content: space-between;
   padding:25px 0px 25px 0; 
 }
+/*checkbox*/
 .checkbox-login{
   color: var(--light);
 }
 .checkbox-login:hover{
   color: var(--primary);
-}
+}/* FIM checkbox*/
+
+/*esqueci senha*/
 .esquecisenha-login{
   color:var(--light);
   text-decoration:none;
 }
 .esquecisenha-login:hover{
   color:var(--primary);
-}
+}/* FIM esqueci senha*/
 
-.bnt-login{ 
+/*botão login*/
+.input-bnt-login{
+  color: var(--light);  
+  margin-top: 8px;
+}
+.input-bnt-login::placeholder {
+  color: var(--light);
+}
+.bnt-login{
+  all: unset;
+  margin-top: 12px;
+  border-radius: 8px;
+  height: 60px;
   display: flex;
   justify-content: center;
-  padding: 25px;
+  align-content: center;
+  text-align: center;
   background-color: var(--primary);
-  border-radius: 5px;
+  font-size: 16px;
+  flex-wrap: wrap;
+  font-family: "Opens-sans", sans-serif;
   cursor: pointer;
-  text-transform: uppercase;  
+  color: white;
+  width: 100%;
+  text-transform: uppercase;
 }
-.bnt-login:hover{
-  background-color:var(--dark);
-  color: var(--light); 
+.bnt-login:hover {
+  background-color: rgb(172, 8, 8);
+  transition: 1s;
 }
 
   
