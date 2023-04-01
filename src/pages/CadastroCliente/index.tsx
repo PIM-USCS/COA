@@ -3,12 +3,12 @@ import Logo from "../../img/COA linha/COA/favicon_1000x1000 recortada.png";
 
 export function CadastroCliente() {
   return (
-    <body className="cadcliente">
+    <body className="cadastrar-cliente">
       <main className="main">
         <header className="header-cadcliente">
-          <h1>Cadastro Cliente</h1>
-          <img src={Logo} width="70rem" height="70rem" alt="" />
+          <h1>Cadastro Cliente</h1>          
         </header>
+
         <form className="form-cadcliente">
           <section className="formulario">
             {/* Empresa */}
