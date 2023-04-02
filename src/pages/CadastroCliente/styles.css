@@ -1,73 +1,63 @@
-/** {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 :root {
-  --preto: #000000;
-  --icones: #234b45;
-  --texto: #126339;
-  --formulario: #118b56;
-  --botao: #118c40;
-  --branco: #ffffff;
-}
-/*body*/
-/*.cadcliente {
-  font-family: arial, sans-serif;
-  background-image: radial-gradient(circle, #118b56 35%, #234b45, #000000);
-  font-size: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-}
-/*Formulario*/
-/*.main {
-  background-color: transparent;
-  border-radius: 20px;
-  text-align: center;
-  padding: 2rem 4rem 2rem 4rem;
-  box-shadow: 0 0 56px #000000;
-  border: 1px solid black;
-  width: 35rem;
-  height: 80%;
-}
-.form-cadcliente {
-  display: flex;
-  height: 80%;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-/*Sumario*/
-/*.header-cadcliente {
-  text-align: right;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  margin-bottom: 2rem;
+  --primary: #028a0f;
+  --secondary: #191c24;
+  --light: #6c7293;
+  --dark: #000000;
 }
 
-/*Campo de preenchimento*/
-/*.formulario {
+/*body*/
+.cadastrocliente{
+  font-family: arial, sans-serif;
+  background-color: var(--dark);
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  width: 30%;
+  justify-content: center;
+  align-items: center;  
 }
+/*formulario*/
+.main-cadastrarcliente{
+  background-color: var(--secondary);
+  width: 70%;
+  margin:50px 0px 50px 0px;
+  padding:50px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column; 
+  min-width: 450px;
+  max-width: 1000px; 
+}
+/*Cabecalho*/
+.header-cadcliente{
+  color: white;
+  text-align: right;
+}
+/*cabecalho campo preenchimento*/
+.form-cadastrocliente h2{
+  color:white;
+}
+/*Distancia dos campos de preenchimento*/
+.formulario-empresa, .formulario-contato, .formulario-login{
+  margin:25px 0px 50px 0px; 
+}
+/*Campo preenchimento*/
 .floatingInput {
-  position: relative;
+  position: relative;  
 }
 .floatingInput__control {
-  background-color: white;
-  color: black;
-  border-radius: 20px;
-  height: 4.3rem;
+  background-color: var(--dark);
+  color: var(--light);
+  border-radius: 5px;
+  height: 70px;
   width: 98%;
   text-transform: uppercase;
   border: transparent;
+  font-size: 15px;
+  margin: 0px 0px 25px 0px;
 }
 .floatingInput__control::placeholder {
   opacity: 0;
@@ -78,7 +68,7 @@
   font-size: 1.3rem;
 }
 .floatingInput__label {
-  color: black;
+  color: var(--light);
   position: absolute;
   top: 50%;
   left: 20px;
@@ -87,21 +77,35 @@
   text-transform: uppercase;
   font-size: 15px;
 }
-/*Botão de login/salvar*/
-/*.formulario-btn {
-  width: 100%;
+
+/*botão salvar*/
+.input-bnt-cadastrocliente{
+  color: var(--light);  
+  margin-top: 8px;
+}
+.input-bnt-cadastrocliente::placeholder {
+  color: var(--light);
+}
+.bnt-cadastrocliente{
+  all: unset;
+  margin-top: 12px;
+  border-radius: 8px;
+  height: 60px;
   display: flex;
   justify-content: center;
-  align-items: center;
-}*/
-/*.btn {
-  width: 30%;
-  border-radius: 20px;
-  background-color: var(--botao);
-  height: 4.3rem;
-}*/
-.btn:hover {
-  color: var(--branco);
-  background-color: var(--preto);
+  align-content: center;
+  text-align: center;
+  background-color: var(--primary);
+  font-size: 16px;
+  flex-wrap: wrap;
+  font-family: "Opens-sans", sans-serif;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+  text-transform: uppercase;
+}
+.bnt-cadastrocliente:hover {
+  background-color: rgb(172, 8, 8);
+  transition: 1s;
 }
 

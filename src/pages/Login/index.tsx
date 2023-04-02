@@ -5,16 +5,12 @@ import Logo from "../../img/COA linha/COA/default_transparent_765x625 recortada.
 
 export function Login() {
   return (
-    <body className="login">
-      {/* FORMULARIO */}
-      <main className="main-login">
-        {/* CABEÇALHO */}
-        <header className="header-login">
+    <body className="login">      
+      <main className="main-login">{/* FORMULARIO */}        
+        <header className="header-login">{/* CABEÇALHO */}
           <h1>Login</h1>
-        </header>
-        {/*FIM CABEÇALO*/}
-        {/*FORMULARIO*/}
-        <section>
+        </header>      
+        <section>{/*FORMULARIO*/}
           <form className="form-login">
             {/* Email */}
             <div className="floatingInput">
@@ -62,9 +58,7 @@ export function Login() {
             {/* FIM BOTÃO LOGIN*/}
           </form>
         </section>
-        {/* FIM FORMULARIO*/}
       </main>
-      {/* FIM FORMULARIO  */}
     </body>
   );
 }
