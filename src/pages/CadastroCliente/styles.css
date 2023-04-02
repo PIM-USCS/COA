@@ -36,14 +36,14 @@
   color: white;
   text-align: right;
 }
-/*cabecalho campo preenchimento*/
-.form-cadastrocliente h2{
-  color:white;
-}
 /*Distancia dos campos de preenchimento*/
 .formulario-empresa, .formulario-contato, .formulario-login{
   margin:25px 0px 50px 0px; 
 }
+.formulario-empresa h2, .formulario-contato h2, .formulario-login h2{
+  color:white; 
+}
+
 /*Campo preenchimento*/
 .floatingInput {
   position: relative;  
