@@ -3,6 +3,7 @@ import { CadastroCliente } from "./pages/CadastroCliente";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { TrocarSenha } from "./pages/TrocarSenha";
+import { CadastroColaborador} from "./pages/CadastroColaborador";
 
 export function Router() {
   return (

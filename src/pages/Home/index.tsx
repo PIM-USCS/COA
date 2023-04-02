@@ -90,11 +90,13 @@ export function Home() {
                 Deslogar
               </button>
             </NavLink>
+            <NavLink to="/CadastroColaborador" style={{textDecoration: "none"}}>
             <button
               className="botao-secundario"
               style={{ display: isOpenPages ? "flex" : "none" }}>
               Cadastrar colaborador
             </button>
+            </NavLink>            
             <NavLink to="/cadastro-cliente" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
