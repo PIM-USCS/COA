@@ -12,6 +12,7 @@ export function Router() {
       <Route path="/trocar-senha" element={<TrocarSenha />} />
       <Route path="/home" element={<Home />} />
       <Route path="/cadastro-cliente" element={<CadastroCliente />} />
+      <Route path="/cadastro-colaborador" element={<CadastroColaborador />} />
     </Routes>
   );
 }
