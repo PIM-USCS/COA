@@ -1,83 +1,83 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  :root {
-    --primary: #028a0f;
-    --secondary: #191c24;
-    --light: #6c7293;
-    --dark: #000000;
-  }
-  .cadastrocolaborador{
-    background-color: var(--dark);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  .main-cadastrocolaborador{
-    background-color: var(--secondary);
-    padding: 50px;
-    min-width: 450px;
-  }
-  .header-cadastrocolaborador{
-    display: flex;
-    justify-content: right;
-    color: white;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .form-cadastrocolaborador{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 2rem; 
-    margin:25px 0px 0px 0px;
-  }
-  .floatingInput {
-    position: relative;
-  }
-  .floatingInput__control {
-    background-color: var(--dark);
-    color: var(--light);
-    border-radius: 5px;
-    height: 70px;
-    width: 98%;
-    text-transform: uppercase;
-    border: transparent;
-    font-size: 15px;
-    margin: 0px 0px 25px 0px;
-  }
-  .floatingInput__control::placeholder {
-    opacity: 0;
-  }
-  .floatingInput__control:not(:placeholder-shown) + .floatingInput__label,
-  .floatingInput__control:focus + .floatingInput__label {
-    top: 0.2rem;
-    font-size: 1.3rem;
-  }
-  .floatingInput__label {
-    color: var(--light);
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transition: all 0.2s;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 15px;
-  }
+:root {
+  --primary: #028a0f;
+  --secondary: #191c24;
+  --light: #6c7293;
+  --dark: #000000;
+}
+.cadastrocolaborador {
+  background-color: var(--dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.main-cadastrocolaborador {
+  background-color: var(--secondary);
+  padding: 50px;
+  min-width: 450px;
+}
+.header-cadastrocolaborador {
+  display: flex;
+  justify-content: right;
+  color: white;
+}
 
-  /*botão salvar*/
-.input-bnt-cadastrocolaborador{
-  color: var(--light);  
+.form-cadastrocolaborador {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  margin: 25px 0px 0px 0px;
+}
+.floatingInput {
+  position: relative;
+}
+.floatingInput__control {
+  background-color: var(--dark);
+  color: var(--light);
+  border-radius: 5px;
+  height: 70px;
+  width: 98%;
+  text-transform: uppercase;
+  border: transparent;
+  font-size: 15px;
+  margin: 0px 0px 25px 0px;
+}
+
+.floatingInput__control::placeholder {
+  opacity: 0;
+}
+.floatingInput__control:not(:placeholder-shown) + .floatingInput__label,
+.floatingInput__control:focus + .floatingInput__label {
+  top: 0.2rem;
+  font-size: 1.3rem;
+}
+.floatingInput__label {
+  color: var(--light);
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transition: all 0.2s;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+/*botão salvar*/
+.input-bnt-cadastrocolaborador {
+  color: var(--light);
   margin-top: 8px;
 }
 .input-bnt-cadastrocolaborador::placeholder {
   color: var(--light);
 }
-.bnt-cadastrocolaborador{
+.bnt-cadastrocolaborador {
   all: unset;
   margin-top: 12px;
   border-radius: 5px;
@@ -99,4 +99,3 @@
   background-color: rgb(172, 8, 8);
   transition: 1s;
 }
-

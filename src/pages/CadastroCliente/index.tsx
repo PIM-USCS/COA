@@ -374,7 +374,10 @@ export function CadastroCliente() {
             {" "}
             {/* Botão Salvar */}
             <div className="btn">
-              <NavLink to="/Home" className="input-bnt-cadastrocliente">
+              <NavLink
+                to="/Home"
+                className="input-bnt-cadastrocliente"
+                style={{ textDecoration: "none" }}>
                 <button type="submit" className="bnt-cadastrocliente">
                   Salvar
                 </button>
