@@ -1,6 +1,6 @@
 import xhr from "./xhr";
 import { AxiosPromise } from "axios";
-import { ClienteProps } from "../@types/Client";
+import { ClienteProps, EmpresaPropsViaCep } from "../@types/Client";
 
 /*CLIENTES*/
 const getClientByCpf = (cpf: string): AxiosPromise<ClienteProps> =>
@@ -17,4 +17,17 @@ const postCreateCliente = (params: ClienteProps): AxiosPromise<ClienteProps> =>
 
 /*CLIENTES*/
 
-export { getClientByCpf, getClientByCNPJ, getClientByID, postCreateCliente };
+/*UTILITÁRIOS*/
+
+const viaCep = (cep: string): AxiosPromise<EmpresaPropsViaCep> =>
+  xhr.get(`https://viacep.com.br/ws/${cep}/json/`);
+
+/*UTILITÁRIOS*/
+
+export {
+  getClientByCpf,
+  getClientByCNPJ,
+  getClientByID,
+  postCreateCliente,
+  viaCep,
+};

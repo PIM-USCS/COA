@@ -3,15 +3,14 @@ import Logo from "../../img/COA linha/COA/favicon_1000x1000 recortada.png";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import * as api from "../../services/api";
+import Swal from "sweetalert2";
 
-export interface ClienteProps {
+export interface EmpresaProps {
   id: string;
   tipo_cliente: string;
   regime: string;
   cnpj: string;
   ie: string;
-  cpf: string;
-  rg: string;
   nome: string;
   cep: string;
   rua: string;
@@ -23,7 +22,45 @@ export interface ClienteProps {
 }
 
 export function CadastroCliente() {
-  const [cliente, setCliente] = useState<ClienteProps>({} as ClienteProps);
+  const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
+
+  const ConsultaCEP = async (event: any) => {
+    const cep = event.target.value;
+
+    if (cep.length < 8) {
+      Swal.fire({
+        icon: "error",
+        title: "O CEP não pode ser menor que 8 caracteres",
+      });
+      return;
+    }
+
+    if (cep.length > 8) {
+      Swal.fire({
+        icon: "error",
+        title: "O CEP não pode ser maior que 8 caracteres",
+      });
+      return;
+    }
+
+    try {
+      const { data } = await api.viaCep(cep);
+
+      setEmpresa({
+        ...empresa,
+        rua: data.logradouro,
+        bairro: data.bairro,
+        cidade: data.localidade,
+        uf: data.uf,
+      });
+      console.log(data);
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "O CEP digitado não foi localizado!",
+      });
+    }
+  };
 
   return (
     <body className="cadastrocliente">
@@ -51,10 +88,10 @@ export function CadastroCliente() {
                 className="floatingInput__control"
                 placeholder="Razão social"
                 name="nome"
-                value={cliente.nome || ""}
+                value={empresa.nome || ""}
                 onChange={(e) =>
-                  setCliente({
-                    ...cliente,
+                  setEmpresa({
+                    ...empresa,
                     [e.target.name]: e.target.value,
                   })
                 }
@@ -69,10 +106,10 @@ export function CadastroCliente() {
                 className="floatingInput__control"
                 placeholder="CNPJ"
                 name="cnpj"
-                value={cliente.cnpj || ""}
+                value={empresa.cnpj || ""}
                 onChange={(e) =>
-                  setCliente({
-                    ...cliente,
+                  setEmpresa({
+                    ...empresa,
                     [e.target.name]: e.target.value,
                   })
                 }
@@ -87,13 +124,14 @@ export function CadastroCliente() {
                 className="floatingInput__control"
                 placeholder="CEP"
                 name="cep"
-                value={cliente.cep || ""}
+                value={empresa.cep || ""}
                 onChange={(e) =>
-                  setCliente({
-                    ...cliente,
+                  setEmpresa({
+                    ...empresa,
                     [e.target.name]: e.target.value,
                   })
                 }
+                onBlur={ConsultaCEP}
               />
               <label className="floatingInput__label">CEP</label>
             </div>
@@ -105,10 +143,10 @@ export function CadastroCliente() {
                 className="floatingInput__control"
                 placeholder="Rua"
                 name="rua"
-                value={cliente.rua || ""}
+                value={empresa.rua || ""}
                 onChange={(e) =>
-                  setCliente({
-                    ...cliente,
+                  setEmpresa({
+                    ...empresa,
                     [e.target.name]: e.target.value,
                   })
                 }
@@ -123,10 +161,10 @@ export function CadastroCliente() {
                 className="floatingInput__control"
                 placeholder="Cidade"
                 name="cidade"
-                value={cliente.cidade || ""}
+                value={empresa.cidade || ""}
                 onChange={(e) =>
-                  setCliente({
-                    ...cliente,
+                  setEmpresa({
+                    ...empresa,
                     [e.target.name]: e.target.value,
                   })
                 }
@@ -141,10 +179,10 @@ export function CadastroCliente() {
                 className="floatingInput__control"
                 placeholder="UF"
                 name="uf"
-                value={cliente.uf || ""}
+                value={empresa.uf || ""}
                 onChange={(e) =>
-                  setCliente({
-                    ...cliente,
+                  setEmpresa({
+                    ...empresa,
                     [e.target.name]: e.target.value,
                   })
                 }
@@ -159,10 +197,10 @@ export function CadastroCliente() {
                 className="floatingInput__control"
                 placeholder="Bairro"
                 name="bairro"
-                value={cliente.bairro || ""}
+                value={empresa.bairro || ""}
                 onChange={(e) =>
-                  setCliente({
-                    ...cliente,
+                  setEmpresa({
+                    ...empresa,
                     [e.target.name]: e.target.value,
                   })
                 }
@@ -177,10 +215,10 @@ export function CadastroCliente() {
                 className="floatingInput__control"
                 placeholder="Numero"
                 name="numero"
-                value={cliente.numero || ""}
+                value={empresa.numero || ""}
                 onChange={(e) =>
-                  setCliente({
-                    ...cliente,
+                  setEmpresa({
+                    ...empresa,
                     [e.target.name]: e.target.value,
                   })
                 }
@@ -195,10 +233,10 @@ export function CadastroCliente() {
                 className="floatingInput__control"
                 placeholder="Complemento"
                 name="complemento"
-                value={cliente.complemento || ""}
+                value={empresa.complemento || ""}
                 onChange={(e) =>
-                  setCliente({
-                    ...cliente,
+                  setEmpresa({
+                    ...empresa,
                     [e.target.name]: e.target.value,
                   })
                 }
@@ -213,10 +251,10 @@ export function CadastroCliente() {
                 className="floatingInput__control"
                 placeholder="Inscrição Estadual"
                 name="ie"
-                value={cliente.ie || ""}
+                value={empresa.ie || ""}
                 onChange={(e) =>
-                  setCliente({
-                    ...cliente,
+                  setEmpresa({
+                    ...empresa,
                     [e.target.name]: e.target.value,
                   })
                 }

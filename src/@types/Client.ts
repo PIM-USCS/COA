@@ -15,3 +15,16 @@ export interface ClienteProps {
   numero: string;
   complemento: string;
 }
+
+export interface EmpresaPropsViaCep {
+  cnpj: string;
+  cep: string;
+  localidade: string;
+  telefone: string;
+  complemento?: string | undefined;
+  nome: string;
+  logradouro: string;
+  uf: string;
+  bairro: string;
+  numero: string;
+}
