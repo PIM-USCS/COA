@@ -38,7 +38,10 @@ export function CadastroColaborador() {
               <label className="floatingInput__label">Senha</label>
             </div>
             <div>
-              <NavLink to="/Home" className="input-bnt-cadastrocolaborador">
+              <NavLink
+                to="/Home"
+                className="input-bnt-cadastrocolaborador"
+                style={{ textDecoration: "none" }}>
                 <button type="submit" className="bnt-cadastrocolaborador">
                   Salvar
                 </button>
