@@ -48,7 +48,7 @@ export function Login() {
             {/* BOTÃO LOGIN*/}
             <div>
               {/* <a href="Paginaprincipal.html"> Não é necessário, usar o NavLink*/}
-              <NavLink to="/Home" className="input-bnt-login">
+              <NavLink to="/Home" className="input-bnt-login" style={{textDecoration:"none"}}>
                 <button type="submit" className="bnt-login">
                   login
                 </button>
