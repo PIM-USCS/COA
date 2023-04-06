@@ -397,8 +397,7 @@ export function CadastroCliente() {
               <NavLink
                 to="/Home"
                 className="input-bnt-cadastrocliente"
-                style={{ textDecoration: "none" }}
-              >
+                style={{ textDecoration: "none" }}              >
                 <button type="submit" className="bnt-cadastrocliente">
                   Cadastrar
                 </button>

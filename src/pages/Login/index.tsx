@@ -2,8 +2,20 @@
 import "./styles.css";
 import { NavLink } from "react-router-dom";
 import Logo from "../../img/COA linha/COA/default_transparent_765x625 recortada.png";
+import Swal from "sweetalert2";
+
+
 
 export function Login() {
+// /*MODAL*/
+//   Swal.fire({
+//     icon:"error", /*icone*/
+//     title:"Falha no login",/*titulo*/
+//     text:"Usuario ou login incorreto",
+//     color:"gray", 
+//     background:"black",
+//   })
+
   return (
     <body className="login">      
       <main className="main-login">{/* FORMULARIO */}        
@@ -48,7 +60,7 @@ export function Login() {
             {/* BOTÃO LOGIN*/}
             <div>
               {/* <a href="Paginaprincipal.html"> Não é necessário, usar o NavLink*/}
-              <NavLink to="/Home" className="input-bnt-login">
+              <NavLink to="/Home" className="input-bnt-login" style={{textDecoration:"none"}}>
                 <button type="submit" className="bnt-login">
                   login
                 </button>

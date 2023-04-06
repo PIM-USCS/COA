@@ -96,3 +96,7 @@ Alguns navegadores tem uma margin ou padding padrão dentro deles, isto faz com 
 git add .
 git commit -m "nome do commit"
 git push
+
+## biblioteca 
+
+https://sweetalert2.github.io/
