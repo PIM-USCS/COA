@@ -27,12 +27,13 @@ export function Home() {
       setIsOpenPages(false);
     }
   }
+  console.log(isOpenEnviar);
   return (
     <>
-      {/* <EnviarGuia
+      <EnviarGuia
         isOpenEnviar={isOpenEnviar}
         setIsOpenEnviar={setIsOpenEnviar}
-      /> */}
+      />
       <body className="container-grid-home">
         <header className="div-header-home">
           <div className="div-header">

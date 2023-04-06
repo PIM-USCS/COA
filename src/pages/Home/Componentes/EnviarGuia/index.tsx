@@ -39,7 +39,8 @@ export function EnviarGuia({ isOpenEnviar, setIsOpenEnviar }: Open) {
   return (
     <div
       style={{ display: isOpenEnviar ? "flex" : "none" }}
-      className="container-enviar-guia">
+      className="container-enviar-guia"
+    >
       <div className="enviar-guia">
         <div className="fechar-modal">
           <button onClick={() => setIsOpenEnviar(false)}>
