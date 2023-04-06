@@ -1,3 +1,4 @@
+import { UserCirclePlus } from "phosphor-react";
 import { Cliente } from "./Componentes/Clientes";
 import "./styles.css";
 
@@ -6,8 +7,14 @@ export function ClienteLista() {
     <body className="container-geral">
       <header className="container-titulo">
         <h1>Listagem de clientes</h1>
-        <button>Cadastrar cliente</button>
       </header>
+
+      <div className="div-cadastrar">
+        <button>
+          <UserCirclePlus />
+          Novo Cliente
+        </button>
+      </div>
       <div className="container-header">
         <div className="div-id">
           <p>ID</p>
@@ -38,6 +45,10 @@ export function ClienteLista() {
         <Cliente />
         <Cliente />
         <Cliente />
+        <Cliente />
+        <Cliente />
+        <Cliente />
+        {/* teste */}
       </div>
     </body>
   );

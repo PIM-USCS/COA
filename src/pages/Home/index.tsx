@@ -86,60 +86,71 @@ export function Home() {
             <NavLink to="/" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 Deslogar
               </button>
             </NavLink>
             <NavLink
               to="/cadastro-colaborador"
-              style={{ textDecoration: "none" }}>
+              style={{ textDecoration: "none" }}
+            >
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 Cadastrar colaborador
               </button>
             </NavLink>
             <NavLink
               to="/alterar-cadastro-colaborador"
-              style={{ textDecoration: "none" }}>
+              style={{ textDecoration: "none" }}
+            >
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 Alterar cadastro colaborador
               </button>
             </NavLink>
-            <NavLink to="/cadastro-cliente" style={{ textDecoration: "none" }}>
+            <NavLink to="/clientes" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
-                Cadastrar cliente
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
+                Clientes
               </button>
             </NavLink>
             <NavLink
               to="/alterar-cadastro-cliente"
-              style={{ textDecoration: "none" }}>
+              style={{ textDecoration: "none" }}
+            >
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 Alterar cadastro cliente
               </button>
             </NavLink>
             <NavLink to="/trocar-senha" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 Alterar senha
               </button>
             </NavLink>
             <button
               onClick={() => setIsOpenEnviar(true)}
               className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}>
+              style={{ display: isOpenPages ? "flex" : "none" }}
+            >
               Enviar guias
             </button>
             <button
               className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}>
+              style={{ display: isOpenPages ? "flex" : "none" }}
+            >
               Finanças
             </button>
           </div>
