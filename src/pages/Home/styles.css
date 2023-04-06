@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box;  
 }
 
 :root {
@@ -17,8 +17,8 @@
   grid-template-columns: 28% 72%;
   grid-template-rows: 80px 500px 209px;
   grid-template-areas: "header header" "sidenav content";
-  background-color: #000000;
-  height: 100vh;
+  background-color: var(--dark);
+  
 }
 
 .div-header-home {
@@ -27,9 +27,7 @@
 }
 
 .div-sidenav-home {
-  width: 80%;
-  min-width: 110px;
-  height: 92vh;
+  width: 80%;  
   grid-area: sidenav;
   background-color: var(--secondary);
 }

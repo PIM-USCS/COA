@@ -96,12 +96,26 @@ export function Home() {
               style={{ display: isOpenPages ? "flex" : "none" }}>
               Cadastrar colaborador
             </button>
-            </NavLink>            
+            </NavLink>
+            <NavLink to="/alterar-cadastro-colaborador" style={{ textDecoration: "none" }}>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}>
+                Alterar cadastro colaborador
+              </button> 
+            </NavLink>             
             <NavLink to="/cadastro-cliente" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
                 style={{ display: isOpenPages ? "flex" : "none" }}>
                 Cadastrar cliente
+              </button>
+            </NavLink>
+            <NavLink to="/alterar-cadastro-cliente" style={{ textDecoration: "none" }}>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}>
+                Alterar cadastro cliente
               </button>
             </NavLink>
             <NavLink to="/trocar-senha" style={{ textDecoration: "none" }}>

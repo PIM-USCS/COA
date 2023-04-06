@@ -89,3 +89,10 @@ Recomendado sempre iniciar o código com:
   }
 
 Alguns navegadores tem uma margin ou padding padrão dentro deles, isto faz com que remova este padrão e deixe todas as paginas padronizadas em qualquer navegador
+
+
+## Subir pro GIT 
+
+git add .
+git commit -m "nome do commit"
+git push
