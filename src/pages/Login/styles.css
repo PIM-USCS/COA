@@ -132,6 +132,20 @@
 }
 
   
+.option-pessoa {
+  background-color: var(--dark);
+  color: var(--light);
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  height: 35px;
+  font-family: "Opens-sans", sans-serif;
+  margin-bottom: 15px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 
 
 

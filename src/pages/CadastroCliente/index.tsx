@@ -23,6 +23,13 @@ export interface EmpresaProps {
 
 export function CadastroCliente() {
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
+  const [valorPessoa, setvalorPessoa] = useState("");
+
+  function handleSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    const value = event.target.value;
+    setvalorPessoa(value);
+    console.log(`Valor selecionado: ${value}`);
+  }
 
   const ConsultaCEP = async (event: any) => {
     const cep = event.target.value;
@@ -104,12 +111,17 @@ export function CadastroCliente() {
               />
               <label className="floatingInput__label">Razão social</label>
             </div>
-            <div className="">
-            <select name="pessoa" id="pessoa">
-              <option value="PF">Pessoa Fisica</option>
-              <option value="PJ">Pessoa Juridica</option>
+            
+            <select
+              name="mySelect"
+              id="mySelect"
+              className="option-pessoa"
+              value={valorPessoa}
+              onChange={handleSelectChange}>
+              <option value="PF">Pessoa Física</option>
+              <option value="PJ">Pessoa Jurídica</option>
             </select>
-            </div>            
+                 
             <div className="floatingInput">
               {/*CNPJ/CPF*/}
               <input
