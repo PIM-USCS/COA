@@ -43,7 +43,7 @@ export function CadastroColaborador() {
                 className="input-bnt-cadastrocolaborador"
                 style={{ textDecoration: "none" }}>
                 <button type="submit" className="bnt-cadastrocolaborador">
-                  Salvar
+                  cadastrar
                 </button>
               </NavLink>
             </div>

@@ -377,7 +377,7 @@ export function CadastroCliente() {
                 className="floatingInput__control"
                 placeholder="E-mail de login"
               />
-              <label className="floatingInput__label">E-mail de login</label>
+              <label className="floatingInput__label">Login</label>
             </div>
             <div className="floatingInput">
               {/*Senha*/}
@@ -400,7 +400,7 @@ export function CadastroCliente() {
                 style={{ textDecoration: "none" }}
               >
                 <button type="submit" className="bnt-cadastrocliente">
-                  Salvar
+                  Cadastrar
                 </button>
               </NavLink>
             </div>

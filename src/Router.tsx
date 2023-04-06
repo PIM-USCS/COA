@@ -17,11 +17,11 @@ export function Router() {
       <Route path="/cadastro-cliente" element={<CadastroCliente />} />
       <Route path="/cadastro-colaborador" element={<CadastroColaborador />} />
       <Route
-        path="/AlterarCadastroCliente"
+        path="/alterar-cadastro-cliente"
         element={<AlterarCadastroCliente />}
       />
       <Route
-        path="/AlterarCadastroColaborador"
+        path="/alterar-cadastro-colaborador"
         element={<AlterarCadastroColaborador />}
       />
       <Route path="/clientes" element={<ClienteLista />} />

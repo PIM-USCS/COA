@@ -11,6 +11,7 @@
   --dark: #000000;
 }
 .cadastrocolaborador {
+  font-family: arial, sans-serif;
   background-color: var(--dark);
   display: flex;
   justify-content: center;

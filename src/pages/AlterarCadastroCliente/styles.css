@@ -9,3 +9,111 @@
     --light: #6c7293;
     --dark: #000000;
   }
+
+.alterarcadastrocliente {
+  font-family: arial, sans-serif;
+  background-color: var(--dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*formulario*/
+.main-alterarcadastrarcliente {
+  background-color: var(--secondary);
+  width: 70%;
+  margin: 50px 0px 50px 0px;
+  padding: 50px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  min-width: 450px;
+  max-width: 1000px;
+}
+/*Cabecalho*/
+.header-alterarcadcliente {
+  color: white;
+  display: flex;
+  justify-content: right;
+}
+.ID{
+ 
+}
+
+/*Distancia dos campos de preenchimento*/
+.formulario-empresa,
+.formulario-contato,
+.formulario-login {
+  margin: 25px 0px 50px 0px;
+}
+.formulario-empresa h2,
+.formulario-contato h2,
+.formulario-login h2 {
+  color: white;
+}
+
+/*Campo preenchimento*/
+.floatingInput {
+  position: relative;
+}
+.floatingInput__control {
+  background-color: var(--dark);
+  color: var(--light);
+  border-radius: 5px;
+  height: 70px;
+  width: 98%;
+  text-transform: uppercase;
+  border: transparent;
+  font-size: 15px;
+  margin: 0px 0px 25px 0px;
+  padding: 20px;
+  padding-bottom: 8px;
+}
+.floatingInput__control::placeholder {
+  opacity: 0;
+}
+.floatingInput__control:not(:placeholder-shown) + .floatingInput__label,
+.floatingInput__control:focus + .floatingInput__label {
+  top: 0.2rem;
+  font-size: 1.3rem;
+}
+.floatingInput__label {
+  color: var(--light);
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transition: all 0.2s;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+/*botão salvar*/
+.input-bnt-cadastrocliente {
+  color: var(--light);
+  margin-top: 8px;
+}
+.input-bnt-cadastrocliente::placeholder {
+  color: var(--light);
+}
+.bnt-cadastrocliente {
+  all: unset;
+  margin-top: 12px;
+  border-radius: 8px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  background-color: var(--primary);
+  font-size: 16px;
+  flex-wrap: wrap;
+  font-family: "Opens-sans", sans-serif;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+  text-transform: uppercase;
+}
+.bnt-cadastrocliente:hover {
+  background-color: rgb(172, 8, 8);
+  transition: 1s;
+}
