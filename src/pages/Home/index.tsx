@@ -29,11 +29,11 @@ export function Home() {
   }
   return (
     <>
-      <EnviarGuia
+      {/* <EnviarGuia
         isOpenEnviar={isOpenEnviar}
         setIsOpenEnviar={setIsOpenEnviar}
-      />
-      <main className="container-grid-home">
+      /> */}
+      <body className="container-grid-home">
         <header className="div-header-home">
           <div className="div-header">
             <div className="div-header-esquerda">
@@ -90,13 +90,15 @@ export function Home() {
                 Deslogar
               </button>
             </NavLink>
-            <NavLink to="/cadastro-colaborador" style={{textDecoration: "none"}}>
-            <button
-              className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}>
-              Cadastrar colaborador
-            </button>
-            </NavLink>            
+            <NavLink
+              to="/cadastro-colaborador"
+              style={{ textDecoration: "none" }}>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}>
+                Cadastrar colaborador
+              </button>
+            </NavLink>
             <NavLink to="/cadastro-cliente" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
@@ -124,7 +126,7 @@ export function Home() {
             </button>
           </div>
         </section>
-        <body className="div-content-home">
+        <article className="div-content-home">
           <div className="div-guias">
             <div className="guias">
               <ChartLineUp size={48} weight="bold" />
@@ -156,8 +158,8 @@ export function Home() {
               </div>
             </div>
           </div>
-        </body>
-      </main>
+        </article>
+      </body>
     </>
   );
 }

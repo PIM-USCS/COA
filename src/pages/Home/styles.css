@@ -12,24 +12,25 @@
 }
 
 .container-grid-home {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 28% 72%;
-  grid-template-rows: 80px 500px 209px;
-  grid-template-areas: "header header" "sidenav content";
-  background-color: #000000;
+  width: 100vw;
   height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "sidenav content content";
+  grid-template-rows: 10% 90%;
+  grid-template-columns: 25% 75%;
+  background-color: #000000;
 }
 
 .div-header-home {
   grid-area: header;
   background-color: #000000;
+  width: 100%;
 }
 
 .div-sidenav-home {
   width: 80%;
-  min-width: 110px;
-  height: 92vh;
   grid-area: sidenav;
   background-color: var(--secondary);
 }
@@ -44,7 +45,7 @@
 .div-header {
   grid-area: "header";
   width: 100%;
-  height: 80px;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: var(--secondary);
@@ -105,6 +106,7 @@
 
 .usuario-barra-lateral {
   height: 100px;
+  width: 100%;
   background-color: var(--secondary);
   display: flex;
   justify-content: start;
@@ -292,4 +294,3 @@
 .div-tabela button:hover {
   color: rgb(172, 8, 8);
 }
-

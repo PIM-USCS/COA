@@ -7,5 +7,5 @@ function App() {
     </BrowserRouter>
   );
 }
-//teste
+
 export default App;
