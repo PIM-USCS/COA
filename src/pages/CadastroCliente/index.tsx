@@ -104,15 +104,23 @@ export function CadastroCliente() {
               />
               <label className="floatingInput__label">Razão social</label>
             </div>
+            <div className="">
+            <select name="pessoa" id="pessoa">
+              <option value="PF">Pessoa Fisica</option>
+              <option value="PJ">Pessoa Juridica</option>
+            </select>
+            </div>            
             <div className="floatingInput">
               {/*CNPJ/CPF*/}
               <input
                 type="text"
                 /*id="cnpj-cadastrocliente"*/
                 className="floatingInput__control"
-                placeholder="CNPJ"
+                placeholder="CNPJ/CPF"
                 name="cnpj"
-                value={empresa.cnpj || ""}
+                value={
+                  empresa.cnpj || ""
+                } /*dsdsdsdksdjksonfjdsfbnsdifbsdiufhsduifhsdfiusd*/
                 onChange={(e) =>
                   setEmpresa({
                     ...empresa,
@@ -120,7 +128,7 @@ export function CadastroCliente() {
                   })
                 }
               />
-              <label className="floatingInput__label">CNPJ</label>
+              <label className="floatingInput__label">CNPJ/CPF</label>
             </div>
             <div className="floatingInput">
               {/*CEP*/}
@@ -377,7 +385,8 @@ export function CadastroCliente() {
               <NavLink
                 to="/Home"
                 className="input-bnt-cadastrocliente"
-                style={{ textDecoration: "none" }}>
+                style={{ textDecoration: "none" }}
+              >
                 <button type="submit" className="bnt-cadastrocliente">
                   Salvar
                 </button>
