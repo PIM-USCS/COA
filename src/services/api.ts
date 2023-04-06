@@ -1,6 +1,7 @@
 import xhr from "./xhr";
 import { AxiosPromise } from "axios";
 import { ClienteProps, EmpresaPropsViaCep } from "../@types/Client";
+import { UsuarioProps } from "../@types/Usuario";
 
 /*CLIENTES*/
 const getClientByCpf = (cpf: string): AxiosPromise<ClienteProps> =>
@@ -16,6 +17,11 @@ const postCreateCliente = (params: ClienteProps): AxiosPromise<ClienteProps> =>
   xhr.post(`clientes/`, params);
 
 /*CLIENTES*/
+
+/*USUARIO*/
+// const getUsuario = (nome: string , senha: string): AxiosPromise<UsuarioProps> =>
+//   xhr.get(`usuarios/${}`)
+/*USUARIO*/
 
 /*UTILITÁRIOS*/
 
