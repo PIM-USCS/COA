@@ -1,0 +1,93 @@
+:root {
+  --primary: #028a0f;
+  --secondary: #191c24;
+  --light: #6c7293;
+  --dark: #000000;
+}
+
+.container-geral {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--dark);
+  color: white;
+}
+
+.container-titulo {
+  display: flex;
+  width: 80%;
+
+  margin-top: 40px;
+  justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+}
+
+.container-header {
+  display: flex;
+  margin-top: 20px;
+  gap: 10px;
+  width: 80%;
+  background-color: var(--secondary);
+  font-family: "Roboto", sans-serif;
+  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
+}
+
+.div-id,
+.div-nome,
+.div-pessoa,
+.div-cnpj-cpf,
+.div-cnpj-cpf,
+.div-alterar,
+.div-excluir,
+.div-consultar {
+  margin-top: 25px;
+}
+
+.div-id {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.div-nome {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}
+
+.div-pessoa {
+  display: flex;
+  justify-content: center;
+  width: 15%;
+}
+
+.div-cnpj-cpf {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}
+
+.div-alterar {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+}
+.div-excluir {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+}
+.div-consultar {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+}
+.container-lista {
+  width: 80%;
+  background-color: var(--secondary);
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+}
