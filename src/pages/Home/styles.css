@@ -12,11 +12,11 @@
 }
 
 .container-grid-home {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-columns: 28% 72%;
-  grid-template-rows: 80px 500px 209px;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 10%;
   grid-template-areas: "header header" "sidenav content";
   background-color: #000000;
   height: 100vh;
@@ -30,8 +30,7 @@
 
 .div-sidenav-home {
   width: 80%;
-  min-width: 110px;
-  height: 92vh;
+  height: 100%;
   grid-area: sidenav;
   background-color: var(--secondary);
 }
