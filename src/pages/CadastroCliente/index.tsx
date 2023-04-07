@@ -30,7 +30,19 @@ export function CadastroCliente() {
     setvalorPessoa(value);
     console.log(`Valor selecionado: ${value}`);
   }
-
+  const ConsultaCLIENTE = async (event: any) => {
+    try {
+      const { data } = await api.getClientByCNPJ(empresa.cnpj);
+      Swal.fire({
+        icon: "error",
+        title: "CNPJ ja cadastrado",
+        color: "gray",
+        background: "black",
+      });
+      
+     
+    } catch (error) {}
+  };
   const ConsultaCEP = async (event: any) => {
     const cep = event.target.value;
 
@@ -92,6 +104,37 @@ export function CadastroCliente() {
             {/* <!-- floatingInput --> */}
             {/* <!-- floatingInput__control --> */}
             {/* <!-- floatingInput__label --> */}
+            <select
+              name="mySelect"
+              id="mySelect"
+              className="option-pessoa"
+              value={valorPessoa}
+              onChange={handleSelectChange}
+            >
+              <option value="PF">Pessoa Física</option>
+              <option value="PJ">Pessoa Jurídica</option>
+            </select>
+            <div className="floatingInput">
+              {/*CNPJ/CPF*/}
+              <input
+                type="text"
+                /*id="cnpj-cadastrocliente"*/
+                className="floatingInput__control"
+                placeholder="CNPJ/CPF"
+                name="cnpj"
+                value={
+                  empresa.cnpj || ""
+                } /*dsdsdsdksdjksonfjdsfbnsdifbsdiufhsduifhsdfiusd*/
+                onChange={(e) =>
+                  setEmpresa({
+                    ...empresa,
+                    [e.target.name]: e.target.value,
+                  })
+                }
+                onBlur={ConsultaCLIENTE}
+              />
+              <label className="floatingInput__label">CNPJ/CPF</label>
+            </div>
             <div className="floatingInput">
               {" "}
               {/*Razao social*/}
@@ -110,37 +153,6 @@ export function CadastroCliente() {
                 }
               />
               <label className="floatingInput__label">Razão social</label>
-            </div>
-            
-            <select
-              name="mySelect"
-              id="mySelect"
-              className="option-pessoa"
-              value={valorPessoa}
-              onChange={handleSelectChange}>
-              <option value="PF">Pessoa Física</option>
-              <option value="PJ">Pessoa Jurídica</option>
-            </select>
-                 
-            <div className="floatingInput">
-              {/*CNPJ/CPF*/}
-              <input
-                type="text"
-                /*id="cnpj-cadastrocliente"*/
-                className="floatingInput__control"
-                placeholder="CNPJ/CPF"
-                name="cnpj"
-                value={
-                  empresa.cnpj || ""
-                } /*dsdsdsdksdjksonfjdsfbnsdifbsdiufhsduifhsdfiusd*/
-                onChange={(e) =>
-                  setEmpresa({
-                    ...empresa,
-                    [e.target.name]: e.target.value,
-                  })
-                }
-              />
-              <label className="floatingInput__label">CNPJ/CPF</label>
             </div>
             <div className="floatingInput">
               {/*CEP*/}
@@ -397,7 +409,8 @@ export function CadastroCliente() {
               <NavLink
                 to="/Home"
                 className="input-bnt-cadastrocliente"
-                style={{ textDecoration: "none" }}              >
+                style={{ textDecoration: "none" }}
+              >
                 <button type="submit" className="bnt-cadastrocliente">
                   Cadastrar
                 </button>
