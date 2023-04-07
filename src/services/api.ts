@@ -21,6 +21,8 @@ const getClientByID = (id: string): AxiosPromise<ClienteProps> =>
 const postCreateCliente = (params: ClienteProps): AxiosPromise<ClienteProps> =>
   xhr.post(`clientes/`, params);
 
+const deleteEmpresa = (id: string) => xhr.delete(`empresas/${id}`);
+
 /*EMPRESA*/
 
 /*USUARIO*/
@@ -42,4 +44,5 @@ export {
   postCreateCliente,
   viaCep,
   getEmpresa,
+  deleteEmpresa,
 };

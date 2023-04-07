@@ -3,14 +3,38 @@ import "./styles.css";
 import { EmpresaListaProps } from "../..";
 import { useEmpresa } from "../../../../hooks/useEmpresa";
 import * as api from "../../../../services/api";
+import Swal from "sweetalert2";
 interface CadastroProps {
   empresa: EmpresaListaProps;
 }
 
 export function Cliente({ empresa }: CadastroProps) {
-  const { setIdEmpresa } = useEmpresa();
+  const { idEmpresa, setIdEmpresa } = useEmpresa();
 
-  async function excluirCliente() {}
+  async function excluirCliente() {
+    Swal.fire({
+      title: "Tem certeza que deseja deletar este cliente?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Não",
+      confirmButtonText: "Sim, desejo deletar!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        api.deleteEmpresa(idEmpresa);
+        Swal.fire({
+          icon: "success",
+          title: "Processo concluido!",
+          text: "Cliente deletado com sucesso!",
+          confirmButtonText: "OK",
+          preConfirm: () => {
+            window.location.reload();
+          },
+        });
+      }
+    });
+  }
 
   return (
     <div className="lista">
