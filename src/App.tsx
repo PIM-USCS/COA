@@ -1,9 +1,12 @@
+import { EmpresaContextProvider } from "./Context/EmpresaContext";
 import { Router } from "./Router";
 import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
-      <Router />
+      <EmpresaContextProvider>
+        <Router />
+      </EmpresaContextProvider>
     </BrowserRouter>
   );
 }

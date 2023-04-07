@@ -1,12 +1,17 @@
 import { MagnifyingGlass, PencilSimple, Trash } from "phosphor-react";
 import "./styles.css";
 import { EmpresaListaProps } from "../..";
-
+import { useEmpresa } from "../../../../hooks/useEmpresa";
+import * as api from "../../../../services/api";
 interface CadastroProps {
   empresa: EmpresaListaProps;
 }
 
 export function Cliente({ empresa }: CadastroProps) {
+  const { setIdEmpresa } = useEmpresa();
+
+  async function excluirCliente() {}
+
   return (
     <div className="lista">
       <div className="id">
@@ -22,17 +27,25 @@ export function Cliente({ empresa }: CadastroProps) {
         <p>{empresa.cnpj || empresa.cpf}</p>
       </div>
       <div className="alterar">
-        <button>
+        <button
+          onClick={() => {
+            setIdEmpresa(empresa.id);
+          }}
+        >
           <PencilSimple size={24} />
         </button>
       </div>
       <div className="excluir">
-        <button>
+        <button onClick={excluirCliente}>
           <Trash size={24} />
         </button>
       </div>
       <div className="consultar">
-        <button>
+        <button
+          onClick={() => {
+            setIdEmpresa(empresa.id);
+          }}
+        >
           <MagnifyingGlass size={24} />
         </button>
       </div>

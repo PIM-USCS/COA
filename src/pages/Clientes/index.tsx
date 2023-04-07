@@ -4,6 +4,7 @@ import "./styles.css";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "../../services/api";
+import { useEmpresa } from "../../hooks/useEmpresa";
 
 export interface EmpresaListaProps {
   id: string;
@@ -14,8 +15,6 @@ export interface EmpresaListaProps {
 }
 export function ClienteLista() {
   const [empresa, setEmpresa] = useState<EmpresaListaProps[]>([]);
-
-  console.log(empresa);
 
   const getEmpresa = async () => {
     try {
@@ -30,6 +29,7 @@ export function ClienteLista() {
   useEffect(() => {
     getEmpresa();
   }, []);
+
   return (
     <body className="container-geral">
       <header className="container-titulo">
