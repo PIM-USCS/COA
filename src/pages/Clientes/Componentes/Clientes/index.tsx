@@ -1,34 +1,39 @@
 import { MagnifyingGlass, PencilSimple, Trash } from "phosphor-react";
 import "./styles.css";
+import { EmpresaListaProps } from "../..";
 
-export function Cliente() {
+interface CadastroProps {
+  empresa: EmpresaListaProps;
+}
+
+export function Cliente({ empresa }: CadastroProps) {
   return (
     <div className="lista">
       <div className="id">
-        <p>1</p>
+        <p>{empresa.id}</p>
       </div>
       <div className="nome">
-        <p>Cliente teste</p>
+        <p>{empresa.nome}</p>
       </div>
       <div className="pessoa">
-        <p>Pessoa Física</p>
+        <p>{empresa.tipo_cliente}</p>
       </div>
       <div className="cnpj-cpf">
-        <p>1234567891123</p>
+        <p>{empresa.cnpj || empresa.cpf}</p>
       </div>
       <div className="alterar">
         <button>
-          <PencilSimple size={22} />
+          <PencilSimple size={24} />
         </button>
       </div>
       <div className="excluir">
         <button>
-          <Trash size={22} />
+          <Trash size={24} />
         </button>
       </div>
       <div className="consultar">
         <button>
-          <MagnifyingGlass size={22} />
+          <MagnifyingGlass size={24} />
         </button>
       </div>
     </div>

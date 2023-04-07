@@ -1,9 +1,14 @@
 import xhr from "./xhr";
 import { AxiosPromise } from "axios";
 import { ClienteProps, EmpresaPropsViaCep } from "../@types/Client";
-import { UsuarioProps } from "../@types/Usuario";
+// import { UsuarioProps } from "../@types/Usuario";
+import { EmpresaListaProps } from "../pages/Clientes";
 
-/*CLIENTES*/
+/*EMPRESA*/
+
+const getEmpresa = (): AxiosPromise<EmpresaListaProps[]> =>
+  xhr.get(`empresas/`);
+
 const getClientByCpf = (cpf: string): AxiosPromise<ClienteProps> =>
   xhr.get(`clientes/${cpf}`);
 
@@ -16,7 +21,7 @@ const getClientByID = (id: string): AxiosPromise<ClienteProps> =>
 const postCreateCliente = (params: ClienteProps): AxiosPromise<ClienteProps> =>
   xhr.post(`clientes/`, params);
 
-/*CLIENTES*/
+/*EMPRESA*/
 
 /*USUARIO*/
 // const getUsuario = (nome: string , senha: string): AxiosPromise<UsuarioProps> =>
@@ -36,4 +41,5 @@ export {
   getClientByID,
   postCreateCliente,
   viaCep,
+  getEmpresa,
 };

@@ -1,8 +1,35 @@
 import { UserCirclePlus } from "phosphor-react";
 import { Cliente } from "./Componentes/Clientes";
 import "./styles.css";
+import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import * as api from "../../services/api";
 
+export interface EmpresaListaProps {
+  id: string;
+  cpf: string;
+  cnpj: string;
+  nome: string;
+  tipo_cliente: string;
+}
 export function ClienteLista() {
+  const [empresa, setEmpresa] = useState<EmpresaListaProps[]>([]);
+
+  console.log(empresa);
+
+  const getEmpresa = async () => {
+    try {
+      const { data } = await api.getEmpresa();
+
+      setEmpresa(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getEmpresa();
+  }, []);
   return (
     <body className="container-geral">
       <header className="container-titulo">
@@ -10,10 +37,12 @@ export function ClienteLista() {
       </header>
 
       <div className="div-cadastrar">
-        <button>
-          <UserCirclePlus />
-          Novo Cliente
-        </button>
+        <NavLink to="/cadastro-cliente" style={{ textDecoration: "none" }}>
+          <button>
+            <UserCirclePlus size={38} />
+            Novo Cliente
+          </button>
+        </NavLink>
       </div>
       <div className="container-header">
         <div className="div-id">
@@ -39,16 +68,9 @@ export function ClienteLista() {
         </div>
       </div>
       <div className="container-lista">
-        <Cliente />
-        <Cliente />
-        <Cliente />
-        <Cliente />
-        <Cliente />
-        <Cliente />
-        <Cliente />
-        <Cliente />
-        <Cliente />
-        {/* teste */}
+        {empresa.map((empresa) => (
+          <Cliente empresa={empresa} />
+        ))}
       </div>
     </body>
   );

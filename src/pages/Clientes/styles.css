@@ -13,6 +13,8 @@
   flex-direction: column;
   background-color: var(--dark);
   color: white;
+  font-size: 22px;
+  font-family: "Roboto", sans-serif;
 }
 
 .container-titulo {
@@ -44,6 +46,11 @@
   gap: 8px;
   font-size: 28px;
   align-items: center;
+}
+
+.div-cadastrar button:hover {
+  color: rgb(172, 8, 8);
+  transition: 0.5s;
 }
 
 .container-header {
