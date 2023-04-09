@@ -46,23 +46,19 @@ export function Colaborador({ colaborador }: CadastroProps) {
       </div>
       <div className="pessoa">
         <p>{colaborador.email}</p>
-      </div>      
+      </div>
       <div className="alterar">
-        <button
-         
-        >
+        <button>
           <PencilSimple size={24} />
         </button>
       </div>
       <div className="excluir">
-        <button >
+        <button>
           <Trash size={24} />
         </button>
       </div>
       <div className="consultar">
-        <button
-          
-        >
+        <button>
           <MagnifyingGlass size={24} />
         </button>
       </div>

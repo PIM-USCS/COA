@@ -1,7 +1,56 @@
+import { useEffect, useState } from "react";
+import { useEmpresa } from "../../hooks/useEmpresa";
 import "./styles.css";
 import { NavLink } from "react-router-dom";
 
+import * as api from "../../services/api";
+interface EmpresaProps {
+  id: string;
+  tipo_cliente: string;
+  cpf: string;
+  rg: string;
+  regime: string;
+  cnpj: string;
+  ie: string;
+  nome: string;
+  cep: string;
+  rua: string;
+  cidade: string;
+  uf: string;
+  bairro: string;
+  numero: string;
+  complemento: string;
+}
+
 export function AlterarCadastroCliente() {
+  const { idEmpresa } = useEmpresa();
+  const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
+  const ConsultaEmpresa = async () => {
+    if (!idEmpresa) {
+      return;
+    }
+    const { data } = await api.getClientByID(idEmpresa);
+
+    setEmpresa((prevState) => {
+      return {
+        ...prevState,
+        cpf: data.cpf,
+        bairro: data.bairro,
+        cidade: data.cidade,
+        rua: data.rua,
+        numero: data.numero,
+        uf: data.uf,
+        nome: data.nome,
+        complemento: data.complemento,
+        cep: data.cep,
+        cnpj: data.cnpj,
+        ie: data.ie,
+      };
+    });
+  };
+  useEffect(() => {
+    ConsultaEmpresa();
+  }, [idEmpresa]);
   return (
     <body className="alterarcadastrocliente">
       <main className="main-alterarcadastrarcliente">
@@ -47,13 +96,13 @@ export function AlterarCadastroCliente() {
                 className="floatingInput__control"
                 placeholder="Razão social"
                 name="nome"
-                /*value={empresa.nome || ""}
+                value={empresa.nome || ""}
                 onChange={(e) =>
                   setEmpresa({
                     ...empresa,
                     [e.target.name]: e.target.value,
                   })
-                }*/
+                }
               />
               <label className="floatingInput__label">Razão social</label>
             </div>
@@ -74,15 +123,13 @@ export function AlterarCadastroCliente() {
                 className="floatingInput__control"
                 placeholder="CNPJ/CPF"
                 name="cnpj"
-                /*value={
-                empresa.cnpj || ""
-                } 
+                value={empresa.cnpj || ""}
                 onChange={(e) =>
                   setEmpresa({
                     ...empresa,
                     [e.target.name]: e.target.value,
                   })
-                }*/
+                }
               />
               <label className="floatingInput__label">CNPJ/CPF</label>
             </div>
@@ -163,17 +210,16 @@ export function AlterarCadastroCliente() {
               {/*BAIRRO*/}
               <input
                 type="Bairro"
-                /*id="bairro-cadastrocliente"*/
                 className="floatingInput__control"
                 placeholder="Bairro"
                 name="bairro"
-                /*value={empresa.bairro || ""}
+                value={empresa.bairro || ""}
                 onChange={(e) =>
                   setEmpresa({
                     ...empresa,
                     [e.target.name]: e.target.value,
                   })
-                }*/
+                }
               />
               <label className="floatingInput__label">Bairro</label>
             </div>
@@ -185,13 +231,13 @@ export function AlterarCadastroCliente() {
                 className="floatingInput__control"
                 placeholder="Numero"
                 name="numero"
-                /*value={empresa.numero || ""}
+                value={empresa.numero || ""}
                 onChange={(e) =>
                   setEmpresa({
                     ...empresa,
                     [e.target.name]: e.target.value,
                   })
-                }*/
+                }
               />
               <label className="floatingInput__label">Numero</label>
             </div>
@@ -203,13 +249,13 @@ export function AlterarCadastroCliente() {
                 className="floatingInput__control"
                 placeholder="Complemento"
                 name="complemento"
-                /*value={empresa.complemento || ""}
+                value={empresa.complemento || ""}
                 onChange={(e) =>
                   setEmpresa({
                     ...empresa,
                     [e.target.name]: e.target.value,
                   })
-                }*/
+                }
               />
               <label className="floatingInput__label">Complemento</label>
             </div>
@@ -221,13 +267,13 @@ export function AlterarCadastroCliente() {
                 className="floatingInput__control"
                 placeholder="Inscrição Estadual"
                 name="ie"
-                /*value={empresa.ie || ""}
+                value={empresa.ie || ""}
                 onChange={(e) =>
                   setEmpresa({
                     ...empresa,
                     [e.target.name]: e.target.value,
                   })
-                }*/
+                }
               />
               <label className="floatingInput__label">Inscrição Estadual</label>
             </div>

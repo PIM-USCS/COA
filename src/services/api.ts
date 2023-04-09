@@ -3,6 +3,7 @@ import { AxiosPromise } from "axios";
 import { ClienteProps, EmpresaPropsViaCep } from "../@types/Client";
 // import { UsuarioProps } from "../@types/Usuario";
 import { EmpresaListaProps } from "../pages/Clientes";
+import { ColaboradorListaProps } from "../@types/Colaborador";
 
 /*EMPRESA*/
 
@@ -25,6 +26,12 @@ const deleteEmpresa = (id: string) => xhr.delete(`empresas/${id}`);
 
 /*EMPRESA*/
 
+/*COLABORADOR*/
+
+const getColaborador = (): AxiosPromise<ColaboradorListaProps[]> =>
+  xhr.get(`colaborador/`);
+/*COLABORADOR*/
+
 /*USUARIO*/
 // const getUsuario = (nome: string , senha: string): AxiosPromise<UsuarioProps> =>
 //   xhr.get(`usuarios/${}`)
@@ -45,4 +52,5 @@ export {
   viaCep,
   getEmpresa,
   deleteEmpresa,
+  getColaborador,
 };

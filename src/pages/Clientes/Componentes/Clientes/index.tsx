@@ -4,6 +4,7 @@ import { EmpresaListaProps } from "../..";
 import { useEmpresa } from "../../../../hooks/useEmpresa";
 import * as api from "../../../../services/api";
 import Swal from "sweetalert2";
+import { NavLink, useNavigate } from "react-router-dom";
 interface CadastroProps {
   empresa: EmpresaListaProps;
 }
@@ -12,6 +13,11 @@ export function Cliente({ empresa }: CadastroProps) {
   const { idEmpresa, setIdEmpresa } = useEmpresa();
 
   async function excluirCliente() {
+    setIdEmpresa(empresa.id);
+
+    if (!idEmpresa) {
+      return;
+    }
     Swal.fire({
       title: "Tem certeza que deseja deletar este cliente?",
       icon: "warning",
@@ -36,6 +42,23 @@ export function Cliente({ empresa }: CadastroProps) {
     });
   }
 
+  function alterarCliente() {
+    setIdEmpresa(empresa.id);
+
+    if (!idEmpresa) {
+      return;
+    }
+  }
+
+  function consultarCliente() {
+    setIdEmpresa(empresa.id);
+
+    if (!idEmpresa) {
+      return;
+    }
+  }
+
+  console.log(idEmpresa);
   return (
     <div className="lista">
       <div className="id">
@@ -51,16 +74,14 @@ export function Cliente({ empresa }: CadastroProps) {
         <p>{empresa.cnpj || empresa.cpf}</p>
       </div>
       <div className="alterar">
-        <button
-          onClick={() => {
-            setIdEmpresa(empresa.id);
-          }}
-        >
-          <PencilSimple size={24} />
-        </button>
+        <NavLink to="/alterar-cadastro-cliente" style={{ all: "unset" }}>
+          <button onClick={alterarCliente}>
+            <PencilSimple size={24} />
+          </button>
+        </NavLink>
       </div>
       <div className="excluir">
-        <button onClick={excluirCliente}>
+        <button onClickCapture={excluirCliente}>
           <Trash size={24} />
         </button>
       </div>
