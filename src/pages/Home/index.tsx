@@ -122,6 +122,15 @@ export function Home() {
                 Clientes
               </button>
             </NavLink>
+            <NavLink to="/colaborador" style={{ textDecoration: "none" }}>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
+                Colaborador
+              </button>
+            </NavLink>
+            
             <NavLink
               to="/alterar-cadastro-cliente"
               style={{ textDecoration: "none" }}

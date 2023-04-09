@@ -1,0 +1,112 @@
+:root {
+    --primary: #028a0f;
+    --secondary: #191c24;
+    --light: #6c7293;
+    --dark: #000000;
+  }
+  
+  .container-geral-colaborador {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--dark);
+    color: white;
+    font-size: 22px;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .container-titulo-colaborador {
+    display: flex;
+    width: 80%;
+  
+    margin-top: 40px;
+    justify-content: space-between;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .div-cadastrar-colaborador {
+    width: 80%;
+    margin-top: 20px;
+    display: flex;
+    background-color: var(--secondary);
+    justify-content: end;
+    border-top-right-radius: 9px;
+    border-top-left-radius: 9px;
+  }
+  .div-cadastrar-colaborador button {
+    all: unset;
+    color: var(--primary);
+    background-color: var(--secondary);
+    border-radius: 9px;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+    font-size: 28px;
+    align-items: center;
+  }
+  
+  .div-cadastrar-colaborador button:hover {
+    color: rgb(172, 8, 8);
+    transition: 0.5s;
+  }
+  
+  .container-header-colaborador {
+    display: flex;
+    gap: 10px;
+    width: 80%;
+    background-color: var(--secondary);
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .div-id-colaborador,
+  .div-nome-colaborador,
+  .div-pessoa-colaborador,
+  .div-alterar-colaborador,
+  .div-excluir-colaborador,
+  .div-consultar-colaborador {
+    margin-top: 25px;
+  }
+  
+  .div-id-colaborador {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .div-nome-colaborador {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+  }
+  
+  .div-pessoa-colaborador {
+    display: flex;
+    justify-content: center;
+    width: 15%;
+  }
+    
+  .div-alterar {
+    display: flex;
+    justify-content: center;
+    width: 10%;
+  }
+  .div-excluir {
+    display: flex;
+    justify-content: center;
+    width: 10%;
+  }
+  .div-consultar {
+    display: flex;
+    justify-content: center;
+    width: 10%;
+  }
+  .container-lista-colaborador {
+    width: 80%;
+    background-color: var(--secondary);
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+  }
+  

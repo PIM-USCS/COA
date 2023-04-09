@@ -7,6 +7,7 @@ import { CadastroColaborador } from "./pages/CadastroColaborador";
 import { AlterarCadastroCliente } from "./pages/AlterarCadastroCliente";
 import { AlterarCadastroColaborador } from "./pages/AlterarCadastroColaborador";
 import { ClienteLista } from "./pages/Clientes";
+import { ColaboradorLista} from "./pages/Colaborador";
 
 export function Router() {
   return (
@@ -25,6 +26,8 @@ export function Router() {
         element={<AlterarCadastroColaborador />}
       />
       <Route path="/clientes" element={<ClienteLista />} />
+      <Route path="/Colaborador" element={<ColaboradorLista/>}/>
+
     </Routes>
   );
 }
