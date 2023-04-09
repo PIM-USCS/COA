@@ -1,19 +1,19 @@
 import { MagnifyingGlass, PencilSimple, Trash } from "phosphor-react";
 import "./styles.css";
-import { useEmpresa } from "../../../../hooks/useEmpresa";
 import * as api from "../../../../services/api";
 import Swal from "sweetalert2";
 import { ColaboradorListaProps } from "../../../../@types/Colaborador";
+import { useColaborador } from "../../../../hooks/useColaborador";
 interface CadastroProps {
   colaborador: ColaboradorListaProps;
 }
 
 export function Colaborador({ colaborador }: CadastroProps) {
-  const { idEmpresa, setIdEmpresa } = useEmpresa();
+  const { idColaborador, setIdColaborador } = useColaborador();
 
-  async function excluirCliente() {
+  async function excluirColaborador() {
     Swal.fire({
-      title: "Tem certeza que deseja deletar este cliente?",
+      title: "Tem certeza que deseja deletar este colaborador?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -22,11 +22,11 @@ export function Colaborador({ colaborador }: CadastroProps) {
       confirmButtonText: "Sim, desejo deletar!",
     }).then((result) => {
       if (result.isConfirmed) {
-        api.deleteEmpresa(idEmpresa);
+        api.deleteColaborador(idColaborador);
         Swal.fire({
           icon: "success",
           title: "Processo concluido!",
-          text: "Cliente deletado com sucesso!",
+          text: "Colaborador deletado com sucesso!",
           confirmButtonText: "OK",
           preConfirm: () => {
             window.location.reload();
@@ -52,7 +52,7 @@ export function Colaborador({ colaborador }: CadastroProps) {
           <PencilSimple size={24} />
         </button>
       </div>
-      <div className="excluir">
+      <div className="excluir" onClickCapture={excluirColaborador}>
         <button>
           <Trash size={24} />
         </button>

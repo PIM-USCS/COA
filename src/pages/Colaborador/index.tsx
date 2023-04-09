@@ -6,6 +6,7 @@ import "./styles.css";
 
 import { NavLink } from "react-router-dom";
 import * as api from "../../services/api";
+import { IdentificationCard } from "phosphor-react";
 
 export function ColaboradorLista() {
   const [colaborador, setColaborador] = useState<ColaboradorListaProps[]>([]);
@@ -32,7 +33,10 @@ export function ColaboradorLista() {
 
       <div className="div-cadastrar-colaborador">
         <NavLink to="/cadastro-colaborador" style={{ textDecoration: "none" }}>
-          <button>Novo Colaborador</button>
+          <button>
+            <IdentificationCard size={32} weight="fill" />
+            Novo Colaborador
+          </button>
         </NavLink>
       </div>
       <div className="container-header-colaborador">

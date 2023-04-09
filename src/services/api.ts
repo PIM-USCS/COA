@@ -3,7 +3,7 @@ import { AxiosPromise } from "axios";
 import { ClienteProps, EmpresaPropsViaCep } from "../@types/Client";
 // import { UsuarioProps } from "../@types/Usuario";
 import { EmpresaListaProps } from "../pages/Clientes";
-import { ColaboradorListaProps } from "../@types/Colaborador";
+import { ColaboradorListaProps, ColaboradorProps } from "../@types/Colaborador";
 
 /*EMPRESA*/
 
@@ -30,6 +30,13 @@ const deleteEmpresa = (id: string) => xhr.delete(`empresas/${id}`);
 
 const getColaborador = (): AxiosPromise<ColaboradorListaProps[]> =>
   xhr.get(`colaborador/`);
+
+const deleteColaborador = (id: string) => xhr.delete(`colaborador/${id}`);
+
+const postCreateColaborador = (
+  params: ColaboradorListaProps
+): AxiosPromise<ColaboradorProps> => xhr.post(`colaborador/`, params);
+
 /*COLABORADOR*/
 
 /*USUARIO*/
@@ -53,4 +60,6 @@ export {
   getEmpresa,
   deleteEmpresa,
   getColaborador,
+  deleteColaborador,
+  postCreateColaborador,
 };
