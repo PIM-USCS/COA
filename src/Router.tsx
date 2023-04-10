@@ -8,6 +8,8 @@ import { AlterarCadastroCliente } from "./pages/AlterarCadastroCliente";
 import { AlterarCadastroColaborador } from "./pages/AlterarCadastroColaborador";
 import { ClienteLista } from "./pages/Clientes";
 import { ColaboradorLista} from "./pages/Colaborador";
+import { ConsultaCliente} from "./pages/ConsultarCliente";
+import { ConsultaColaborador} from "./pages/ConsultaColaborador";
 
 export function Router() {
   return (
@@ -27,6 +29,8 @@ export function Router() {
       />
       <Route path="/clientes" element={<ClienteLista />} />
       <Route path="/Colaborador" element={<ColaboradorLista/>}/>
+      <Route path="/ConsultaCliente" element={<ConsultaCliente/>}/>
+      <Route path="/ConsultaColaborador" element={<ConsultaColaborador/>}/>
 
     </Routes>
   );
