@@ -4,7 +4,6 @@ import "./styles.css";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "../../services/api";
-import { useEmpresa } from "../../hooks/useEmpresa";
 
 export interface EmpresaListaProps {
   id: string;
@@ -40,7 +39,7 @@ export function EmpresaLista() {
         <NavLink to="/cadastro-cliente" style={{ textDecoration: "none" }}>
           <button>
             <UserCirclePlus size={38} />
-            Novo Cliente
+            Nova Empresa
           </button>
         </NavLink>
       </div>

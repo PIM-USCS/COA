@@ -2,7 +2,7 @@ import { UserCircle, XCircle } from "phosphor-react";
 import React, { useState } from "react";
 import Swal from "sweetalert2"; /* Biblioteca da modal de alerta */
 
-import { ClienteProps } from "../../../../@types/Client";
+import { EmpresaProps } from "../../../../@types/Client";
 import * as api from "../../../../services/api";
 import "./styles.css";
 
@@ -12,7 +12,7 @@ interface Open {
 }
 
 export function EnviarGuia({ isOpenEnviar, setIsOpenEnviar }: Open) {
-  const [cliente, setCliente] = useState<ClienteProps>({} as ClienteProps);
+  const [cliente, setCliente] = useState<EmpresaProps>({} as EmpresaProps);
 
   async function ConsultaCliente() {
     try {

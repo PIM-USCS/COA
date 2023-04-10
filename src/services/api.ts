@@ -1,6 +1,11 @@
 import xhr from "./xhr";
 import { AxiosPromise } from "axios";
-import { AtuEmpresa, ClienteProps, EmpresaPropsViaCep } from "../@types/Client";
+import {
+  AtuEmpresa,
+  ClienteProps,
+  EmpresaProps,
+  EmpresaPropsViaCep,
+} from "../@types/Client";
 // import { UsuarioProps } from "../@types/Usuario";
 import { EmpresaListaProps } from "../pages/Clientes";
 import { ColaboradorListaProps, ColaboradorProps } from "../@types/Colaborador";
@@ -10,17 +15,17 @@ import { ColaboradorListaProps, ColaboradorProps } from "../@types/Colaborador";
 const getEmpresa = (): AxiosPromise<EmpresaListaProps[]> =>
   xhr.get(`empresas/`);
 
-const getClientByCpf = (cpf: string): AxiosPromise<ClienteProps> =>
+const getClientByCpf = (cpf: string): AxiosPromise<EmpresaProps> =>
   xhr.get(`clientes/${cpf}`);
 
-const getClientByCNPJ = (cnpj: string): AxiosPromise<ClienteProps> =>
+const getClientByCNPJ = (cnpj: string): AxiosPromise<EmpresaProps> =>
   xhr.get(`clientes/${cnpj}`);
 
-const getEmpresaByID = (id: string): AxiosPromise<ClienteProps> =>
+const getEmpresaByID = (id: string): AxiosPromise<EmpresaProps> =>
   xhr.get(`empresas/${id}`);
 
-const postCreateCliente = (params: ClienteProps): AxiosPromise<ClienteProps> =>
-  xhr.post(`clientes/`, params);
+const postCreateEmpresa = (params: EmpresaProps): AxiosPromise<EmpresaProps> =>
+  xhr.post(`empresas/`, params);
 
 const postAtualizaEmpresa = (
   id: string,
@@ -30,6 +35,12 @@ const postAtualizaEmpresa = (
 const deleteEmpresa = (id: string) => xhr.delete(`empresas/${id}`);
 
 /*EMPRESA*/
+
+/*CLIENTES*/
+const postCreateCliente = (params: ClienteProps): AxiosPromise<ClienteProps> =>
+  xhr.post(`clientes/`, params);
+
+/*CLIENTES*/
 
 /*COLABORADOR*/
 
@@ -63,7 +74,7 @@ export {
   getClientByCpf,
   getClientByCNPJ,
   getEmpresaByID,
-  postCreateCliente,
+  postCreateEmpresa,
   viaCep,
   getEmpresa,
   deleteEmpresa,
@@ -72,4 +83,5 @@ export {
   postCreateColaborador,
   postAtualizaEmpresa,
   getColaboradorByID,
+  postCreateCliente,
 };

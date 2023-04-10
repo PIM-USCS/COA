@@ -27,7 +27,7 @@ export function Home() {
       setIsOpenPages(false);
     }
   }
-  console.log(isOpenEnviar);
+
   return (
     <>
       <EnviarGuia

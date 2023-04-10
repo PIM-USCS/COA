@@ -1,11 +1,9 @@
-export interface ClienteProps {
+export interface EmpresaProps {
   id: string;
   tipo_cliente: string;
-  regime: string;
   cnpj: string;
   ie: string;
   cpf: string;
-  rg: string;
   nome: string;
   cep: string;
   rua: string;
@@ -41,4 +39,12 @@ export interface AtuEmpresa {
   bairro: string;
   numero: string;
   complemento: string;
+}
+
+export interface ClienteProps {
+  cpf: string;
+  rg: string;
+  nome: string;
+  email: string;
+  telefone: string;
 }

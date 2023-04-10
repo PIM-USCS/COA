@@ -1,9 +1,10 @@
 import "./styles.css";
-import Logo from "../../img/COA linha/COA/favicon_1000x1000 recortada.png";
-import { NavLink, useNavigate } from "react-router-dom";
+// import Logo from "../../img/COA linha/COA/favicon_1000x1000 recortada.png";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import * as api from "../../services/api";
 import Swal from "sweetalert2";
+import { ClienteProps } from "../../@types/Client";
 
 export interface EmpresaProps {
   id: string;
@@ -25,13 +26,13 @@ export interface EmpresaProps {
 
 export function CadastroCliente() {
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
+  const [cliente, setCliente] = useState<ClienteProps>({} as ClienteProps);
   const [valorPessoa, setvalorPessoa] = useState("");
   const navigate = useNavigate();
 
   function handleSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
     const value = event.target.value;
     setvalorPessoa(value);
-    console.log(`Valor selecionado: ${value}`);
   }
 
   async function consultaCliente() {
@@ -90,7 +91,6 @@ export function CadastroCliente() {
         cidade: data.localidade,
         uf: data.uf,
       });
-      console.log(data);
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -118,62 +118,62 @@ export function CadastroCliente() {
         });
       }
     }
-
     if (!empresa.cep) {
       Swal.fire({
         icon: "error",
         title: "O campo do CEP é obrigatório!",
       });
     }
-
     if (!empresa.rua) {
       Swal.fire({
         icon: "error",
         title: "O campo Rua é obrigatório!",
       });
     }
-
     if (!empresa.cidade) {
       Swal.fire({
         icon: "error",
         title: "O campo Cidade é obrigatório!",
       });
     }
-
     if (!empresa.uf) {
       Swal.fire({
         icon: "error",
         title: "O campo UF é obrigatório!",
       });
     }
-
     if (!empresa.bairro) {
       Swal.fire({
         icon: "error",
         title: "O campo Bairro é obrigatório!",
       });
     } else {
+      cadastrarEmpresa();
       cadastrarCliente();
       Swal.fire({
         icon: "success",
         title: "Empresa cadastrada com sucesso!",
         confirmButtonText: "OK",
         preConfirm: () => {
-          navigate(-2);
+          navigate(-1);
         },
       });
     }
   }
 
-  async function cadastrarCliente() {
-    await api.postCreateCliente(empresa);
+  console.log(empresa);
+  async function cadastrarEmpresa() {
+    await api.postCreateEmpresa(empresa);
   }
 
+  async function cadastrarCliente() {
+    await api.postCreateCliente(cliente);
+  }
   return (
     <body className="cadastrocliente">
       <main className="main-cadastrarcliente">
         <header className="header-cadcliente">
-          <h1>Cadastro Cliente</h1>
+          <h1>Cadastro Empresa</h1>
         </header>
 
         <section className="formulario-empresa">
@@ -191,8 +191,7 @@ export function CadastroCliente() {
             id="mySelect"
             className="option-pessoa"
             value={valorPessoa}
-            onChange={handleSelectChange}
-          >
+            onChange={handleSelectChange}>
             <option value="PF">Pessoa Física</option>
             <option value="PJ">Pessoa Jurídica</option>
           </select>
@@ -416,6 +415,14 @@ export function CadastroCliente() {
               /*id="nome-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="Nome"
+              name="nome"
+              value={cliente.nome || ""}
+              onChange={(e) =>
+                setCliente({
+                  ...cliente,
+                  [e.target.name]: e.target.value,
+                })
+              }
             />
             <label className="floatingInput__label">Nome</label>
           </div>
@@ -427,6 +434,14 @@ export function CadastroCliente() {
               /*id="rg-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="RG"
+              name="rg"
+              value={cliente.rg || ""}
+              onChange={(e) =>
+                setCliente({
+                  ...cliente,
+                  [e.target.name]: e.target.value,
+                })
+              }
             />
             <label className="floatingInput__label">RG</label>
           </div>
@@ -438,6 +453,14 @@ export function CadastroCliente() {
               /*id="telefone-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="Telefone"
+              name="telefone"
+              value={cliente.telefone || ""}
+              onChange={(e) =>
+                setCliente({
+                  ...cliente,
+                  [e.target.name]: e.target.value,
+                })
+              }
             />
             <label className="floatingInput__label">Telefone</label>
           </div>
@@ -448,6 +471,14 @@ export function CadastroCliente() {
               /*id="email-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="Email"
+              name="email"
+              value={cliente.email || ""}
+              onChange={(e) =>
+                setCliente({
+                  ...cliente,
+                  [e.target.name]: e.target.value,
+                })
+              }
             />
             <label className="floatingInput__label">Email</label>
           </div>
