@@ -87,25 +87,22 @@ export function Home() {
             <NavLink to="/" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}
-              >
+                style={{ display: isOpenPages ? "flex" : "none" }}>
                 Deslogar
               </button>
             </NavLink>
 
-            <NavLink to="/clientes" style={{ textDecoration: "none" }}>
+            <NavLink to="/empresas" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}
-              >
-                Clientes
+                style={{ display: isOpenPages ? "flex" : "none" }}>
+                Empresas
               </button>
             </NavLink>
             <NavLink to="/colaborador" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}
-              >
+                style={{ display: isOpenPages ? "flex" : "none" }}>
                 Colaborador
               </button>
             </NavLink>
@@ -113,22 +110,19 @@ export function Home() {
             <NavLink to="/trocar-senha" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}
-              >
+                style={{ display: isOpenPages ? "flex" : "none" }}>
                 Alterar senha
               </button>
             </NavLink>
             <button
               onClick={() => setIsOpenEnviar(true)}
               className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}
-            >
+              style={{ display: isOpenPages ? "flex" : "none" }}>
               Enviar guias
             </button>
             <button
               className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}
-            >
+              style={{ display: isOpenPages ? "flex" : "none" }}>
               Finanças
             </button>
           </div>

@@ -4,6 +4,7 @@ import * as api from "../../../../services/api";
 import Swal from "sweetalert2";
 import { ColaboradorListaProps } from "../../../../@types/Colaborador";
 import { useColaborador } from "../../../../hooks/useColaborador";
+import { NavLink } from "react-router-dom";
 interface CadastroProps {
   colaborador: ColaboradorListaProps;
 }
@@ -36,6 +37,10 @@ export function Colaborador({ colaborador }: CadastroProps) {
     });
   }
 
+  function alterarCliente() {
+    setIdColaborador(colaborador.id);
+  }
+
   return (
     <div className="lista">
       <div className="id">
@@ -48,9 +53,13 @@ export function Colaborador({ colaborador }: CadastroProps) {
         <p>{colaborador.email}</p>
       </div>
       <div className="alterar">
-        <button>
-          <PencilSimple size={24} />
-        </button>
+        <NavLink
+          to="alterar-cadastro-cliente"
+          style={{ textDecoration: "none" }}>
+          <button onClickCapture={alterarCliente}>
+            <PencilSimple size={24} />
+          </button>
+        </NavLink>
       </div>
       <div className="excluir" onClickCapture={excluirColaborador}>
         <button>

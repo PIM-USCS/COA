@@ -1,6 +1,6 @@
 import xhr from "./xhr";
 import { AxiosPromise } from "axios";
-import { ClienteProps, EmpresaPropsViaCep } from "../@types/Client";
+import { AtuEmpresa, ClienteProps, EmpresaPropsViaCep } from "../@types/Client";
 // import { UsuarioProps } from "../@types/Usuario";
 import { EmpresaListaProps } from "../pages/Clientes";
 import { ColaboradorListaProps, ColaboradorProps } from "../@types/Colaborador";
@@ -16,11 +16,16 @@ const getClientByCpf = (cpf: string): AxiosPromise<ClienteProps> =>
 const getClientByCNPJ = (cnpj: string): AxiosPromise<ClienteProps> =>
   xhr.get(`clientes/${cnpj}`);
 
-const getClientByID = (id: string): AxiosPromise<ClienteProps> =>
-  xhr.get(`clientes/${id}`);
+const getEmpresaByID = (id: string): AxiosPromise<ClienteProps> =>
+  xhr.get(`empresas/${id}`);
 
 const postCreateCliente = (params: ClienteProps): AxiosPromise<ClienteProps> =>
   xhr.post(`clientes/`, params);
+
+const postAtualizaEmpresa = (
+  id: string,
+  params: AtuEmpresa
+): AxiosPromise<AtuEmpresa> => xhr.put(`empresas/${id}`, params);
 
 const deleteEmpresa = (id: string) => xhr.delete(`empresas/${id}`);
 
@@ -54,7 +59,7 @@ const viaCep = (cep: string): AxiosPromise<EmpresaPropsViaCep> =>
 export {
   getClientByCpf,
   getClientByCNPJ,
-  getClientByID,
+  getEmpresaByID,
   postCreateCliente,
   viaCep,
   getEmpresa,
@@ -62,4 +67,5 @@ export {
   getColaborador,
   deleteColaborador,
   postCreateColaborador,
+  postAtualizaEmpresa,
 };

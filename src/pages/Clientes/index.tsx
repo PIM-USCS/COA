@@ -13,7 +13,7 @@ export interface EmpresaListaProps {
   nome: string;
   tipo_cliente: string;
 }
-export function ClienteLista() {
+export function EmpresaLista() {
   const [empresa, setEmpresa] = useState<EmpresaListaProps[]>([]);
 
   const getEmpresa = async () => {

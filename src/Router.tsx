@@ -6,10 +6,10 @@ import { TrocarSenha } from "./pages/TrocarSenha";
 import { CadastroColaborador } from "./pages/CadastroColaborador";
 import { AlterarCadastroCliente } from "./pages/AlterarCadastroCliente";
 import { AlterarCadastroColaborador } from "./pages/AlterarCadastroColaborador";
-import { ClienteLista } from "./pages/Clientes";
-import { ColaboradorLista} from "./pages/Colaborador";
-import { ConsultaCliente} from "./pages/ConsultarCliente";
-import { ConsultaColaborador} from "./pages/ConsultaColaborador";
+import { EmpresaLista } from "./pages/Clientes";
+import { ColaboradorLista } from "./pages/Colaborador";
+import { ConsultaCliente } from "./pages/ConsultarCliente";
+import { ConsultaColaborador } from "./pages/ConsultaColaborador";
 
 export function Router() {
   return (
@@ -27,11 +27,10 @@ export function Router() {
         path="/alterar-cadastro-colaborador"
         element={<AlterarCadastroColaborador />}
       />
-      <Route path="/clientes" element={<ClienteLista />} />
-      <Route path="/Colaborador" element={<ColaboradorLista/>}/>
-      <Route path="/ConsultaCliente" element={<ConsultaCliente/>}/>
-      <Route path="/ConsultaColaborador" element={<ConsultaColaborador/>}/>
-
+      <Route path="/empresas" element={<EmpresaLista />} />
+      <Route path="/Colaborador" element={<ColaboradorLista />} />
+      <Route path="/ConsultaCliente" element={<ConsultaCliente />} />
+      <Route path="/ConsultaColaborador" element={<ConsultaColaborador />} />
     </Routes>
   );
 }

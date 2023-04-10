@@ -28,3 +28,17 @@ export interface EmpresaPropsViaCep {
   bairro: string;
   numero: string;
 }
+
+export interface AtuEmpresa {
+  cnpj: string;
+  ie: string;
+  cpf: string;
+  nome: string;
+  cep: string;
+  rua: string;
+  cidade: string;
+  uf: string;
+  bairro: string;
+  numero: string;
+  complemento: string;
+}
