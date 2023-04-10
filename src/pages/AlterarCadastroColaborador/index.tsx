@@ -1,12 +1,43 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useColaborador } from "../../hooks/useColaborador";
 import "./styles.css";
 import { NavLink } from "react-router-dom";
+import * as api from "../../services/api";
+import { useEffect, useState } from "react";
 
-export function AlterarCadastroColaborador(){
-    return(
-        <body className="alterarcadastrocolaborador">
+interface ColaboradorProps {
+  nome: string;
+  email: string;
+  senha: string;
+}
+export function AlterarCadastroColaborador() {
+  const { idColaborador } = useColaborador();
+  const [colaborador, setColaborador] = useState<ColaboradorProps>(
+    {} as ColaboradorProps
+  );
+  const ConsultaColaborador = async () => {
+    if (!idColaborador) {
+      return;
+    }
+    const { data } = await api.getColaboradorByID(idColaborador);
+    console.log(data);
+    setColaborador({
+      ...colaborador,
+      nome: data.nome,
+      email: data.email,
+    });
+  };
+  useEffect(() => {
+    ConsultaColaborador();
+  }, [idColaborador]);
+
+  return (
+    <body className="alterarcadastrocolaborador">
       <main className="main-alterarcadastrocolaborador">
         <header className="header-alterarcadastrocolaborador">
-          <h2 className="h2-alterarcadastrocolaborador">Alterar Dados Colaborador</h2>
+          <h2 className="h2-alterarcadastrocolaborador">
+            Alterar Dados Colaborador
+          </h2>
         </header>
         <section>
           <form className="form-alterarcadastrocolaborador">
@@ -16,6 +47,14 @@ export function AlterarCadastroColaborador(){
                 /*id="nome-cadastrocolaborador"*/
                 className="floatingInput__control"
                 placeholder="Nome"
+                name="nome"
+                value={colaborador.nome || ""}
+                onChange={(e) =>
+                  setColaborador({
+                    ...colaborador,
+                    [e.target.name]: e.target.value,
+                  })
+                }
               />
               <label className="floatingInput__label">Nome</label>
             </div>
@@ -25,17 +64,16 @@ export function AlterarCadastroColaborador(){
                 /*id="email-cadastrocolaborador"*/
                 className="floatingInput__control"
                 placeholder="E-mail"
+                name="email"
+                value={colaborador.email || ""}
+                onChange={(e) =>
+                  setColaborador({
+                    ...colaborador,
+                    [e.target.name]: e.target.value,
+                  })
+                }
               />
               <label className="floatingInput__label">Email</label>
-            </div>
-            <div className="floatingInput">
-              <input
-                type="password"
-                /*id="senha-cadastrocolaborador"*/
-                className="floatingInput__control"
-                placeholder="Senha"
-              />
-              <label className="floatingInput__label">Senha</label>
             </div>
             <div>
               <NavLink
@@ -51,5 +89,5 @@ export function AlterarCadastroColaborador(){
         </section>
       </main>
     </body>
-    );
+  );
 }

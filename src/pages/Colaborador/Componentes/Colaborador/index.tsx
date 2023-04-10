@@ -37,9 +37,21 @@ export function Colaborador({ colaborador }: CadastroProps) {
     });
   }
 
-  function alterarCliente() {
+  function alterarColaborador() {
+    setIdColaborador(colaborador.id);
+    if (!idColaborador) {
+      return;
+    }
+  }
+
+  function consultarColaborador() {
+    if (!idColaborador) {
+      return;
+    }
     setIdColaborador(colaborador.id);
   }
+
+  console.log(idColaborador);
 
   return (
     <div className="lista">
@@ -53,23 +65,23 @@ export function Colaborador({ colaborador }: CadastroProps) {
         <p>{colaborador.email}</p>
       </div>
       <div className="alterar">
-        <NavLink
-          to="alterar-cadastro-cliente"
-          style={{ textDecoration: "none" }}>
-          <button onClickCapture={alterarCliente}>
+        <NavLink to="/alterar-cadastro-colaborador" style={{ all: "unset" }}>
+          <button onClick={alterarColaborador}>
             <PencilSimple size={24} />
           </button>
         </NavLink>
       </div>
-      <div className="excluir" onClickCapture={excluirColaborador}>
-        <button>
+      <div className="excluir">
+        <button onClickCapture={excluirColaborador}>
           <Trash size={24} />
         </button>
       </div>
       <div className="consultar">
-        <button>
-          <MagnifyingGlass size={24} />
-        </button>
+        <NavLink to="/consultar-colaborador" style={{ all: "unset" }}>
+          <button onClick={consultarColaborador}>
+            <MagnifyingGlass size={24} />
+          </button>
+        </NavLink>
       </div>
     </div>
   );

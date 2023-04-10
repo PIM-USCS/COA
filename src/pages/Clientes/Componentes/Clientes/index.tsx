@@ -58,7 +58,6 @@ export function Cliente({ empresa }: CadastroProps) {
     }
   }
 
-  console.log(idEmpresa);
   return (
     <div className="lista">
       <div className="id">
@@ -86,13 +85,11 @@ export function Cliente({ empresa }: CadastroProps) {
         </button>
       </div>
       <div className="consultar">
-        <button
-          onClick={() => {
-            setIdEmpresa(empresa.id);
-          }}
-        >
-          <MagnifyingGlass size={24} />
-        </button>
+        <NavLink to="/consultar-cliente" style={{ all: "unset" }}>
+          <button onClick={consultarCliente}>
+            <MagnifyingGlass size={24} />
+          </button>
+        </NavLink>
       </div>
     </div>
   );

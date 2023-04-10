@@ -36,6 +36,9 @@ const deleteEmpresa = (id: string) => xhr.delete(`empresas/${id}`);
 const getColaborador = (): AxiosPromise<ColaboradorListaProps[]> =>
   xhr.get(`colaborador/`);
 
+const getColaboradorByID = (id: string): AxiosPromise<ColaboradorProps> =>
+  xhr.get(`colaborador/${id}`);
+
 const deleteColaborador = (id: string) => xhr.delete(`colaborador/${id}`);
 
 const postCreateColaborador = (
@@ -68,4 +71,5 @@ export {
   deleteColaborador,
   postCreateColaborador,
   postAtualizaEmpresa,
+  getColaboradorByID,
 };

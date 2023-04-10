@@ -29,8 +29,8 @@ export function Router() {
       />
       <Route path="/empresas" element={<EmpresaLista />} />
       <Route path="/Colaborador" element={<ColaboradorLista />} />
-      <Route path="/ConsultaCliente" element={<ConsultaCliente />} />
-      <Route path="/ConsultaColaborador" element={<ConsultaColaborador />} />
+      <Route path="/consultar-cliente" element={<ConsultaCliente />} />
+      <Route path="/consultar-colaborador" element={<ConsultaColaborador />} />
     </Routes>
   );
 }
