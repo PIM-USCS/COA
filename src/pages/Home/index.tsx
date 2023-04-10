@@ -14,7 +14,6 @@ import {
   FolderOpen,
 } from "phosphor-react";
 import { EnviarGuia } from "./Componentes/EnviarGuia";
-import { Guias } from "./Componentes/Guias";
 
 export function Home() {
   const [isOpenEnviar, setIsOpenEnviar] = useState(false); /*Modal*/

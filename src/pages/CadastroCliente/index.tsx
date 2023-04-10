@@ -32,9 +32,10 @@ export function CadastroCliente() {
 
   function handleSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
     const value = event.target.value;
-    setvalorPessoa(value);
+    setEmpresa((prevEmpresa) => ({ ...prevEmpresa, tipo_cliente: value }));
   }
 
+  console.log(valorPessoa);
   async function consultaCliente() {
     if (valorPessoa === "PF") {
       const { data } = await api.getClientByCpf(empresa.cpf);
@@ -192,6 +193,7 @@ export function CadastroCliente() {
             className="option-pessoa"
             value={valorPessoa}
             onChange={handleSelectChange}>
+            <option value="">Selecione</option>
             <option value="PF">Pessoa Física</option>
             <option value="PJ">Pessoa Jurídica</option>
           </select>

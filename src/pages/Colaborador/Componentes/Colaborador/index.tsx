@@ -51,8 +51,6 @@ export function Colaborador({ colaborador }: CadastroProps) {
     setIdColaborador(colaborador.id);
   }
 
-  console.log(idColaborador);
-
   return (
     <div className="lista">
       <div className="id">
