@@ -84,27 +84,49 @@
 .div-pessoa-colaborador {
   display: flex;
   justify-content: center;
-  width: 15%;
+  width: 30%;
 }
 
-.div-alterar {
+.div-alterar-colaborador {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   width: 10%;
 }
-.div-excluir {
+.div-excluir-colaborador {
   display: flex;
   justify-content: center;
-  width: 10%;
+  width: 12%;
 }
-.div-consultar {
+.div-consultar-colaborador {
   display: flex;
-  justify-content: center;
-  width: 10%;
+  justify-content: end;
+  width: 12%;
 }
 .container-lista-colaborador {
   width: 80%;
+  height: 500px;
   background-color: var(--secondary);
   border-bottom-left-radius: 9px;
   border-bottom-right-radius: 9px;
+  overflow-y: scroll;
+}
+
+.container-lista-colaborador::-webkit-scrollbar-track {
+  background-color: var(--light);
+}
+
+.container-lista-colaborador::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  border-radius: 9px;
+  background: var(--light);
+}
+.container-lista-colaborador::-webkit-scrollbar-thumb {
+  background: #dad7d7;
+  border-radius: 9px;
+}
+.container-lista-colaborador::-webkit-scrollbar-track {
+  background: transparent;
+  padding: 2px;
+  height: 8px;
 }

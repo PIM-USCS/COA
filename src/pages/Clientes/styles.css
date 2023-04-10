@@ -114,6 +114,29 @@
 .container-lista {
   width: 80%;
   background-color: var(--secondary);
+  height: 500px;
+  max-height: 500px;
   border-bottom-left-radius: 9px;
   border-bottom-right-radius: 9px;
+  overflow-y: scroll;
+}
+
+.container-lista::-webkit-scrollbar-track {
+  background-color: var(--light);
+}
+
+.container-lista::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  border-radius: 9px;
+  background: var(--light);
+}
+.container-lista::-webkit-scrollbar-thumb {
+  background: #dad7d7;
+  border-radius: 9px;
+}
+.container-lista::-webkit-scrollbar-track {
+  background: transparent;
+  padding: 2px;
+  height: 8px;
 }

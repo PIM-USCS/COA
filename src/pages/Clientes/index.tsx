@@ -33,7 +33,7 @@ export function EmpresaLista() {
   return (
     <body className="container-geral">
       <header className="container-titulo">
-        <h1>Listagem de clientes</h1>
+        <h1>Listagem de empresas</h1>
       </header>
 
       <div className="div-cadastrar">
