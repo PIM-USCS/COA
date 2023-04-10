@@ -20,7 +20,7 @@ export function AlterarCadastroColaborador() {
       return;
     }
     const { data } = await api.getColaboradorByID(idColaborador);
-    console.log(data);
+
     setColaborador({
       ...colaborador,
       nome: data.nome,

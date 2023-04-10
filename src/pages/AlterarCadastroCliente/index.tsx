@@ -45,7 +45,7 @@ export function AlterarCadastroCliente() {
       return;
     }
     const { data } = await api.getEmpresaByID(idEmpresa);
-    console.log(data);
+
     setEmpresa({
       ...empresa,
       cpf: data.cpf,
@@ -99,7 +99,6 @@ export function AlterarCadastroCliente() {
         cidade: data.localidade,
         uf: data.uf,
       });
-      console.log(data);
     } catch (error) {
       Swal.fire({
         icon: "error",
