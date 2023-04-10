@@ -130,3 +130,13 @@
   padding: 2px;
   height: 8px;
 }
+
+.informativo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  color: var(--light);
+  font-size: 32px;
+}

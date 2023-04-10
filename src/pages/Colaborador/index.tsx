@@ -6,7 +6,7 @@ import "./styles.css";
 
 import { NavLink } from "react-router-dom";
 import * as api from "../../services/api";
-import { IdentificationCard } from "phosphor-react";
+import { IdentificationCard, WarningCircle } from "phosphor-react";
 
 export function ColaboradorLista() {
   const [colaborador, setColaborador] = useState<ColaboradorListaProps[]>([]);
@@ -60,9 +60,16 @@ export function ColaboradorLista() {
         </div>
       </div>
       <div className="container-lista-colaborador">
-        {colaborador.map((colaborador) => (
-          <Colaborador colaborador={colaborador} />
-        ))}
+        {colaborador.length === 0 ? (
+          <div className="informativo">
+            <WarningCircle size={48} />
+            <p>Nenhum colaborador cadastrado!</p>
+          </div>
+        ) : (
+          colaborador.map((colaborador) => (
+            <Colaborador colaborador={colaborador} />
+          ))
+        )}
       </div>
     </body>
   );

@@ -72,7 +72,7 @@ export function Colaborador({ colaborador }: CadastroProps) {
         </NavLink>
       </div>
       <div className="excluir">
-        <button onClickCapture={excluirColaborador}>
+        <button onClick={excluirColaborador}>
           <Trash size={24} />
         </button>
       </div>

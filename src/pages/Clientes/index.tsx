@@ -1,4 +1,4 @@
-import { UserCirclePlus } from "phosphor-react";
+import { UserCirclePlus, WarningCircle } from "phosphor-react";
 import { Cliente } from "./Componentes/Clientes";
 import "./styles.css";
 import { NavLink } from "react-router-dom";
@@ -68,9 +68,14 @@ export function EmpresaLista() {
         </div>
       </div>
       <div className="container-lista">
-        {empresa.map((empresa) => (
-          <Cliente empresa={empresa} />
-        ))}
+        {empresa.length === 0 ? (
+          <div className="informativo">
+            <WarningCircle size={48} />
+            <p>Nenhuma empresa cadastrada!</p>
+          </div>
+        ) : (
+          empresa.map((empresa) => <Cliente empresa={empresa} />)
+        )}
       </div>
     </body>
   );
