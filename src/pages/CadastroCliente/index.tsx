@@ -33,6 +33,7 @@ export function CadastroCliente() {
   function handleSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
     const value = event.target.value;
     setEmpresa((prevEmpresa) => ({ ...prevEmpresa, tipo_cliente: value }));
+    setvalorPessoa(value);
   }
 
   console.log(valorPessoa);

@@ -5,12 +5,14 @@ import { useEmpresa } from "../../../../hooks/useEmpresa";
 import * as api from "../../../../services/api";
 import Swal from "sweetalert2";
 import { NavLink, useNavigate } from "react-router-dom";
+import { ClienteProps } from "../../../../@types/Client";
 interface CadastroProps {
   empresa: EmpresaListaProps;
+  // cliente: ClienteProps;
 }
 
 export function Cliente({ empresa }: CadastroProps) {
-  const { idEmpresa, setIdEmpresa } = useEmpresa();
+  const { idEmpresa, setIdEmpresa, idCliente, setIdCliente } = useEmpresa();
 
   async function excluirCliente() {
     setIdEmpresa(empresa.id);
@@ -44,16 +46,24 @@ export function Cliente({ empresa }: CadastroProps) {
 
   function alterarCliente() {
     setIdEmpresa(empresa.id);
+    // setIdCliente(cliente.id);
 
     if (!idEmpresa) {
+      return;
+    }
+
+    if (!idCliente) {
       return;
     }
   }
 
   function consultarCliente() {
     setIdEmpresa(empresa.id);
-
+    // setIdCliente(cliente.id);
     if (!idEmpresa) {
+      return;
+    }
+    if (!idCliente) {
       return;
     }
   }

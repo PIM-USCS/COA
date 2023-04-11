@@ -4,6 +4,7 @@ import "./styles.css";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "../../services/api";
+import { ClienteProps } from "../../@types/Client";
 
 export interface EmpresaListaProps {
   id: string;
@@ -14,6 +15,7 @@ export interface EmpresaListaProps {
 }
 export function EmpresaLista() {
   const [empresa, setEmpresa] = useState<EmpresaListaProps[]>([]);
+  const [clientes, setClientes] = useState<ClienteProps[]>([]);
 
   const getEmpresa = async () => {
     try {

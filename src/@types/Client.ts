@@ -42,6 +42,7 @@ export interface AtuEmpresa {
 }
 
 export interface ClienteProps {
+  id: string;
   cpf: string;
   rg: string;
   nome: string;

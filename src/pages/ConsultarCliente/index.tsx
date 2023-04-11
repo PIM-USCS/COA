@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useEmpresa } from "../../hooks/useEmpresa";
 import "./styles.css";
 import { NavLink } from "react-router-dom";
-
+import { ClienteProps } from "../../@types/Client";
 import * as api from "../../services/api";
 interface EmpresaProps {
   id: string;
@@ -24,8 +24,10 @@ interface EmpresaProps {
 }
 
 export function ConsultaCliente() {
-  const { idEmpresa } = useEmpresa();
+  const { idEmpresa, idCliente } = useEmpresa();
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
+  const [cliente, setCliente] = useState<ClienteProps>({} as ClienteProps);
+
   const ConsultaEmpresa = async () => {
     if (!idEmpresa) {
       return;
@@ -52,6 +54,27 @@ export function ConsultaCliente() {
   useEffect(() => {
     ConsultaEmpresa();
   }, [idEmpresa]);
+
+  const ConsultaCliente = async () => {
+    if (!idCliente) {
+      return;
+    }
+    const { data } = await api.getClienteById(idCliente);
+
+    setCliente((prevState) => {
+      return {
+        ...prevState,
+        nome: data.nome,
+        cpf: data.cpf,
+        rg: data.rg,
+        email: data.email,
+        telefone: data.telefone,
+      };
+    });
+  };
+  useEffect(() => {
+    ConsultaCliente();
+  }, [idCliente]);
   return (
     <body className="alterarcadastrocliente">
       <main className="main-alterarcadastrarcliente">

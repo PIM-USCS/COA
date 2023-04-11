@@ -40,6 +40,9 @@ const deleteEmpresa = (id: string) => xhr.delete(`empresas/${id}`);
 const postCreateCliente = (params: ClienteProps): AxiosPromise<ClienteProps> =>
   xhr.post(`clientes/`, params);
 
+const getClienteById = (id: string): AxiosPromise<ClienteProps> =>
+  xhr.get(`clientes/${id}`);
+
 /*CLIENTES*/
 
 /*COLABORADOR*/
@@ -84,4 +87,5 @@ export {
   postAtualizaEmpresa,
   getColaboradorByID,
   postCreateCliente,
+  getClienteById,
 };
