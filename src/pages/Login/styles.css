@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,37 +12,37 @@
 /*body*/
 .login {
   font-family: arial, sans-serif;
-  background-color: var(--dark);  
+  background-color: var(--dark);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;  
+  height: 100vh;
 }
 /*formulario*/
 .main-login {
   background-color: var(--secondary);
   border-radius: 5px;
-  padding:50px;
+  padding: 50px;
   width: 30%;
-  min-width: 450px;   
+  min-width: 450px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;   
+  justify-content: space-around;
 }
 /*Sumario*/
-.header-login{
+.header-login {
   display: flex;
   color: white;
   justify-content: flex-end;
-  padding-bottom:50px;
-}/* FIM Sumario*/
+  padding-bottom: 50px;
+} /* FIM Sumario*/
 
 /*Campo de preenchimento*/
 .form-login {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 2rem;   
+  padding-bottom: 2rem;
 }
 .floatingInput {
   position: relative;
@@ -75,40 +75,40 @@
   font-weight: bold;
   text-transform: uppercase;
   font-size: 15px;
-}/* FIM Campo de preenchimento*/
+} /* FIM Campo de preenchimento*/
 
 /*checkbox e esqueci senha */
-.checkbox-esquecisenha-login{  
+.checkbox-esquecisenha-login {
   display: flex;
   justify-content: space-between;
-  padding:25px 0px 25px 0; 
+  padding: 25px 0px 25px 0;
 }
 /*checkbox*/
-.checkbox-login{
+.checkbox-login {
   color: var(--light);
 }
-.checkbox-login:hover{
+.checkbox-login:hover {
   color: var(--primary);
-}/* FIM checkbox*/
+} /* FIM checkbox*/
 
 /*esqueci senha*/
-.esquecisenha-login{
-  color:var(--light);
-  text-decoration:none;
+.esquecisenha-login {
+  color: var(--light);
+  text-decoration: none;
 }
-.esquecisenha-login:hover{
-  color:var(--primary);
-}/* FIM esqueci senha*/
+.esquecisenha-login:hover {
+  color: var(--primary);
+} /* FIM esqueci senha*/
 
 /*botão login*/
-.input-bnt-login{
-  color: var(--light);  
+.input-bnt-login {
+  color: var(--light);
   margin-top: 8px;
 }
 .input-bnt-login::placeholder {
   color: var(--light);
 }
-.bnt-login{
+.bnt-login {
   all: unset;
   margin-top: 12px;
   border-radius: 8px;
@@ -131,7 +131,6 @@
   transition: 1s;
 }
 
-  
 .option-pessoa {
   background-color: var(--dark);
   color: var(--light);
@@ -146,6 +145,17 @@
   border-radius: 5px;
 }
 
+.esconder_senha {
+  all: unset;
+  color: var(--light);
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  right: 0;
+  bottom: 50%;
+  margin-right: 22px;
+}
 
-
-
+::-ms-reveal {
+  display: none;
+}
