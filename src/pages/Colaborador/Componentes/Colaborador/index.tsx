@@ -13,6 +13,11 @@ export function Colaborador({ colaborador }: CadastroProps) {
   const { idColaborador, setIdColaborador } = useColaborador();
 
   async function excluirColaborador() {
+    setIdColaborador(colaborador.id);
+
+    if (!idColaborador) {
+      return;
+    }
     Swal.fire({
       title: "Tem certeza que deseja deletar este colaborador?",
       icon: "warning",
