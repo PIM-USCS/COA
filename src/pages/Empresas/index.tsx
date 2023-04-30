@@ -1,4 +1,4 @@
-import { UserCirclePlus, WarningCircle } from "phosphor-react";
+import { Buildings, UserCirclePlus, WarningCircle } from "phosphor-react";
 import { Cliente } from "./Componentes/Clientes";
 import "./styles.css";
 import { NavLink } from "react-router-dom";
@@ -40,7 +40,7 @@ export function EmpresaLista() {
       <div className="div-cadastrar">
         <NavLink to="/cadastro-cliente" style={{ textDecoration: "none" }}>
           <button>
-            <UserCirclePlus size={38} />
+            <Buildings size={38} />
             Nova Empresa
           </button>
         </NavLink>

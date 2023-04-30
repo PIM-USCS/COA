@@ -109,6 +109,7 @@
   border-bottom-left-radius: 9px;
   border-bottom-right-radius: 9px;
   overflow-y: scroll;
+  margin-bottom: 20px;
 }
 
 .container-lista-colaborador::-webkit-scrollbar-track {

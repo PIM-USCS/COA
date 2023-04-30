@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import { CadastroCliente } from "./pages/CadastroCliente";
+import { CadastroCliente } from "./pages/CadastroEmpresa";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { TrocarSenha } from "./pages/TrocarSenha";
 import { CadastroColaborador } from "./pages/CadastroColaborador";
-import { AlterarCadastroCliente } from "./pages/AlterarCadastroCliente";
+import { AlterarCadastroCliente } from "./pages/AlterarCadastroEmpresa";
 import { AlterarCadastroColaborador } from "./pages/AlterarCadastroColaborador";
-import { EmpresaLista } from "./pages/Clientes";
+import { EmpresaLista } from "./pages/Empresas";
 import { ColaboradorLista } from "./pages/Colaborador";
 import { ConsultaCliente } from "./pages/ConsultarCliente";
 import { ConsultaColaborador } from "./pages/ConsultaColaborador";

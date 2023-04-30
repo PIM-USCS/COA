@@ -12,6 +12,11 @@ import {
   ChartBar,
   File,
   FolderOpen,
+  Buildings,
+  UserCircle,
+  Lock,
+  Export,
+  ArrowUDownLeft,
 } from "phosphor-react";
 import { EnviarGuia } from "./Componentes/EnviarGuia";
 
@@ -65,7 +70,7 @@ export function Home() {
             </button>
             <button className="botao-pages" onClick={HabilitarSubPaginas}>
               <FileText size={32} weight="fill" />
-              Pages
+              Páginas
               <CaretDown
                 size={16}
                 weight="bold"
@@ -83,47 +88,59 @@ export function Home() {
                 }}
               />
             </button>
-            <NavLink to="/" style={{ textDecoration: "none" }}>
-              <button
-                className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
-                Deslogar
-              </button>
-            </NavLink>
 
             <NavLink to="/empresas" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
+                <Buildings size={24} />
                 Empresas
               </button>
             </NavLink>
             <NavLink to="/colaborador" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
+                <UserCircle size={24} />
                 Colaborador
               </button>
             </NavLink>
 
-            <NavLink to="/trocar-senha" style={{ textDecoration: "none" }}>
-              <button
-                className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
-                Alterar senha
-              </button>
-            </NavLink>
             <button
               onClick={() => setIsOpenEnviar(true)}
               className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}>
+              style={{ display: isOpenPages ? "flex" : "none" }}
+            >
+              <Export size={24} />
               Enviar guias
             </button>
             <button
               className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}>
+              style={{ display: isOpenPages ? "flex" : "none" }}
+            >
+              <ChartBar size={24} />
               Finanças
             </button>
+            <NavLink to="/trocar-senha" style={{ textDecoration: "none" }}>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
+                <Lock size={24} />
+                Alterar senha
+              </button>
+            </NavLink>
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
+                <ArrowUDownLeft size={24} />
+                Deslogar
+              </button>
+            </NavLink>
           </div>
         </section>
         <article className="div-content-home">

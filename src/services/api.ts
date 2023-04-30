@@ -7,7 +7,7 @@ import {
   EmpresaPropsViaCep,
 } from "../@types/Client";
 // import { UsuarioProps } from "../@types/Usuario";
-import { EmpresaListaProps } from "../pages/Clientes";
+import { EmpresaListaProps } from "../pages/Empresas";
 import { ColaboradorListaProps, ColaboradorProps } from "../@types/Colaborador";
 
 /*EMPRESA*/
