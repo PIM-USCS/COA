@@ -9,6 +9,7 @@ import {
 // import { UsuarioProps } from "../@types/Usuario";
 import { EmpresaListaProps } from "../pages/Empresas";
 import { ColaboradorListaProps, ColaboradorProps } from "../@types/Colaborador";
+import { UsuarioProps } from "../@types/Usuario";
 
 /*EMPRESA*/
 
@@ -62,8 +63,8 @@ const postCreateColaborador = (
 /*COLABORADOR*/
 
 /*USUARIO*/
-// const getUsuario = (nome: string , senha: string): AxiosPromise<UsuarioProps> =>
-//   xhr.get(`usuarios/${}`)
+const checkLogin = (params: UsuarioProps): AxiosPromise<UsuarioProps> =>
+  xhr.post(`sessions/`, params);
 /*USUARIO*/
 
 /*UTILITÁRIOS*/
@@ -88,4 +89,5 @@ export {
   getColaboradorByID,
   postCreateCliente,
   getClienteById,
+  checkLogin,
 };

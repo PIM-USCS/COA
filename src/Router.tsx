@@ -15,7 +15,7 @@ export function Router() {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
-      <Route path="/trocar-senha" element={<TrocarSenha />} />
+      {/* <Route path="/trocar-senha" element={<TrocarSenha />} /> */}
       <Route path="/Home" element={<Home />} />
       <Route path="/cadastro-cliente" element={<CadastroCliente />} />
       <Route path="/cadastro-colaborador" element={<CadastroColaborador />} />

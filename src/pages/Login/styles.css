@@ -131,6 +131,12 @@
   transition: 1s;
 }
 
+.bnt-login.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .option-pessoa {
   background-color: var(--dark);
   color: var(--light);

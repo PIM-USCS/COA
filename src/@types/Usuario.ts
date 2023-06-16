@@ -1,4 +1,4 @@
-export interface UsuarioProps{
-    nome: string
-    senha: string
+export interface UsuarioProps {
+  email: string;
+  senha: string;
 }
