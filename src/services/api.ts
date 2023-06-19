@@ -71,6 +71,9 @@ const updateNome = (id: string, params: AtuUsuario): AxiosPromise<AtuUsuario> =>
 
 const getUsuarioById = (id: string): AxiosPromise<UsuarioProps> =>
   xhr.get(`usuarios/${id}`);
+
+const postCreateUsuario = (params: UsuarioProps): AxiosPromise<UsuarioProps> =>
+  xhr.post(`usuarios/`, params);
 /*USUARIO*/
 
 /*UTILITÁRIOS*/
@@ -98,4 +101,5 @@ export {
   checkLogin,
   updateNome,
   getUsuarioById,
+  postCreateUsuario,
 };

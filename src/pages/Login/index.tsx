@@ -28,10 +28,10 @@ export function Login() {
       const { data } = await api.checkLogin(usuario);
       navigate("/home");
 
-      if (!data.user.id) {
+      if (!data.user?.id) {
         return;
       }
-      setIdUsuario(data.user.id);
+      setIdUsuario(data.user?.id);
     } catch (error) {
       Swal.fire({
         icon: "error",

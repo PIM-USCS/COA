@@ -3,7 +3,7 @@ export interface UsuarioProps {
   email: string;
   senha: string;
   nome?: string;
-  user: {
+  user?: {
     id: string;
   };
 }

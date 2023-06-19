@@ -14,6 +14,7 @@ export function CadastroColaborador() {
 
   function CadastrarColaborador() {
     api.postCreateColaborador(colaborador);
+    api.postCreateUsuario(colaborador);
     Swal.fire({
       icon: "success",
       title: "Processo concluido!",
@@ -86,8 +87,7 @@ export function CadastroColaborador() {
           <div>
             <button
               className="bnt-cadastrocolaborador"
-              onClick={CadastrarColaborador}
-            >
+              onClick={CadastrarColaborador}>
               cadastrar
             </button>
           </div>
