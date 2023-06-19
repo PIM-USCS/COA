@@ -1,4 +1,5 @@
-import { useState } from "react"; /* Modal*/
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from "react"; /* Modal*/
 import "./styles.css";
 import Logo from "../../img/logo sem fundo.png";
 import { NavLink } from "react-router-dom";
@@ -18,13 +19,20 @@ import {
   Export,
   ArrowUDownLeft,
   PencilSimple,
+  List,
 } from "phosphor-react";
 import { EnviarGuia } from "./Componentes/EnviarGuia";
+import { UsuarioProps } from "../../@types/Usuario";
+import { useUsuario } from "../../hooks/useUsuario";
+import * as api from "../../services/api";
 
 export function Home() {
   const [isOpenEnviar, setIsOpenEnviar] = useState(false); /*Modal*/
   const [isOpenPages, setIsOpenPages] = useState(false);
   const [isOpenUser, setIisOpenUser] = useState(false);
+  const [isOpenSideBar, setIsOpenSideBar] = useState(true);
+  const [usuarios, setUsuarios] = useState<UsuarioProps>({} as UsuarioProps);
+  const { idUsuario } = useUsuario();
 
   function HabilitarSubPaginas() {
     if (isOpenPages === false) {
@@ -41,6 +49,24 @@ export function Home() {
       setIisOpenUser(false);
     }
   }
+  function HabilitarSideBar() {
+    setIsOpenSideBar(!isOpenSideBar);
+  }
+  const ConsultaUsuario = async () => {
+    if (!idUsuario) {
+      return;
+    }
+    const { data } = await api.getUsuarioById(idUsuario);
+    setUsuarios((prevState) => {
+      return {
+        ...prevState,
+        nome: data.nome,
+      };
+    });
+  };
+  useEffect(() => {
+    ConsultaUsuario();
+  }, [idUsuario]);
   return (
     <>
       <EnviarGuia
@@ -55,30 +81,54 @@ export function Home() {
                 <img src={Logo} alt="Logo" />
                 <h2>COA</h2>
               </button>
+              <button onClick={HabilitarSideBar} className="botao-sidebar">
+                <List size={32} />
+              </button>
             </div>
             <div className="div-header-direita">
               <button className="botao-usuario" onClick={HabilitarSubMenuUser}>
                 <img src={GuiBalbino} alt="Foto usuario" />
-                <p>Guilherme Balbino</p>
+                <p>{usuarios.nome}</p>
               </button>
               <div
                 className="submenu-usuario"
                 style={{
-                  display: isOpenUser ? "none" : "flex",
+                  display: isOpenUser ? "flex" : "none",
                 }}>
-                <button>
-                  <PencilSimple size={18} />
-                  Editar perfil
-                </button>
-                <button>
-                  <Lock size={18} />
-                  Alterar senha
-                </button>
+                <NavLink
+                  to="/alterar-usuario"
+                  style={{
+                    textDecoration: "none",
+                    all: "unset",
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}>
+                  <button>
+                    <PencilSimple size={18} />
+                    Editar perfil
+                  </button>
+                </NavLink>
+                <NavLink
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    all: "unset",
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}>
+                  <button>
+                    <Lock size={18} />
+                    Alterar senha
+                  </button>
+                </NavLink>
               </div>
             </div>
           </div>
         </header>
-        <section className="div-sidenav-home">
+
+        <section className={`div-sidenav-home ${isOpenSideBar ? "" : "hide"}`}>
           {/* Comentado apenas para teste visual <div className="usuario-barra-lateral">
             <img src={GuiBalbino} alt="Foto usuario" />
             <div>
@@ -99,7 +149,7 @@ export function Home() {
                 weight="bold"
                 style={{
                   display: isOpenPages ? "none" : "flex",
-                  marginLeft: "64px",
+                  marginLeft: "12px",
                 }}
               />
               <CaretUp
@@ -107,7 +157,7 @@ export function Home() {
                 weight="bold"
                 style={{
                   display: isOpenPages ? "flex" : "none",
-                  marginLeft: "64px",
+                  marginLeft: "12px",
                 }}
               />
             </button>
@@ -142,14 +192,6 @@ export function Home() {
               <ChartBar size={24} />
               Finanças
             </button>
-            <NavLink to="/trocar-senha" style={{ textDecoration: "none" }}>
-              <button
-                className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
-                <Lock size={24} />
-                Alterar senha
-              </button>
-            </NavLink>
             <NavLink to="/" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"

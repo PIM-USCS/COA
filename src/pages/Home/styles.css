@@ -25,6 +25,13 @@
   margin-top: 80px;
   min-height: 100%;
   background-color: var(--secondary);
+
+  transition: all 0.3s linear 0s;
+}
+
+.div-sidenav-home.hide {
+  transform-origin: right;
+  transform: translateX(-200px);
 }
 
 .div-content-home {
@@ -48,6 +55,7 @@
   align-items: center;
   color: var(--primary);
   font-size: 20px;
+  gap: 12px;
 }
 
 .botao-home {
@@ -62,6 +70,12 @@
 .botao-home img {
   width: 60px;
   height: 55px;
+}
+
+.botao-sidebar {
+  all: unset;
+  cursor: pointer;
+  margin-top: 5px;
 }
 
 .div-header-direita {

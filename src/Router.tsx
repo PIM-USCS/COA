@@ -10,6 +10,7 @@ import { EmpresaLista } from "./pages/Empresas";
 import { ColaboradorLista } from "./pages/Colaborador";
 import { ConsultaCliente } from "./pages/ConsultarCliente";
 import { ConsultaColaborador } from "./pages/ConsultaColaborador";
+import { AlterarUsuario } from "./pages/AlterarUsuario";
 
 export function Router() {
   return (
@@ -31,6 +32,7 @@ export function Router() {
       <Route path="/Colaborador" element={<ColaboradorLista />} />
       <Route path="/consultar-cliente" element={<ConsultaCliente />} />
       <Route path="/consultar-colaborador" element={<ConsultaColaborador />} />
+      <Route path="/alterar-usuario" element={<AlterarUsuario />} />
     </Routes>
   );
 }

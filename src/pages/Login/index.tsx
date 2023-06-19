@@ -7,11 +7,12 @@ import { useState } from "react";
 import { Eye, EyeSlash } from "phosphor-react";
 import * as api from "../../services/api";
 import { UsuarioProps } from "../../@types/Usuario";
+import { useUsuario } from "../../hooks/useUsuario";
 
 export function Login() {
   const [visualizarSenha, setVisualizarSenha] = useState(false);
   const [usuario, setUsuario] = useState<UsuarioProps>({} as UsuarioProps);
-
+  const { idUsuario, setIdUsuario } = useUsuario();
   function esconderSenha() {
     if (visualizarSenha === false) {
       setVisualizarSenha(true);
@@ -24,8 +25,13 @@ export function Login() {
   const desabilitarLogin = usuario.email === "" || usuario.senha === "";
   async function login() {
     try {
-      await api.checkLogin(usuario);
+      const { data } = await api.checkLogin(usuario);
       navigate("/home");
+
+      if (!data.user.id) {
+        return;
+      }
+      setIdUsuario(data.user.id);
     } catch (error) {
       Swal.fire({
         icon: "error",
