@@ -84,6 +84,25 @@ export function CadastroColaborador() {
             />
             <label className="floatingInput__label">Senha</label>
           </div>
+          {/* CRIEI UM NOOV CAMPO PARA CONFIRMAR A SENHA ----- INICIO */}
+          <div className="floatingInput">
+            <input
+              type="password"
+              /*id="senha-cadastrocolaborador"*/
+              className="floatingInput__control"
+              placeholder="Senha"
+              name="senha"
+              value={colaborador.senha || ""}
+              onChange={(e) =>
+                setColaborador({
+                  ...colaborador,
+                  [e.target.name]: e.target.value,
+                })
+              }
+            />
+            <label className="floatingInput__label">Confirmar senha</label>
+          </div>
+          {/* CRIEI UM NOOV CAMPO PARA CONFIRMAR A SENHA ----- FIM */}
           <div>
             <button
               className="bnt-cadastrocolaborador"

@@ -512,6 +512,18 @@ export function CadastroCliente() {
             />
             <label className="floatingInput__label">Senha</label>
           </div>
+          {/* CRIEI UM NOVO CAMPO DE CONFIRMAR SENHA ------ INICIOU  */}
+          <div className="floatingInput">
+            {/*Senha*/}
+            <input
+              type="password"
+              id="senha-cadastrocliente"
+              className="floatingInput__control"
+              placeholder="Senha"
+            />
+            <label className="floatingInput__label">Confirmar senha</label>
+          </div>
+          {/* CRIEI UM NOVO CAMPO DE CONFIRMAR SENHA ------ FIM  */}
         </section>
         <section className="formulario-btn">
           {" "}
