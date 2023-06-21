@@ -4,13 +4,14 @@ import * as api from "../../../../services/api";
 import Swal from "sweetalert2";
 import { ColaboradorListaProps } from "../../../../@types/Colaborador";
 import { useColaborador } from "../../../../hooks/useColaborador";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 interface CadastroProps {
   colaborador: ColaboradorListaProps;
 }
 
 export function Colaborador({ colaborador }: CadastroProps) {
   const { idColaborador, setIdColaborador } = useColaborador();
+  const navigate = useNavigate();
 
   async function excluirColaborador() {
     setIdColaborador(colaborador.id);
@@ -45,15 +46,27 @@ export function Colaborador({ colaborador }: CadastroProps) {
   function alterarColaborador() {
     setIdColaborador(colaborador.id);
     if (!idColaborador) {
+      Swal.fire({
+        icon: "error",
+        title: "Ops!",
+        text: "Não foi possivel carregar os dados do colaborador",
+      });
       return;
     }
+    navigate("/alterar-cadastro-colaborador");
   }
 
   function consultarColaborador() {
+    setIdColaborador(colaborador.id);
     if (!idColaborador) {
+      Swal.fire({
+        icon: "error",
+        title: "Ops!",
+        text: "Não foi possivel carregar os dados do colaborador",
+      });
       return;
     }
-    setIdColaborador(colaborador.id);
+    navigate("/consultar-colaborador");
   }
 
   return (
@@ -68,11 +81,9 @@ export function Colaborador({ colaborador }: CadastroProps) {
         <p>{colaborador.email}</p>
       </div>
       <div className="alterar">
-        <NavLink to="/alterar-cadastro-colaborador" style={{ all: "unset" }}>
-          <button onClick={alterarColaborador}>
-            <PencilSimple size={24} />
-          </button>
-        </NavLink>
+        <button onClick={alterarColaborador}>
+          <PencilSimple size={24} />
+        </button>
       </div>
       <div className="excluir">
         <button onClick={excluirColaborador}>
@@ -80,11 +91,9 @@ export function Colaborador({ colaborador }: CadastroProps) {
         </button>
       </div>
       <div className="consultar">
-        <NavLink to="/consultar-colaborador" style={{ all: "unset" }}>
-          <button onClick={consultarColaborador}>
-            <MagnifyingGlass size={24} />
-          </button>
-        </NavLink>
+        <button onClick={consultarColaborador}>
+          <MagnifyingGlass size={24} />
+        </button>
       </div>
     </div>
   );

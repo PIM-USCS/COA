@@ -8,7 +8,11 @@ import {
 } from "../@types/Client";
 // import { UsuarioProps } from "../@types/Usuario";
 import { EmpresaListaProps } from "../pages/Empresas";
-import { ColaboradorListaProps, ColaboradorProps } from "../@types/Colaborador";
+import {
+  AtuColaboradorProps,
+  ColaboradorListaProps,
+  ColaboradorProps,
+} from "../@types/Colaborador";
 import { AtuUsuario, UsuarioProps } from "../@types/Usuario";
 
 /*EMPRESA*/
@@ -60,6 +64,11 @@ const postCreateColaborador = (
   params: ColaboradorListaProps
 ): AxiosPromise<ColaboradorProps> => xhr.post(`colaborador/`, params);
 
+const postAtualizaColaborador = (
+  id: string,
+  params: AtuColaboradorProps
+): AxiosPromise<AtuColaboradorProps> => xhr.put(`colaborador/${id}`, params);
+
 /*COLABORADOR*/
 
 /*USUARIO*/
@@ -102,4 +111,5 @@ export {
   updateNome,
   getUsuarioById,
   postCreateUsuario,
+  postAtualizaColaborador,
 };

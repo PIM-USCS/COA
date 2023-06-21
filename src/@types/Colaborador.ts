@@ -10,3 +10,8 @@ export interface ColaboradorProps {
   email: string;
   senha: string;
 }
+
+export interface AtuColaboradorProps {
+  nome: string;
+  email: string;
+}

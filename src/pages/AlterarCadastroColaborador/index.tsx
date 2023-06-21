@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useColaborador } from "../../hooks/useColaborador";
 import "./styles.css";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as api from "../../services/api";
 import { useEffect, useState } from "react";
 
@@ -15,6 +15,8 @@ export function AlterarCadastroColaborador() {
   const [colaborador, setColaborador] = useState<ColaboradorProps>(
     {} as ColaboradorProps
   );
+  const navigate = useNavigate();
+
   const ConsultaColaborador = async () => {
     if (!idColaborador) {
       return;
@@ -31,6 +33,14 @@ export function AlterarCadastroColaborador() {
     ConsultaColaborador();
   }, [idColaborador]);
 
+  async function confirmarCadastro() {
+    await api.postAtualizaColaborador(idColaborador, {
+      nome: colaborador.nome.toString(),
+      email: colaborador.email.toString(),
+    });
+    navigate("/Home");
+  }
+
   return (
     <body className="alterarcadastrocolaborador">
       <main className="main-alterarcadastrocolaborador">
@@ -40,11 +50,10 @@ export function AlterarCadastroColaborador() {
           </h2>
         </header>
         <section>
-          <form className="form-alterarcadastrocolaborador">
+          <div className="form-alterarcadastrocolaborador">
             <div className="floatingInput">
               <input
                 type="text"
-                /*id="nome-cadastrocolaborador"*/
                 className="floatingInput__control"
                 placeholder="Nome"
                 name="nome"
@@ -61,7 +70,6 @@ export function AlterarCadastroColaborador() {
             <div className="floatingInput">
               <input
                 type="email"
-                /*id="email-cadastrocolaborador"*/
                 className="floatingInput__control"
                 placeholder="E-mail"
                 name="email"
@@ -76,16 +84,13 @@ export function AlterarCadastroColaborador() {
               <label className="floatingInput__label">Email</label>
             </div>
             <div>
-              <NavLink
-                to="/Home"
-                className="input-bnt-cadastrocolaborador"
-                style={{ textDecoration: "none" }}>
-                <button type="submit" className="bnt-cadastrocolaborador">
-                  Alterar
-                </button>
-              </NavLink>
+              <button
+                className="bnt-cadastrocolaborador"
+                onClick={confirmarCadastro}>
+                Alterar
+              </button>
             </div>
-          </form>
+          </div>
         </section>
       </main>
     </body>
