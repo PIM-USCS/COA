@@ -81,9 +81,9 @@ export function Home() {
                 <img src={Logo} alt="Logo" />
                 <h2>COA</h2>
               </button>
-              <button onClick={HabilitarSideBar} className="botao-sidebar">
+              {/* { <button onClick={HabilitarSideBar} className="botao-sidebar">
                 <List size={32} />
-              </button>
+              </button> } */}
             </div>
             <div className="div-header-direita">
               <button className="botao-usuario" onClick={HabilitarSubMenuUser}>
@@ -139,11 +139,11 @@ export function Home() {
           <div className="div-botoes">
             <button className="botao-dashboard">
               <Gauge size={32} weight="fill" />
-              Dashboard
+              <p>Dashboard</p>
             </button>
             <button className="botao-pages" onClick={HabilitarSubPaginas}>
               <FileText size={32} weight="fill" />
-              Páginas
+               <p>Páginas</p>  
               <CaretDown
                 size={16}
                 weight="bold"

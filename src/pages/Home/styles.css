@@ -1,10 +1,116 @@
-:root {
+ :root {
   --primary: #028a0f;
   --secondary: #191c24;
   --light: #6c7293;
   --dark: #000000;
 }
-.container-grid-home {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container-grid-home{
+  background-color: var(--dark);
+  height: 100%;
+}
+.div-header-home{
+  background-color:var(--secondary);
+  width: 100%;
+  padding: 10px;
+}
+.botao-home, .botao-usuario{
+  background-color: var(--secondary);
+  border: none;
+  display: flex;
+  align-items: center; 
+}
+.botao-home{
+  width: 200px;
+  justify-content: space-between;  
+}
+.botao-home h2{
+  font-size: 35px;
+  color: var(--primary)
+}
+.div-header{
+  display: flex;
+  justify-content: space-between;
+}
+.div-header-direita{
+  align-items: center;
+  width:125px;  
+}
+.div-header-home img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+.submenu-usuario{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: var(--secondary);
+}
+.submenu-usuario button{
+  background-color: transparent;
+  border:none;
+  padding: 10px;
+  font-size: 16px;
+  color: var(--light);
+}
+.submenu-usuario button:hover {
+  color: var(--primary);
+}
+
+.div-botoes{
+  background-color: var(--secondary);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 120px;
+  transition: .5s;
+  padding-top: 30px;    
+}
+.botao-dashboard, .botao-pages {
+  background-color: transparent;
+  border: none;
+  margin: 10px 0;
+  color: black;
+  font-size: 16px;
+  color: var(--light);
+}
+.div-botoes:hover {
+  max-width: 200px;
+}
+.div-botoes:hover .botao-dashboard p,.div-botoes:hover .botao-pages p {
+  display: flex;
+  justify-content: center;  
+} 
+.botao-secundario{
+  background-color: transparent;
+  padding: 5px 0;  
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  display: flex;
+  font-size: 16px;
+  color: var(--light);
+}
+.botao-dashboard:hover, .botao-pages:hover, .botao-secundario:hover{
+  color: var(--primary); 
+}
+
+
+
+
+
+
+
+
+
+/*.container-grid-home {
   display: flex;
   box-sizing: border-box;
   margin: 0;
@@ -40,7 +146,7 @@
 
 /* HEADER */
 
-.div-header {
+/*.div-header {
   display: flex;
   width: 100%;
   max-height: 80px;
@@ -139,7 +245,7 @@
 
 /*BARRA LATERAL*/
 
-.usuario-barra-lateral {
+/*.usuario-barra-lateral {
   width: 100%;
   background-color: var(--secondary);
   display: flex;
@@ -230,7 +336,7 @@
   padding-left: 42px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  border-left: 4px solid transparent;
+  border-left: 4px solid transparent;  
 }
 
 .botao-secundario:hover {
