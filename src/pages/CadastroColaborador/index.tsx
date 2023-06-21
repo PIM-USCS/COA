@@ -9,12 +9,21 @@ export function CadastroColaborador() {
   const [colaborador, setColaborador] = useState<ColaboradorProps>(
     {} as ColaboradorProps
   );
+  const [confirmarSenha, setConfirmarSenha] = useState("");
 
   const navigate = useNavigate();
 
-  function CadastrarColaborador() {
-    api.postCreateColaborador(colaborador);
-    api.postCreateUsuario(colaborador);
+  async function CadastrarColaborador() {
+    if (colaborador.senha !== confirmarSenha) {
+      Swal.fire({
+        icon: "error",
+        title: "As senhas não coincidem!",
+      });
+      return;
+    }
+
+    await api.postCreateColaborador(colaborador);
+    await api.postCreateUsuario(colaborador);
     Swal.fire({
       icon: "success",
       title: "Processo concluido!",
@@ -24,6 +33,15 @@ export function CadastroColaborador() {
         navigate(-1);
       },
     });
+  }
+
+  function verificarSenha() {
+    if (colaborador.senha !== confirmarSenha) {
+      Swal.fire({
+        icon: "error",
+        title: "As senhas não coincidem!",
+      });
+    }
   }
 
   return (
@@ -84,7 +102,6 @@ export function CadastroColaborador() {
             />
             <label className="floatingInput__label">Senha</label>
           </div>
-          {/* CRIEI UM NOOV CAMPO PARA CONFIRMAR A SENHA ----- INICIO */}
           <div className="floatingInput">
             <input
               type="password"
@@ -92,13 +109,9 @@ export function CadastroColaborador() {
               className="floatingInput__control"
               placeholder="Senha"
               name="senha"
-              value={colaborador.senha || ""}
-              onChange={(e) =>
-                setColaborador({
-                  ...colaborador,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={confirmarSenha || ""}
+              onChange={(e) => setConfirmarSenha(e.target.value)}
+              onBlur={verificarSenha}
             />
             <label className="floatingInput__label">Confirmar senha</label>
           </div>

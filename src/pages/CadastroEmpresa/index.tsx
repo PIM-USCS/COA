@@ -169,6 +169,7 @@ export function CadastroCliente() {
   async function cadastrarCliente() {
     await api.postCreateCliente(cliente);
   }
+
   return (
     <body className="cadastrocliente">
       <main className="main-cadastrarcliente">
@@ -191,8 +192,7 @@ export function CadastroCliente() {
             id="mySelect"
             className="option-pessoa"
             value={valorPessoa}
-            onChange={handleSelectChange}
-          >
+            onChange={handleSelectChange}>
             <option value="">Selecione</option>
             <option value="PF">Pessoa Física</option>
             <option value="PJ">Pessoa Jurídica</option>

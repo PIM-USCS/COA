@@ -30,7 +30,6 @@ export function Home() {
   const [isOpenEnviar, setIsOpenEnviar] = useState(false); /*Modal*/
   const [isOpenPages, setIsOpenPages] = useState(false);
   const [isOpenUser, setIisOpenUser] = useState(false);
-  const [isOpenSideBar, setIsOpenSideBar] = useState(true);
   const [usuarios, setUsuarios] = useState<UsuarioProps>({} as UsuarioProps);
   const { idUsuario } = useUsuario();
 
@@ -49,14 +48,13 @@ export function Home() {
       setIisOpenUser(false);
     }
   }
-  function HabilitarSideBar() {
-    setIsOpenSideBar(!isOpenSideBar);
-  }
+
   const ConsultaUsuario = async () => {
     if (!idUsuario) {
       return;
     }
     const { data } = await api.getUsuarioById(idUsuario);
+
     setUsuarios((prevState) => {
       return {
         ...prevState,
@@ -66,7 +64,8 @@ export function Home() {
   };
   useEffect(() => {
     ConsultaUsuario();
-  }, [idUsuario]);
+  }, []);
+
   return (
     <>
       <EnviarGuia
@@ -81,9 +80,6 @@ export function Home() {
                 <img src={Logo} alt="Logo" />
                 <h2>COA</h2>
               </button>
-              {/* { <button onClick={HabilitarSideBar} className="botao-sidebar">
-                <List size={32} />
-              </button> } */}
             </div>
             <div className="div-header-direita">
               <button className="botao-usuario" onClick={HabilitarSubMenuUser}>
@@ -128,7 +124,7 @@ export function Home() {
           </div>
         </header>
 
-        <section className={`div-sidenav-home ${isOpenSideBar ? "" : "hide"}`}>
+        <section className="div-sidenav-home">
           {/* Comentado apenas para teste visual <div className="usuario-barra-lateral">
             <img src={GuiBalbino} alt="Foto usuario" />
             <div>
@@ -143,13 +139,14 @@ export function Home() {
             </button>
             <button className="botao-pages" onClick={HabilitarSubPaginas}>
               <FileText size={32} weight="fill" />
-               <p>Páginas</p>  
+              <p>Páginas</p>
               <CaretDown
                 size={16}
                 weight="bold"
                 style={{
                   display: isOpenPages ? "none" : "flex",
-                  marginLeft: "12px",
+                  marginRight: "3px",
+                  marginTop: "8px",
                 }}
               />
               <CaretUp
@@ -157,7 +154,8 @@ export function Home() {
                 weight="bold"
                 style={{
                   display: isOpenPages ? "flex" : "none",
-                  marginLeft: "12px",
+                  marginRight: "3px",
+                  marginTop: "8px",
                 }}
               />
             </button>
