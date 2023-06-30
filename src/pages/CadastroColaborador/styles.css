@@ -100,3 +100,9 @@
   background-color: rgb(172, 8, 8);
   transition: 1s;
 }
+
+.bnt-cadastrocolaborador.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

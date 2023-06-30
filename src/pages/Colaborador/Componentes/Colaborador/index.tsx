@@ -4,7 +4,7 @@ import * as api from "../../../../services/api";
 import Swal from "sweetalert2";
 import { ColaboradorListaProps } from "../../../../@types/Colaborador";
 import { useColaborador } from "../../../../hooks/useColaborador";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 interface CadastroProps {
   colaborador: ColaboradorListaProps;
 }
@@ -42,6 +42,8 @@ export function Colaborador({ colaborador }: CadastroProps) {
       }
     });
   }
+
+  console.log(idColaborador);
 
   function alterarColaborador() {
     setIdColaborador(colaborador.id);

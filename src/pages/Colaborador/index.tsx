@@ -26,7 +26,7 @@ export function ColaboradorLista() {
   }, []);
 
   return (
-    <body className="container-geral-colaborador">
+    <main className="container-geral-colaborador">
       <header className="container-titulo-colaborador">
         <h1>Listagem de colaborador</h1>
       </header>
@@ -67,10 +67,10 @@ export function ColaboradorLista() {
           </div>
         ) : (
           colaborador.map((colaborador) => (
-            <Colaborador colaborador={colaborador} />
+            <Colaborador key={colaborador.id} colaborador={colaborador} />
           ))
         )}
       </div>
-    </body>
+    </main>
   );
 }

@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import "./styles.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import Logo from "../../img/COA linha/COA/default_transparent_765x625 recortada.png";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import { Eye, EyeSlash } from "phosphor-react";
@@ -12,7 +11,7 @@ import { useUsuario } from "../../hooks/useUsuario";
 export function Login() {
   const [visualizarSenha, setVisualizarSenha] = useState(false);
   const [usuario, setUsuario] = useState<UsuarioProps>({} as UsuarioProps);
-  const { idUsuario, setIdUsuario } = useUsuario();
+  const { setIdUsuario } = useUsuario();
   function esconderSenha() {
     if (visualizarSenha === false) {
       setVisualizarSenha(true);
@@ -44,15 +43,10 @@ export function Login() {
   return (
     <body className="login">
       <main className="main-login">
-        {/* FORMULARIO */}
         <header className="header-login">
-          {/* CABEÇALHO */}
           <h1>Login</h1>
         </header>
         <section>
-          {/*FORMULARIO*/}
-
-          {/* Email */}
           <div className="floatingInput">
             <input
               type="email"
@@ -70,8 +64,6 @@ export function Login() {
             />
             <label className="floatingInput__label">Login</label>
           </div>
-          {/* FIM Email */}
-          {/* SENHA */}
           <div className="floatingInput">
             <button className="esconder_senha" onClick={esconderSenha}>
               <EyeSlash
@@ -118,7 +110,8 @@ export function Login() {
               type="submit"
               className={`bnt-login ${desabilitarLogin ? "disabled" : ""}`}
               onClick={login}
-              disabled={desabilitarLogin}>
+              disabled={desabilitarLogin}
+            >
               login
             </button>
           </div>

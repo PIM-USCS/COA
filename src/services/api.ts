@@ -58,6 +58,9 @@ const getColaborador = (): AxiosPromise<ColaboradorListaProps[]> =>
 const getColaboradorByID = (id: string): AxiosPromise<ColaboradorProps> =>
   xhr.get(`colaborador/${id}`);
 
+const getColaboradorByEmail = (email: string): AxiosPromise<ColaboradorProps> =>
+  xhr.get(`colaborador/${email}`);
+
 const deleteColaborador = (id: string) => xhr.delete(`colaborador/${id}`);
 
 const postCreateColaborador = (
@@ -112,4 +115,5 @@ export {
   getUsuarioById,
   postCreateUsuario,
   postAtualizaColaborador,
+  getColaboradorByEmail,
 };

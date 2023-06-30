@@ -4,14 +4,39 @@ import { useNavigate } from "react-router-dom";
 import { ColaboradorProps } from "../../@types/Colaborador";
 import * as api from "../../services/api";
 import Swal from "sweetalert2";
+import { Eye, EyeSlash } from "phosphor-react";
 
 export function CadastroColaborador() {
   const [colaborador, setColaborador] = useState<ColaboradorProps>(
     {} as ColaboradorProps
   );
   const [confirmarSenha, setConfirmarSenha] = useState("");
-
+  const [visualizarSenha, setVisualizarSenha] = useState(false);
+  const [visualizarConfirmarSenha, setVisualizarConfirmarSenha] =
+    useState(false);
+  const desabilitarButtonCadastrar =
+    colaborador.email === "" ||
+    colaborador.senha === "" ||
+    confirmarSenha === "";
   const navigate = useNavigate();
+  //**Função para visualizar campos de senha
+  function esconderSenha() {
+    if (visualizarSenha === false) {
+      setVisualizarSenha(true);
+    }
+    if (visualizarSenha === true) {
+      setVisualizarSenha(false);
+    }
+  }
+  function esconderSenhaConfirmar() {
+    if (visualizarConfirmarSenha === false) {
+      setVisualizarConfirmarSenha(true);
+    }
+    if (visualizarConfirmarSenha === true) {
+      setVisualizarConfirmarSenha(false);
+    }
+  }
+  //**Função para visualizar campos de senha
 
   async function CadastrarColaborador() {
     if (colaborador.senha !== confirmarSenha) {
@@ -22,24 +47,24 @@ export function CadastroColaborador() {
       return;
     }
 
-    await api.postCreateColaborador(colaborador);
-    await api.postCreateUsuario(colaborador);
-    Swal.fire({
-      icon: "success",
-      title: "Processo concluido!",
-      text: "Colaborador cadastrado com sucesso!",
-      confirmButtonText: "OK",
-      preConfirm: () => {
-        navigate(-1);
-      },
-    });
-  }
-
-  function verificarSenha() {
-    if (colaborador.senha !== confirmarSenha) {
+    try {
+      await api.getColaboradorByEmail(colaborador.email);
       Swal.fire({
         icon: "error",
-        title: "As senhas não coincidem!",
+        title: "Oops!",
+        text: "Já existe um colaborador com este email!",
+      });
+    } catch (error) {
+      await api.postCreateColaborador(colaborador);
+      await api.postCreateUsuario(colaborador);
+      Swal.fire({
+        icon: "success",
+        title: "Processo concluido!",
+        text: "Colaborador cadastrado com sucesso!",
+        confirmButtonText: "OK",
+        preConfirm: () => {
+          navigate(-1);
+        },
       });
     }
   }
@@ -54,7 +79,6 @@ export function CadastroColaborador() {
           <div className="floatingInput">
             <input
               type="text"
-              /*id="nome-cadastrocolaborador"*/
               className="floatingInput__control"
               placeholder="Nome"
               name="nome"
@@ -71,7 +95,6 @@ export function CadastroColaborador() {
           <div className="floatingInput">
             <input
               type="email"
-              /*id="email-cadastrocolaborador"*/
               className="floatingInput__control"
               placeholder="E-mail"
               name="email"
@@ -86,9 +109,18 @@ export function CadastroColaborador() {
             <label className="floatingInput__label">Email</label>
           </div>
           <div className="floatingInput">
+            <button className="esconder_senha" onClick={esconderSenha}>
+              <EyeSlash
+                size={22}
+                style={{ display: visualizarSenha ? "flex" : "none" }}
+              />
+              <Eye
+                size={22}
+                style={{ display: visualizarSenha ? "none" : "flex" }}
+              />
+            </button>
             <input
-              type="password"
-              /*id="senha-cadastrocolaborador"*/
+              type={visualizarSenha ? "text" : "password"}
               className="floatingInput__control"
               placeholder="Senha"
               name="senha"
@@ -103,23 +135,34 @@ export function CadastroColaborador() {
             <label className="floatingInput__label">Senha</label>
           </div>
           <div className="floatingInput">
+            <button className="esconder_senha" onClick={esconderSenhaConfirmar}>
+              <EyeSlash
+                size={22}
+                style={{ display: visualizarConfirmarSenha ? "flex" : "none" }}
+              />
+              <Eye
+                size={22}
+                style={{ display: visualizarConfirmarSenha ? "none" : "flex" }}
+              />
+            </button>
             <input
-              type="password"
-              /*id="senha-cadastrocolaborador"*/
+              type={visualizarConfirmarSenha ? "text" : "password"}
               className="floatingInput__control"
               placeholder="Senha"
               name="senha"
               value={confirmarSenha || ""}
               onChange={(e) => setConfirmarSenha(e.target.value)}
-              onBlur={verificarSenha}
             />
             <label className="floatingInput__label">Confirmar senha</label>
           </div>
-          {/* CRIEI UM NOOV CAMPO PARA CONFIRMAR A SENHA ----- FIM */}
           <div>
             <button
-              className="bnt-cadastrocolaborador"
-              onClick={CadastrarColaborador}>
+              className={`bnt-cadastrocolaborador ${
+                desabilitarButtonCadastrar ? "disabled" : ""
+              }`}
+              onClick={CadastrarColaborador}
+              disabled={desabilitarButtonCadastrar}
+            >
               cadastrar
             </button>
           </div>
