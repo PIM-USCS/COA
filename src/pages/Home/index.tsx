@@ -9,17 +9,17 @@ import {
   FileText,
   CaretDown,
   CaretUp,
-  ChartLineUp,
+  // ChartLineUp,
   ChartBar,
-  File,
-  FolderOpen,
+  // File,
+  // FolderOpen,
   Buildings,
   UserCircle,
   Lock,
   Export,
   ArrowUDownLeft,
   PencilSimple,
-  List,
+  // List,
 } from "phosphor-react";
 import { EnviarGuia } from "./Componentes/EnviarGuia";
 import { UsuarioProps } from "../../@types/Usuario";
@@ -31,7 +31,7 @@ export function Home() {
   const [isOpenPages, setIsOpenPages] = useState(false);
   const [isOpenUser, setIisOpenUser] = useState(false);
   const [usuarios, setUsuarios] = useState<UsuarioProps>({} as UsuarioProps);
-  const { idUsuario } = useUsuario();
+  const { idUsuario, setIdUsuario } = useUsuario();
 
   function HabilitarSubPaginas() {
     if (isOpenPages === false) {
@@ -48,7 +48,9 @@ export function Home() {
       setIisOpenUser(false);
     }
   }
+  console.log(idUsuario);
 
+  //Função que faz carregar o nome do usuario
   const ConsultaUsuario = async () => {
     if (!idUsuario) {
       return;
@@ -62,9 +64,24 @@ export function Home() {
       };
     });
   };
+
   useEffect(() => {
     ConsultaUsuario();
+  }, [idUsuario]);
+  //Função que faz carregar o nome do usuario
+
+  //Armazena o ID do usuario para consulta do nome toda vez que a pagina recarrega
+  useEffect(() => {
+    const storedIdUsuario = localStorage.getItem("idUsuario");
+    if (storedIdUsuario) {
+      setIdUsuario(storedIdUsuario);
+    }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("idUsuario", idUsuario);
+  }, [idUsuario]);
+  //Armazena o ID do usuario para consulta do nome toda vez que a pagina recarrega
 
   return (
     <>
@@ -84,13 +101,14 @@ export function Home() {
             <div className="div-header-direita">
               <button className="botao-usuario" onClick={HabilitarSubMenuUser}>
                 <img src={GuiBalbino} alt="Foto usuario" />
-                <p>{usuarios.nome}</p>
+                <p className="nome-usuario">{usuarios.nome}</p>
               </button>
               <div
                 className="submenu-usuario"
                 style={{
                   display: isOpenUser ? "flex" : "none",
-                }}>
+                }}
+              >
                 <NavLink
                   to="/alterar-usuario"
                   style={{
@@ -99,7 +117,8 @@ export function Home() {
                     width: "100%",
                     display: "flex",
                     justifyContent: "center",
-                  }}>
+                  }}
+                >
                   <button>
                     <PencilSimple size={18} />
                     Editar perfil
@@ -113,7 +132,8 @@ export function Home() {
                     width: "100%",
                     display: "flex",
                     justifyContent: "center",
-                  }}>
+                  }}
+                >
                   <button>
                     <Lock size={18} />
                     Alterar senha
@@ -163,7 +183,8 @@ export function Home() {
             <NavLink to="/empresas" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 <Buildings size={24} />
                 Empresas
               </button>
@@ -171,7 +192,8 @@ export function Home() {
             <NavLink to="/colaborador" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 <UserCircle size={24} />
                 Colaborador
               </button>
@@ -180,20 +202,23 @@ export function Home() {
             <button
               onClick={() => setIsOpenEnviar(true)}
               className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}>
+              style={{ display: isOpenPages ? "flex" : "none" }}
+            >
               <Export size={24} />
               Enviar guias
             </button>
             <button
               className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}>
+              style={{ display: isOpenPages ? "flex" : "none" }}
+            >
               <ChartBar size={24} />
               Finanças
             </button>
             <NavLink to="/" style={{ textDecoration: "none" }}>
               <button
                 className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}>
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
                 <ArrowUDownLeft size={24} />
                 Deslogar
               </button>

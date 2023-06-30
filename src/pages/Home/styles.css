@@ -4,11 +4,7 @@
   --light: #6c7293;
   --dark: #000000;
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 .container-grid-home {
   background-color: var(--dark);
   height: 100%;
@@ -27,6 +23,14 @@
   gap: 8px;
   cursor: pointer;
 }
+.nome-usuario {
+  color: var(--light);
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.nome-usuario:hover {
+  color: var(--primary);
+}
 .botao-home {
   width: 200px;
   justify-content: space-between;
@@ -41,13 +45,11 @@
 }
 .div-header-direita {
   align-items: center;
-  width: 125px;
+  width: 280px;
   display: flex;
   justify-content: center;
 }
-.div-header-direita p {
-  color: white;
-}
+
 .div-header-home img {
   width: 100px;
   height: 100px;
@@ -59,7 +61,7 @@
   flex-direction: column;
   position: absolute;
   background-color: var(--secondary);
-  margin-top: 140px;
+  margin-top: 160px;
 }
 .submenu-usuario button {
   background-color: transparent;
@@ -130,8 +132,8 @@
 }
 
 .botao-usuario img {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 99px;
 }
 

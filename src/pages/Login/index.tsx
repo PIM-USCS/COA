@@ -11,7 +11,7 @@ import { useUsuario } from "../../hooks/useUsuario";
 export function Login() {
   const [visualizarSenha, setVisualizarSenha] = useState(false);
   const [usuario, setUsuario] = useState<UsuarioProps>({} as UsuarioProps);
-  const { setIdUsuario } = useUsuario();
+  const { idUsuario, setIdUsuario } = useUsuario();
   function esconderSenha() {
     if (visualizarSenha === false) {
       setVisualizarSenha(true);
@@ -21,7 +21,7 @@ export function Login() {
     }
   }
   const navigate = useNavigate();
-
+  console.log(idUsuario);
   const desabilitarLogin = !usuario.email || !usuario.senha;
   async function login() {
     try {
