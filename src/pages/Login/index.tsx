@@ -21,7 +21,8 @@ export function Login() {
     }
   }
   const navigate = useNavigate();
-  const desabilitarLogin = usuario.email === "" || usuario.senha === "";
+
+  const desabilitarLogin = !usuario.email || !usuario.senha;
   async function login() {
     try {
       const { data } = await api.checkLogin(usuario);
@@ -92,8 +93,6 @@ export function Login() {
 
             <label className="floatingInput__label">Senha</label>
           </div>
-          {/* FIM SENHA */}
-          {/* CHECKBOX + LEMBRAR SENHA */}
           <div className="checkbox-esquecisenha-login">
             <div className="checkbox-login">
               <input type="checkbox" id="checkbox1" className="" />
@@ -103,8 +102,6 @@ export function Login() {
               <a>Esqueci minha senha</a>
             </NavLink>
           </div>
-          {/* FIM CHECKBOX + LEMBRAR SENHA */}
-          {/* BOTÃO LOGIN*/}
           <div>
             <button
               type="submit"
@@ -115,7 +112,6 @@ export function Login() {
               login
             </button>
           </div>
-          {/* FIM BOTÃO LOGIN*/}
         </section>
       </main>
     </body>
