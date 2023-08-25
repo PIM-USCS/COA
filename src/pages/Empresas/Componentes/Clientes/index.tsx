@@ -76,9 +76,7 @@ export function Cliente({ empresa }: CadastroProps) {
       <div className="nome">
         <p>{empresa.nome}</p>
       </div>
-      <div className="pessoa">
-        <p>{empresa.tipo_cliente}</p>
-      </div>
+      <div className="pessoa">{/* <p>{empresa.tipo_cliente}</p> */}</div>
       <div className="cnpj-cpf">
         <p>{empresa.cnpj || empresa.cpf}</p>
       </div>

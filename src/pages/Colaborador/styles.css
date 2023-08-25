@@ -141,3 +141,13 @@
   color: var(--light);
   font-size: 32px;
 }
+
+.botao_return_colaborador {
+  all: unset;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.botao_return_colaborador:hover {
+  color: #028a0f;
+}

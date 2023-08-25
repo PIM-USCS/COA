@@ -1,22 +1,19 @@
-import { Buildings, UserCirclePlus, WarningCircle } from "phosphor-react";
+import { ArrowLeft, Buildings, WarningCircle } from "phosphor-react";
 import { Cliente } from "./Componentes/Clientes";
 import "./styles.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "../../services/api";
-import { ClienteProps } from "../../@types/Client";
 
 export interface EmpresaListaProps {
   id: string;
   cpf: string;
   cnpj: string;
   nome: string;
-  tipo_cliente: string;
 }
 export function EmpresaLista() {
   const [empresa, setEmpresa] = useState<EmpresaListaProps[]>([]);
-  const [clientes, setClientes] = useState<ClienteProps[]>([]);
-
+  const navigate = useNavigate();
   const getEmpresa = async () => {
     try {
       const { data } = await api.getEmpresa();
@@ -34,6 +31,9 @@ export function EmpresaLista() {
   return (
     <body className="container-geral">
       <header className="container-titulo">
+        <button className="botao_return_empresa" onClick={() => navigate(-1)}>
+          <ArrowLeft size={36} />
+        </button>
         <h1>Listagem de empresas</h1>
       </header>
 

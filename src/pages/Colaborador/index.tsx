@@ -2,14 +2,16 @@
 import { useEffect, useState } from "react";
 import { ColaboradorListaProps } from "../../@types/Colaborador";
 import { Colaborador } from "./Componentes/Colaborador";
+
 import "./styles.css";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as api from "../../services/api";
-import { IdentificationCard, WarningCircle } from "phosphor-react";
+import { ArrowLeft, IdentificationCard, WarningCircle } from "phosphor-react";
 
 export function ColaboradorLista() {
   const [colaborador, setColaborador] = useState<ColaboradorListaProps[]>([]);
+  const navigate = useNavigate();
 
   const getColaborador = async () => {
     try {
@@ -28,6 +30,12 @@ export function ColaboradorLista() {
   return (
     <main className="container-geral-colaborador">
       <header className="container-titulo-colaborador">
+        <button
+          className="botao_return_colaborador"
+          onClick={() => navigate(-1)}
+        >
+          <ArrowLeft size={36} />
+        </button>
         <h1>Listagem de colaborador</h1>
       </header>
 
