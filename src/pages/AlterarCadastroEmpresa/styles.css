@@ -1,14 +1,14 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  :root {
-    --primary: #028a0f;
-    --secondary: #191c24;
-    --light: #6c7293;
-    --dark: #000000;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary: #028a0f;
+  --secondary: #191c24;
+  --light: #6c7293;
+  --dark: #000000;
+}
 
 .alterarcadastrocliente {
   font-family: arial, sans-serif;
@@ -35,8 +35,7 @@
   display: flex;
   justify-content: right;
 }
-.ID{
- 
+.ID {
 }
 
 /*Distancia dos campos de preenchimento*/
@@ -99,7 +98,7 @@
   all: unset;
   margin-top: 12px;
   border-radius: 8px;
-  height: 60px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -115,5 +114,28 @@
 }
 .bnt-cadastrocliente:hover {
   background-color: rgb(172, 8, 8);
+  transition: 1s;
+}
+
+.bnt-cadastrocliente-abandonar {
+  all: unset;
+  margin-top: 12px;
+  border-radius: 8px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  background-color: rgb(172, 8, 8);
+  font-size: 16px;
+  flex-wrap: wrap;
+  font-family: "Opens-sans", sans-serif;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+  text-transform: uppercase;
+}
+.bnt-cadastrocliente-abandonar:hover {
+  background-color: var(--primary);
   transition: 1s;
 }

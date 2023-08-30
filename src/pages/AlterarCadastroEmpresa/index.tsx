@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useEmpresa } from "../../hooks/useEmpresa";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./styles.css";
 
 import * as api from "../../services/api";
@@ -23,6 +24,7 @@ interface EmpresaProps {
 export function AlterarCadastroCliente() {
   const { idEmpresa } = useEmpresa();
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
+  const navigate = useNavigate();
 
   async function alterarCliente() {
     await api.postAtualizaEmpresa(idEmpresa, {
@@ -402,6 +404,11 @@ export function AlterarCadastroCliente() {
           <div className="btn">
             <button className="bnt-cadastrocliente" onClick={alterarCliente}>
               editar
+            </button>
+            <button
+              className="bnt-cadastrocliente-abandonar"
+              onClick={() => navigate(-1)}>
+              abandonar alterações
             </button>
           </div>
         </section>

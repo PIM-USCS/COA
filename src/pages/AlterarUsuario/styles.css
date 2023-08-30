@@ -82,7 +82,7 @@
   all: unset;
   margin-top: 12px;
   border-radius: 5px;
-  height: 60px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-content: center;

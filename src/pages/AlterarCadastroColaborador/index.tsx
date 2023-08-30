@@ -89,6 +89,11 @@ export function AlterarCadastroColaborador() {
                 onClick={confirmarCadastro}>
                 Alterar
               </button>
+              <button
+                className="bnt-cadastrocolaborador-abandonar"
+                onClick={() => navigate(-1)}>
+                abandonar alterações
+              </button>
             </div>
           </div>
         </section>
