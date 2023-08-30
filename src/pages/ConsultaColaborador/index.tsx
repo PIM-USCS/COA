@@ -66,7 +66,7 @@ export function ConsultaColaborador() {
             </div>
             <div>
               <NavLink
-                to="/Colaborador"
+                to="/colaborador"
                 className="input-bnt-cadastrocolaborador"
                 style={{ textDecoration: "none" }}>
                 <button type="submit" className="bnt-cadastrocolaborador">

@@ -31,7 +31,9 @@ export function EmpresaLista() {
   return (
     <body className="container-geral">
       <header className="container-titulo">
-        <button className="botao_return_empresa" onClick={() => navigate(-1)}>
+        <button
+          className="botao_return_empresa"
+          onClick={() => navigate("/home")}>
           <ArrowLeft size={36} />
         </button>
         <h1>Listagem de empresas</h1>

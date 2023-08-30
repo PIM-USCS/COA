@@ -306,7 +306,7 @@ export function ConsultaCliente() {
           {/* Botão Salvar */}
           <div className="btn">
             <NavLink
-              to="/Clientes"
+              to="/empresas"
               className="input-bnt-cadastrocliente"
               style={{ textDecoration: "none" }}>
               <button className="bnt-cadastrocliente">Voltar</button>

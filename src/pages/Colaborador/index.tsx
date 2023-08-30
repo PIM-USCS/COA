@@ -32,8 +32,7 @@ export function ColaboradorLista() {
       <header className="container-titulo-colaborador">
         <button
           className="botao_return_colaborador"
-          onClick={() => navigate(-1)}
-        >
+          onClick={() => navigate("/home")}>
           <ArrowLeft size={36} />
         </button>
         <h1>Listagem de colaborador</h1>
