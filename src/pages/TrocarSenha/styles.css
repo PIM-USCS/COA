@@ -1,66 +1,57 @@
-/** {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 :root {
-  --preto: #000000;
-  --icones: #234b45;
-  --texto: #126339;
-  --formulario: #118b56;
-  --botao: #118c40;
-  --branco: #ffffff;
+  --primary: #028a0f;
+  --secondary: #191c24;
+  --light: #6c7293;
+  --dark: #000000;
 }
-/*body*/
-/*.trocarsenha {
+.trocarsenha {
   font-family: arial, sans-serif;
-  background-image: radial-gradient(circle, #118b56 35%, #234b45, #000000);
-  font-size: 14px;
+  background-color: var(--dark);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+
 }
-/*formulario*/
-/*.main {
-  background-color: transparent;
-  border-radius: 20px;
-  text-align: center;
-  padding: 2rem 4rem 2rem 4rem;
-  box-shadow: 0 0 56px #000000;
-  width: 35rem;
-  border: 1px solid black;
+.main-trocarsenha {
+  background-color: var(--secondary);
+  padding: 50px;
+  min-width: 450px;
 }
-/*Sumario*/
-/*.header-trocarsenha {
-  text-align: right;
-  color: white;
+.header-trocarsenha {
   display: flex;
-  justify-content: space-between;
-  text-align: center;
-  margin-bottom: 2rem;
+  justify-content: right;
+  color: white;
 }
-/*Campo de preenchimento*/
-/*.form-trocarsenha {
-  height: 28rem; /*Espaço entre os campos*/
-  /*display: flex;
+
+.form-trocarsenha {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 2rem;
+  margin: 25px 0px 0px 0px;
 }
 .floatingInput {
   position: relative;
 }
 .floatingInput__control {
-  background-color: white;
-  color: black;
-  border-radius: 20px;
-  height: 4.3rem;
+  background-color: var(--dark);
+  color: var(--light);
+  border-radius: 5px;
+  height: 70px;
   width: 98%;
   text-transform: uppercase;
   border: transparent;
+  font-size: 15px;
+  margin: 0px 0px 25px 0px;
 }
+
 .floatingInput__control::placeholder {
   opacity: 0;
 }
@@ -70,7 +61,7 @@
   font-size: 1.3rem;
 }
 .floatingInput__label {
-  color: black;
+  color: var(--light);
   position: absolute;
   top: 50%;
   left: 20px;
@@ -79,27 +70,40 @@
   text-transform: uppercase;
   font-size: 15px;
 }
-/*Botão de login/salvar*/
-/*.btn {
-  text-transform: uppercase;
-  font-size: 18px;
-  font-weight: bold;
-  width: 100%;
-  border-radius: 20px;
-  background-color: var(--botao);
-  height: 4.3rem;
-  border: transparent;
+
+/*botão salvar*/
+.input-bnt-cadastrocolaborador {
+  color: var(--light);
+  margin-top: 8px;
 }
-.btn:hover {
-  color: var(--branco);
-  background-color: var(--preto);
+.input-bnt-cadastrocolaborador::placeholder {
+  color: var(--light);
 }
-/*Checkbox*/
-.checkbox {
+.bnt-cadastrocolaborador {
+  all: unset;
+  margin-top: 12px;
+  border-radius: 5px;
+  height: 40px;
   display: flex;
+  justify-content: center;
+  align-content: center;
   text-align: center;
-  margin-top: 3rem;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 2rem;
+  background-color: var(--primary);
+  font-size: 16px;
+  flex-wrap: wrap;
+  font-family: "Opens-sans", sans-serif;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+  text-transform: uppercase;
+}
+.bnt-cadastrocolaborador:hover {
+  background-color: rgb(172, 8, 8);
+  transition: 1s;
+}
+
+.bnt-cadastrocolaborador.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }

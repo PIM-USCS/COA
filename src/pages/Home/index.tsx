@@ -19,6 +19,7 @@ import {
   Export,
   ArrowUDownLeft,
   PencilSimple,
+  LockSimple,
   // List,
 } from "phosphor-react";
 import { EnviarGuia } from "./Componentes/EnviarGuia";
@@ -198,6 +199,15 @@ export function Home() {
                 Colaborador
               </button>
             </NavLink>
+            <NavLink to="/trocar-senha" style={{ textDecoration: "none" }}>
+              <button
+                className="botao-secundario"
+                style={{ display: isOpenPages ? "flex" : "none" }}
+              >
+                <LockSimple size={24} />
+                Trocar Senha
+              </button>
+            </NavLink>
 
             <button
               onClick={() => setIsOpenEnviar(true)}
@@ -224,40 +234,7 @@ export function Home() {
               </button>
             </NavLink>
           </div>
-        </section>
-        {/* <article className="div-content-home">
-          <div className="div-guias">
-            <div className="guias">
-              <ChartLineUp size={48} weight="bold" />
-              <div>
-                <h3>Guias próximo mês</h3>
-                <span>01</span>
-              </div>
-            </div>
-            <div className="guias">
-              <ChartBar size={48} weight="fill" />
-              <div>
-                <h3>Guias em aberto</h3>
-                <span>01</span>
-              </div>
-            </div>
-            <div className="guias">
-              <File size={48} weight="fill" />
-              <div>
-                <h3>Guias em análise</h3>
-                <span>01</span>
-              </div>
-            </div>
-
-            <div className="guias">
-              <FolderOpen size={48} weight="fill" />
-              <div>
-                <h3>Guias retornadas</h3>
-                <span>01</span>
-              </div>
-            </div>
-          </div>
-        </article> */}
+        </section>          
       </body>
     </>
   );

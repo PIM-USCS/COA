@@ -3,7 +3,7 @@ import "./styles.css";
 export function TrocarSenha() {
   return (
     <body className="trocarsenha">
-      <main className="main">
+      <main className="main-trocarsenha">
         <header className="header-trocarsenha">
           <h1>Alterar Senha</h1>
           <img
