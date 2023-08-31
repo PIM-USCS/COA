@@ -146,13 +146,6 @@ export function Home() {
         </header>
 
         <section className="div-sidenav-home">
-          {/* Comentado apenas para teste visual <div className="usuario-barra-lateral">
-            <img src={GuiBalbino} alt="Foto usuario" />
-            <div>
-              <p>Guilherme Balbino</p>
-              <span>Administrador</span>
-            </div>
-          </div> Comentado apenas para teste visual*/}
           <div className="div-botoes">
             <button className="botao-dashboard">
               <Gauge size={32} weight="fill" />
@@ -234,7 +227,11 @@ export function Home() {
               </button>
             </NavLink>
           </div>
+<<<<<<< HEAD
         </section>          
+=======
+        </section>
+>>>>>>> 79a8a5cffa1c3341eef1e8e9e0aa5d80f86b0734
       </body>
     </>
   );
