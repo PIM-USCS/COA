@@ -5,14 +5,6 @@ import Logo from "../../img/logo sem fundo.png";
 import { NavLink } from "react-router-dom";
 import GuiBalbino from "../../img/GuiBalbinoFT.jpeg";
 import {
-  Gauge,
-  FileText,
-  CaretDown,
-  CaretUp,
-  // ChartLineUp,
-  ChartBar,
-  // File,
-  // FolderOpen,
   Buildings,
   UserCircle,
   Lock,
@@ -20,7 +12,6 @@ import {
   ArrowUDownLeft,
   PencilSimple,
   LockSimple,
-  // List,
 } from "phosphor-react";
 import { EnviarGuia } from "./Componentes/EnviarGuia";
 import { UsuarioProps } from "../../@types/Usuario";
@@ -29,18 +20,9 @@ import * as api from "../../services/api";
 
 export function Home() {
   const [isOpenEnviar, setIsOpenEnviar] = useState(false); /*Modal*/
-  const [isOpenPages, setIsOpenPages] = useState(false);
   const [isOpenUser, setIisOpenUser] = useState(false);
   const [usuarios, setUsuarios] = useState<UsuarioProps>({} as UsuarioProps);
   const { idUsuario, setIdUsuario } = useUsuario();
-
-  function HabilitarSubPaginas() {
-    if (isOpenPages === false) {
-      setIsOpenPages(true);
-    } else {
-      setIsOpenPages(false);
-    }
-  }
 
   function HabilitarSubMenuUser() {
     if (isOpenUser === false) {
@@ -49,7 +31,6 @@ export function Home() {
       setIisOpenUser(false);
     }
   }
-  console.log(idUsuario);
 
   //Função que faz carregar o nome do usuario
   const ConsultaUsuario = async () => {
@@ -108,8 +89,7 @@ export function Home() {
                 className="submenu-usuario"
                 style={{
                   display: isOpenUser ? "flex" : "none",
-                }}
-              >
+                }}>
                 <NavLink
                   to="/alterar-usuario"
                   style={{
@@ -118,8 +98,7 @@ export function Home() {
                     width: "100%",
                     display: "flex",
                     justifyContent: "center",
-                  }}
-                >
+                  }}>
                   <button>
                     <PencilSimple size={18} />
                     Editar perfil
@@ -133,8 +112,7 @@ export function Home() {
                     width: "100%",
                     display: "flex",
                     justifyContent: "center",
-                  }}
-                >
+                  }}>
                   <button>
                     <Lock size={18} />
                     Alterar senha
@@ -144,88 +122,48 @@ export function Home() {
             </div>
           </div>
         </header>
-
         <section className="div-sidenav-home">
-          <div className="div-botoes">
-            <button className="botao-dashboard">
-              <Gauge size={32} weight="fill" />
-              <p>Dashboard</p>
-            </button>
-            <button className="botao-pages" onClick={HabilitarSubPaginas}>
-              <FileText size={32} weight="fill" />
-              <p>Páginas</p>
-              <CaretDown
-                size={16}
-                weight="bold"
-                style={{
-                  display: isOpenPages ? "none" : "flex",
-                  marginRight: "3px",
-                  marginTop: "8px",
-                }}
-              />
-              <CaretUp
-                size={16}
-                weight="bold"
-                style={{
-                  display: isOpenPages ? "flex" : "none",
-                  marginRight: "3px",
-                  marginTop: "8px",
-                }}
-              />
-            </button>
-
-            <NavLink to="/empresas" style={{ textDecoration: "none" }}>
+          <div className="separador-home">
+            <div className="div-botoes">
+              <NavLink to="/empresas" style={{ textDecoration: "none" }}>
+                <button className="botao-secundario">
+                  <Buildings size={30} />
+                  Empresas
+                </button>
+              </NavLink>
+            </div>
+            <div className="div-botoes">
+              <NavLink to="/colaborador" style={{ textDecoration: "none" }}>
+                <button className="botao-secundario">
+                  <UserCircle size={30} />
+                  Colaboradores
+                </button>
+              </NavLink>
+            </div>
+            <div className="div-botoes">
               <button
-                className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}
-              >
-                <Buildings size={24} />
-                Empresas
+                onClick={() => setIsOpenEnviar(true)}
+                className="botao-secundario">
+                <Export size={30} />
+                Enviar guias
               </button>
-            </NavLink>
-            <NavLink to="/colaborador" style={{ textDecoration: "none" }}>
-              <button
-                className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}
-              >
-                <UserCircle size={24} />
-                Colaborador
-              </button>
-            </NavLink>
-            <NavLink to="/trocar-senha" style={{ textDecoration: "none" }}>
-              <button
-                className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}
-              >
-                <LockSimple size={24} />
-                Trocar Senha
-              </button>
-            </NavLink>
-
-            <button
-              onClick={() => setIsOpenEnviar(true)}
-              className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}
-            >
-              <Export size={24} />
-              Enviar guias
-            </button>
-            <button
-              className="botao-secundario"
-              style={{ display: isOpenPages ? "flex" : "none" }}
-            >
-              <ChartBar size={24} />
-              Finanças
-            </button>
-            <NavLink to="/" style={{ textDecoration: "none" }}>
-              <button
-                className="botao-secundario"
-                style={{ display: isOpenPages ? "flex" : "none" }}
-              >
-                <ArrowUDownLeft size={24} />
-                Deslogar
-              </button>
-            </NavLink>
+            </div>
+            <div className="div-botoes">
+              <NavLink to="/trocar-senha" style={{ textDecoration: "none" }}>
+                <button className="botao-secundario">
+                  <LockSimple size={30} />
+                  Trocar Senha
+                </button>
+              </NavLink>
+            </div>
+            <div className="div-botoes">
+              <NavLink to="/" style={{ textDecoration: "none" }}>
+                <button className="botao-secundario">
+                  <ArrowUDownLeft size={30} />
+                  Deslogar
+                </button>
+              </NavLink>
+            </div>
           </div>
         </section>
       </body>
