@@ -104,7 +104,7 @@
   background-color: rgb(172, 8, 8);
   transition: 1s;
 }
-
+/*botao abandonar */
 .bnt-cadastrocolaborador-abandonar {
   all: unset;
   margin-top: 12px;

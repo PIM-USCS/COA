@@ -227,11 +227,7 @@ export function Home() {
               </button>
             </NavLink>
           </div>
-<<<<<<< HEAD
-        </section>          
-=======
         </section>
->>>>>>> 79a8a5cffa1c3341eef1e8e9e0aa5d80f86b0734
       </body>
     </>
   );

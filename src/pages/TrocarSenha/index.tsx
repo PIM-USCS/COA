@@ -1,17 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
+
 export function TrocarSenha() {
+
+  const navigate = useNavigate();
   return (
     <body className="trocarsenha">
       <main className="main-trocarsenha">
         <header className="header-trocarsenha">
           <h1>Alterar Senha</h1>
-          <img
-            src="../img/COA linha/COA/favicon_1000x1000 recortada.png"
-            width="70rem"
-            height="70rem"
-            alt=""
-          />
+
         </header>
         <form>
           {/*  floatingInput  */}
@@ -47,12 +46,15 @@ export function TrocarSenha() {
                 Confirmar Nova Senha
               </label>
             </div>
-            <div className="btn">
-              <a href="">
-                <button type="submit" className="btn">
-                  Salvar
-                </button>
-              </a>
+            <div className="">
+              <button type="submit" className="bnt-trocarsenha">
+                Alterar
+              </button>
+              <button
+                className="bnt-trocarsenha-abandonar"
+                onClick={() => navigate("/home")}>
+                abandonar alterações
+              </button>
             </div>
           </section>
         </form>
