@@ -145,13 +145,6 @@ export function Home() {
         </header>
 
         <section className="div-sidenav-home">
-          {/* Comentado apenas para teste visual <div className="usuario-barra-lateral">
-            <img src={GuiBalbino} alt="Foto usuario" />
-            <div>
-              <p>Guilherme Balbino</p>
-              <span>Administrador</span>
-            </div>
-          </div> Comentado apenas para teste visual*/}
           <div className="div-botoes">
             <button className="botao-dashboard">
               <Gauge size={32} weight="fill" />
@@ -225,39 +218,6 @@ export function Home() {
             </NavLink>
           </div>
         </section>
-        {/* <article className="div-content-home">
-          <div className="div-guias">
-            <div className="guias">
-              <ChartLineUp size={48} weight="bold" />
-              <div>
-                <h3>Guias próximo mês</h3>
-                <span>01</span>
-              </div>
-            </div>
-            <div className="guias">
-              <ChartBar size={48} weight="fill" />
-              <div>
-                <h3>Guias em aberto</h3>
-                <span>01</span>
-              </div>
-            </div>
-            <div className="guias">
-              <File size={48} weight="fill" />
-              <div>
-                <h3>Guias em análise</h3>
-                <span>01</span>
-              </div>
-            </div>
-
-            <div className="guias">
-              <FolderOpen size={48} weight="fill" />
-              <div>
-                <h3>Guias retornadas</h3>
-                <span>01</span>
-              </div>
-            </div>
-          </div>
-        </article> */}
       </body>
     </>
   );
