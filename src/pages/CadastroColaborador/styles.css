@@ -20,6 +20,7 @@
 }
 .main-cadastrocolaborador {
   background-color: var(--secondary);
+  height: 100%;
   padding: 50px;
   min-width: 450px;
 }
