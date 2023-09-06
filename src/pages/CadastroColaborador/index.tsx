@@ -5,19 +5,20 @@ import { ColaboradorProps } from "../../@types/Colaborador";
 import * as api from "../../services/api";
 import Swal from "sweetalert2";
 import { Eye, EyeSlash } from "phosphor-react";
+import { UsuarioProps } from "../../@types/Usuario";
 
 export function CadastroColaborador() {
   const [colaborador, setColaborador] = useState<ColaboradorProps>(
     {} as ColaboradorProps
   );
+  const [usuario, setUsuario] = useState<UsuarioProps>({} as UsuarioProps);
   const [confirmarSenha, setConfirmarSenha] = useState("");
   const [visualizarSenha, setVisualizarSenha] = useState(false);
   const [visualizarConfirmarSenha, setVisualizarConfirmarSenha] =
     useState(false);
+
   const desabilitarButtonCadastrar =
-    colaborador.email === "" ||
-    colaborador.senha === "" ||
-    confirmarSenha === "";
+    usuario.email === "" || usuario.senha === "" || confirmarSenha === "";
   const navigate = useNavigate();
   //**Função para visualizar campos de senha
   function esconderSenha() {
@@ -39,7 +40,33 @@ export function CadastroColaborador() {
   //**Função para visualizar campos de senha
 
   async function CadastrarColaborador() {
-    if (colaborador.senha !== confirmarSenha) {
+    try {
+      await api.postCreateColaborador(colaborador);
+    } catch (error) {
+      Swal.fire({
+        title: "Erro",
+        text: "Não foi possivel cadastrar o colaborador",
+      });
+    }
+  }
+
+  async function CadastrarUsuario() {
+    try {
+      const params = {
+        ...usuario,
+        tipo_usuario: "1",
+      };
+      await api.postCreateUsuario(params);
+    } catch (error) {
+      Swal.fire({
+        title: "Erro",
+        text: "Não foi possivel cadastrar o usuário",
+      });
+    }
+  }
+
+  function Cadastrar() {
+    if (usuario.senha !== confirmarSenha) {
       Swal.fire({
         icon: "error",
         title: "As senhas não coincidem!",
@@ -47,26 +74,15 @@ export function CadastroColaborador() {
       return;
     }
 
-    try {
-      await api.getColaboradorByEmail(colaborador.email);
-      Swal.fire({
-        icon: "error",
-        title: "Oops!",
-        text: "Já existe um colaborador com este email!",
-      });
-    } catch (error) {
-      await api.postCreateColaborador(colaborador);
-      await api.postCreateUsuario(colaborador);
-      Swal.fire({
-        icon: "success",
-        title: "Processo concluido!",
-        text: "Colaborador cadastrado com sucesso!",
-        confirmButtonText: "OK",
-        preConfirm: () => {
-          navigate(-1);
-        },
-      });
-    }
+    CadastrarColaborador();
+    CadastrarUsuario();
+    Swal.fire({
+      icon: "success",
+      title: "Colaborador cadastrado com sucesso!",
+      preConfirm: () => {
+        navigate(-1);
+      },
+    });
   }
 
   return (
@@ -94,11 +110,11 @@ export function CadastroColaborador() {
           </div>
           <div className="floatingInput">
             <input
-              type="email"
+              type="text"
               className="floatingInput__control"
-              placeholder="E-mail"
-              name="email"
-              value={colaborador.email || ""}
+              placeholder="Telefone"
+              name="telefone"
+              value={colaborador.telefone || ""}
               onChange={(e) =>
                 setColaborador({
                   ...colaborador,
@@ -106,66 +122,94 @@ export function CadastroColaborador() {
                 })
               }
             />
-            <label className="floatingInput__label">Email</label>
+            <label className="floatingInput__label">Telefone</label>
           </div>
-          <div className="floatingInput">
-            <button className="esconder_senha" onClick={esconderSenha}>
-              <EyeSlash
-                size={22}
-                style={{ display: visualizarSenha ? "flex" : "none" }}
+          <section className="formulario-login-colaborador">
+            <h2>Login</h2>
+            <br />
+            <hr />
+            <br />
+            <div className="floatingInput">
+              <input
+                type="email"
+                className="floatingInput__control"
+                placeholder="E-mail"
+                name="email"
+                value={usuario.email || ""}
+                onChange={(e) =>
+                  setUsuario({
+                    ...usuario,
+                    [e.target.name]: e.target.value,
+                  })
+                }
               />
-              <Eye
-                size={22}
-                style={{ display: visualizarSenha ? "none" : "flex" }}
+
+              <label className="floatingInput__label">Email</label>
+            </div>
+            <div className="floatingInput">
+              <button className="esconder_senha" onClick={esconderSenha}>
+                <EyeSlash
+                  size={22}
+                  style={{ display: visualizarSenha ? "flex" : "none" }}
+                />
+                <Eye
+                  size={22}
+                  style={{ display: visualizarSenha ? "none" : "flex" }}
+                />
+              </button>
+              <input
+                type={visualizarSenha ? "text" : "password"}
+                className="floatingInput__control"
+                placeholder="Senha"
+                name="senha"
+                value={usuario.senha || ""}
+                onChange={(e) =>
+                  setUsuario({
+                    ...usuario,
+                    [e.target.name]: e.target.value,
+                  })
+                }
               />
-            </button>
-            <input
-              type={visualizarSenha ? "text" : "password"}
-              className="floatingInput__control"
-              placeholder="Senha"
-              name="senha"
-              value={colaborador.senha || ""}
-              onChange={(e) =>
-                setColaborador({
-                  ...colaborador,
-                  [e.target.name]: e.target.value,
-                })
-              }
-            />
-            <label className="floatingInput__label">Senha</label>
-          </div>
-          <div className="floatingInput">
-            <button className="esconder_senha" onClick={esconderSenhaConfirmar}>
-              <EyeSlash
-                size={22}
-                style={{ display: visualizarConfirmarSenha ? "flex" : "none" }}
+              <label className="floatingInput__label">Senha</label>
+            </div>
+            <div className="floatingInput">
+              <button
+                className="esconder_senha"
+                onClick={esconderSenhaConfirmar}>
+                <EyeSlash
+                  size={22}
+                  style={{
+                    display: visualizarConfirmarSenha ? "flex" : "none",
+                  }}
+                />
+                <Eye
+                  size={22}
+                  style={{
+                    display: visualizarConfirmarSenha ? "none" : "flex",
+                  }}
+                />
+              </button>
+              <input
+                type={visualizarConfirmarSenha ? "text" : "password"}
+                className="floatingInput__control"
+                placeholder="Senha"
+                name="senha"
+                value={confirmarSenha || ""}
+                onChange={(e) => setConfirmarSenha(e.target.value)}
               />
-              <Eye
-                size={22}
-                style={{ display: visualizarConfirmarSenha ? "none" : "flex" }}
-              />
-            </button>
-            <input
-              type={visualizarConfirmarSenha ? "text" : "password"}
-              className="floatingInput__control"
-              placeholder="Senha"
-              name="senha"
-              value={confirmarSenha || ""}
-              onChange={(e) => setConfirmarSenha(e.target.value)}
-            />
-            <label className="floatingInput__label">Confirmar senha</label>
-          </div>
-          <div>
-            <button
-              className={`bnt-cadastrocolaborador ${
-                desabilitarButtonCadastrar ? "disabled" : ""
-              }`}
-              onClick={CadastrarColaborador}
-              disabled={desabilitarButtonCadastrar}
-            >
-              cadastrar
-            </button>
-          </div>
+              <label className="floatingInput__label">Confirmar senha</label>
+            </div>
+            <div>
+              <button
+                className={`bnt-cadastrocolaborador ${
+                  desabilitarButtonCadastrar ? "disabled" : ""
+                }`}
+                onClick={Cadastrar}
+                disabled={desabilitarButtonCadastrar}>
+                cadastrar
+              </button>
+            </div>
+          </section>
         </section>
       </main>
     </body>

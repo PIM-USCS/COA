@@ -27,6 +27,7 @@
   display: flex;
   justify-content: right;
   color: white;
+  margin-bottom: 20px;
 }
 
 .form-cadastrocolaborador {
@@ -104,4 +105,12 @@
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+.formulario-login-colaborador {
+  margin: 25px 0px 50px 0px;
+}
+
+.formulario-login-colaborador h2 {
+  color: white;
 }

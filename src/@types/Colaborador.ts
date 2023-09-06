@@ -1,17 +1,16 @@
 export interface ColaboradorListaProps {
   id: string;
   nome: string;
-  email: string;
+  telefone: string;
 }
 
 export interface ColaboradorProps {
   id: string;
   nome: string;
-  email: string;
-  senha: string;
+  telefone: string;
 }
 
 export interface AtuColaboradorProps {
   nome: string;
-  email: string;
+  telefone: string;
 }

@@ -79,7 +79,7 @@ export function Colaborador({ colaborador }: CadastroProps) {
         <p>{colaborador.nome}</p>
       </div>
       <div className="pessoa">
-        <p>{colaborador.email}</p>
+        <p>{colaborador.telefone}</p>
       </div>
       <div className="alterar">
         <button onClick={alterarColaborador}>

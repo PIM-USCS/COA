@@ -7,8 +7,7 @@ import * as api from "../../services/api";
 
 interface ColaboradorProps {
   nome: string;
-  email: string;
-  senha: string;
+  telefone: string;
 }
 
 export function ConsultaColaborador() {
@@ -25,8 +24,7 @@ export function ConsultaColaborador() {
     setColaborador({
       ...colaborador,
       nome: data.nome,
-      email: data.email,
-      senha: data.senha,
+      telefone: data.telefone,
     });
   };
   useEffect(() => {
@@ -55,14 +53,14 @@ export function ConsultaColaborador() {
             </div>
             <div className="floatingInput">
               <input
-                type="email"
+                type="telefone"
                 /*id="email-cadastrocolaborador"*/
                 className="floatingInput__control"
-                placeholder="E-mail"
-                value={colaborador.email || ""}
+                placeholder="Telefone"
+                value={colaborador.telefone || ""}
                 readOnly
               />
-              <label className="floatingInput__label">Email</label>
+              <label className="floatingInput__label">Telefone</label>
             </div>
             <div>
               <NavLink

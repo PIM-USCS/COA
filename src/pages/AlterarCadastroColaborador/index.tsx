@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 
 interface ColaboradorProps {
   nome: string;
-  email: string;
-  senha: string;
+  telefone: string;
 }
 export function AlterarCadastroColaborador() {
   const { idColaborador } = useColaborador();
@@ -26,7 +25,7 @@ export function AlterarCadastroColaborador() {
     setColaborador({
       ...colaborador,
       nome: data.nome,
-      email: data.email,
+      telefone: data.telefone,
     });
   };
   useEffect(() => {
@@ -36,7 +35,7 @@ export function AlterarCadastroColaborador() {
   async function confirmarCadastro() {
     await api.postAtualizaColaborador(idColaborador, {
       nome: colaborador.nome.toString(),
-      email: colaborador.email.toString(),
+      telefone: colaborador.telefone.toString(),
     });
     navigate("/Home");
   }
@@ -69,11 +68,11 @@ export function AlterarCadastroColaborador() {
             </div>
             <div className="floatingInput">
               <input
-                type="email"
+                type="telefone"
                 className="floatingInput__control"
-                placeholder="E-mail"
-                name="email"
-                value={colaborador.email || ""}
+                placeholder="Telefone"
+                name="telefone"
+                value={colaborador.telefone || ""}
                 onChange={(e) =>
                   setColaborador({
                     ...colaborador,
