@@ -59,14 +59,6 @@ export function Colaborador({ colaborador }: CadastroProps) {
 
   function consultarColaborador() {
     setIdColaborador(colaborador.id);
-    if (!idColaborador) {
-      Swal.fire({
-        icon: "error",
-        title: "Ops!",
-        text: "Não foi possivel carregar os dados do colaborador",
-      });
-      return;
-    }
     navigate("/consultar-colaborador");
   }
 

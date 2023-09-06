@@ -54,7 +54,7 @@ export function ColaboradorLista() {
           <p>Nome</p>
         </div>
         <div className="div-pessoa-colaborador">
-          <p>Email</p>
+          <p>Telefone</p>
         </div>
         <div className="div-alterar-colaborador">
           <p>Alterar</p>

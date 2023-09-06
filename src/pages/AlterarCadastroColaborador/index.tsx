@@ -4,6 +4,7 @@ import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import * as api from "../../services/api";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 interface ColaboradorProps {
   nome: string;
@@ -28,18 +29,24 @@ export function AlterarCadastroColaborador() {
       telefone: data.telefone,
     });
   };
-  useEffect(() => {
-    ConsultaColaborador();
-  }, [idColaborador]);
 
   async function confirmarCadastro() {
     await api.postAtualizaColaborador(idColaborador, {
       nome: colaborador.nome.toString(),
       telefone: colaborador.telefone.toString(),
     });
-    navigate("/Home");
+    Swal.fire({
+      icon: "success",
+      title: "Cadastro atualizado com sucesso!",
+      preConfirm: () => {
+        navigate(-1);
+      },
+    });
   }
 
+  useEffect(() => {
+    ConsultaColaborador();
+  }, []);
   return (
     <body className="alterarcadastrocolaborador">
       <main className="main-alterarcadastrocolaborador">
