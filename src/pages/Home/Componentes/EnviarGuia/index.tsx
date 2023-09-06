@@ -30,8 +30,6 @@ export function EnviarGuia({ isOpenEnviar, setIsOpenEnviar }: Open) {
         icon: "error",
         title: "Oops...",
         text: "Não foi possivel localizar o cliente com o ID informado",
-        color: "gray",
-        background: "black",
       });
     }
   }

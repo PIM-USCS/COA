@@ -66,8 +66,6 @@ export function CadastroCliente() {
       Swal.fire({
         icon: "error",
         title: "O CEP não pode ser menor que 8 caracteres",
-        color: "gray",
-        background: "black",
       });
       return;
     }
@@ -76,8 +74,6 @@ export function CadastroCliente() {
       Swal.fire({
         icon: "error",
         title: "O CEP não pode ser maior que 8 caracteres",
-        color: "gray",
-        background: "black",
       });
       return;
     }
@@ -96,8 +92,6 @@ export function CadastroCliente() {
       Swal.fire({
         icon: "error",
         title: "O CEP digitado não foi localizado!",
-        color: "gray",
-        background: "black",
       });
     }
   };

@@ -107,8 +107,7 @@ export function Login() {
               type="submit"
               className={`bnt-login ${desabilitarLogin ? "disabled" : ""}`}
               onClick={login}
-              disabled={desabilitarLogin}
-            >
+              disabled={desabilitarLogin}>
               login
             </button>
           </div>
