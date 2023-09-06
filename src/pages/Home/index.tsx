@@ -42,7 +42,7 @@ export function Home() {
     setUsuarios((prevState) => {
       return {
         ...prevState,
-        nome: data.nome,
+        nome: data.email,
       };
     });
   };
