@@ -8,10 +8,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { ClienteProps } from "../../../../@types/Client";
 interface CadastroProps {
   empresa: EmpresaListaProps;
-  // cliente: ClienteProps;
+  cliente: ClienteProps;
 }
 
-export function Cliente({ empresa }: CadastroProps) {
+export function Cliente({ empresa, cliente }: CadastroProps) {
   const { idEmpresa, setIdEmpresa, idCliente, setIdCliente } = useEmpresa();
 
   async function excluirCliente() {
@@ -46,7 +46,7 @@ export function Cliente({ empresa }: CadastroProps) {
 
   function alterarCliente() {
     setIdEmpresa(empresa.id);
-    // setIdCliente(cliente.id);
+    setIdCliente(empresa.id);
 
     if (!idEmpresa) {
       return;
@@ -59,7 +59,7 @@ export function Cliente({ empresa }: CadastroProps) {
 
   function consultarCliente() {
     setIdEmpresa(empresa.id);
-    // setIdCliente(cliente.id);
+    setIdCliente(empresa.id);
     if (!idEmpresa) {
       return;
     }

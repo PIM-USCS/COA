@@ -21,7 +21,7 @@ export function Login() {
     }
   }
   const navigate = useNavigate();
-  console.log(idUsuario);
+
   const desabilitarLogin = !usuario.email || !usuario.senha;
   async function login() {
     try {

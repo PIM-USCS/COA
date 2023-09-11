@@ -8,7 +8,7 @@ import { AlterarCadastroCliente } from "./pages/AlterarCadastroEmpresa";
 import { AlterarCadastroColaborador } from "./pages/AlterarCadastroColaborador";
 import { EmpresaLista } from "./pages/Empresas";
 import { ColaboradorLista } from "./pages/Colaborador";
-import { ConsultaCliente } from "./pages/ConsultarCliente";
+import { ConsultaCliente } from "./pages/ConsultarEmpresa";
 import { ConsultaColaborador } from "./pages/ConsultaColaborador";
 import { AlterarUsuario } from "./pages/AlterarUsuario";
 

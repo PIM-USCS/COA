@@ -1,6 +1,7 @@
 import xhr from "./xhr";
 import { AxiosPromise } from "axios";
 import {
+  AtuCliente,
   AtuEmpresa,
   ClienteProps,
   EmpresaProps,
@@ -47,8 +48,13 @@ const postCreateCliente = (
   id_empresa: string
 ): AxiosPromise<ClienteProps> => xhr.post(`clientes/${id_empresa}`, params);
 
-const getClienteById = (id: string): AxiosPromise<ClienteProps> =>
-  xhr.get(`clientes/${id}`);
+const getClienteByEmpresa = (id_empresa: string): AxiosPromise<ClienteProps> =>
+  xhr.get(`clientes/${id_empresa}`);
+
+const postAtualizaCliente = (
+  id_empresa: string,
+  params: AtuCliente
+): AxiosPromise<AtuCliente> => xhr.put(`clientes/${id_empresa}`, params);
 
 /*CLIENTES*/
 
@@ -111,11 +117,12 @@ export {
   postAtualizaEmpresa,
   getColaboradorByID,
   postCreateCliente,
-  getClienteById,
+  getClienteByEmpresa,
   checkLogin,
   updateNome,
   getUsuarioById,
   postCreateUsuario,
   postAtualizaColaborador,
   getColaboradorByEmail,
+  postAtualizaCliente,
 };

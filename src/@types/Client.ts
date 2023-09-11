@@ -50,3 +50,11 @@ export interface ClienteProps {
   telefone: string;
   id_empresa: string;
 }
+
+export interface AtuCliente {
+  cpf: string;
+  rg: string;
+  nome: string;
+  email: string;
+  telefone: string;
+}

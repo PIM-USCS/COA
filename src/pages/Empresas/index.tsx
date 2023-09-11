@@ -4,6 +4,7 @@ import "./styles.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "../../services/api";
+import { ClienteProps } from "../../@types/Client";
 
 export interface EmpresaListaProps {
   id: string;
@@ -13,6 +14,7 @@ export interface EmpresaListaProps {
 }
 export function EmpresaLista() {
   const [empresa, setEmpresa] = useState<EmpresaListaProps[]>([]);
+  const [cliente] = useState<ClienteProps>({} as ClienteProps);
   const navigate = useNavigate();
   const getEmpresa = async () => {
     try {
@@ -77,7 +79,9 @@ export function EmpresaLista() {
             <p>Nenhuma empresa cadastrada!</p>
           </div>
         ) : (
-          empresa.map((empresa) => <Cliente empresa={empresa} />)
+          empresa.map((empresa) => (
+            <Cliente empresa={empresa} cliente={cliente} />
+          ))
         )}
       </div>
     </body>
