@@ -96,59 +96,20 @@ export function CadastroCliente() {
     }
   };
 
-  function finalizarCadastro() {
-    if (valorPessoa === "PF") {
-      if (!empresa.cpf) {
-        Swal.fire({
-          icon: "error",
-          title: "O campo do CPF é obrigatório!",
-        });
-      }
-    }
-    if (valorPessoa === "PJ") {
-      if (!empresa.cnpj) {
-        Swal.fire({
-          icon: "error",
-          title: "O campo do CNPJ é obrigatório!",
-        });
-      }
-    }
-    if (!empresa.cep) {
-      Swal.fire({
-        icon: "error",
-        title: "O campo do CEP é obrigatório!",
-      });
-    }
-    if (!empresa.rua) {
-      Swal.fire({
-        icon: "error",
-        title: "O campo Rua é obrigatório!",
-      });
-    }
-    if (!empresa.cidade) {
-      Swal.fire({
-        icon: "error",
-        title: "O campo Cidade é obrigatório!",
-      });
-    }
-    if (!empresa.uf) {
-      Swal.fire({
-        icon: "error",
-        title: "O campo UF é obrigatório!",
-      });
-    }
-    if (!empresa.bairro) {
-      Swal.fire({
-        icon: "error",
-        title: "O campo Bairro é obrigatório!",
-      });
-    } else {
-      cadastrarEmpresa();
-      cadastrarCliente();
+  async function finalizarCadastro() {
+    try {
+      const responseEmpresa = await api.postCreateEmpresa(empresa);
+      const empresaId: string = responseEmpresa.data.id;
+
+      setEmpresa({ ...empresa, id: empresaId });
+
+      await cadastrarCliente(empresaId);
+    } catch (error) {
+      console.error(error);
+    } finally {
       Swal.fire({
         icon: "success",
-        title: "Empresa cadastrada com sucesso!",
-        confirmButtonText: "OK",
+        title: "Cadastro concluído com sucesso!",
         preConfirm: () => {
           navigate(-1);
         },
@@ -156,12 +117,8 @@ export function CadastroCliente() {
     }
   }
 
-  async function cadastrarEmpresa() {
-    await api.postCreateEmpresa(empresa);
-  }
-
-  async function cadastrarCliente() {
-    await api.postCreateCliente(cliente);
+  async function cadastrarCliente(empresaId: string) {
+    await api.postCreateCliente(cliente, empresaId);
   }
 
   return (

@@ -48,4 +48,5 @@ export interface ClienteProps {
   nome: string;
   email: string;
   telefone: string;
+  id_empresa: string;
 }
