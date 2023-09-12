@@ -5,6 +5,8 @@ import { useState } from "react";
 import * as api from "../../services/api";
 import Swal from "sweetalert2";
 import { ClienteProps } from "../../@types/Client";
+import { UsuarioProps } from "../../@types/Usuario";
+import { Eye, EyeSlash } from "phosphor-react";
 
 export interface EmpresaProps {
   id: string;
@@ -27,6 +29,11 @@ export interface EmpresaProps {
 export function CadastroCliente() {
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
   const [cliente, setCliente] = useState<ClienteProps>({} as ClienteProps);
+  const [usuario, setUsuario] = useState<UsuarioProps>({} as UsuarioProps);
+  const [confirmarSenha, setConfirmarSenha] = useState("");
+  const [visualizarSenha, setVisualizarSenha] = useState(false);
+  const [visualizarConfirmarSenha, setVisualizarConfirmarSenha] =
+    useState(false);
   const [valorPessoa, setvalorPessoa] = useState("");
   const navigate = useNavigate();
 
@@ -36,6 +43,22 @@ export function CadastroCliente() {
     setvalorPessoa(value);
   }
 
+  function esconderSenha() {
+    if (visualizarSenha === false) {
+      setVisualizarSenha(true);
+    }
+    if (visualizarSenha === true) {
+      setVisualizarSenha(false);
+    }
+  }
+  function esconderSenhaConfirmar() {
+    if (visualizarConfirmarSenha === false) {
+      setVisualizarConfirmarSenha(true);
+    }
+    if (visualizarConfirmarSenha === true) {
+      setVisualizarConfirmarSenha(false);
+    }
+  }
   async function consultaCliente() {
     if (valorPessoa === "PF") {
       const { data } = await api.getClientByCpf(empresa.cpf);
@@ -58,7 +81,6 @@ export function CadastroCliente() {
       }
     }
   }
-
   const ConsultaCEP = async (event: any) => {
     const cep = event.target.value;
 
@@ -95,15 +117,15 @@ export function CadastroCliente() {
       });
     }
   };
-
   async function finalizarCadastro() {
     try {
       const responseEmpresa = await api.postCreateEmpresa(empresa);
       const empresaId: string = responseEmpresa.data.id;
 
+      console.log(empresaId);
       setEmpresa({ ...empresa, id: empresaId });
-
       await cadastrarCliente(empresaId);
+      await cadastrarUsuario(empresaId);
     } catch (error) {
       console.error(error);
     } finally {
@@ -116,9 +138,16 @@ export function CadastroCliente() {
       });
     }
   }
-
   async function cadastrarCliente(empresaId: string) {
     await api.postCreateCliente(cliente, empresaId);
+  }
+  async function cadastrarUsuario(empresaId: string) {
+    const params = {
+      ...usuario,
+      tipo_usuario: "1",
+      empresaId,
+    };
+    await api.postCreateUsuario(params);
   }
 
   return (
@@ -129,15 +158,10 @@ export function CadastroCliente() {
         </header>
 
         <section className="formulario-empresa">
-          {" "}
-          {/* Empresa */}
           <h2>Empresa</h2>
           <br />
           <hr />
           <br />
-          {/* <!-- floatingInput --> */}
-          {/* <!-- floatingInput__control --> */}
-          {/* <!-- floatingInput__label --> */}
           <select
             name="mySelect"
             id="mySelect"
@@ -149,10 +173,8 @@ export function CadastroCliente() {
             <option value="PJ">Pessoa Jurídica</option>
           </select>
           <div className="floatingInput">
-            {/*CNPJ/CPF*/}
             <input
               type="text"
-              /*id="cnpj-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="CNPJ/CPF"
               name="cnpj"
@@ -168,11 +190,8 @@ export function CadastroCliente() {
             <label className="floatingInput__label">CNPJ/CPF</label>
           </div>
           <div className="floatingInput">
-            {" "}
-            {/*Razao social*/}
             <input
               type="text"
-              /*id="razaosocial-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="Razão social"
               name="nome"
@@ -187,10 +206,8 @@ export function CadastroCliente() {
             <label className="floatingInput__label">Razão social</label>
           </div>
           <div className="floatingInput">
-            {/*CEP*/}
             <input
               type="text"
-              /*id="cep-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="CEP"
               name="cep"
@@ -206,10 +223,8 @@ export function CadastroCliente() {
             <label className="floatingInput__label">CEP</label>
           </div>
           <div className="floatingInput">
-            {/*RUA*/}
             <input
               type="text"
-              /*id="rua-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="Rua"
               name="rua"
@@ -224,10 +239,8 @@ export function CadastroCliente() {
             <label className="floatingInput__label">Rua</label>
           </div>
           <div className="floatingInput">
-            {/*CIDADE*/}
             <input
               type="text"
-              /*id="cidade-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="Cidade"
               name="cidade"
@@ -242,10 +255,8 @@ export function CadastroCliente() {
             <label className="floatingInput__label">Cidade</label>
           </div>
           <div className="floatingInput">
-            {/*UF*/}
             <input
               type="text"
-              /*id="uf-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="UF"
               name="uf"
@@ -260,10 +271,8 @@ export function CadastroCliente() {
             <label className="floatingInput__label">UF</label>
           </div>
           <div className="floatingInput">
-            {/*BAIRRO*/}
             <input
               type="Bairro"
-              /*id="bairro-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="Bairro"
               name="bairro"
@@ -278,10 +287,8 @@ export function CadastroCliente() {
             <label className="floatingInput__label">Bairro</label>
           </div>
           <div className="floatingInput">
-            {/*NUMERO*/}
             <input
               type="text"
-              /*id="numero-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="Numero"
               name="numero"
@@ -296,10 +303,8 @@ export function CadastroCliente() {
             <label className="floatingInput__label">Numero</label>
           </div>
           <div className="floatingInput">
-            {/*COMPLEMENTO*/}
             <input
               type="text"
-              /*id="complemento-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="Complemento"
               name="complemento"
@@ -314,10 +319,8 @@ export function CadastroCliente() {
             <label className="floatingInput__label">Complemento</label>
           </div>
           <div className="floatingInput">
-            {/*INSCRICAO ESTADUAL */}
             <input
               type="text"
-              /*id="incricaoestadual-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="Inscrição Estadual"
               name="ie"
@@ -332,10 +335,8 @@ export function CadastroCliente() {
             <label className="floatingInput__label">Inscrição Estadual</label>
           </div>
           <div className="floatingInput">
-            {/*Contador responsavel*/}
             <input
               type="text"
-              /*id="email"*/
               className="floatingInput__control"
               placeholder="Contador responsavel"
             />
@@ -437,48 +438,81 @@ export function CadastroCliente() {
           </div>
         </section>
         <section className="formulario-login">
-          {" "}
-          {/* Login */}
           <h2>Login</h2>
           <br />
           <hr />
           <br />
           <div className="floatingInput">
-            {/*Email-login*/}
             <input
               type="email"
-              /*id="email-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="E-mail de login"
+              name="email"
+              value={usuario.email || ""}
+              onChange={(e) =>
+                setUsuario({
+                  ...usuario,
+                  [e.target.name]: e.target.value,
+                })
+              }
             />
             <label className="floatingInput__label">Login</label>
           </div>
           <div className="floatingInput">
-            {/*Senha*/}
+            <button className="esconder_senha" onClick={esconderSenha}>
+              <EyeSlash
+                size={22}
+                style={{ display: visualizarSenha ? "flex" : "none" }}
+              />
+              <Eye
+                size={22}
+                style={{ display: visualizarSenha ? "none" : "flex" }}
+              />
+            </button>
             <input
-              type="password"
               id="senha-cadastrocliente"
+              type={visualizarSenha ? "text" : "password"}
               className="floatingInput__control"
               placeholder="Senha"
+              name="senha"
+              value={usuario.senha || ""}
+              onChange={(e) =>
+                setUsuario({
+                  ...usuario,
+                  [e.target.name]: e.target.value,
+                })
+              }
             />
             <label className="floatingInput__label">Senha</label>
           </div>
-          {/* CRIEI UM NOVO CAMPO DE CONFIRMAR SENHA ------ INICIOU  */}
           <div className="floatingInput">
-            {/*Senha*/}
+            <button className="esconder_senha" onClick={esconderSenhaConfirmar}>
+              <EyeSlash
+                size={22}
+                style={{
+                  display: visualizarConfirmarSenha ? "flex" : "none",
+                }}
+              />
+              <Eye
+                size={22}
+                style={{
+                  display: visualizarConfirmarSenha ? "none" : "flex",
+                }}
+              />
+            </button>
             <input
-              type="password"
+              type={visualizarConfirmarSenha ? "text" : "password"}
               id="senha-cadastrocliente"
               className="floatingInput__control"
               placeholder="Senha"
+              name="senha"
+              value={confirmarSenha || ""}
+              onChange={(e) => setConfirmarSenha(e.target.value)}
             />
             <label className="floatingInput__label">Confirmar senha</label>
           </div>
-          {/* CRIEI UM NOVO CAMPO DE CONFIRMAR SENHA ------ FIM  */}
         </section>
         <section className="formulario-btn">
-          {" "}
-          {/* Botão Salvar */}
           <div className="btn">
             <button className="bnt-cadastrocliente" onClick={finalizarCadastro}>
               Cadastrar
