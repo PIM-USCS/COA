@@ -196,8 +196,8 @@ export function CadastroCliente() {
               type="text"
               className="floatingInput__control"
               placeholder="CNPJ/CPF"
-              name="cnpj"
-              value={empresa.cnpj || ""}
+              name={empresa.tipo_cliente === "PF" ? "cpf" : "cnpj"}
+              value={empresa.tipo_cliente === "PF" ? empresa.cpf : empresa.cnpj}
               onChange={(e) =>
                 setEmpresa({
                   ...empresa,
@@ -207,6 +207,22 @@ export function CadastroCliente() {
               onBlur={consultaCliente}
             />
             <label className="floatingInput__label">CNPJ/CPF</label>
+          </div>
+          <div className="floatingInput">
+            <input
+              type="text"
+              className="floatingInput__control"
+              placeholder="Inscrição Estadual"
+              name="ie"
+              value={empresa.ie || ""}
+              onChange={(e) =>
+                setEmpresa({
+                  ...empresa,
+                  [e.target.name]: e.target.value,
+                })
+              }
+            />
+            <label className="floatingInput__label">Inscrição Estadual</label>
           </div>
           <div className="floatingInput">
             <input
@@ -222,6 +238,7 @@ export function CadastroCliente() {
                 })
               }
             />
+
             <label className="floatingInput__label">Razão social</label>
           </div>
           <div className="floatingInput">
@@ -337,22 +354,7 @@ export function CadastroCliente() {
             />
             <label className="floatingInput__label">Complemento</label>
           </div>
-          <div className="floatingInput">
-            <input
-              type="text"
-              className="floatingInput__control"
-              placeholder="Inscrição Estadual"
-              name="ie"
-              value={empresa.ie || ""}
-              onChange={(e) =>
-                setEmpresa({
-                  ...empresa,
-                  [e.target.name]: e.target.value,
-                })
-              }
-            />
-            <label className="floatingInput__label">Inscrição Estadual</label>
-          </div>
+
           <div className="floatingInput">
             <input
               type="text"
@@ -377,6 +379,14 @@ export function CadastroCliente() {
               /*id="cpf-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="CPF"
+              name="cpf"
+              value={cliente.cpf || ""}
+              onChange={(e) =>
+                setCliente({
+                  ...cliente,
+                  [e.target.name]: e.target.value,
+                })
+              }
             />
             <label className="floatingInput__label">CPF</label>
           </div>
