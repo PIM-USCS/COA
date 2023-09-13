@@ -39,22 +39,40 @@ export function CadastroColaborador() {
   }
   //**Função para visualizar campos de senha
 
-  async function CadastrarColaborador() {
-    try {
-      await api.postCreateColaborador(colaborador);
-    } catch (error) {
+  async function finalizarCadastro() {
+    if (usuario.senha !== confirmarSenha) {
       Swal.fire({
-        title: "Erro",
-        text: "Não foi possivel cadastrar o colaborador",
+        icon: "error",
+        title: "As senhas não coincidem!",
+      });
+      return;
+    }
+    try {
+      const responseColaborador = await api.postCreateColaborador(colaborador);
+      const colaboradorId: string = responseColaborador.data.id;
+
+      setColaborador({ ...colaborador, id: colaboradorId });
+
+      await cadastrarUsuario(colaboradorId);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      Swal.fire({
+        icon: "success",
+        title: "Cadastro concluído com sucesso!",
+        preConfirm: () => {
+          navigate(-1);
+        },
       });
     }
   }
 
-  async function CadastrarUsuario() {
+  async function cadastrarUsuario(colaboradorId: string) {
     try {
       const params = {
         ...usuario,
         tipo_usuario: "1",
+        id_colaborador: colaboradorId.toString(),
       };
       await api.postCreateUsuario(params);
     } catch (error) {
@@ -63,26 +81,6 @@ export function CadastroColaborador() {
         text: "Não foi possivel cadastrar o usuário",
       });
     }
-  }
-
-  function Cadastrar() {
-    if (usuario.senha !== confirmarSenha) {
-      Swal.fire({
-        icon: "error",
-        title: "As senhas não coincidem!",
-      });
-      return;
-    }
-
-    CadastrarColaborador();
-    CadastrarUsuario();
-    Swal.fire({
-      icon: "success",
-      title: "Colaborador cadastrado com sucesso!",
-      preConfirm: () => {
-        navigate(-1);
-      },
-    });
   }
 
   return (
@@ -204,7 +202,7 @@ export function CadastroColaborador() {
                 className={`bnt-cadastrocolaborador ${
                   desabilitarButtonCadastrar ? "disabled" : ""
                 }`}
-                onClick={Cadastrar}
+                onClick={finalizarCadastro}
                 disabled={desabilitarButtonCadastrar}>
                 cadastrar
               </button>

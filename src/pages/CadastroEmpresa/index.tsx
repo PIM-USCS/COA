@@ -150,8 +150,6 @@ export function CadastroCliente() {
     await api.postCreateUsuario(params);
   }
 
-  console.log(usuario);
-
   return (
     <body className="cadastrocliente">
       <main className="main-cadastrarcliente">
