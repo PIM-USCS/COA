@@ -43,6 +43,7 @@ export function Home() {
       return {
         ...prevState,
         nome: data.email,
+        tipo_usuario: data.tipo_usuario,
       };
     });
   };
@@ -124,7 +125,11 @@ export function Home() {
         </header>
         <section className="div-sidenav-home">
           <div className="separador-home">
-            <div className="div-botoes">
+            <div
+              className="div-botoes"
+              style={{
+                display: usuarios.tipo_usuario !== "1" ? "none" : "flex",
+              }}>
               <NavLink to="/empresas" style={{ textDecoration: "none" }}>
                 <button className="botao-secundario">
                   <Buildings size={30} />
@@ -132,7 +137,11 @@ export function Home() {
                 </button>
               </NavLink>
             </div>
-            <div className="div-botoes">
+            <div
+              className="div-botoes"
+              style={{
+                display: usuarios.tipo_usuario !== "1" ? "none" : "flex",
+              }}>
               <NavLink to="/colaborador" style={{ textDecoration: "none" }}>
                 <button className="botao-secundario">
                   <UserCircle size={30} />

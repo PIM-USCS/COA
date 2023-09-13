@@ -4,6 +4,7 @@ export interface UsuarioProps {
   senha: string;
   nome?: string;
   id_empresa?: string;
+  id_colaborador?: string;
   tipo_usuario?: string;
   user?: {
     id: string;

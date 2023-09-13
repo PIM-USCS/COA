@@ -122,7 +122,6 @@ export function CadastroCliente() {
       const responseEmpresa = await api.postCreateEmpresa(empresa);
       const empresaId: string = responseEmpresa.data.id;
 
-      console.log(empresaId);
       setEmpresa({ ...empresa, id: empresaId });
       await cadastrarCliente(empresaId);
       await cadastrarUsuario(empresaId);
@@ -144,11 +143,14 @@ export function CadastroCliente() {
   async function cadastrarUsuario(empresaId: string) {
     const params = {
       ...usuario,
-      tipo_usuario: "1",
-      empresaId,
+      tipo_usuario: "3",
+      id_empresa: empresaId.toString(),
     };
+
     await api.postCreateUsuario(params);
   }
+
+  console.log(usuario);
 
   return (
     <body className="cadastrocliente">

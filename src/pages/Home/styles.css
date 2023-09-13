@@ -15,6 +15,7 @@
   background-color: var(--secondary);
   width: 100%;
   padding: 10px;
+  position: absolute;
 }
 .botao-home,
 .botao-usuario {
@@ -119,6 +120,7 @@
   justify-content: space-between;
   row-gap: 32px;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .div-botoes {
