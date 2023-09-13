@@ -40,6 +40,13 @@ export function CadastroColaborador() {
   //**Função para visualizar campos de senha
 
   async function finalizarCadastro() {
+    if (!usuario.tipo_usuario) {
+      Swal.fire({
+        icon: "error",
+        title: "Selecione o tipo de usuário!",
+      });
+      return;
+    }
     if (usuario.senha !== confirmarSenha) {
       Swal.fire({
         icon: "error",
@@ -71,7 +78,6 @@ export function CadastroColaborador() {
     try {
       const params = {
         ...usuario,
-        tipo_usuario: "1",
         id_colaborador: colaboradorId.toString(),
       };
       await api.postCreateUsuario(params);
@@ -127,6 +133,35 @@ export function CadastroColaborador() {
             <br />
             <hr />
             <br />
+
+            <div className="tipo-usuario">
+              <div className="div-tipo-usuario">
+                <input
+                  type="radio"
+                  name="tipo-usuario"
+                  className="input-tipo-usuario"
+                  value="1"
+                  checked={usuario.tipo_usuario === "1"}
+                  onChange={() => setUsuario({ ...usuario, tipo_usuario: "1" })}
+                />
+                <label htmlFor="tipo-usuario" className="label-tipo-usuario">
+                  Administrador
+                </label>
+              </div>
+              <div className="div-tipo-usuario">
+                <input
+                  type="radio"
+                  name="tipo-usuario"
+                  className="input-tipo-usuario"
+                  value="2"
+                  checked={usuario.tipo_usuario === "2"}
+                  onChange={() => setUsuario({ ...usuario, tipo_usuario: "2" })}
+                />
+                <label htmlFor="tipo-usuario" className="label-tipo-usuario">
+                  Colaborador
+                </label>
+              </div>
+            </div>
             <div className="floatingInput">
               <input
                 type="email"

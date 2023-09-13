@@ -1,5 +1,4 @@
 import "./styles.css";
-// import Logo from "../../img/COA linha/COA/favicon_1000x1000 recortada.png";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import * as api from "../../services/api";
@@ -34,14 +33,8 @@ export function CadastroCliente() {
   const [visualizarSenha, setVisualizarSenha] = useState(false);
   const [visualizarConfirmarSenha, setVisualizarConfirmarSenha] =
     useState(false);
-  const [valorPessoa, setvalorPessoa] = useState("");
-  const navigate = useNavigate();
 
-  function handleSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
-    const value = event.target.value;
-    setEmpresa((prevEmpresa) => ({ ...prevEmpresa, tipo_cliente: value }));
-    setvalorPessoa(value);
-  }
+  const navigate = useNavigate();
 
   function esconderSenha() {
     if (visualizarSenha === false) {
@@ -60,7 +53,7 @@ export function CadastroCliente() {
     }
   }
   async function consultaCliente() {
-    if (valorPessoa === "PF") {
+    if (empresa.tipo_cliente === "PF") {
       const { data } = await api.getClientByCpf(empresa.cpf);
       if (data) {
         Swal.fire({
@@ -70,7 +63,7 @@ export function CadastroCliente() {
       }
     }
 
-    if (valorPessoa === "PJ") {
+    if (empresa.tipo_cliente === "PJ") {
       const { data } = await api.getClientByCNPJ(empresa.cnpj);
 
       if (data) {
@@ -118,6 +111,13 @@ export function CadastroCliente() {
     }
   };
   async function finalizarCadastro() {
+    if (!empresa.tipo_cliente) {
+      Swal.fire({
+        icon: "warning",
+        title: "Selecione o tipo de pessoa!",
+      });
+      return;
+    }
     try {
       const responseEmpresa = await api.postCreateEmpresa(empresa);
       const empresaId: string = responseEmpresa.data.id;
@@ -162,16 +162,35 @@ export function CadastroCliente() {
           <br />
           <hr />
           <br />
-          <select
-            name="mySelect"
-            id="mySelect"
-            className="option-pessoa"
-            value={valorPessoa}
-            onChange={handleSelectChange}>
-            <option value="">Selecione</option>
-            <option value="PF">Pessoa Física</option>
-            <option value="PJ">Pessoa Jurídica</option>
-          </select>
+
+          <div className="tipo-pessoa">
+            <div className="div-tipo-pessoa">
+              <input
+                type="radio"
+                name="tipo-pessoa"
+                className="input-tipo-pessoa"
+                value="PF"
+                checked={empresa.tipo_cliente === "PF"}
+                onChange={() => setEmpresa({ ...empresa, tipo_cliente: "PF" })}
+              />
+              <label htmlFor="tipo-pessoa" className="label-tipo-pessoa">
+                Pessoa fisica
+              </label>
+            </div>
+            <div className="div-tipo-pessoa">
+              <input
+                type="radio"
+                name="tipo-pessoa"
+                className="input-tipo-pessoa"
+                value="PJ"
+                checked={empresa.tipo_cliente === "PJ"}
+                onChange={() => setEmpresa({ ...empresa, tipo_cliente: "PJ" })}
+              />
+              <label htmlFor="tipo-pessoa" className="label-tipo-pessoa">
+                Pessoa juridica
+              </label>
+            </div>
+          </div>
           <div className="floatingInput">
             <input
               type="text"
@@ -470,7 +489,6 @@ export function CadastroCliente() {
               />
             </button>
             <input
-              id="senha-cadastrocliente"
               type={visualizarSenha ? "text" : "password"}
               className="floatingInput__control"
               placeholder="Senha"

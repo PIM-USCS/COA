@@ -115,3 +115,37 @@
 .formulario-login-colaborador h2 {
   color: white;
 }
+
+.tipo-usuario {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.div-tipo-usuario {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.label-tipo-usuario {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  color: var(--light);
+}
+
+.input-tipo-usuario {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  outline: none;
+  background-color: black;
+  cursor: pointer;
+}
+
+.input-tipo-usuario:checked {
+  background-color: var(--primary);
+}
