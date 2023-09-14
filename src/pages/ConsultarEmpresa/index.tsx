@@ -48,6 +48,7 @@ export function ConsultaCliente() {
         cep: data.cep,
         cnpj: data.cnpj,
         ie: data.ie,
+        tipo_cliente: data.tipo_cliente,
       };
     });
   };
@@ -76,7 +77,6 @@ export function ConsultaCliente() {
     ConsultaCliente();
   }, [idCliente]);
 
-  console.log(idCliente);
   return (
     <body className="alterarcadastrocliente">
       <main className="main-alterarcadastrarcliente">
@@ -114,8 +114,8 @@ export function ConsultaCliente() {
               type="text"
               className="floatingInput__control"
               placeholder="CNPJ/CPF"
-              name="cnpj"
-              value={empresa.cnpj || ""}
+              name={empresa.tipo_cliente === "PF" ? "cpf" : "cnpj"}
+              value={empresa.tipo_cliente === "PF" ? empresa.cpf : empresa.cnpj}
             />
             <label className="floatingInput__label">CNPJ/CPF</label>
           </div>
