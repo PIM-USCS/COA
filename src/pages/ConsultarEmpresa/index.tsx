@@ -89,6 +89,32 @@ export function ConsultaCliente() {
           <br />
           <hr />
           <br />
+          <div className="tipo-pessoa">
+            <div className="div-tipo-pessoa">
+              <input
+                type="radio"
+                name="tipo-pessoa"
+                className="input-tipo-pessoa"
+                value="PF"
+                checked={empresa.tipo_cliente === "PF"}
+              />
+              <label htmlFor="tipo-pessoa" className="label-tipo-pessoa">
+                Pessoa fisica
+              </label>
+            </div>
+            <div className="div-tipo-pessoa">
+              <input
+                type="radio"
+                name="tipo-pessoa"
+                className="input-tipo-pessoa"
+                value="PJ"
+                checked={empresa.tipo_cliente === "PJ"}
+              />
+              <label htmlFor="tipo-pessoa" className="label-tipo-pessoa">
+                Pessoa juridica
+              </label>
+            </div>
+          </div>
 
           <div className="floatingInput">
             <input
