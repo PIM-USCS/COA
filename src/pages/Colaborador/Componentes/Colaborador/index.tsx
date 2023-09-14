@@ -47,11 +47,6 @@ export function Colaborador({ colaborador }: CadastroProps) {
     setIdColaborador(colaborador.id);
 
     if (!idColaborador) {
-      // Swal.fire({
-      //   icon: "error",
-      //   title: "Ops!",
-      //   text: "Não foi possivel carregar os dados do colaborador",
-      // });
       return;
     }
     navigate("/alterar-cadastro-colaborador");

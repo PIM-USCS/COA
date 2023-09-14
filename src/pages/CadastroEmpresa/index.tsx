@@ -3,32 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import * as api from "../../services/api";
 import Swal from "sweetalert2";
-import { ClienteProps } from "../../@types/Client";
+import { ClienteProps, EmpresaProps } from "../../@types/Client";
 import { UsuarioProps } from "../../@types/Usuario";
 import { Eye, EyeSlash } from "phosphor-react";
-
-export interface EmpresaProps {
-  id: string;
-  tipo_cliente: string;
-  cpf: string;
-  rg: string;
-  regime: string;
-  cnpj: string;
-  ie: string;
-  nome: string;
-  cep: string;
-  rua: string;
-  cidade: string;
-  uf: string;
-  bairro: string;
-  numero: string;
-  complemento: string;
-}
+import { ColaboradorProps } from "../../@types/Colaborador";
 
 export function CadastroCliente() {
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
   const [cliente, setCliente] = useState<ClienteProps>({} as ClienteProps);
   const [usuario, setUsuario] = useState<UsuarioProps>({} as UsuarioProps);
+  const [colaborador, setColaborador] = useState<ColaboradorProps>(
+    {} as ColaboradorProps
+  );
   const [confirmarSenha, setConfirmarSenha] = useState("");
   const [visualizarSenha, setVisualizarSenha] = useState(false);
   const [visualizarConfirmarSenha, setVisualizarConfirmarSenha] =
@@ -119,7 +105,11 @@ export function CadastroCliente() {
       return;
     }
     try {
-      const responseEmpresa = await api.postCreateEmpresa(empresa);
+      const params = {
+        ...empresa,
+        id_colaborador: colaborador.id,
+      };
+      const responseEmpresa = await api.postCreateEmpresa(params);
       const empresaId: string = responseEmpresa.data.id;
 
       setEmpresa({ ...empresa, id: empresaId });
@@ -150,6 +140,32 @@ export function CadastroCliente() {
     await api.postCreateUsuario(params);
   }
 
+  async function consultaColaboradorByID() {
+    try {
+      const { data } = await api.getColaboradorByID(colaborador.id);
+      setColaborador({
+        ...colaborador,
+        nome: data.nome,
+        telefone: data.telefone,
+      });
+      await api.getColaboradorByID(colaborador.id);
+    } catch (error) {
+      Swal.fire({
+        icon: "warning",
+        title: "Não localizamos o colaborador com este ID!",
+        text: "Gostaria de cadastrar?",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Não",
+        confirmButtonText: "Sim",
+        preConfirm: () => {
+          navigate("/cadastro-colaborador");
+        },
+      });
+    }
+  }
+
   return (
     <body className="cadastrocliente">
       <main className="main-cadastrarcliente">
@@ -162,7 +178,6 @@ export function CadastroCliente() {
           <br />
           <hr />
           <br />
-
           <div className="tipo-pessoa">
             <div className="div-tipo-pessoa">
               <input
@@ -354,12 +369,31 @@ export function CadastroCliente() {
             />
             <label className="floatingInput__label">Complemento</label>
           </div>
-
+          <div className="floatingInput">
+            <input
+              type="text"
+              className="floatingInput__control"
+              placeholder="ID contador responsavel"
+              name="id"
+              value={colaborador.id || ""}
+              onChange={(e) =>
+                setColaborador({
+                  ...colaborador,
+                  [e.target.name]: e.target.value,
+                })
+              }
+              onBlur={consultaColaboradorByID}
+            />
+            <label className="floatingInput__label">
+              ID contador responsavel
+            </label>
+          </div>
           <div className="floatingInput">
             <input
               type="text"
               className="floatingInput__control"
               placeholder="Contador responsavel"
+              value={colaborador.nome || ""}
             />
             <label className="floatingInput__label">Contador responsavel</label>
           </div>

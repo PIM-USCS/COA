@@ -5,6 +5,7 @@ import "./styles.css";
 import { NavLink } from "react-router-dom";
 import { ClienteProps } from "../../@types/Client";
 import * as api from "../../services/api";
+import { ColaboradorProps } from "../../@types/Colaborador";
 interface EmpresaProps {
   id: string;
   tipo_cliente: string;
@@ -21,12 +22,16 @@ interface EmpresaProps {
   bairro: string;
   numero: string;
   complemento: string;
+  id_colaborador: string;
 }
 
 export function ConsultaCliente() {
   const { idEmpresa, idCliente } = useEmpresa();
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
   const [cliente, setCliente] = useState<ClienteProps>({} as ClienteProps);
+  const [colaborador, setColaborador] = useState<ColaboradorProps>(
+    {} as ColaboradorProps
+  );
 
   const ConsultaEmpresa = async () => {
     if (!idEmpresa) {
@@ -49,9 +54,13 @@ export function ConsultaCliente() {
         cnpj: data.cnpj,
         ie: data.ie,
         tipo_cliente: data.tipo_cliente,
+        id_colaborador: data.id_colaborador,
       };
     });
+
+    await ConsultaColaborador(data.id_colaborador);
   };
+
   useEffect(() => {
     ConsultaEmpresa();
   }, [idEmpresa]);
@@ -73,9 +82,22 @@ export function ConsultaCliente() {
       };
     });
   };
+
   useEffect(() => {
     ConsultaCliente();
   }, [idCliente]);
+
+  const ConsultaColaborador = async (colaboradorId: string) => {
+    const { data } = await api.getColaboradorByID(colaboradorId);
+
+    setColaborador((prevState) => {
+      return {
+        ...prevState,
+        id: data.id,
+        nome: data.nome,
+      };
+    });
+  };
 
   return (
     <body className="alterarcadastrocliente">
@@ -229,7 +251,20 @@ export function ConsultaCliente() {
             <input
               type="text"
               className="floatingInput__control"
+              placeholder="ID contador responsavel"
+              name="id"
+              value={colaborador.id || ""}
+            />
+            <label className="floatingInput__label">
+              ID contador responsavel
+            </label>
+          </div>
+          <div className="floatingInput">
+            <input
+              type="text"
+              className="floatingInput__control"
               placeholder="Contador responsavel"
+              value={colaborador.nome || ""}
             />
             <label className="floatingInput__label">Contador responsavel</label>
           </div>

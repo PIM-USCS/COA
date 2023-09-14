@@ -32,7 +32,6 @@ export function Home() {
     }
   }
 
-  //Função que faz carregar o nome do usuario
   const ConsultaUsuario = async () => {
     if (!idUsuario) {
       return;
@@ -51,9 +50,7 @@ export function Home() {
   useEffect(() => {
     ConsultaUsuario();
   }, [idUsuario]);
-  //Função que faz carregar o nome do usuario
 
-  //Armazena o ID do usuario para consulta do nome toda vez que a pagina recarrega
   useEffect(() => {
     const storedIdUsuario = localStorage.getItem("idUsuario");
     if (storedIdUsuario) {
@@ -64,7 +61,6 @@ export function Home() {
   useEffect(() => {
     localStorage.setItem("idUsuario", idUsuario);
   }, [idUsuario]);
-  //Armazena o ID do usuario para consulta do nome toda vez que a pagina recarrega
 
   return (
     <>

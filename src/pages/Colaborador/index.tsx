@@ -1,4 +1,3 @@
-// import { UserCirclePlus } from "phosphor-react";
 import { useEffect, useState } from "react";
 import { ColaboradorListaProps } from "../../@types/Colaborador";
 import { Colaborador } from "./Componentes/Colaborador";

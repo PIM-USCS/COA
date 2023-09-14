@@ -12,6 +12,7 @@ export interface EmpresaProps {
   bairro: string;
   numero: string;
   complemento: string;
+  id_colaborador: string;
 }
 
 export interface EmpresaPropsViaCep {

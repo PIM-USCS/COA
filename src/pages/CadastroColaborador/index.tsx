@@ -20,7 +20,6 @@ export function CadastroColaborador() {
   const desabilitarButtonCadastrar =
     usuario.email === "" || usuario.senha === "" || confirmarSenha === "";
   const navigate = useNavigate();
-  //**Função para visualizar campos de senha
   function esconderSenha() {
     if (visualizarSenha === false) {
       setVisualizarSenha(true);
@@ -37,7 +36,6 @@ export function CadastroColaborador() {
       setVisualizarConfirmarSenha(false);
     }
   }
-  //**Função para visualizar campos de senha
 
   async function finalizarCadastro() {
     if (!usuario.tipo_usuario) {
