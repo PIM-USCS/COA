@@ -11,6 +11,7 @@ export interface EmpresaListaProps {
   cpf: string;
   cnpj: string;
   nome: string;
+  tipo_cliente: string;
 }
 export function EmpresaLista() {
   const [empresa, setEmpresa] = useState<EmpresaListaProps[]>([]);

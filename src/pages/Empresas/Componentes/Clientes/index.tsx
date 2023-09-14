@@ -4,7 +4,7 @@ import { EmpresaListaProps } from "../..";
 import { useEmpresa } from "../../../../hooks/useEmpresa";
 import * as api from "../../../../services/api";
 import Swal from "sweetalert2";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { ClienteProps } from "../../../../@types/Client";
 interface CadastroProps {
   empresa: EmpresaListaProps;
@@ -76,7 +76,9 @@ export function Cliente({ empresa, cliente }: CadastroProps) {
       <div className="nome">
         <p>{empresa.nome}</p>
       </div>
-      <div className="pessoa">{/* <p>{empresa.tipo_cliente}</p> */}</div>
+      <div className="pessoa">
+        <p>{empresa.tipo_cliente}</p>
+      </div>
       <div className="cnpj-cpf">
         <p>{empresa.cnpj || empresa.cpf}</p>
       </div>
