@@ -21,7 +21,7 @@ export function Colaborador({ colaborador }: CadastroProps) {
     }
     Swal.fire({
       title: "Tem certeza que deseja deletar este colaborador?",
-      icon: "warning",
+      icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",

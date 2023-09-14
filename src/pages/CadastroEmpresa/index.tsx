@@ -43,7 +43,7 @@ export function CadastroCliente() {
       const { data } = await api.getClientByCpf(empresa.cpf);
       if (data) {
         Swal.fire({
-          icon: "error",
+          icon: "info",
           title: "CPF informado já está cadastrado!",
         });
       }
@@ -54,7 +54,7 @@ export function CadastroCliente() {
 
       if (data) {
         Swal.fire({
-          icon: "error",
+          icon: "info",
           title: "CNPJ informado já está cadastrado!",
         });
       }
@@ -65,7 +65,7 @@ export function CadastroCliente() {
 
     if (cep.length < 8) {
       Swal.fire({
-        icon: "error",
+        icon: "info",
         title: "O CEP não pode ser menor que 8 caracteres",
       });
       return;
@@ -73,7 +73,7 @@ export function CadastroCliente() {
 
     if (cep.length > 8) {
       Swal.fire({
-        icon: "error",
+        icon: "info",
         title: "O CEP não pode ser maior que 8 caracteres",
       });
       return;
@@ -91,7 +91,7 @@ export function CadastroCliente() {
       });
     } catch (error) {
       Swal.fire({
-        icon: "error",
+        icon: "info",
         title: "O CEP digitado não foi localizado!",
       });
     }

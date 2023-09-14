@@ -40,14 +40,14 @@ export function CadastroColaborador() {
   async function finalizarCadastro() {
     if (!usuario.tipo_usuario) {
       Swal.fire({
-        icon: "error",
+        icon: "warning",
         title: "Selecione o tipo de usuário!",
       });
       return;
     }
     if (usuario.senha !== confirmarSenha) {
       Swal.fire({
-        icon: "error",
+        icon: "warning",
         title: "As senhas não coincidem!",
       });
       return;

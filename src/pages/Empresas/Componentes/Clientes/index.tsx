@@ -22,7 +22,7 @@ export function Cliente({ empresa, cliente }: CadastroProps) {
     }
     Swal.fire({
       title: "Tem certeza que deseja deletar este cliente?",
-      icon: "warning",
+      icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",

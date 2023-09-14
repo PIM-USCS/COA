@@ -34,7 +34,7 @@ export function Login() {
       setIdUsuario(data.user?.id);
     } catch (error) {
       Swal.fire({
-        icon: "error",
+        icon: "warning",
         title: "Oops...",
         text: "Email/Senha está incorreto!",
       });

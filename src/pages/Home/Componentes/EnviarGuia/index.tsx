@@ -27,7 +27,7 @@ export function EnviarGuia({ isOpenEnviar, setIsOpenEnviar }: Open) {
       });
     } catch (error) {
       Swal.fire({
-        icon: "error",
+        icon: "warning",
         title: "Oops...",
         text: "Não foi possivel localizar o cliente com o ID informado",
       });

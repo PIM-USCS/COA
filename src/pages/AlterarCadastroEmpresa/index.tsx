@@ -114,7 +114,7 @@ export function AlterarCadastroCliente() {
 
     if (cep.length < 8) {
       Swal.fire({
-        icon: "error",
+        icon: "info",
         title: "O CEP não pode ser menor que 8 caracteres",
       });
       return;
@@ -122,7 +122,7 @@ export function AlterarCadastroCliente() {
 
     if (cep.length > 8) {
       Swal.fire({
-        icon: "error",
+        icon: "info",
         title: "O CEP não pode ser maior que 8 caracteres",
       });
       return;
@@ -140,7 +140,7 @@ export function AlterarCadastroCliente() {
       });
     } catch (error) {
       Swal.fire({
-        icon: "error",
+        icon: "info",
         title: "O CEP digitado não foi localizado!",
       });
     }
