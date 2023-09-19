@@ -98,7 +98,7 @@ export function Login() {
               <input type="checkbox" id="checkbox1" className="" />
               <label className="">Lembrar Usuario</label>
             </div>
-            <NavLink to="/TrocarSenha" className="esquecisenha-login">
+            <NavLink to="/recuperar-senha" className="esquecisenha-login">
               <a>Esqueci minha senha</a>
             </NavLink>
           </div>

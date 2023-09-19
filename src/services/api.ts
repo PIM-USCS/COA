@@ -93,6 +93,9 @@ const getUsuarioById = (id: string): AxiosPromise<UsuarioProps> =>
 
 const postCreateUsuario = (params: UsuarioProps): AxiosPromise<UsuarioProps> =>
   xhr.post(`usuarios/`, params);
+
+const postRecuperarSenha = (email: string): AxiosPromise<UsuarioProps> =>
+  xhr.post(`usuarios/forgot-password`, email);
 /*USUARIO*/
 
 /*UTILITÁRIOS*/
@@ -124,4 +127,5 @@ export {
   postAtualizaColaborador,
   getColaboradorByEmail,
   postAtualizaCliente,
+  postRecuperarSenha,
 };
