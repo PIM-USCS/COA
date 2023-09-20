@@ -12,6 +12,7 @@ import {
   ArrowUDownLeft,
   PencilSimple,
   LockSimple,
+  Files,
 } from "phosphor-react";
 import { EnviarGuia } from "./Componentes/EnviarGuia";
 import { UsuarioProps } from "../../@types/Usuario";
@@ -152,6 +153,14 @@ export function Home() {
                 <Export size={30} />
                 Enviar guias
               </button>
+            </div>
+            <div className="div-botoes">
+              <NavLink to="/cobrancas" style={{ textDecoration: "none" }}>
+                <button className="botao-secundario">
+                  <Files size={30} />
+                  Cobranças
+                </button>
+              </NavLink>
             </div>
             <div className="div-botoes">
               <NavLink to="/trocar-senha" style={{ textDecoration: "none" }}>

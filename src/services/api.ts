@@ -14,6 +14,7 @@ import {
   ColaboradorProps,
 } from "../@types/Colaborador";
 import { AtuUsuario, UsuarioProps } from "../@types/Usuario";
+import { CobrancaProps } from "../@types/Cobranca";
 
 /*EMPRESA*/
 
@@ -81,6 +82,12 @@ const postAtualizaColaborador = (
 
 /*COLABORADOR*/
 
+/* COBRANCA */
+
+const getCobrancas = (): AxiosPromise<CobrancaProps[]> => xhr.get(`cobrancas/`);
+
+/* COBRANCA */
+
 /*USUARIO*/
 const checkLogin = (params: UsuarioProps): AxiosPromise<UsuarioProps> =>
   xhr.post(`sessions/`, params);
@@ -128,4 +135,5 @@ export {
   getColaboradorByEmail,
   postAtualizaCliente,
   postRecuperarSenha,
+  getCobrancas,
 };
