@@ -66,7 +66,8 @@
 .div-status-cobranca,
 .div-alterar-cobranca,
 .div-excluir-cobranca,
-.div-consultar-cobranca {
+.div-consultar-cobranca,
+.div-empresa-cobranca {
   margin-top: 25px;
 }
 
@@ -83,6 +84,12 @@
 }
 
 .div-status-cobranca {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}
+
+.div-empresa-cobranca {
   display: flex;
   justify-content: center;
   width: 20%;

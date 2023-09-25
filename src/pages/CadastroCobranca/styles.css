@@ -10,7 +10,7 @@
   --light: #6c7293;
   --dark: #000000;
 }
-.cadastrocobranca {
+.cadastrocolaborador {
   font-family: arial, sans-serif;
   background-color: var(--dark);
   display: flex;
@@ -18,20 +18,20 @@
   align-items: center;
   height: 100vh;
 }
-.main-cadastrocobranca {
+.main-cadastrocolaborador {
   background-color: var(--secondary);
   height: 100%;
   padding: 50px;
   min-width: 450px;
 }
-.header-cadastrocobranca {
+.header-cadastrocolaborador {
   display: flex;
   justify-content: right;
   color: white;
   margin-bottom: 20px;
 }
 
-.form-cadastrocobranca {
+.form-cadastrocolaborador {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -73,14 +73,14 @@
 }
 
 /*botão salvar*/
-.input-bnt-cadastrocobranca {
+.input-bnt-cadastrocolaborador {
   color: var(--light);
   margin-top: 8px;
 }
-.input-bnt-cadastrocobranca::placeholder {
+.input-bnt-cadastrocolaborador::placeholder {
   color: var(--light);
 }
-.bnt-cadastrocobranca {
+.bnt-cadastrocolaborador {
   all: unset;
   margin-top: 12px;
   border-radius: 5px;
@@ -98,20 +98,54 @@
   width: 100%;
   text-transform: uppercase;
 }
-.bnt-cadastrocobranca:hover {
+.bnt-cadastrocolaborador:hover {
   background-color: rgb(172, 8, 8);
   transition: 1s;
 }
-.bnt-cadastrocobranca.disabled {
+.bnt-cadastrocolaborador.disabled {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-.formulario-login-cobranca {
+.formulario-login-colaborador {
   margin: 25px 0px 50px 0px;
 }
 
-.formulario-login-cobranca h2 {
+.formulario-login-colaborador h2 {
   color: white;
+}
+
+.tipo-usuario {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.div-tipo-usuario {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.label-tipo-usuario {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  color: var(--light);
+}
+
+.input-tipo-usuario {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  outline: none;
+  background-color: black;
+  cursor: pointer;
+}
+
+.input-tipo-usuario:checked {
+  background-color: var(--primary);
 }

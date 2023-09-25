@@ -86,6 +86,11 @@ const postAtualizaColaborador = (
 
 const getCobrancas = (): AxiosPromise<CobrancaProps[]> => xhr.get(`cobrancas/`);
 
+const postCreateCobranca = (
+  id_empresa: string,
+  params: CobrancaProps
+): AxiosPromise<CobrancaProps> => xhr.post(`cobrancas/${id_empresa}`, params);
+
 /* COBRANCA */
 
 /*USUARIO*/
@@ -136,4 +141,5 @@ export {
   postAtualizaCliente,
   postRecuperarSenha,
   getCobrancas,
+  postCreateCobranca,
 };

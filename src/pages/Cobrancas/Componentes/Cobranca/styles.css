@@ -36,6 +36,12 @@
   width: 15%;
 }
 
+.empresa {
+  display: flex;
+  justify-content: center;
+  width: 15%;
+}
+
 .vencimento {
   display: flex;
   justify-content: center;

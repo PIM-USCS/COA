@@ -6,17 +6,20 @@ import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/themes/default";
 import { ThemeProvider } from "styled-components";
 import { UsuarioContextProvider } from "./Context/UsuarioContext";
+import { CobrancaContextProvider } from "./Context/CobrancaContext";
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
-        <UsuarioContextProvider>
-          <ColaboradorContextProvider>
-            <EmpresaContextProvider>
-              <Router />
-            </EmpresaContextProvider>
-          </ColaboradorContextProvider>
-        </UsuarioContextProvider>
+        <CobrancaContextProvider>
+          <UsuarioContextProvider>
+            <ColaboradorContextProvider>
+              <EmpresaContextProvider>
+                <Router />
+              </EmpresaContextProvider>
+            </ColaboradorContextProvider>
+          </UsuarioContextProvider>
+        </CobrancaContextProvider>
         <GlobalStyle />
       </BrowserRouter>
     </ThemeProvider>

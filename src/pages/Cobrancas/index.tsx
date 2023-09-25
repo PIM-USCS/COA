@@ -38,16 +38,19 @@ export function CobrancaLista() {
       </header>
 
       <div className="div-cadastrar-cobranca">
-        <NavLink to="/cadastro-cobranca" style={{ textDecoration: "none" }}>
+        <NavLink to="/cadastro-cobrancas" style={{ textDecoration: "none" }}>
           <button>
             <IdentificationCard size={32} weight="fill" />
-            Novo Cobranca
+            Nova Cobranca
           </button>
         </NavLink>
       </div>
       <div className="container-header-cobranca">
         <div className="div-id-cobranca">
           <p>ID</p>
+        </div>
+        <div className="div-empresa-cobranca">
+          <p>Empresa</p>
         </div>
         <div className="div-vencimento-cobranca">
           <p>Vencimento</p>

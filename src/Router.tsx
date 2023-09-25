@@ -13,6 +13,7 @@ import { ConsultaColaborador } from "./pages/ConsultaColaborador";
 import { AlterarUsuario } from "./pages/AlterarUsuario";
 import { RecuperarSenha } from "./pages/RecuperarSenha";
 import { CobrancaLista } from "./pages/Cobrancas";
+import { CadastroCobranca } from "./pages/CadastroCobranca";
 
 export function Router() {
   return (
@@ -37,6 +38,7 @@ export function Router() {
       <Route path="/alterar-usuario" element={<AlterarUsuario />} />
       <Route path="/recuperar-senha" element={<RecuperarSenha />} />
       <Route path="/cobrancas" element={<CobrancaLista />} />
+      <Route path="/cadastro-cobrancas" element={<CadastroCobranca />} />
     </Routes>
   );
 }

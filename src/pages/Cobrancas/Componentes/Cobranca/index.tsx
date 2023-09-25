@@ -4,13 +4,35 @@ import * as api from "../../../../services/api";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { CobrancaProps } from "../../../../@types/Cobranca";
+import { useCobranca } from "../../../../hooks/useCobranca";
+import { useEffect, useState } from "react";
+import { EmpresaProps } from "../../../../@types/Client";
 interface CadastroProps {
   cobranca: CobrancaProps;
 }
 
 export function Cobranca({ cobranca }: CadastroProps) {
-  // const { idCobranca, setIdCobranca } = useCobranca();
+  const { idCobranca, setIdCobranca } = useCobranca();
+  const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
   const navigate = useNavigate();
+
+  const consultaEmpresa = async () => {
+    if (!cobranca.id_empresa) {
+      return;
+    }
+    const { data } = await api.getEmpresaByID(cobranca.id_empresa);
+
+    setEmpresa((prevState) => {
+      return {
+        ...prevState,
+        nome: data.nome,
+      };
+    });
+  };
+
+  useEffect(() => {
+    consultaEmpresa();
+  }, []);
 
   // async function excluirCobranca() {
   //   setIdCobranca(cobranca.id);
@@ -19,7 +41,7 @@ export function Cobranca({ cobranca }: CadastroProps) {
   //     return;
   //   }
   //   Swal.fire({
-  //     title: "Tem certeza que deseja deletar este cobranca?",
+  //     title: "Tem certeza que deseja deletar esta cobranca?",
   //     icon: "question",
   //     showCancelButton: true,
   //     confirmButtonColor: "#3085d6",
@@ -60,6 +82,9 @@ export function Cobranca({ cobranca }: CadastroProps) {
     <div className="lista">
       <div className="id">
         <p>{cobranca.id}</p>
+      </div>
+      <div className="empresa">
+        <p>{empresa.nome}</p>
       </div>
       <div className="vencimento">
         <p>{cobranca.vencimento_cobranca}</p>
