@@ -1,4 +1,4 @@
-export function Guias() {
+export function recibos() {
   return (
     <div className="div-tabela-body">
       <p className="codigo">INV-0123</p>

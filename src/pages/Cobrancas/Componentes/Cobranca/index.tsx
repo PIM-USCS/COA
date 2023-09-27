@@ -2,7 +2,7 @@ import { MagnifyingGlass, PencilSimple, Trash } from "phosphor-react";
 import "./styles.css";
 import * as api from "../../../../services/api";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { CobrancaProps } from "../../../../@types/Cobranca";
 import { useCobranca } from "../../../../hooks/useCobranca";
 import { useEffect, useState } from "react";
@@ -34,6 +34,13 @@ export function Cobranca({ cobranca }: CadastroProps) {
     consultaEmpresa();
   }, []);
 
+  function consultaCobranca() {
+    setIdCobranca(cobranca.id);
+
+    if (!idCobranca) {
+      return;
+    }
+  }
   // async function excluirCobranca() {
   //   setIdCobranca(cobranca.id);
 
@@ -106,9 +113,11 @@ export function Cobranca({ cobranca }: CadastroProps) {
         </button>
       </div>
       <div className="consultar-cobrancas">
-        <button>
-          <MagnifyingGlass size={24} />
-        </button>
+        <NavLink to="/consulta-cobrancas" style={{ all: "unset" }}>
+          <button onClick={consultaCobranca}>
+            <MagnifyingGlass size={24} />
+          </button>
+        </NavLink>
       </div>
     </div>
   );

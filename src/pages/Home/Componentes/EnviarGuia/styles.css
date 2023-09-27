@@ -5,7 +5,7 @@
   --dark: #000000;
 }
 
-.container-enviar-guia {
+.container-enviar-recibo {
   width: 100%;
   position: fixed;
   margin: 0 auto;
@@ -17,13 +17,13 @@
   transform: translate(-50%, -50%);
 }
 
-.enviar-guia {
+.enviar-recibo {
   width: 40%;
   height: 400px;
   background-color: var(--secondary);
 }
 
-.div-header-enviar-guia {
+.div-header-enviar-recibo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,17 +31,17 @@
   margin-top: 5px;
 }
 
-.div-header-enviar-guia svg {
+.div-header-enviar-recibo svg {
   color: var(--primary);
 }
 
-.div-header-enviar-guia h1 {
+.div-header-enviar-recibo h1 {
   color: white;
   font-family: "Roboto", sans-serif;
   font-size: 32px;
 }
 
-.div-body-enviar-guia {
+.div-body-enviar-recibo {
   display: flex;
   width: 100%;
   margin-top: 30px;
@@ -82,16 +82,16 @@
   color: var(--light);
 }
 
-.input-enviar-guia {
+.input-enviar-recibo {
   color: var(--light);
   width: 50%;
   margin-top: 8px;
 }
-.input-enviar-guia::placeholder {
+.input-enviar-recibo::placeholder {
   color: var(--light);
 }
 
-.enviar-guia-botao {
+.enviar-recibo-botao {
   all: unset;
   margin-top: 12px;
   border-radius: 8px;
@@ -109,7 +109,7 @@
   color: white;
 }
 
-.enviar-guia-botao:hover {
+.enviar-recibo-botao:hover {
   background-color: rgb(172, 8, 8);
   transition: 1s;
 }

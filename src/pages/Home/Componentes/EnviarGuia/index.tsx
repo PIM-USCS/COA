@@ -37,21 +37,21 @@ export function EnviarGuia({ isOpenEnviar, setIsOpenEnviar }: Open) {
   return (
     <div
       style={{ display: isOpenEnviar ? "flex" : "none" }}
-      className="container-enviar-guia">
-      <div className="enviar-guia">
+      className="container-enviar-recibo">
+      <div className="enviar-recibo">
         <div className="fechar-modal">
           <button onClick={() => setIsOpenEnviar(false)}>
             <XCircle size={32} />
           </button>
         </div>
         <header>
-          <div className="div-header-enviar-guia">
+          <div className="div-header-enviar-recibo">
             <UserCircle size={48} />
-            <h1>Enviar Guias</h1>
+            <h1>Enviar recibos</h1>
           </div>
         </header>
         <div>
-          <div className="div-body-enviar-guia">
+          <div className="div-body-enviar-recibo">
             <input
               type="text"
               placeholder="ID"
@@ -92,8 +92,8 @@ export function EnviarGuia({ isOpenEnviar, setIsOpenEnviar }: Open) {
                 })
               }
             />
-            <input type="file" name="arquivo" className="input-enviar-guia" />
-            <button className="enviar-guia-botao">Enviar</button>
+            <input type="file" name="arquivo" className="input-enviar-recibo" />
+            <button className="enviar-recibo-botao">Enviar</button>
           </div>
         </div>
       </div>

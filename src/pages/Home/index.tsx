@@ -14,10 +14,10 @@ import {
   LockSimple,
   Files,
 } from "phosphor-react";
-import { EnviarGuia } from "./Componentes/EnviarGuia";
 import { UsuarioProps } from "../../@types/Usuario";
 import { useUsuario } from "../../hooks/useUsuario";
 import * as api from "../../services/api";
+import { EnviarGuia } from "./Componentes/EnviarGuia";
 
 export function Home() {
   const [isOpenEnviar, setIsOpenEnviar] = useState(false); /*Modal*/
@@ -151,7 +151,7 @@ export function Home() {
                 onClick={() => setIsOpenEnviar(true)}
                 className="botao-secundario">
                 <Export size={30} />
-                Enviar guias
+                Enviar recibos
               </button>
             </div>
             <div className="div-botoes">

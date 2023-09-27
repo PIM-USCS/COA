@@ -7,6 +7,8 @@ import { ClienteProps, EmpresaProps } from "../../@types/Client";
 import { UsuarioProps } from "../../@types/Usuario";
 import { Eye, EyeSlash } from "phosphor-react";
 import { ColaboradorProps } from "../../@types/Colaborador";
+import maskTelefone from "../../utils/maskTelefone";
+import formatarDocumento from "../../utils/maskCNPJCPF";
 
 export function CadastroCliente() {
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
@@ -21,7 +23,52 @@ export function CadastroCliente() {
     useState(false);
 
   const navigate = useNavigate();
+  const validarEmailCliente = () => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    if (!regex.test(cliente.email)) {
+      Swal.fire({
+        icon: "warning",
+        title: "O email digitado é invalido!",
+      });
+    }
+  };
+  const validarEmailUsuario = () => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!regex.test(usuario.email)) {
+      Swal.fire({
+        icon: "warning",
+        title: "O email digitado é invalido!",
+      });
+    }
+  };
+  const mascaraTelefone = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, valorFormatado } = maskTelefone(e);
+
+    setCliente({
+      ...cliente,
+      [name]: valorFormatado,
+    });
+  };
+  const mascaraCNPJCPFCliente = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    const valorFormatado = formatarDocumento(value);
+
+    setCliente({
+      ...cliente,
+      [name]: valorFormatado,
+    });
+  };
+  const mascaraCNPJCPFEmpresa = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    const valorFormatado = formatarDocumento(value);
+
+    setEmpresa({
+      ...empresa,
+      [name]: valorFormatado,
+    });
+  };
   function esconderSenha() {
     if (visualizarSenha === false) {
       setVisualizarSenha(true);
@@ -213,12 +260,7 @@ export function CadastroCliente() {
               placeholder="CNPJ/CPF"
               name={empresa.tipo_cliente === "PF" ? "cpf" : "cnpj"}
               value={empresa.tipo_cliente === "PF" ? empresa.cpf : empresa.cnpj}
-              onChange={(e) =>
-                setEmpresa({
-                  ...empresa,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              onChange={mascaraCNPJCPFEmpresa}
               onBlur={consultaCliente}
             />
             <label className="floatingInput__label">CNPJ/CPF</label>
@@ -399,37 +441,25 @@ export function CadastroCliente() {
           </div>
         </section>
         <section className="formulario-contato">
-          {" "}
-          {/* Contato */}
           <h2>Cliente</h2>
           <br />
           <hr />
           <br />
           <div className="floatingInput">
             {" "}
-            {/*CPF*/}
             <input
               type="text"
-              /*id="cpf-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="CPF"
               name="cpf"
               value={cliente.cpf || ""}
-              onChange={(e) =>
-                setCliente({
-                  ...cliente,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              onChange={mascaraCNPJCPFCliente}
             />
             <label className="floatingInput__label">CPF</label>
           </div>
           <div className="floatingInput">
-            {" "}
-            {/* Nome */}
             <input
               type="text"
-              /*id="nome-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="Nome"
               name="nome"
@@ -444,11 +474,8 @@ export function CadastroCliente() {
             <label className="floatingInput__label">Nome</label>
           </div>
           <div className="floatingInput">
-            {" "}
-            {/*RG*/}
             <input
               type="text"
-              /*id="rg-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="RG"
               name="rg"
@@ -463,29 +490,19 @@ export function CadastroCliente() {
             <label className="floatingInput__label">RG</label>
           </div>
           <div className="floatingInput">
-            {" "}
-            {/* Telefone */}
             <input
               type="tel"
-              /*id="telefone-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="Telefone"
               name="telefone"
               value={cliente.telefone || ""}
-              onChange={(e) =>
-                setCliente({
-                  ...cliente,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              onChange={mascaraTelefone}
             />
             <label className="floatingInput__label">Telefone</label>
           </div>
           <div className="floatingInput">
-            {/*Email-de contato*/}
             <input
               type="email"
-              /*id="email-cadastrocliente"*/
               className="floatingInput__control"
               placeholder="Email"
               name="email"
@@ -496,6 +513,7 @@ export function CadastroCliente() {
                   [e.target.name]: e.target.value,
                 })
               }
+              onBlur={validarEmailCliente}
             />
             <label className="floatingInput__label">Email</label>
           </div>
@@ -518,8 +536,9 @@ export function CadastroCliente() {
                   [e.target.name]: e.target.value,
                 })
               }
+              onBlur={validarEmailUsuario}
             />
-            <label className="floatingInput__label">Login</label>
+            <label className="floatingInput__label">Email</label>
           </div>
           <div className="floatingInput">
             <button className="esconder_senha" onClick={esconderSenha}>
