@@ -12,13 +12,15 @@ export function RecuperarSenha() {
 
   async function enviarEmail() {
     try {
-      await api.postRecuperarSenha(usuario.email);
+      const params = { ...usuario };
+      await api.postRecuperarSenha(params);
       Swal.fire({
         icon: "success",
         title: "Email de recuperação enviado com sucesso!",
         text: "Siga as instruções do email para recuperar sua senha",
       });
     } catch (error) {
+      console.log(error);
       Swal.fire({
         icon: "error",
         title: "Não foi possivel enviar o email de recuperação!",
@@ -26,6 +28,7 @@ export function RecuperarSenha() {
       });
     }
   }
+
   return (
     <body className="recuperarsenha">
       <main className="main-recuperarsenha">

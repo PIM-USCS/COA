@@ -6,6 +6,7 @@ import * as api from "../../services/api";
 import Swal from "sweetalert2";
 import { Eye, EyeSlash } from "phosphor-react";
 import { UsuarioProps } from "../../@types/Usuario";
+import maskTelefone from "../../utils/maskTelefone";
 
 export function CadastroColaborador() {
   const [colaborador, setColaborador] = useState<ColaboradorProps>(
@@ -20,6 +21,26 @@ export function CadastroColaborador() {
   const desabilitarButtonCadastrar =
     usuario.email === "" || usuario.senha === "" || confirmarSenha === "";
   const navigate = useNavigate();
+
+  const mascaraTelefone = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, valorFormatado } = maskTelefone(e);
+
+    setColaborador({
+      ...colaborador,
+      [name]: valorFormatado,
+    });
+  };
+
+  const validarEmailUsuario = () => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!regex.test(usuario.email)) {
+      Swal.fire({
+        icon: "warning",
+        title: "O email digitado é invalido!",
+      });
+    }
+  };
   function esconderSenha() {
     if (visualizarSenha === false) {
       setVisualizarSenha(true);
@@ -117,12 +138,7 @@ export function CadastroColaborador() {
               placeholder="Telefone"
               name="telefone"
               value={colaborador.telefone || ""}
-              onChange={(e) =>
-                setColaborador({
-                  ...colaborador,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              onChange={mascaraTelefone}
             />
             <label className="floatingInput__label">Telefone</label>
           </div>
@@ -173,6 +189,7 @@ export function CadastroColaborador() {
                     [e.target.name]: e.target.value,
                   })
                 }
+                onBlur={validarEmailUsuario}
               />
 
               <label className="floatingInput__label">Email</label>

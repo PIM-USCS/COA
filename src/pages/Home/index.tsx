@@ -146,14 +146,14 @@ export function Home() {
                 </button>
               </NavLink>
             </div>
-            <div className="div-botoes">
+            {/* <div className="div-botoes">
               <button
                 onClick={() => setIsOpenEnviar(true)}
                 className="botao-secundario">
                 <Export size={30} />
                 Enviar recibos
               </button>
-            </div>
+            </div> */}
             <div className="div-botoes">
               <NavLink to="/cobrancas" style={{ textDecoration: "none" }}>
                 <button className="botao-secundario">

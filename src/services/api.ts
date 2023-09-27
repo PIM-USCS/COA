@@ -109,8 +109,8 @@ const getUsuarioById = (id: string): AxiosPromise<UsuarioProps> =>
 const postCreateUsuario = (params: UsuarioProps): AxiosPromise<UsuarioProps> =>
   xhr.post(`usuarios/`, params);
 
-const postRecuperarSenha = (email: string): AxiosPromise<UsuarioProps> =>
-  xhr.post(`usuarios/forgot-password`, email);
+const postRecuperarSenha = (params: UsuarioProps): AxiosPromise<UsuarioProps> =>
+  xhr.post(`usuarios/forgot-password`, params);
 /*USUARIO*/
 
 /*UTILITÁRIOS*/
