@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
-import { ColaboradorProps } from "../../@types/Colaborador";
 import * as api from "../../services/api";
 import Swal from "sweetalert2";
 
@@ -29,16 +28,16 @@ export function AlterarUsuario() {
   }
 
   return (
-    <body className="cadastrocolaborador">
-      <main className="main-cadastrocolaborador">
-        <header className="header-cadastrocolaborador">
+    <body className="cadastrousuario">
+      <main className="main-cadastrousuario">
+        <header className="header-cadastrousuario">
           <h2>Alterar Usuário</h2>
         </header>
         <section>
           <div className="floatingInput">
             <input
               type="file"
-              /*id="nome-cadastrocolaborador"*/
+              /*id="nome-cadastrousuario"*/
               className="floatingInput__control"
               placeholder="Nome"
               name="nome"
@@ -54,7 +53,7 @@ export function AlterarUsuario() {
           <div className="floatingInput">
             <input
               type="email"
-              /*id="email-cadastrocolaborador"*/
+              /*id="email-cadastrousuario"*/
               className="floatingInput__control"
               placeholder="E-mail"
               name="email"
@@ -70,7 +69,7 @@ export function AlterarUsuario() {
           </div>
           <div>
             <button
-              className="bnt-cadastrocolaborador"
+              className="bnt-cadastrousuario"
               onClick={AtualizaCadastro}>
               Atualizar Cadastro
             </button>

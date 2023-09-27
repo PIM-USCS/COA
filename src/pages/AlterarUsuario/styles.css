@@ -10,7 +10,7 @@
   --light: #6c7293;
   --dark: #000000;
 }
-.cadastrocolaborador {
+.cadastrousuario {
   font-family: arial, sans-serif;
   background-color: var(--dark);
   display: flex;
@@ -18,18 +18,18 @@
   align-items: center;
   height: 100vh;
 }
-.main-cadastrocolaborador {
+.main-cadastrousuario {
   background-color: var(--secondary);
   padding: 50px;
   min-width: 450px;
 }
-.header-cadastrocolaborador {
+.header-cadastrousuario {
   display: flex;
   justify-content: right;
   color: white;
 }
 
-.form-cadastrocolaborador {
+.form-cadastrousuario {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -71,14 +71,14 @@
 }
 
 /*botão salvar*/
-.input-bnt-cadastrocolaborador {
+.input-bnt-cadastrousuario {
   color: var(--light);
   margin-top: 8px;
 }
-.input-bnt-cadastrocolaborador::placeholder {
+.input-bnt-cadastrousuario::placeholder {
   color: var(--light);
 }
-.bnt-cadastrocolaborador {
+.bnt-cadastrousuario {
   all: unset;
   margin-top: 12px;
   border-radius: 5px;
@@ -96,7 +96,7 @@
   width: 100%;
   text-transform: uppercase;
 }
-.bnt-cadastrocolaborador:hover {
+.bnt-cadastrousuario:hover {
   background-color: rgb(172, 8, 8);
   transition: 1s;
 }
