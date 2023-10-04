@@ -6,6 +6,7 @@ export interface UsuarioProps {
   id_empresa?: string;
   id_colaborador?: string;
   tipo_usuario?: string;
+  token?: string;
   user?: {
     id: string;
   };
@@ -13,4 +14,8 @@ export interface UsuarioProps {
 
 export interface AtuUsuario {
   nome: string;
+}
+
+export interface ResetarSenha {
+  senha: string;
 }

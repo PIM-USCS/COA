@@ -10,7 +10,7 @@
   --dark: #000000;
 }
 /*body*/
-.login {
+.tela-login-login {
   font-family: arial, sans-serif;
   background-color: var(--dark);
   display: flex;
@@ -19,7 +19,7 @@
   height: 100vh;
 }
 /*formulario*/
-.main-login {
+.tela-login-main-login {
   background-color: var(--secondary);
   border-radius: 5px;
   padding: 50px;
@@ -30,7 +30,7 @@
   justify-content: space-around;
 }
 /*Sumario*/
-.header-login {
+.tela-login-header-login {
   display: flex;
   color: white;
   justify-content: flex-end;
@@ -38,77 +38,79 @@
 } /* FIM Sumario*/
 
 /*Campo de preenchimento*/
-.form-login {
+.tela-login-form-login {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 2rem;
 }
-.floatingInput {
+.tela-login-floatingInput {
   position: relative;
 }
-.floatingInput__control {
+.tela-login-floatingInput__control {
   background-color: var(--dark);
   color: var(--light);
   border-radius: 5px;
   height: 70px;
   width: 98%;
-  text-transform: uppercase;
   border: transparent;
   font-size: 15px;
   margin: 0px 0px 25px 0px;
+  padding: 20px;
+  padding-bottom: 5px;
 }
-.floatingInput__control::placeholder {
+.tela-login-floatingInput__control::placeholder {
   opacity: 0;
 }
-.floatingInput__control:not(:placeholder-shown) + .floatingInput__label,
-.floatingInput__control:focus + .floatingInput__label {
+.tela-login-floatingInput__control:not(:placeholder-shown)
+  + .tela-login-floatingInput__label,
+.tela-login-floatingInput__control:focus + .tela-login-floatingInput__label {
   top: 0.2rem;
   font-size: 1.3rem;
 }
-.floatingInput__label {
+.tela-login-floatingInput__label {
   color: var(--light);
   position: absolute;
   top: 50%;
   left: 20px;
   transition: all 0.2s;
   font-weight: bold;
-  text-transform: uppercase; 
+  text-transform: uppercase;
   font-size: 15px;
-} /* FIM Campo de preenchimento*/
+}
 
 /*checkbox e esqueci senha */
-.checkbox-esquecisenha-login {
+.tela-login-checkbox-esquecisenha-login {
   display: flex;
   justify-content: space-between;
   padding: 25px 0px 25px 0;
 }
 /*checkbox*/
-.checkbox-login {
+.tela-login-checkbox-login {
   color: var(--light);
 }
-.checkbox-login:hover {
+.tela-login-checkbox-login:hover {
   color: var(--primary);
 } /* FIM checkbox*/
 
 /*esqueci senha*/
-.esquecisenha-login {
+.tela-login-esquecisenha-login {
   color: var(--light);
   text-decoration: none;
 }
-.esquecisenha-login:hover {
+.tela-login-esquecisenha-login:hover {
   color: var(--primary);
 } /* FIM esqueci senha*/
 
 /*botão login*/
-.input-bnt-login {
+.tela-login-input-bnt-login {
   color: var(--light);
   margin-top: 8px;
 }
-.input-bnt-login::placeholder {
+.tela-login-input-bnt-login::placeholder {
   color: var(--light);
 }
-.bnt-login {
+.tela-login-bnt-login {
   all: unset;
   margin-top: 12px;
   border-radius: 8px;
@@ -126,18 +128,18 @@
   width: 100%;
   text-transform: uppercase;
 }
-.bnt-login:hover {
+.tela-login-bnt-login:hover {
   background-color: rgb(172, 8, 8);
   transition: 1s;
 }
 
-.bnt-login.disabled {
+.tela-login-bnt-login.tela-login-disabled {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-.option-pessoa {
+.tela-login-option-pessoa {
   background-color: var(--dark);
   color: var(--light);
   font-size: 20px;
@@ -151,7 +153,7 @@
   border-radius: 5px;
 }
 
-.esconder_senha {
+.tela-login-esconder_senha {
   all: unset;
   color: var(--light);
   cursor: pointer;

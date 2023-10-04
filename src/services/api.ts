@@ -13,7 +13,7 @@ import {
   ColaboradorListaProps,
   ColaboradorProps,
 } from "../@types/Colaborador";
-import { AtuUsuario, UsuarioProps } from "../@types/Usuario";
+import { AtuUsuario, ResetarSenha, UsuarioProps } from "../@types/Usuario";
 import { CobrancaProps } from "../@types/Cobranca";
 
 /*EMPRESA*/
@@ -111,6 +111,12 @@ const postCreateUsuario = (params: UsuarioProps): AxiosPromise<UsuarioProps> =>
 
 const postRecuperarSenha = (params: UsuarioProps): AxiosPromise<UsuarioProps> =>
   xhr.post(`usuarios/forgot-password`, params);
+
+const putRecuperarSenha = (
+  token: string,
+  params: ResetarSenha
+): AxiosPromise<ResetarSenha> =>
+  xhr.put(`usuarios/recuperar-senha/${token}`, params);
 /*USUARIO*/
 
 /*UTILITÁRIOS*/
@@ -146,4 +152,5 @@ export {
   getCobrancas,
   postCreateCobranca,
   getCobrancaById,
+  putRecuperarSenha,
 };

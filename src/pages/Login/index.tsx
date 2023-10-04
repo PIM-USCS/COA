@@ -42,17 +42,17 @@ export function Login() {
   }
 
   return (
-    <body className="login">
-      <main className="main-login">
-        <header className="header-login">
+    <body className="tela-login-login">
+      <main className="tela-login-main-login">
+        <header className="tela-login-header-login">
           <h1>Login</h1>
         </header>
         <section>
-          <div className="floatingInput">
+          <div className="tela-login-floatingInput">
             <input
               type="email"
               id="login"
-              className="floatingInput__control"
+              className="tela-login-floatingInput__control"
               placeholder="login"
               name="email"
               value={usuario.email || ""}
@@ -63,10 +63,12 @@ export function Login() {
                 })
               }
             />
-            <label className="floatingInput__label">Login</label>
+            <label className="tela-login-floatingInput__label">Login</label>
           </div>
-          <div className="floatingInput">
-            <button className="esconder_senha" onClick={esconderSenha}>
+          <div className="tela-login-floatingInput">
+            <button
+              className="tela-login-esconder_senha"
+              onClick={esconderSenha}>
               <EyeSlash
                 size={22}
                 style={{ display: visualizarSenha ? "flex" : "none" }}
@@ -79,7 +81,7 @@ export function Login() {
             <input
               id="password"
               type={visualizarSenha ? "text" : "password"}
-              className="floatingInput__control"
+              className="tela-login-floatingInput__control"
               placeholder="senha"
               name="senha"
               value={usuario.senha || ""}
@@ -91,21 +93,25 @@ export function Login() {
               }
             />
 
-            <label className="floatingInput__label">Senha</label>
+            <label className="tela-login-floatingInput__label">Senha</label>
           </div>
-          <div className="checkbox-esquecisenha-login">
-            <div className="checkbox-login">
-              <input type="checkbox" id="checkbox1" className="" />
-              <label className="">Lembrar Usuario</label>
+          <div className="tela-login-checkbox-esquecisenha-login">
+            <div className="tela-login-checkbox-login">
+              <input type="checkbox" id="checkbox1" className="tela-login-" />
+              <label className="tela-login-">Lembrar Usuario</label>
             </div>
-            <NavLink to="/recuperar-senha" className="esquecisenha-login">
+            <NavLink
+              to="/recuperar-senha"
+              className="tela-login-esquecisenha-login">
               <a>Esqueci minha senha</a>
             </NavLink>
           </div>
           <div>
             <button
               type="submit"
-              className={`bnt-login ${desabilitarLogin ? "disabled" : ""}`}
+              className={`tela-login-bnt-login ${
+                desabilitarLogin ? "disabled" : ""
+              }`}
               onClick={login}
               disabled={desabilitarLogin}>
               login

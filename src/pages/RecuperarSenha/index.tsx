@@ -26,6 +26,8 @@ export function RecuperarSenha() {
         title: "Não foi possivel enviar o email de recuperação!",
         text: "Tente novamente mais tarde",
       });
+    } finally {
+      navigate("/resetar-senha");
     }
   }
 
