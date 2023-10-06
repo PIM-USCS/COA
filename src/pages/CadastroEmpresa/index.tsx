@@ -436,6 +436,7 @@ export function CadastroCliente() {
               className="floatingInput__control"
               placeholder="Contador responsavel"
               value={colaborador.nome || ""}
+              readOnly
             />
             <label className="floatingInput__label">Contador responsavel</label>
           </div>
@@ -450,7 +451,7 @@ export function CadastroCliente() {
             <input
               type="text"
               className="floatingInput__control"
-              placeholder="CPF"
+              placeholder="CPF CLIENTE"
               name="cpf"
               value={cliente.cpf || ""}
               onChange={mascaraCNPJCPFCliente}

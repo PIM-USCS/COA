@@ -1,10 +1,14 @@
+## TESTE
+
+Sempre rodar o comando yarn test ou npm test para garantir que o testes rodem corretamente
+
 ## NODE
 
 Utilizar a versão do node 16.18
 
-## Atualizar dependencias 
+## Atualizar dependencias
 
-npm i
+npm i e depois yarn
 
 ## Ao baixar o projeto para sua maquina
 
@@ -90,13 +94,12 @@ Recomendado sempre iniciar o código com:
 
 Alguns navegadores tem uma margin ou padding padrão dentro deles, isto faz com que remova este padrão e deixe todas as paginas padronizadas em qualquer navegador
 
-
-## Subir pro GIT 
+## Subir pro GIT
 
 git add .
 git commit -m "nome do commit"
 git push
 
-## biblioteca 
+## biblioteca
 
 https://sweetalert2.github.io/
