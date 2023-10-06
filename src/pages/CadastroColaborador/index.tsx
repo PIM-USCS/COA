@@ -109,7 +109,7 @@ export function CadastroColaborador() {
   }
 
   return (
-    <body className="cadastrocolaborador">
+    <div className="cadastrocolaborador">
       <main className="main-cadastrocolaborador">
         <header className="header-cadastrocolaborador">
           <h2>Cadastrar Colaborador</h2>
@@ -152,7 +152,7 @@ export function CadastroColaborador() {
               <div className="div-tipo-usuario">
                 <input
                   type="radio"
-                  name="tipo-usuario"
+                  name="Administrador"
                   className="input-tipo-usuario"
                   value="1"
                   checked={usuario.tipo_usuario === "1"}
@@ -165,7 +165,7 @@ export function CadastroColaborador() {
               <div className="div-tipo-usuario">
                 <input
                   type="radio"
-                  name="tipo-usuario"
+                  name="Colaborador"
                   className="input-tipo-usuario"
                   value="2"
                   checked={usuario.tipo_usuario === "2"}
@@ -240,7 +240,7 @@ export function CadastroColaborador() {
               <input
                 type={visualizarConfirmarSenha ? "text" : "password"}
                 className="floatingInput__control"
-                placeholder="Senha"
+                placeholder="Confirmar senha"
                 name="senha"
                 value={confirmarSenha || ""}
                 onChange={(e) => setConfirmarSenha(e.target.value)}
@@ -260,6 +260,6 @@ export function CadastroColaborador() {
           </section>
         </section>
       </main>
-    </body>
+    </div>
   );
 }
