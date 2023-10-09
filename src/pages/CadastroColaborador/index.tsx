@@ -109,16 +109,16 @@ export function CadastroColaborador() {
   }
 
   return (
-    <div className="cadastrocolaborador">
-      <main className="main-cadastrocolaborador">
-        <header className="header-cadastrocolaborador">
+    <div className="tela-colaborador-cadastrocolaborador">
+      <main className="tela-colaborador-main-cadastrocolaborador">
+        <header className="tela-colaborador-header-cadastrocolaborador">
           <h2>Cadastrar Colaborador</h2>
         </header>
         <section>
-          <div className="floatingInput">
+          <div className="tela-colaborador-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-colaborador-floatingInput__control"
               placeholder="Nome"
               name="nome"
               value={colaborador.nome || ""}
@@ -129,57 +129,67 @@ export function CadastroColaborador() {
                 })
               }
             />
-            <label className="floatingInput__label">Nome</label>
+            <label className="tela-colaborador-floatingInput__label">
+              Nome
+            </label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-colaborador-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-colaborador-floatingInput__control"
               placeholder="Telefone"
               name="telefone"
               value={colaborador.telefone || ""}
               onChange={mascaraTelefone}
             />
-            <label className="floatingInput__label">Telefone</label>
+            <label className="tela-colaborador-floatingInput__label">
+              Telefone
+            </label>
           </div>
-          <section className="formulario-login-colaborador">
+          <section className="tela-colaborador-formulario-login-colaborador">
             <h2>Login</h2>
             <br />
             <hr />
             <br />
 
-            <div className="tipo-usuario">
-              <div className="div-tipo-usuario">
+            <div className="tela-colaborador-tipo-usuario">
+              <div className="tela-colaborador-div-tipo-usuario">
                 <input
                   type="radio"
                   name="Administrador"
-                  className="input-tipo-usuario"
+                  className="tela-colaborador-input-tipo-usuario"
                   value="1"
                   checked={usuario.tipo_usuario === "1"}
                   onChange={() => setUsuario({ ...usuario, tipo_usuario: "1" })}
                 />
-                <label htmlFor="tipo-usuario" className="label-tipo-usuario">
+                <label
+                  htmlFor="tipo-usuario"
+                  className="tela-colaborador-label-tipo-usuario"
+                >
                   Administrador
                 </label>
               </div>
-              <div className="div-tipo-usuario">
+              <div className="tela-colaborador-div-tipo-usuario">
                 <input
                   type="radio"
                   name="Colaborador"
-                  className="input-tipo-usuario"
+                  className="tela-colaborador-input-tipo-usuario"
                   value="2"
                   checked={usuario.tipo_usuario === "2"}
                   onChange={() => setUsuario({ ...usuario, tipo_usuario: "2" })}
                 />
-                <label htmlFor="tipo-usuario" className="label-tipo-usuario">
+                <label
+                  htmlFor="tipo-usuario"
+                  className="tela-colaborador-label-tipo-usuario"
+                >
                   Colaborador
                 </label>
               </div>
             </div>
-            <div className="floatingInput">
+            <div className="tela-colaborador-floatingInput">
               <input
                 type="email"
-                className="floatingInput__control"
+                className="tela-colaborador-floatingInput__control"
                 placeholder="E-mail"
                 name="email"
                 value={usuario.email || ""}
@@ -192,10 +202,15 @@ export function CadastroColaborador() {
                 onBlur={validarEmailUsuario}
               />
 
-              <label className="floatingInput__label">Email</label>
+              <label className="tela-colaborador-floatingInput__label">
+                Email
+              </label>
             </div>
-            <div className="floatingInput">
-              <button className="esconder_senha" onClick={esconderSenha}>
+            <div className="tela-colaborador-floatingInput">
+              <button
+                className="tela-colaborador-esconder_senha"
+                onClick={esconderSenha}
+              >
                 <EyeSlash
                   size={22}
                   style={{ display: visualizarSenha ? "flex" : "none" }}
@@ -207,7 +222,7 @@ export function CadastroColaborador() {
               </button>
               <input
                 type={visualizarSenha ? "text" : "password"}
-                className="floatingInput__control"
+                className="tela-colaborador-floatingInput__control"
                 placeholder="Senha"
                 name="senha"
                 value={usuario.senha || ""}
@@ -218,12 +233,15 @@ export function CadastroColaborador() {
                   })
                 }
               />
-              <label className="floatingInput__label">Senha</label>
+              <label className="tela-colaborador-floatingInput__label">
+                Senha
+              </label>
             </div>
-            <div className="floatingInput">
+            <div className="tela-colaborador-floatingInput">
               <button
-                className="esconder_senha"
-                onClick={esconderSenhaConfirmar}>
+                className="tela-colaborador-esconder_senha"
+                onClick={esconderSenhaConfirmar}
+              >
                 <EyeSlash
                   size={22}
                   style={{
@@ -239,21 +257,24 @@ export function CadastroColaborador() {
               </button>
               <input
                 type={visualizarConfirmarSenha ? "text" : "password"}
-                className="floatingInput__control"
+                className="tela-colaborador-floatingInput__control"
                 placeholder="Confirmar senha"
                 name="senha"
                 value={confirmarSenha || ""}
                 onChange={(e) => setConfirmarSenha(e.target.value)}
               />
-              <label className="floatingInput__label">Confirmar senha</label>
+              <label className="tela-colaborador-floatingInput__label">
+                Confirmar senha
+              </label>
             </div>
             <div>
               <button
-                className={`bnt-cadastrocolaborador ${
+                className={`tela-colaborador-bnt-cadastrocolaborador ${
                   desabilitarButtonCadastrar ? "disabled" : ""
                 }`}
                 onClick={finalizarCadastro}
-                disabled={desabilitarButtonCadastrar}>
+                disabled={desabilitarButtonCadastrar}
+              >
                 cadastrar
               </button>
             </div>

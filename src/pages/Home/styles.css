@@ -5,20 +5,21 @@
   --dark: #000000;
 }
 
-.container-grid-home {
+.tela-home-container-grid-home {
   background-color: var(--dark);
+  min-height: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
-.div-header-home {
+.tela-home-div-header-home {
   background-color: var(--secondary);
   width: 100%;
   padding: 10px;
   position: absolute;
 }
-.botao-home,
-.botao-usuario {
+.tela-home-botao-home,
+.tela-home-botao-usuario {
   background-color: var(--secondary);
   border: none;
   display: flex;
@@ -26,47 +27,47 @@
   gap: 8px;
   cursor: pointer;
 }
-.nome-usuario {
+.tela-home-nome-usuario {
   color: var(--light);
   font-size: 18px;
   text-transform: uppercase;
 }
-.nome-usuario:hover {
+.tela-home-nome-usuario:hover {
   color: var(--primary);
 }
-.botao-home {
+.tela-home-botao-home {
   width: 200px;
   justify-content: space-between;
 }
-.botao-home h2 {
+.tela-home-botao-home h2 {
   font-size: 35px;
   color: var(--primary);
 }
-.div-header {
+.tela-home-div-header {
   display: flex;
   justify-content: space-between;
 }
-.div-header-direita {
+.tela-home-div-header-direita {
   align-items: center;
-  width: 280px;
+  width: 550px;
   display: flex;
   justify-content: center;
 }
 
-.div-header-home img {
+.tela-home-div-header-home img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   background-color: transparent;
 }
-.submenu-usuario {
+.tela-home-submenu-usuario {
   display: flex;
   flex-direction: column;
   position: absolute;
   background-color: var(--secondary);
   margin-top: 160px;
 }
-.submenu-usuario button {
+.tela-home-submenu-usuario button {
   background-color: transparent;
   border: none;
   padding: 10px;
@@ -76,12 +77,12 @@
   display: flex;
   gap: 4px;
 }
-.submenu-usuario button:hover {
+.tela-home-submenu-usuario button:hover {
   color: var(--primary);
 }
 
-.botao-dashboard,
-.botao-pages {
+.tela-home-botao-dashboard,
+.tela-home-botao-pages {
   background-color: transparent;
   border: none;
   margin: 10px 0;
@@ -96,7 +97,7 @@
   cursor: pointer;
 }
 
-.botao-usuario img {
+.tela-home-botao-usuario img {
   width: 60px;
   height: 60px;
   border-radius: 99px;
@@ -106,7 +107,7 @@
 
 /*MENU*/
 
-.div-sidenav-home {
+.tela-home-div-sidenav-home {
   width: 100%;
   height: 100%;
   display: flex;
@@ -114,7 +115,7 @@
   align-items: center;
 }
 
-.separador-home {
+.tela-home-separador-home {
   width: 90%;
   display: flex;
   justify-content: space-between;
@@ -123,7 +124,7 @@
   position: relative;
 }
 
-.div-botoes {
+.tela-home-div-botoes {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,7 +134,7 @@
   background-color: var(--secondary);
 }
 
-.botao-secundario {
+.tela-home-botao-secundario {
   all: unset;
   display: flex;
   color: var(--light);
@@ -142,7 +143,7 @@
   gap: 8px;
 }
 
-.botao-secundario:hover {
+.tela-home-botao-secundario:hover {
   color: var(--primary);
 }
 /*MENU*/

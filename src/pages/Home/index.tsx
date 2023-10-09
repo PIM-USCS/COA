@@ -69,25 +69,29 @@ export function Home() {
         isOpenEnviar={isOpenEnviar}
         setIsOpenEnviar={setIsOpenEnviar}
       />
-      <body className="container-grid-home">
-        <header className="div-header-home">
-          <div className="div-header">
-            <div className="div-header-esquerda">
-              <button className="botao-home">
+      <body className="tela-home-container-grid-home">
+        <header className="tela-home-div-header-home">
+          <div className="tela-home-div-header">
+            <div className="tela-home-div-header-esquerda">
+              <button className="tela-home-botao-home">
                 <img src={Logo} alt="Logo" />
                 <h2>COA</h2>
               </button>
             </div>
-            <div className="div-header-direita">
-              <button className="botao-usuario" onClick={HabilitarSubMenuUser}>
+            <div className="tela-home-div-header-direita">
+              <button
+                className="tela-home-botao-usuario"
+                onClick={HabilitarSubMenuUser}
+              >
                 <img src={GuiBalbino} alt="Foto usuario" />
-                <p className="nome-usuario">{usuarios.nome}</p>
+                <p className="tela-home-nome-usuario">{usuarios.nome}</p>
               </button>
               <div
-                className="submenu-usuario"
+                className="tela-home-submenu-usuario"
                 style={{
                   display: isOpenUser ? "flex" : "none",
-                }}>
+                }}
+              >
                 <NavLink
                   to="/alterar-usuario"
                   style={{
@@ -96,7 +100,8 @@ export function Home() {
                     width: "100%",
                     display: "flex",
                     justifyContent: "center",
-                  }}>
+                  }}
+                >
                   <button>
                     <PencilSimple size={18} />
                     Editar perfil
@@ -110,7 +115,8 @@ export function Home() {
                     width: "100%",
                     display: "flex",
                     justifyContent: "center",
-                  }}>
+                  }}
+                >
                   <button>
                     <Lock size={18} />
                     Alterar senha
@@ -120,59 +126,53 @@ export function Home() {
             </div>
           </div>
         </header>
-        <section className="div-sidenav-home">
-          <div className="separador-home">
+        <section className="tela-home-div-sidenav-home">
+          <div className="tela-home-separador-home">
             <div
-              className="div-botoes"
+              className="tela-home-div-botoes"
               style={{
                 display: usuarios.tipo_usuario !== "1" ? "none" : "flex",
-              }}>
+              }}
+            >
               <NavLink to="/empresas" style={{ textDecoration: "none" }}>
-                <button className="botao-secundario">
+                <button className="tela-home-botao-secundario">
                   <Buildings size={30} />
                   Empresas
                 </button>
               </NavLink>
             </div>
             <div
-              className="div-botoes"
+              className="tela-home-div-botoes"
               style={{
                 display: usuarios.tipo_usuario !== "1" ? "none" : "flex",
-              }}>
+              }}
+            >
               <NavLink to="/colaborador" style={{ textDecoration: "none" }}>
-                <button className="botao-secundario">
+                <button className="tela-home-botao-secundario">
                   <UserCircle size={30} />
                   Colaboradores
                 </button>
               </NavLink>
             </div>
-            {/* <div className="div-botoes">
-              <button
-                onClick={() => setIsOpenEnviar(true)}
-                className="botao-secundario">
-                <Export size={30} />
-                Enviar recibos
-              </button>
-            </div> */}
-            <div className="div-botoes">
+            <div className="tela-home-div-botoes">
               <NavLink to="/cobrancas" style={{ textDecoration: "none" }}>
-                <button className="botao-secundario">
+                <button className="tela-home-botao-secundario">
                   <Files size={30} />
                   Cobranças
                 </button>
               </NavLink>
             </div>
-            <div className="div-botoes">
+            <div className="tela-home-div-botoes">
               <NavLink to="/trocar-senha" style={{ textDecoration: "none" }}>
-                <button className="botao-secundario">
+                <button className="tela-home-botao-secundario">
                   <LockSimple size={30} />
                   Trocar Senha
                 </button>
               </NavLink>
             </div>
-            <div className="div-botoes">
+            <div className="tela-home-div-botoes">
               <NavLink to="/" style={{ textDecoration: "none" }}>
-                <button className="botao-secundario">
+                <button className="tela-home-botao-secundario">
                   <ArrowUDownLeft size={30} />
                   Deslogar
                 </button>

@@ -214,61 +214,69 @@ export function CadastroCliente() {
   }
 
   return (
-    <body className="cadastrocliente">
-      <main className="main-cadastrarcliente">
-        <header className="header-cadcliente">
+    <body className="tela-empresa-cadastrocliente">
+      <main className="tela-empresa-main-cadastrarcliente">
+        <header className="tela-empresa-header-cadcliente">
           <h1>Cadastro Empresa</h1>
         </header>
 
-        <section className="formulario-empresa">
+        <section className="tela-empresa-formulario-empresa">
           <h2>Empresa</h2>
           <br />
           <hr />
           <br />
-          <div className="tipo-pessoa">
-            <div className="div-tipo-pessoa">
+          <div className="tela-empresa-tipo-pessoa">
+            <div className="tela-empresa-div-tipo-pessoa">
               <input
                 type="radio"
                 name="tipo-pessoa"
-                className="input-tipo-pessoa"
+                className="tela-empresa-input-tipo-pessoa"
                 value="PF"
                 checked={empresa.tipo_cliente === "PF"}
                 onChange={() => setEmpresa({ ...empresa, tipo_cliente: "PF" })}
               />
-              <label htmlFor="tipo-pessoa" className="label-tipo-pessoa">
+              <label
+                htmlFor="tipo-pessoa"
+                className="tela-empresa-label-tipo-pessoa"
+              >
                 Pessoa fisica
               </label>
             </div>
-            <div className="div-tipo-pessoa">
+            <div className="tela-empresa-div-tipo-pessoa">
               <input
                 type="radio"
                 name="tipo-pessoa"
-                className="input-tipo-pessoa"
+                className="tela-empresa-input-tipo-pessoa"
                 value="PJ"
                 checked={empresa.tipo_cliente === "PJ"}
                 onChange={() => setEmpresa({ ...empresa, tipo_cliente: "PJ" })}
               />
-              <label htmlFor="tipo-pessoa" className="label-tipo-pessoa">
+              <label
+                htmlFor="tipo-pessoa"
+                className="tela-empresa-label-tipo-pessoa"
+              >
                 Pessoa juridica
               </label>
             </div>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="CNPJ/CPF"
               name={empresa.tipo_cliente === "PF" ? "cpf" : "cnpj"}
               value={empresa.tipo_cliente === "PF" ? empresa.cpf : empresa.cnpj}
               onChange={mascaraCNPJCPFEmpresa}
               onBlur={consultaCliente}
             />
-            <label className="floatingInput__label">CNPJ/CPF</label>
+            <label className="tela-empresa-floatingInput__label">
+              CNPJ/CPF
+            </label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="Inscrição Estadual"
               name="ie"
               value={empresa.ie || ""}
@@ -279,12 +287,14 @@ export function CadastroCliente() {
                 })
               }
             />
-            <label className="floatingInput__label">Inscrição Estadual</label>
+            <label className="tela-empresa-floatingInput__label">
+              Inscrição Estadual
+            </label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="Razão social"
               name="nome"
               value={empresa.nome || ""}
@@ -296,12 +306,14 @@ export function CadastroCliente() {
               }
             />
 
-            <label className="floatingInput__label">Razão social</label>
+            <label className="tela-empresa-floatingInput__label">
+              Razão social
+            </label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="CEP"
               name="cep"
               value={empresa.cep || ""}
@@ -313,12 +325,12 @@ export function CadastroCliente() {
               }
               onBlur={ConsultaCEP}
             />
-            <label className="floatingInput__label">CEP</label>
+            <label className="tela-empresa-floatingInput__label">CEP</label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="Rua"
               name="rua"
               value={empresa.rua || ""}
@@ -329,12 +341,12 @@ export function CadastroCliente() {
                 })
               }
             />
-            <label className="floatingInput__label">Rua</label>
+            <label className="tela-empresa-floatingInput__label">Rua</label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="Cidade"
               name="cidade"
               value={empresa.cidade || ""}
@@ -345,12 +357,12 @@ export function CadastroCliente() {
                 })
               }
             />
-            <label className="floatingInput__label">Cidade</label>
+            <label className="tela-empresa-floatingInput__label">Cidade</label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="UF"
               name="uf"
               value={empresa.uf || ""}
@@ -361,12 +373,12 @@ export function CadastroCliente() {
                 })
               }
             />
-            <label className="floatingInput__label">UF</label>
+            <label className="tela-empresa-floatingInput__label">UF</label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="Bairro"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="Bairro"
               name="bairro"
               value={empresa.bairro || ""}
@@ -377,12 +389,12 @@ export function CadastroCliente() {
                 })
               }
             />
-            <label className="floatingInput__label">Bairro</label>
+            <label className="tela-empresa-floatingInput__label">Bairro</label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="Numero"
               name="numero"
               value={empresa.numero || ""}
@@ -393,12 +405,12 @@ export function CadastroCliente() {
                 })
               }
             />
-            <label className="floatingInput__label">Numero</label>
+            <label className="tela-empresa-floatingInput__label">Numero</label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="Complemento"
               name="complemento"
               value={empresa.complemento || ""}
@@ -409,12 +421,14 @@ export function CadastroCliente() {
                 })
               }
             />
-            <label className="floatingInput__label">Complemento</label>
+            <label className="tela-empresa-floatingInput__label">
+              Complemento
+            </label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="ID contador responsavel"
               name="id"
               value={colaborador.id || ""}
@@ -426,42 +440,44 @@ export function CadastroCliente() {
               }
               onBlur={consultaColaboradorByID}
             />
-            <label className="floatingInput__label">
+            <label className="tela-empresa-floatingInput__label">
               ID contador responsavel
             </label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="Contador responsavel"
               value={colaborador.nome || ""}
               readOnly
             />
-            <label className="floatingInput__label">Contador responsavel</label>
+            <label className="tela-empresa-floatingInput__label">
+              Contador responsavel
+            </label>
           </div>
         </section>
-        <section className="formulario-contato">
+        <section className="tela-empresa-formulario-contato">
           <h2>Cliente</h2>
           <br />
           <hr />
           <br />
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             {" "}
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="CPF CLIENTE"
               name="cpf"
               value={cliente.cpf || ""}
               onChange={mascaraCNPJCPFCliente}
             />
-            <label className="floatingInput__label">CPF</label>
+            <label className="tela-empresa-floatingInput__label">CPF</label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="Nome"
               name="nome"
               value={cliente.nome || ""}
@@ -472,12 +488,12 @@ export function CadastroCliente() {
                 })
               }
             />
-            <label className="floatingInput__label">Nome</label>
+            <label className="tela-empresa-floatingInput__label">Nome</label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="RG"
               name="rg"
               value={cliente.rg || ""}
@@ -488,23 +504,25 @@ export function CadastroCliente() {
                 })
               }
             />
-            <label className="floatingInput__label">RG</label>
+            <label className="tela-empresa-floatingInput__label">RG</label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="tel"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="Telefone"
               name="telefone"
               value={cliente.telefone || ""}
               onChange={mascaraTelefone}
             />
-            <label className="floatingInput__label">Telefone</label>
+            <label className="tela-empresa-floatingInput__label">
+              Telefone
+            </label>
           </div>
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="email"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="Email"
               name="email"
               value={cliente.email || ""}
@@ -516,18 +534,18 @@ export function CadastroCliente() {
               }
               onBlur={validarEmailCliente}
             />
-            <label className="floatingInput__label">Email</label>
+            <label className="tela-empresa-floatingInput__label">Email</label>
           </div>
         </section>
-        <section className="formulario-login">
+        <section className="tela-empresa-formulario-login">
           <h2>Login</h2>
           <br />
           <hr />
           <br />
-          <div className="floatingInput">
+          <div className="tela-empresa-floatingInput">
             <input
               type="email"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="E-mail de login"
               name="email"
               value={usuario.email || ""}
@@ -539,10 +557,13 @@ export function CadastroCliente() {
               }
               onBlur={validarEmailUsuario}
             />
-            <label className="floatingInput__label">Email</label>
+            <label className="tela-empresa-floatingInput__label">Email</label>
           </div>
-          <div className="floatingInput">
-            <button className="esconder_senha" onClick={esconderSenha}>
+          <div className="tela-empresa-floatingInput">
+            <button
+              className="tela-empresa-esconder_senha"
+              onClick={esconderSenha}
+            >
               <EyeSlash
                 size={22}
                 style={{ display: visualizarSenha ? "flex" : "none" }}
@@ -554,7 +575,7 @@ export function CadastroCliente() {
             </button>
             <input
               type={visualizarSenha ? "text" : "password"}
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="Senha"
               name="senha"
               value={usuario.senha || ""}
@@ -565,10 +586,13 @@ export function CadastroCliente() {
                 })
               }
             />
-            <label className="floatingInput__label">Senha</label>
+            <label className="tela-empresa-floatingInput__label">Senha</label>
           </div>
-          <div className="floatingInput">
-            <button className="esconder_senha" onClick={esconderSenhaConfirmar}>
+          <div className="tela-empresa-floatingInput">
+            <button
+              className="tela-empresa-esconder_senha"
+              onClick={esconderSenhaConfirmar}
+            >
               <EyeSlash
                 size={22}
                 style={{
@@ -585,18 +609,23 @@ export function CadastroCliente() {
             <input
               type={visualizarConfirmarSenha ? "text" : "password"}
               id="senha-cadastrocliente"
-              className="floatingInput__control"
+              className="tela-empresa-floatingInput__control"
               placeholder="Senha"
               name="senha"
               value={confirmarSenha || ""}
               onChange={(e) => setConfirmarSenha(e.target.value)}
             />
-            <label className="floatingInput__label">Confirmar senha</label>
+            <label className="tela-empresa-floatingInput__label">
+              Confirmar senha
+            </label>
           </div>
         </section>
-        <section className="formulario-btn">
-          <div className="btn">
-            <button className="bnt-cadastrocliente" onClick={finalizarCadastro}>
+        <section className="tela-empresa-formulario-btn">
+          <div className="tela-empresa-btn">
+            <button
+              className="tela-empresa-bnt-cadastrocliente"
+              onClick={finalizarCadastro}
+            >
               Cadastrar
             </button>
           </div>

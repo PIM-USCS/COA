@@ -1,9 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 :root {
   --primary: #028a0f;
   --secondary: #191c24;
@@ -12,7 +6,7 @@
 }
 
 /*body*/
-.cadastrocliente {
+.tela-empresa-cadastrocliente {
   font-family: arial, sans-serif;
   background-color: var(--dark);
   display: flex;
@@ -20,7 +14,7 @@
   align-items: center;
 }
 /*formulario*/
-.main-cadastrarcliente {
+.tela-empresa-main-cadastrarcliente {
   background-color: var(--secondary);
   width: 70%;
   margin: 50px 0px 50px 0px;
@@ -32,27 +26,27 @@
   max-width: 1000px;
 }
 /*Cabecalho*/
-.header-cadcliente {
+.tela-empresa-header-cadcliente {
   color: white;
   text-align: right;
 }
 /*Distancia dos campos de preenchimento*/
-.formulario-empresa,
-.formulario-contato,
-.formulario-login {
+.tela-empresa-formulario-empresa,
+.tela-empresa-formulario-contato,
+.tela-empresa-formulario-login {
   margin: 25px 0px 50px 0px;
 }
-.formulario-empresa h2,
-.formulario-contato h2,
-.formulario-login h2 {
+.tela-empresa-formulario-empresa h2,
+.tela-empresa-formulario-contato h2,
+.tela-empresa-formulario-login h2 {
   color: white;
 }
 
 /*Campo preenchimento*/
-.floatingInput {
+.tela-empresa-floatingInput {
   position: relative;
 }
-.floatingInput__control {
+.tela-empresa-floatingInput__control {
   background-color: var(--dark);
   color: var(--light);
   border-radius: 5px;
@@ -65,15 +59,17 @@
   padding: 20px;
   padding-bottom: 8px;
 }
-.floatingInput__control::placeholder {
+.tela-empresa-floatingInput__control::placeholder {
   opacity: 0;
 }
-.floatingInput__control:not(:placeholder-shown) + .floatingInput__label,
-.floatingInput__control:focus + .floatingInput__label {
+.tela-empresa-floatingInput__control:not(:placeholder-shown)
+  + .tela-empresa-floatingInput__label,
+.tela-empresa-floatingInput__control:focus
+  + .tela-empresa-floatingInput__label {
   top: 0.2rem;
   font-size: 1.3rem;
 }
-.floatingInput__label {
+.tela-empresa-floatingInput__label {
   color: var(--light);
   position: absolute;
   top: 50%;
@@ -85,14 +81,14 @@
 }
 
 /*botão salvar*/
-.input-bnt-cadastrocliente {
+.tela-empresa-input-bnt-cadastrocliente {
   color: var(--light);
   margin-top: 8px;
 }
-.input-bnt-cadastrocliente::placeholder {
+.tela-empresa-input-bnt-cadastrocliente::placeholder {
   color: var(--light);
 }
-.bnt-cadastrocliente {
+.tela-empresa-bnt-cadastrocliente {
   all: unset;
   margin-top: 12px;
   border-radius: 8px;
@@ -110,24 +106,24 @@
   width: 100%;
   text-transform: uppercase;
 }
-.bnt-cadastrocliente:hover {
+.tela-empresa-bnt-cadastrocliente:hover {
   background-color: rgb(172, 8, 8);
   transition: 1s;
 }
 
-.tipo-pessoa {
+.tela-empresa-tipo-pessoa {
   display: flex;
   width: 100%;
   justify-content: flex-start;
   gap: 40px;
 }
-.div-tipo-pessoa {
+.tela-empresa-div-tipo-pessoa {
   display: flex;
   gap: 8px;
   align-items: center;
   margin-bottom: 20px;
 }
-.label-tipo-pessoa {
+.tela-empresa-label-tipo-pessoa {
   font-size: 16px;
   font-weight: 400;
   text-transform: uppercase;
@@ -135,7 +131,7 @@
   color: var(--light);
 }
 
-.input-tipo-pessoa {
+.tela-empresa-input-tipo-pessoa {
   appearance: none;
   width: 20px;
   height: 20px;
@@ -146,6 +142,17 @@
   cursor: pointer;
 }
 
-.input-tipo-pessoa:checked {
+.tela-empresa-input-tipo-pessoa:checked {
   background-color: var(--primary);
+}
+
+.tela-empresa-esconder_senha {
+  all: unset;
+  color: var(--light);
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  right: 0;
+  bottom: 50%;
+  margin-right: 22px;
 }
