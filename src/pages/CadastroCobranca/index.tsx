@@ -5,11 +5,43 @@ import { CobrancaProps } from "../../@types/Cobranca";
 import * as api from "../../services/api";
 import Swal from "sweetalert2";
 import { EmpresaProps } from "../../@types/Client";
+import maskData from "../../utils/maskData";
+import maskMoney from "../../utils/maskMoney";
 
 export function CadastroCobranca() {
   const [cobranca, setCobranca] = useState<CobrancaProps>({} as CobrancaProps);
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
   const navigate = useNavigate();
+
+  const mascaraDataEmissao = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, valorFormatado } = maskData(e);
+
+    setCobranca({
+      ...cobranca,
+      [name]: valorFormatado,
+    });
+  };
+
+  const mascaraDataVencimento = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, valorFormatado } = maskData(e);
+    if (!cobranca.emissao_cobranca) {
+      return;
+    }
+
+    setCobranca({
+      ...cobranca,
+      [name]: valorFormatado,
+    });
+  };
+
+  const mascaraDinheiro = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, valorFormatado } = maskMoney(e);
+
+    setCobranca({
+      ...cobranca,
+      [name]: valorFormatado,
+    });
+  };
 
   async function finalizarCadastro() {
     try {
@@ -96,12 +128,7 @@ export function CadastroCobranca() {
               placeholder="Data emissão"
               name="emissao_cobranca"
               value={cobranca.emissao_cobranca || ""}
-              onChange={(e) =>
-                setCobranca({
-                  ...cobranca,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              onChange={mascaraDataEmissao}
             />
             <label className="floatingInput__label">Data emissão</label>
           </div>
@@ -112,12 +139,7 @@ export function CadastroCobranca() {
               placeholder="Data vencimento"
               name="vencimento_cobranca"
               value={cobranca.vencimento_cobranca || ""}
-              onChange={(e) =>
-                setCobranca({
-                  ...cobranca,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              onChange={mascaraDataVencimento}
             />
             <label className="floatingInput__label">Data vencimento</label>
           </div>
@@ -128,12 +150,7 @@ export function CadastroCobranca() {
               placeholder="Valor"
               name="valor"
               value={cobranca.valor || ""}
-              onChange={(e) =>
-                setCobranca({
-                  ...cobranca,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              onChange={mascaraDinheiro}
             />
 
             <label className="floatingInput__label">Valor</label>
@@ -157,7 +174,8 @@ export function CadastroCobranca() {
           <div>
             <button
               className="bnt-cadastrocobranca"
-              onClick={finalizarCadastro}>
+              onClick={finalizarCadastro}
+            >
               cadastrar
             </button>
           </div>
