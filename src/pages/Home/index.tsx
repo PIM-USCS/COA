@@ -158,7 +158,7 @@ export function Home() {
               <NavLink to="/cobrancas" style={{ textDecoration: "none" }}>
                 <button className="tela-home-botao-secundario">
                   <Files size={30} />
-                  Cobranças
+                  Guias
                 </button>
               </NavLink>
             </div>

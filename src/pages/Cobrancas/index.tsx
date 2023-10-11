@@ -31,17 +31,18 @@ export function CobrancaLista() {
       <header className="container-titulo-cobranca">
         <button
           className="botao_return_cobranca"
-          onClick={() => navigate("/home")}>
+          onClick={() => navigate("/home")}
+        >
           <ArrowLeft size={36} />
         </button>
-        <h1>Listagem de cobrancas</h1>
+        <h1>Listagem de guias</h1>
       </header>
 
       <div className="div-cadastrar-cobranca">
         <NavLink to="/cadastro-cobrancas" style={{ textDecoration: "none" }}>
           <button>
             <IdentificationCard size={32} weight="fill" />
-            Nova Cobranca
+            Nova Guia
           </button>
         </NavLink>
       </div>
