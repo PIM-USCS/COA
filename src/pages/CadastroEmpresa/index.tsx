@@ -214,7 +214,7 @@ export function CadastroCliente() {
   }
 
   return (
-    <body className="tela-empresa-cadastrocliente">
+    <div className="tela-empresa-cadastrocliente">
       <main className="tela-empresa-main-cadastrarcliente">
         <header className="tela-empresa-header-cadcliente">
           <h1>Cadastro Empresa</h1>
@@ -631,6 +631,6 @@ export function CadastroCliente() {
           </div>
         </section>
       </main>
-    </body>
+    </div>
   );
 }

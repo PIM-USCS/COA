@@ -4,7 +4,7 @@
   --light: #6c7293;
   --dark: #000000;
 }
-.tela-cobranca-cadastrocolaborador {
+.tela-cobranca-cadastrocobranca {
   font-family: arial, sans-serif;
   background-color: var(--dark);
   display: flex;
@@ -12,20 +12,20 @@
   align-items: center;
   height: 100vh;
 }
-.tela-cobranca-main-cadastrocolaborador {
+.tela-cobranca-main-cadastrocobranca {
   background-color: var(--secondary);
   height: 100%;
   padding: 50px;
-  min-width: 450px;
+  min-width: 850px;
 }
-.tela-cobranca-header-cadastrocolaborador {
+.tela-cobranca-header-cadastrocobranca {
   display: flex;
   justify-content: right;
   color: white;
   margin-bottom: 20px;
 }
 
-.tela-cobranca-form-cadastrocolaborador {
+.tela-cobranca-form-cadastrocobranca {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -40,7 +40,7 @@
   color: var(--light);
   border-radius: 5px;
   height: 70px;
-  width: 98%;
+  width: 100%;
   text-transform: uppercase;
   border: transparent;
   font-size: 15px;
@@ -69,14 +69,14 @@
 }
 
 /*botão salvar*/
-.tela-cobranca-input-bnt-cadastrocolaborador {
+.tela-cobranca-input-bnt-cadastrocobranca {
   color: var(--light);
   margin-top: 8px;
 }
-.tela-cobranca-input-bnt-cadastrocolaborador::placeholder {
+.tela-cobranca-input-bnt-cadastrocobranca::placeholder {
   color: var(--light);
 }
-.tela-cobranca-bnt-cadastrocolaborador {
+.tela-cobranca-bnt-cadastrocobranca {
   all: unset;
   margin-top: 12px;
   border-radius: 5px;
@@ -94,21 +94,21 @@
   width: 100%;
   text-transform: uppercase;
 }
-.tela-cobranca-bnt-cadastrocolaborador:hover {
+.tela-cobranca-bnt-cadastrocobranca:hover {
   background-color: rgb(172, 8, 8);
   transition: 1s;
 }
-.tela-cobranca-bnt-cadastrocolaborador.tela-cobranca-disabled {
+.tela-cobranca-bnt-cadastrocobranca.tela-cobranca-disabled {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-.tela-cobranca-formulario-login-colaborador {
+.tela-cobranca-formulario-login-cobranca {
   margin: 25px 0px 50px 0px;
 }
 
-.tela-cobranca-formulario-login-colaborador h2 {
+.tela-cobranca-formulario-login-cobranca h2 {
   color: white;
 }
 
@@ -129,4 +129,40 @@
   text-transform: uppercase;
   font-family: "Roboto", sans-serif;
   color: var(--light);
+}
+
+.tela-cobranca-div-recibos {
+  display: flex;
+  justify-content: flex-end;
+}
+.tela-cobranca-div-recibos h1 {
+  color: white;
+}
+.tela-cobranca-custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: var(--dark);
+  color: var(--light);
+  border: 2px solid transparent;
+}
+
+.tela-cobranca-custom-file-upload:hover {
+  border: 2px solid var(--primary);
+}
+
+.tela-cobranca-custom-file-upload span {
+  font-size: 18px;
+}
+
+.tela-cobranca-custom-file-upload input[type="file"] {
+  display: none;
+}
+
+.tela-cobranca-arquivo-selecionado {
+  margin-top: 20px;
+  font-size: 16px;
+  color: white;
+  font-family: "Opens-sans", sans-serif;
 }

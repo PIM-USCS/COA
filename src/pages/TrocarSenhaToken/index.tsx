@@ -59,17 +59,17 @@ export function TrocarSenhaToken() {
     }
   }
   return (
-    <body className="trocarsenhatoken">
-      <main className="main-trocarsenhatoken">
-        <header className="header-trocarsenhatoken">
+    <body className="tela-trocarsenha-token-trocarsenhatoken">
+      <main className="tela-trocarsenha-token-main-trocarsenhatoken">
+        <header className="tela-trocarsenha-token-header-trocarsenhatoken">
           <h1>Recuperar Senha</h1>
         </header>
 
-        <section className="form-trocarsenhatoken">
-          <div className="floatingInput">
+        <section className="tela-trocarsenha-token-form-trocarsenhatoken">
+          <div className="tela-trocarsenha-token-floatingInput">
             <input
               type="text"
-              className="floatingInput__control"
+              className="tela-trocarsenha-token-floatingInput__control"
               placeholder="nome"
               name="token"
               value={usuario.token || ""}
@@ -80,12 +80,15 @@ export function TrocarSenhaToken() {
                 })
               }
             />
-            <label className="floatingInput__label">
+            <label className="tela-trocarsenha-token-floatingInput__label">
               Token enviado por email
             </label>
           </div>
-          <div className="floatingInput">
-            <button className="esconder_senha" onClick={esconderSenha}>
+          <div className="tela-trocarsenha-token-floatingInput">
+            <button
+              className="tela-trocarsenha-token-esconder_senha"
+              onClick={esconderSenha}
+            >
               <EyeSlash
                 size={22}
                 style={{ display: visualizarSenha ? "flex" : "none" }}
@@ -98,7 +101,7 @@ export function TrocarSenhaToken() {
             <input
               id="password"
               type={visualizarSenha ? "text" : "password"}
-              className="floatingInput__control"
+              className="tela-trocarsenha-token-floatingInput__control"
               placeholder="senha"
               name="senha"
               value={usuario.senha || ""}
@@ -110,10 +113,15 @@ export function TrocarSenhaToken() {
               }
             />
 
-            <label className="floatingInput__label">Senha</label>
+            <label className="tela-trocarsenha-token-floatingInput__label">
+              Senha
+            </label>
           </div>
-          <div className="floatingInput">
-            <button className="esconder_senha" onClick={esconderSenhaConfirmar}>
+          <div className="tela-trocarsenha-token-floatingInput">
+            <button
+              className="tela-trocarsenha-token-esconder_senha"
+              onClick={esconderSenhaConfirmar}
+            >
               <EyeSlash
                 size={22}
                 style={{
@@ -129,19 +137,22 @@ export function TrocarSenhaToken() {
             </button>
             <input
               type={visualizarConfirmarSenha ? "text" : "password"}
-              className="floatingInput__control"
+              className="tela-trocarsenha-token-floatingInput__control"
               placeholder="Senha"
               name="senha"
               value={confirmarSenha || ""}
               onChange={(e) => setConfirmarSenha(e.target.value)}
             />
-            <label className="floatingInput__label">Confirmar senha</label>
+            <label className="tela-trocarsenha-token-floatingInput__label">
+              Confirmar senha
+            </label>
           </div>
-          <div className="">
+          <div className="tela-trocarsenha-token-">
             <button
               type="submit"
-              className="bnt-trocarsenhatoken"
-              onClick={recuperarSenha}>
+              className="tela-trocarsenha-token-bnt-trocarsenhatoken"
+              onClick={recuperarSenha}
+            >
               Alterar
             </button>
           </div>

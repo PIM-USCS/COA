@@ -10,7 +10,7 @@
   --light: #6c7293;
   --dark: #000000;
 }
-.trocarsenhatoken {
+.tela-trocarsenha-token-trocarsenhatoken {
   font-family: arial, sans-serif;
   background-color: var(--dark);
   display: flex;
@@ -18,28 +18,28 @@
   align-items: center;
   height: 100vh;
 }
-.main-trocarsenhatoken {
+.tela-trocarsenha-token-main-trocarsenhatoken {
   background-color: var(--secondary);
   padding: 50px;
   min-width: 450px;
 }
-.header-trocarsenhatoken {
+.tela-trocarsenha-token-header-trocarsenhatoken {
   display: flex;
   justify-content: right;
   color: white;
 }
 
-.form-trocarsenhatoken {
+.tela-trocarsenha-token-form-trocarsenhatoken {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 2rem;
   margin: 25px 0px 0px 0px;
 }
-.floatingInput {
+.tela-trocarsenha-token-floatingInput {
   position: relative;
 }
-.floatingInput__control {
+.tela-trocarsenha-token-floatingInput__control {
   background-color: var(--dark);
   color: var(--light);
   border-radius: 5px;
@@ -51,20 +51,22 @@
   margin: 0px 0px 25px 0px;
 }
 
-.floatingInput__control::placeholder {
+.tela-trocarsenha-token-floatingInput__control::placeholder {
   opacity: 0;
 }
-.floatingInput__control:not(:placeholder-shown) + .floatingInput__label,
-.floatingInput__control:focus + .floatingInput__label {
-  top: 0.2rem;
-  font-size: 1.3rem;
+.tela-trocarsenha-token-floatingInput__control:not(:placeholder-shown)
+  + .tela-trocarsenha-token-floatingInput__label,
+.tela-trocarsenha-token-floatingInput__control:focus
+  + .tela-trocarsenha-token-floatingInput__label {
+  top: 0tela-trocarsenha-token-2rem;
+  font-size: 1tela-trocarsenha-token-3rem;
 }
-.floatingInput__label {
+.tela-trocarsenha-token-floatingInput__label {
   color: var(--light);
   position: absolute;
   top: 50%;
   left: 20px;
-  transition: all 0.2s;
+  transition: all 0tela-trocarsenha-token-2s;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 15px;
@@ -72,14 +74,14 @@
 
 /*botão Alterar*/
 
-.bnt-trocarsenhatoken {
+.tela-trocarsenha-token-bnt-trocarsenhatoken {
   color: var(--light);
   margin-top: 8px;
 }
-.bnt-trocarsenhatoken::placeholder {
+.tela-trocarsenha-token-bnt-trocarsenhatoken::placeholder {
   color: var(--light);
 }
-.bnt-trocarsenhatoken {
+.tela-trocarsenha-token-bnt-trocarsenhatoken {
   all: unset;
   margin-top: 12px;
   border-radius: 5px;
@@ -97,18 +99,18 @@
   width: 100%;
   text-transform: uppercase;
 }
-.bnt-trocarsenhatoken:hover {
+.tela-trocarsenha-token-bnt-trocarsenhatoken:hover {
   background-color: rgb(172, 8, 8);
   transition: 1s;
 }
-.bnt-trocarsenhatoken.disabled {
-  opacity: 0.5;
+.tela-trocarsenha-token-bnt-trocarsenhatoken.tela-trocarsenha-token-disabled {
+  opacity: 0tela-trocarsenha-token-5;
   cursor: not-allowed;
   pointer-events: none;
 }
 
 /*botao abandonar */
-.bnt-trocarsenhatoken-abandonar {
+.tela-trocarsenha-token-bnt-trocarsenhatoken-abandonar {
   all: unset;
   margin-top: 12px;
   border-radius: 5px;
@@ -126,7 +128,18 @@
   width: 100%;
   text-transform: uppercase;
 }
-.bnt-trocarsenhatoken-abandonar:hover {
+.tela-trocarsenha-token-bnt-trocarsenhatoken-abandonar:hover {
   background-color: var(--primary);
   transition: 1s;
+}
+
+.tela-trocarsenha-token-esconder_senha {
+  all: unset;
+  color: var(--light);
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  right: 0;
+  bottom: 50%;
+  margin-right: 22px;
 }

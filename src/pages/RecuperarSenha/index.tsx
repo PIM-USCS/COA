@@ -4,14 +4,16 @@ import * as api from "../../services/api";
 import { UsuarioProps } from "../../@types/Usuario";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import LoadingIcon from "../../Components/Loading";
 
 export function RecuperarSenha() {
   const navigate = useNavigate();
 
   const [usuario, setUsuario] = useState<UsuarioProps>({} as UsuarioProps);
-
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   async function enviarEmail() {
     try {
+      setIsLoading(true);
       const params = { ...usuario };
       await api.postRecuperarSenha(params);
       Swal.fire({
@@ -27,47 +29,57 @@ export function RecuperarSenha() {
         text: "Tente novamente mais tarde",
       });
     } finally {
+      setIsLoading(false);
       navigate("/resetar-senha");
     }
   }
 
   return (
-    <body className="recuperarsenha">
-      <main className="main-recuperarsenha">
-        <header className="header-recuperarsenha">
-          <h1>Recuperar Senha</h1>
-        </header>
+    <>
+      <LoadingIcon isLoading={isLoading} />
+      <body className="tela-recuperar-senha-recuperarsenha">
+        <main className="tela-recuperar-senha-main-recuperarsenha">
+          <header className="tela-recuperar-senha-header-recuperarsenha">
+            <h1>Recuperar Senha</h1>
+          </header>
 
-        <section className="form-recuperarsenha">
-          <div className="floatingInput">
-            <input
-              type="text"
-              id="senhanova"
-              className="floatingInput__control"
-              placeholder="Endereço de email"
-              name="email"
-              value={usuario.email || ""}
-              onChange={(e) =>
-                setUsuario({
-                  ...usuario,
-                  [e.target.name]: e.target.value,
-                })
-              }
-            />
-            <label className="floatingInput__label">Seu email</label>
-          </div>
-          <div className="">
-            <button className="bnt-recuperarsenha" onClick={enviarEmail}>
-              Enviar email
-            </button>
-            <button
-              className="bnt-recuperarsenha-abandonar"
-              onClick={() => navigate("/")}>
-              voltar
-            </button>
-          </div>
-        </section>
-      </main>
-    </body>
+          <section className="tela-recuperar-senha-form-recuperarsenha">
+            <div className="tela-recuperar-senha-floatingInput">
+              <input
+                type="text"
+                id="senhanova"
+                className="tela-recuperar-senha-floatingInput__control"
+                placeholder="Endereço de email"
+                name="email"
+                value={usuario.email || ""}
+                onChange={(e) =>
+                  setUsuario({
+                    ...usuario,
+                    [e.target.name]: e.target.value,
+                  })
+                }
+              />
+              <label className="tela-recuperar-senha-floatingInput__label">
+                Seu email
+              </label>
+            </div>
+            <div className="tela-recuperar-senha-">
+              <button
+                className="tela-recuperar-senha-bnt-recuperarsenha"
+                onClick={enviarEmail}
+              >
+                Enviar email
+              </button>
+              <button
+                className="tela-recuperar-senha-bnt-recuperarsenha-abandonar"
+                onClick={() => navigate("/")}
+              >
+                voltar
+              </button>
+            </div>
+          </section>
+        </main>
+      </body>
+    </>
   );
 }
