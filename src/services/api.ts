@@ -3,6 +3,7 @@ import { AxiosPromise } from "axios";
 import {
   AtuCliente,
   AtuEmpresa,
+  ClienteConsultaProps,
   ClienteProps,
   EmpresaProps,
   EmpresaPropsViaCep,
@@ -50,6 +51,9 @@ const postCreateCliente = (
 
 const getClienteByEmpresa = (id_empresa: string): AxiosPromise<ClienteProps> =>
   xhr.get(`clientes/${id_empresa}`);
+
+const getClienteByCPF = (cpf: string): AxiosPromise<ClienteConsultaProps> =>
+  xhr.get(`clientes/getCPF/${cpf}`);
 
 const postAtualizaCliente = (
   id_empresa: string,
@@ -153,4 +157,5 @@ export {
   postCreateCobranca,
   getCobrancaById,
   putRecuperarSenha,
+  getClienteByCPF,
 };

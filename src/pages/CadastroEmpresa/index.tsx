@@ -51,15 +51,7 @@ export function CadastroCliente() {
       [name]: valorFormatado,
     });
   };
-  const mascaraCNPJCPFCliente = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    const valorFormatado = formatarDocumento(value);
 
-    setCliente({
-      ...cliente,
-      [name]: valorFormatado,
-    });
-  };
   const mascaraCNPJCPFEmpresa = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     const valorFormatado = formatarDocumento(value);
@@ -85,7 +77,7 @@ export function CadastroCliente() {
       setVisualizarConfirmarSenha(false);
     }
   }
-  async function consultaCliente() {
+  async function consultaEmpresa() {
     if (empresa.tipo_cliente === "PF") {
       const { data } = await api.getClientByCpf(empresa.cpf);
       if (data) {
@@ -104,6 +96,24 @@ export function CadastroCliente() {
           icon: "info",
           title: "CNPJ informado já está cadastrado!",
         });
+      }
+    }
+  }
+
+  async function consultaCliente() {
+    if (cliente.cpf) {
+      try {
+        const { data } = await api.getClienteByCPF(cliente.cpf);
+
+        setCliente({
+          ...cliente,
+          email: data.email,
+          nome: data.nome,
+          rg: data.rg,
+          telefone: data.telefone,
+        });
+      } catch (error) {
+        console.log(error);
       }
     }
   }
@@ -267,7 +277,7 @@ export function CadastroCliente() {
               name={empresa.tipo_cliente === "PF" ? "cpf" : "cnpj"}
               value={empresa.tipo_cliente === "PF" ? empresa.cpf : empresa.cnpj}
               onChange={mascaraCNPJCPFEmpresa}
-              onBlur={consultaCliente}
+              onBlur={consultaEmpresa}
             />
             <label className="tela-empresa-floatingInput__label">
               CNPJ/CPF
@@ -470,7 +480,13 @@ export function CadastroCliente() {
               placeholder="CPF CLIENTE"
               name="cpf"
               value={cliente.cpf || ""}
-              onChange={mascaraCNPJCPFCliente}
+              onChange={(e) =>
+                setCliente({
+                  ...cliente,
+                  [e.target.name]: e.target.value,
+                })
+              }
+              onBlur={consultaCliente}
             />
             <label className="tela-empresa-floatingInput__label">CPF</label>
           </div>
