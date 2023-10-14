@@ -75,14 +75,14 @@
 }
 
 /*botão salvar*/
-.input-bnt-cadastrocolaborador {
+.input-bnt-page-cadastrocolaborador {
   color: var(--light);
   margin-top: 8px;
 }
-.input-bnt-cadastrocolaborador::placeholder {
+.input-bnt-page-cadastrocolaborador::placeholder {
   color: var(--light);
 }
-.bnt-cadastrocolaborador {
+.bnt-page-cadastrocolaborador {
   all: unset;
   margin-top: 12px;
   border-radius: 5px;
@@ -100,8 +100,8 @@
   width: 100%;
   text-transform: uppercase;
 }
-.bnt-cadastrocolaborador:hover {
-  background-color: rgb(172, 8, 8);
+.bnt-page-cadastrocolaborador:hover {
+  background-color: rgb(109, 204, 71);
   transition: 1s;
 }
 /*botao abandonar */
@@ -124,6 +124,6 @@
   text-transform: uppercase;
 }
 .bnt-cadastrocolaborador-abandonar:hover {
-  background-color: var(--primary);
+  background-color: rgb(228, 123, 123);
   transition: 1s;
 }

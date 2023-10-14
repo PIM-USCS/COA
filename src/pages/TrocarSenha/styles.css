@@ -17,6 +17,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+ 
 }
 .tela-trocarsenha-main-trocarsenha {
   background-color: var(--secondary);
@@ -47,8 +48,10 @@
   width: 98%;
   text-transform: uppercase;
   border: transparent;
-  font-size: 15px;
-  margin: 0px 0px 25px 0px;
+  font-size: 20px;
+  margin: 0px 2px 25px 0px;
+  text-align: left;
+  padding-left: 20px;
 }
 
 .tela-trocarsenha-floatingInput__control::placeholder {
@@ -100,7 +103,7 @@
   text-transform: uppercase;
 }
 .tela-trocarsenha-bnt-trocarsenha:hover {
-  background-color: rgb(172, 8, 8);
+  background-color: rgb(109, 204, 71);
   transition: 1s;
 }
 .tela-trocarsenha-bnt-trocarsenha.tela-trocarsenha-disabled {
@@ -129,6 +132,6 @@
   text-transform: uppercase;
 }
 .tela-trocarsenha-bnt-trocarsenha-abandonar:hover {
-  background-color: var(--primary);
+  background-color: rgb(228, 123, 123);
   transition: 1s;
 }

@@ -433,7 +433,7 @@ export function AlterarCadastroCliente() {
         </section>
         <section className="formulario-btn">
           <div className="btn">
-            <button className="bnt-cadastrocliente" onClick={alterarCadastro}>
+            <button className="bnt-page-cadastrocliente" onClick={alterarCadastro}>
               editar
             </button>
             <button

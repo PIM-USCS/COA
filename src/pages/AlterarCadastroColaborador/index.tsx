@@ -91,7 +91,7 @@ export function AlterarCadastroColaborador() {
             </div>
             <div>
               <button
-                className="bnt-cadastrocolaborador"
+                className="bnt-page-cadastrocolaborador"
                 onClick={confirmarCadastro}>
                 Alterar
               </button>

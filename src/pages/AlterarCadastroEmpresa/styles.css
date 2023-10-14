@@ -35,8 +35,6 @@
   display: flex;
   justify-content: right;
 }
-.ID {
-}
 
 /*Distancia dos campos de preenchimento*/
 .formulario-empresa,
@@ -87,14 +85,14 @@
 }
 
 /*botão salvar*/
-.input-bnt-cadastrocliente {
+.input-bnt-page-cadastrocliente {
   color: var(--light);
   margin-top: 8px;
 }
-.input-bnt-cadastrocliente::placeholder {
+.input-bnt-page-cadastrocliente::placeholder {
   color: var(--light);
 }
-.bnt-cadastrocliente {
+.bnt-page-cadastrocliente {
   all: unset;
   margin-top: 12px;
   border-radius: 8px;
@@ -111,10 +109,12 @@
   color: white;
   width: 100%;
   text-transform: uppercase;
+  transition: background-color 1s; /* Adiciona uma transição suave para a mudança de cor */
+
 }
-.bnt-cadastrocliente:hover {
-  background-color: rgb(172, 8, 8);
-  transition: 1s;
+
+.bnt-page-cadastrocliente:hover {
+  background-color: rgb(109, 204, 71); /* Nova cor de fundo no hover */
 }
 
 .bnt-cadastrocliente-abandonar {
@@ -136,6 +136,7 @@
   text-transform: uppercase;
 }
 .bnt-cadastrocliente-abandonar:hover {
-  background-color: var(--primary);
+  background-color: rgb(245, 93, 93);
   transition: 1s;
 }
+
