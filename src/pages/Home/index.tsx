@@ -13,6 +13,7 @@ import {
   PencilSimple,
   LockSimple,
   Files,
+  ChartLineUp,
 } from "phosphor-react";
 import { UsuarioProps } from "../../@types/Usuario";
 import { useUsuario } from "../../hooks/useUsuario";
@@ -128,6 +129,19 @@ export function Home() {
         </header>
         <section className="tela-home-div-sidenav-home">
           <div className="tela-home-separador-home">
+            <div
+              className="tela-home-div-botoes"
+              style={{
+                display: usuarios.tipo_usuario !== "1" ? "none" : "flex",
+              }}
+            >
+              <NavLink to="/dashboard" style={{ textDecoration: "none" }}>
+                <button className="tela-home-botao-secundario">
+                  <ChartLineUp size={30} />
+                  Dashboard
+                </button>
+              </NavLink>
+            </div>
             <div
               className="tela-home-div-botoes"
               style={{

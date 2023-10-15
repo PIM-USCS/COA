@@ -120,6 +120,7 @@
   display: flex;
   justify-content: space-between;
   row-gap: 32px;
+  margin-top: 60px;
   flex-wrap: wrap;
   position: relative;
 }

@@ -44,6 +44,9 @@ const deleteEmpresa = (id: string) => xhr.delete(`empresas/${id}`);
 /*EMPRESA*/
 
 /*CLIENTES*/
+
+const getClientes = (): AxiosPromise<ClienteProps[]> => xhr.get(`clientes/`);
+
 const postCreateCliente = (
   params: ClienteProps,
   id_empresa: string
@@ -158,4 +161,5 @@ export {
   getCobrancaById,
   putRecuperarSenha,
   getClienteByCPF,
+  getClientes,
 };

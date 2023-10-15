@@ -11,8 +11,6 @@
   --dark: #000000;
 }
 
-
-
 .minibox {
   padding: 15px;
   width: 90%;
@@ -20,7 +18,7 @@
   background-color: var(--secondary); /* Corrigido o valor da cor de fundo */
   border-radius: 20px;
   overflow-y: auto;
-  box-shadow: #ccc 0 0 0 2px ;
+  box-shadow: #ccc 0 0 0 2px;
   overflow-wrap: break-word;
   margin-left: 20px;
 }
@@ -30,9 +28,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
-    "div-05 div-05 div-09"
-    "div-01 div-01 div-01" 
     "div-03 div-03 div-03"
+    "div-01 div-01 div-01"
     "div-04 div-06 div-07"
     "div-08 div-12 div-14"
     "div-11 div-11 div-11";
@@ -70,7 +67,7 @@
   color: var(--light);
   border-radius: 20px;
 }
-.logo-dashbord{
+.logo-dashbord {
   width: 20px;
 }
 
@@ -84,7 +81,7 @@
   color: var(--light);
   border-radius: 20px;
 }
-.dashbord-h1{
+.dashbord-h1 {
   color: rgb(189, 14, 14);
 }
 .div-06 {
@@ -97,7 +94,7 @@
   color: var(--light);
   border-radius: 20px;
 }
-.dashbord-h2{
+.dashbord-h2 {
   color: var(--primary);
 }
 
@@ -111,11 +108,11 @@
   color: var(--light);
   border-radius: 20px;
 }
-.dashbord-h3{
-  color:rgb(44, 166, 207);
+.dashbord-h3 {
+  color: rgb(44, 166, 207);
 }
 
-.div-09{
+.div-09 {
   grid-area: div-09;
   color: aliceblue;
   height: 100%;
@@ -142,7 +139,7 @@
   color: var(--light);
   border-radius: 20px;
 }
-.div-14{
+.div-14 {
   align-items: center;
   grid-area: div-14;
   color: aliceblue;
