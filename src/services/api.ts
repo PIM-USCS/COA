@@ -17,6 +17,13 @@ import {
 import { AtuUsuario, ResetarSenha, UsuarioProps } from "../@types/Usuario";
 import { CobrancaProps } from "../@types/Cobranca";
 
+/* DASHBOARD */
+
+const getGuiaByCliente = (id_empresa: string): AxiosPromise<CobrancaProps[]> =>
+  xhr.get(`dashboard/guias-status/${id_empresa}`);
+
+/* DASHBOARD */
+
 /*EMPRESA*/
 
 const getEmpresa = (): AxiosPromise<EmpresaListaProps[]> =>
@@ -162,4 +169,5 @@ export {
   putRecuperarSenha,
   getClienteByCPF,
   getClientes,
+  getGuiaByCliente,
 };

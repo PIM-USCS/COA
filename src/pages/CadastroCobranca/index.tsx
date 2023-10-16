@@ -175,23 +175,50 @@ export function CadastroCobranca() {
                 Valor
               </label>
             </div>
-            <div className="tela-cobranca-floatingInput">
-              <input
-                type="text"
-                className="tela-cobranca-floatingInput__control"
-                placeholder="Status"
-                name="status"
-                value={cobranca.status || ""}
-                onChange={(e) =>
-                  setCobranca({
-                    ...cobranca,
-                    [e.target.name]: e.target.value,
-                  })
-                }
-              />
-              <label className="tela-cobranca-floatingInput__label">
-                Status
-              </label>
+            <div className="tela-cobranca-status">
+              <div className="tela-cobranca-div-status">
+                <input
+                  type="radio"
+                  name="Pago"
+                  className="tela-cobranca-input-status"
+                  value="1"
+                  checked={cobranca.status === "Pago"}
+                  onChange={() => setCobranca({ ...cobranca, status: "Pago" })}
+                />
+                <label htmlFor="status" className="tela-cobranca-label-status">
+                  Pago
+                </label>
+              </div>
+              <div className="tela-cobranca-div-status">
+                <input
+                  type="radio"
+                  name="Em aberto"
+                  className="tela-cobranca-input-status"
+                  value="Em aberto"
+                  checked={cobranca.status === "Em aberto"}
+                  onChange={() =>
+                    setCobranca({ ...cobranca, status: "Em aberto" })
+                  }
+                />
+                <label htmlFor="status" className="tela-cobranca-label-status">
+                  Em aberto
+                </label>
+              </div>
+              <div className="tela-cobranca-div-status">
+                <input
+                  type="radio"
+                  name="Vencida"
+                  className="tela-cobranca-input-status"
+                  value="Vencida"
+                  checked={cobranca.status === "Vencida"}
+                  onChange={() =>
+                    setCobranca({ ...cobranca, status: "Vencida" })
+                  }
+                />
+                <label htmlFor="status" className="tela-cobranca-label-status">
+                  Vencida
+                </label>
+              </div>
             </div>
 
             <div>

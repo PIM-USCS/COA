@@ -7,14 +7,55 @@ import { useEffect, useState } from "react";
 import * as api from "../../services/api";
 import { ColaboradorListaProps } from "../../@types/Colaborador";
 import { EmpresaListaProps } from "../Empresas";
-import { ClienteProps } from "../../@types/Client";
+import { ClienteProps, EmpresaProps } from "../../@types/Client";
+import { CobrancaProps } from "../../@types/Cobranca";
 export function Dashboard() {
+  const [cobrancas, setCobrancas] = useState<CobrancaProps[]>([]); // Certifique-se de substituir `any[]` pelo tipo apropriado
   const [colaborador, setColaborador] = useState<ColaboradorListaProps[]>([]);
-  const quantidadeColaboradores = colaborador.map((colab) => colab.id);
+  const quantidadeColaboradores = colaborador.length;
   const [empresas, setEmpresas] = useState<EmpresaListaProps[]>([]);
-  const quantidadeEmpresas = empresas.map((empre) => empre.id);
+  const quantidadeEmpresas = empresas.length;
   const [clientes, setClientes] = useState<ClienteProps[]>([]);
-  const quantidadeClientes = clientes.map((cli) => cli.id);
+  const quantidadeClientes = clientes.length;
+  const cobrancasVencidas = cobrancas.filter(
+    (cobranca) => cobranca.status === "Vencida"
+  );
+  const cobrancasPagas = cobrancas.filter(
+    (cobranca) => cobranca.status === "Pago"
+  );
+  const cobrancasAberto = cobrancas.filter(
+    (cobranca) => cobranca.status === "Em aberto"
+  );
+
+  const totalVencido = cobrancasVencidas.reduce((total, cobranca) => {
+    const valor =
+      cobranca.valor &&
+      parseFloat(
+        cobranca.valor.replace("R$", "").replace(".", "").replace(",", ".")
+      );
+    return total + (valor || 0);
+  }, 0);
+
+  const totalPago = cobrancasPagas.reduce((total, cobranca) => {
+    const valor =
+      cobranca.valor &&
+      parseFloat(
+        cobranca.valor.replace("R$", "").replace(".", "").replace(",", ".")
+      );
+    return total + (valor || 0);
+  }, 0);
+
+  const totalAberto = cobrancasAberto.reduce((total, cobranca) => {
+    const valor =
+      cobranca.valor &&
+      parseFloat(
+        cobranca.valor.replace("R$", "").replace(".", "").replace(",", ".")
+      );
+    return total + (valor || 0);
+  }, 0);
+  const [empresaConsulta, setEmpresaConsulta] = useState<EmpresaProps>(
+    {} as EmpresaProps
+  );
 
   const getColaborador = async () => {
     try {
@@ -57,6 +98,18 @@ export function Dashboard() {
   useEffect(() => {
     getClientes();
   }, []);
+
+  const getGuiasByCliente = async () => {
+    try {
+      const response = await api.getGuiaByCliente(empresaConsulta.id);
+      const dadosCobrancas = response.data;
+
+      setCobrancas(dadosCobrancas);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <main className="tela-dash-body">
       <div className="div-03">
@@ -84,8 +137,19 @@ export function Dashboard() {
       </div>
       <div className="div-01">
         <h1 className="tela-dash-label">Buscar cliente</h1>
-        <input type="text" className="tela-dash-input" />
-        <button>
+        <input
+          type="text"
+          className="tela-dash-input"
+          name="id"
+          value={empresaConsulta.id || ""}
+          onChange={(e) =>
+            setEmpresaConsulta({
+              ...empresaConsulta,
+              [e.target.name]: e.target.value,
+            })
+          }
+        />
+        <button onClick={getGuiasByCliente}>
           <FileSearch size={30} color="#1d7c23" />
         </button>
       </div>
@@ -93,15 +157,25 @@ export function Dashboard() {
       <div className="div-04">
         <div className="minibox">
           <h1 className="dashbord-h1">Guias vencidas</h1>
-          <p>R$ 100.000,00</p>
-          <p className="dashbord-h1">Quantidade : X</p>
+          <p>
+            {totalVencido.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </p>
+          <p className="dashbord-h1">Quantidade: {cobrancasVencidas.length}</p>
         </div>
       </div>
       <div className="div-06">
         <div className="minibox">
           <h1 className="dashbord-h2">Guias pagas</h1>
-          <p>R$ 100.000,00</p>
-          <p className="dashbord-h2">Quantidade :X </p>
+          <p>
+            {totalPago.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </p>
+          <p className="dashbord-h2">Quantidade: {cobrancasPagas.length} </p>
         </div>
       </div>
       <div className="div-08">
@@ -120,15 +194,24 @@ export function Dashboard() {
       <div className="div-14">
         <div className="minibox">
           <h1 className="dashbord-h3">Quantidade de exemplos </h1>
-          <Chart></Chart>
+          <Chart
+            cobrancasVencidas={cobrancasVencidas}
+            cobrancasPagas={cobrancasPagas}
+            cobrancasAberto={cobrancasAberto}
+          ></Chart>
         </div>
       </div>
 
       <div className="div-07">
         <div className="minibox">
           <h1 className="dashbord-h3">Guias em Aberto</h1>
-          <p>R$ 100.000,00</p>
-          <p className="dashbord-h3">Quantidade :X </p>
+          <p>
+            {totalAberto.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </p>
+          <p className="dashbord-h3">Quantidade: {cobrancasAberto.length} </p>
         </div>
       </div>
 
