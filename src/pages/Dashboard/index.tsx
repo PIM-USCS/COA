@@ -10,7 +10,7 @@ import { EmpresaListaProps } from "../Empresas";
 import { ClienteProps, EmpresaProps } from "../../@types/Client";
 import { CobrancaProps } from "../../@types/Cobranca";
 export function Dashboard() {
-  const [cobrancas, setCobrancas] = useState<CobrancaProps[]>([]); // Certifique-se de substituir `any[]` pelo tipo apropriado
+  const [cobrancas, setCobrancas] = useState<CobrancaProps[]>([]);
   const [colaborador, setColaborador] = useState<ColaboradorListaProps[]>([]);
   const quantidadeColaboradores = colaborador.length;
   const [empresas, setEmpresas] = useState<EmpresaListaProps[]>([]);
@@ -195,9 +195,9 @@ export function Dashboard() {
         <div className="minibox">
           <h1 className="dashbord-h3">Quantidade de exemplos </h1>
           <Chart
-            cobrancasVencidas={cobrancasVencidas}
-            cobrancasPagas={cobrancasPagas}
             cobrancasAberto={cobrancasAberto}
+            cobrancasPagas={cobrancasPagas}
+            cobrancasVencidas={cobrancasVencidas}
           ></Chart>
         </div>
       </div>
