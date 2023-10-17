@@ -23,7 +23,11 @@ body, input, textarea, button
 {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-}.modal-overlay {
+    
+}
+
+/* LOADING COMPONENTE */
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -62,6 +66,72 @@ body, input, textarea, button
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+
+
+
+/* HEADER COMPONENTE */
+
+.tela-home-div-header {
+  display: flex;
+  justify-content: space-between;
+}
+.tela-home-div-header-direita {
+  align-items: center;
+  width: 550px;
+  display: flex;
+  justify-content: center;
+}
+
+.tela-home-div-header-home img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.tela-home-submenu-usuario {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: var(--secondary);
+  margin-top: 160px;
+}
+.tela-home-submenu-usuario button {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  color: var(--light);
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+}
+.tela-home-submenu-usuario button:hover {
+  color: var(--primary);
+}
+
+.tela-home-botao-dashboard,
+.tela-home-botao-pages {
+  background-color: transparent;
+  border: none;
+  margin: 10px 0;
+  color: black;
+  font-size: 16px;
+  color: var(--light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.tela-home-botao-usuario img {
+  width: 60px;
+  height: 60px;
+  border-radius: 99px;
 }
 
 `;

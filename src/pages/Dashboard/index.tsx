@@ -9,6 +9,7 @@ import { ColaboradorListaProps } from "../../@types/Colaborador";
 import { EmpresaListaProps } from "../Empresas";
 import { ClienteProps, EmpresaProps } from "../../@types/Client";
 import { CobrancaProps } from "../../@types/Cobranca";
+import { Header } from "../../Components/Header";
 export function Dashboard() {
   const [cobrancas, setCobrancas] = useState<CobrancaProps[]>([]);
   const [colaborador, setColaborador] = useState<ColaboradorListaProps[]>([]);
@@ -111,113 +112,120 @@ export function Dashboard() {
   };
 
   return (
-    <main className="tela-dash-body">
-      <div className="div-03">
-        <div className="minibox">
-          <Buildings size={32} color="#1d7c23" />
-          <p>
-            Quantidade de empresas:{" "}
-            {empresas.length === 0 ? 0 : quantidadeEmpresas}
-          </p>
-        </div>
-        <div className="minibox">
-          <User size={32} color="#1d7c23" />
-          <p>
-            Quantidade de clientes:{" "}
-            {clientes.length === 0 ? 0 : quantidadeClientes}
-          </p>
-        </div>
-        <div className="minibox">
-          <UserCircle size={32} color="#1d7c23" />
-          <p>
-            Quantidade de colaboradores:{" "}
-            {colaborador.length === 0 ? 0 : quantidadeColaboradores}
-          </p>
-        </div>
+    <>
+      <div style={{ paddingBottom: "100px" }}>
+        <Header />
       </div>
-      <div className="div-01">
-        <h1 className="tela-dash-label">Buscar cliente</h1>
-        <input
-          type="text"
-          className="tela-dash-input"
-          name="id"
-          value={empresaConsulta.id || ""}
-          onChange={(e) =>
-            setEmpresaConsulta({
-              ...empresaConsulta,
-              [e.target.name]: e.target.value,
-            })
-          }
-        />
-        <button onClick={getGuiasByCliente}>
-          <FileSearch size={30} color="#1d7c23" />
-        </button>
-      </div>
+      <main className="tela-dash-body">
+        <div className="div-03">
+          <div className="minibox">
+            <Buildings size={32} color="#1d7c23" />
+            <p>
+              Quantidade de empresas:{" "}
+              {empresas.length === 0 ? 0 : quantidadeEmpresas}
+            </p>
+          </div>
+          <div className="minibox">
+            <User size={32} color="#1d7c23" />
+            <p>
+              Quantidade de clientes:{" "}
+              {clientes.length === 0 ? 0 : quantidadeClientes}
+            </p>
+          </div>
+          <div className="minibox">
+            <UserCircle size={32} color="#1d7c23" />
+            <p>
+              Quantidade de colaboradores:{" "}
+              {colaborador.length === 0 ? 0 : quantidadeColaboradores}
+            </p>
+          </div>
+        </div>
+        <div className="div-01">
+          <h1 className="tela-dash-label">Buscar cliente</h1>
+          <input
+            type="text"
+            className="tela-dash-input"
+            name="id"
+            value={empresaConsulta.id || ""}
+            onChange={(e) =>
+              setEmpresaConsulta({
+                ...empresaConsulta,
+                [e.target.name]: e.target.value,
+              })
+            }
+          />
+          <button onClick={getGuiasByCliente}>
+            <FileSearch size={30} color="#1d7c23" />
+          </button>
+        </div>
 
-      <div className="div-04">
-        <div className="minibox">
-          <h1 className="dashbord-h1">Guias vencidas</h1>
-          <p>
-            {totalVencido.toLocaleString("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            })}
-          </p>
-          <p className="dashbord-h1">Quantidade: {cobrancasVencidas.length}</p>
+        <div className="div-04">
+          <div className="minibox">
+            <h1 className="dashbord-h1">Guias vencidas</h1>
+            <p>
+              {totalVencido.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </p>
+            <p className="dashbord-h1">
+              Quantidade: {cobrancasVencidas.length}
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="div-06">
-        <div className="minibox">
-          <h1 className="dashbord-h2">Guias pagas</h1>
-          <p>
-            {totalPago.toLocaleString("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            })}
-          </p>
-          <p className="dashbord-h2">Quantidade: {cobrancasPagas.length} </p>
+        <div className="div-06">
+          <div className="minibox">
+            <h1 className="dashbord-h2">Guias pagas</h1>
+            <p>
+              {totalPago.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </p>
+            <p className="dashbord-h2">Quantidade: {cobrancasPagas.length} </p>
+          </div>
         </div>
-      </div>
-      <div className="div-08">
-        <div className="minibox">
-          <h1 className="dashbord-h3">Foco</h1>
-          <Barra></Barra>
+        <div className="div-08">
+          <div className="minibox">
+            <h1 className="dashbord-h3">Foco</h1>
+            <Barra></Barra>
+          </div>
         </div>
-      </div>
 
-      <div className="div-12">
-        <div className="minibox">
-          <h1 className="dashbord-h3">proporçao de detalhe </h1>
-          <Linha></Linha>
+        <div className="div-12">
+          <div className="minibox">
+            <h1 className="dashbord-h3">proporçao de detalhe </h1>
+            <Linha></Linha>
+          </div>
         </div>
-      </div>
-      <div className="div-14">
-        <div className="minibox">
-          <h1 className="dashbord-h3">Quantidade de guias </h1>
-          <Chart
-            cobrancasAberto={cobrancasAberto}
-            cobrancasPagas={cobrancasPagas}
-            cobrancasVencidas={cobrancasVencidas}
-          ></Chart>
+        <div className="div-14">
+          <div className="minibox">
+            <h1 className="dashbord-h3">Quantidade de guias </h1>
+            <Chart
+              cobrancasAberto={cobrancasAberto}
+              cobrancasPagas={cobrancasPagas}
+              cobrancasVencidas={cobrancasVencidas}
+            ></Chart>
+          </div>
         </div>
-      </div>
 
-      <div className="div-07">
-        <div className="minibox">
-          <h1 className="dashbord-h3">Guias em Aberto</h1>
-          <p>
-            {totalAberto.toLocaleString("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            })}
-          </p>
-          <p className="dashbord-h3">Quantidade: {cobrancasAberto.length} </p>
+        <div className="div-07">
+          <div className="minibox">
+            <h1 className="dashbord-h3">Guias em Aberto</h1>
+            <p>
+              {totalAberto.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </p>
+            <p className="dashbord-h3">Quantidade: {cobrancasAberto.length} </p>
+          </div>
         </div>
-      </div>
 
-      <div className="div-11">
-        <p>&copy; 2023 Dashboard Financeiro</p>
-      </div>
-    </main>
+        <div className="div-11">
+          <p>&copy; 2023 Dashboard Financeiro</p>
+        </div>
+      </main>
+    </>
   );
 }

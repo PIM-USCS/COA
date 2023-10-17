@@ -32,7 +32,7 @@ export function EmpresaLista() {
   }, []);
 
   return (
-    <div className="container-geral">
+    <body className="container-geral">
       <header className="container-titulo">
         <button
           className="botao_return_empresa"
@@ -86,6 +86,6 @@ export function EmpresaLista() {
           ))
         )}
       </div>
-    </div>
+    </body>
   );
 }

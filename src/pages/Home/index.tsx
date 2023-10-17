@@ -19,20 +19,12 @@ import { useUsuario } from "../../hooks/useUsuario";
 import * as api from "../../services/api";
 import { EnviarGuia } from "./Componentes/EnviarGuia";
 import ImagemPadrao from "../../img/usuario padrao.png";
+import { Header } from "../../Components/Header";
 
 export function Home() {
   const [isOpenEnviar, setIsOpenEnviar] = useState(false); /*Modal*/
-  const [isOpenUser, setIisOpenUser] = useState(false);
   const [usuarios, setUsuarios] = useState<UsuarioProps>({} as UsuarioProps);
   const { idUsuario, setIdUsuario } = useUsuario();
-
-  function HabilitarSubMenuUser() {
-    if (isOpenUser === false) {
-      setIisOpenUser(true);
-    } else {
-      setIisOpenUser(false);
-    }
-  }
 
   const ConsultaUsuario = async () => {
     if (!idUsuario) {
@@ -71,70 +63,7 @@ export function Home() {
         setIsOpenEnviar={setIsOpenEnviar}
       />
       <div className="tela-home-container-grid-home">
-        <header className="tela-home-div-header-home">
-          <div className="tela-home-div-header">
-            <div className="tela-home-div-header-esquerda">
-              <button className="tela-home-botao-home">
-                <img src={Logo} alt="Logo" />
-                <h2>COA</h2>
-              </button>
-            </div>
-            <div className="tela-home-div-header-direita">
-              <button
-                className="tela-home-botao-usuario"
-                onClick={HabilitarSubMenuUser}
-              >
-                {usuarios.avatar ? (
-                  <img
-                    src={`http://192.168.1.99:3333/uploads/${usuarios.avatar}`}
-                    alt="Foto usuario"
-                  />
-                ) : (
-                  <img src={ImagemPadrao} alt="Foto usuario" />
-                )}
-
-                <p className="tela-home-nome-usuario">{usuarios.nome}</p>
-              </button>
-              <div
-                className="tela-home-submenu-usuario"
-                style={{
-                  display: isOpenUser ? "flex" : "none",
-                }}
-              >
-                <NavLink
-                  to="/alterar-usuario"
-                  style={{
-                    textDecoration: "none",
-                    all: "unset",
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
-                  <button>
-                    <PencilSimple size={18} />
-                    Editar foto de perfil
-                  </button>
-                </NavLink>
-                <NavLink
-                  to="/"
-                  style={{
-                    textDecoration: "none",
-                    all: "unset",
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
-                  <button>
-                    <Lock size={18} />
-                    Alterar senha
-                  </button>
-                </NavLink>
-              </div>
-            </div>
-          </div>
-        </header>
+        <Header />
         <section className="tela-home-div-sidenav-home">
           <div className="tela-home-separador-home">
             <div
