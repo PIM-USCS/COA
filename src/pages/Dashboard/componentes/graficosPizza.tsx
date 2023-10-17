@@ -45,7 +45,7 @@ export function Chart({
     plugins: {
       legend: {
         labels: {
-          color: "rgba(75, 102, 122, 3)", // Defina a cor das legendas
+          color: "rgba(75, 102, 122, 3)",
         },
       },
     },

@@ -10,10 +10,13 @@ export interface UsuarioProps {
   user?: {
     id: string;
   };
+  avatar?: string;
 }
 
 export interface AtuUsuario {
+  id: string;
   nome: string;
+  avatar?: File | null;
 }
 
 export interface ResetarSenha {

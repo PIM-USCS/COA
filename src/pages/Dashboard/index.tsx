@@ -193,7 +193,7 @@ export function Dashboard() {
       </div>
       <div className="div-14">
         <div className="minibox">
-          <h1 className="dashbord-h3">Quantidade de exemplos </h1>
+          <h1 className="dashbord-h3">Quantidade de guias </h1>
           <Chart
             cobrancasAberto={cobrancasAberto}
             cobrancasPagas={cobrancasPagas}

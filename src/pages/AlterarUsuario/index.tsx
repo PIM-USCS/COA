@@ -1,29 +1,57 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import * as api from "../../services/api";
 import Swal from "sweetalert2";
-
-interface UsuarioProps {
-  nome: string;
-  avatar: string;
-}
+import { AtuUsuario } from "../../@types/Usuario";
+import { useUsuario } from "../../hooks/useUsuario";
 
 export function AlterarUsuario() {
-  const [usuario, setUsuario] = useState<UsuarioProps>({} as UsuarioProps);
+  const { idUsuario, setIdUsuario } = useUsuario();
+  const [usuario, setUsuario] = useState<AtuUsuario>({
+    id: idUsuario || "",
+    nome: "",
+    avatar: undefined,
+  });
+
   const navigate = useNavigate();
 
   async function AtualizaCadastro() {
-    await api.updateNome("1", {
-      nome: usuario.nome.toString(),
-    });
-    Swal.fire({
-      icon: "success",
-      title: "Cadastro atualizado com sucesso!",
-      confirmButtonText: "OK",
-      preConfirm: () => {
-        navigate(-1);
-      },
+    try {
+      if (!usuario.avatar) {
+        throw new Error("Por favor, selecione um avatar.");
+      }
+
+      const formData = new FormData();
+      formData.append("avatar", usuario.avatar);
+
+      await api.patchAtualizaAvatar(usuario.id, formData);
+
+      Swal.fire({
+        icon: "success",
+        title: "Cadastro atualizado com sucesso!",
+        confirmButtonText: "OK",
+        preConfirm: () => {
+          navigate(-1);
+        },
+      });
+    } catch (error) {
+      console.error(error);
+
+      Swal.fire({
+        icon: "error",
+        title: "Erro ao atualizar o avatar",
+        text: "error.message",
+        confirmButtonText: "OK",
+      });
+    }
+  }
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files && e.target.files[0];
+    setUsuario({
+      ...usuario,
+      avatar: file,
     });
   }
 
@@ -31,46 +59,21 @@ export function AlterarUsuario() {
     <body className="cadastrousuario">
       <main className="main-cadastrousuario">
         <header className="header-cadastrousuario">
-          <h2>Alterar Usuário</h2>
+          <h2>Alterar imagem do Usuário</h2>
         </header>
         <section>
           <div className="floatingInput">
             <input
               type="file"
-              /*id="nome-cadastrousuario"*/
               className="floatingInput__control"
-              placeholder="Nome"
-              name="nome"
-              value={usuario.avatar || ""}
-              onChange={(e) =>
-                setUsuario({
-                  ...usuario,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              name="avatar"
+              accept="image/*"
+              onChange={handleFileChange}
             />
           </div>
-          <div className="floatingInput">
-            <input
-              type="email"
-              /*id="email-cadastrousuario"*/
-              className="floatingInput__control"
-              placeholder="E-mail"
-              name="email"
-              value={usuario.nome || ""}
-              onChange={(e) =>
-                setUsuario({
-                  ...usuario,
-                  [e.target.name]: e.target.value,
-                })
-              }
-            />
-            <label className="floatingInput__label">Nome</label>
-          </div>
+
           <div>
-            <button
-              className="bnt-cadastrousuario"
-              onClick={AtualizaCadastro}>
+            <button className="bnt-cadastrousuario" onClick={AtualizaCadastro}>
               Atualizar Cadastro
             </button>
           </div>

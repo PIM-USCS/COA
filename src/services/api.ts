@@ -131,6 +131,13 @@ const putRecuperarSenha = (
   params: ResetarSenha
 ): AxiosPromise<ResetarSenha> =>
   xhr.put(`usuarios/recuperar-senha/${token}`, params);
+
+const patchAtualizaAvatar = (id: string, formData: FormData): AxiosPromise =>
+  xhr.patch(`usuarios/avatar/${id}`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 /*USUARIO*/
 
 /*UTILITÁRIOS*/
@@ -170,4 +177,5 @@ export {
   getClienteByCPF,
   getClientes,
   getGuiaByCliente,
+  patchAtualizaAvatar,
 };

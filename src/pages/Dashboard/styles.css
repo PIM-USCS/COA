@@ -15,7 +15,7 @@
   padding: 15px;
   width: 90%;
   margin-top: 20px;
-  background-color: var(--secondary); /* Corrigido o valor da cor de fundo */
+  background-color: var(--secondary);
   border-radius: 20px;
   overflow-y: auto;
   box-shadow: #ccc 0 0 0 2px;
@@ -131,7 +131,7 @@
 .div-03 {
   grid-area: div-03;
   color: var(--light);
-  display: flex; /* Alterado de 'wrap' para 'flex' */
+  display: flex;
   height: 100%;
   width: 100%;
   background-color: var(--secondary);

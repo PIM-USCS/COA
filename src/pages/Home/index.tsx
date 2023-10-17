@@ -3,12 +3,11 @@ import { useEffect, useState } from "react"; /* Modal*/
 import "./styles.css";
 import Logo from "../../img/logo sem fundo.png";
 import { NavLink } from "react-router-dom";
-import GuiBalbino from "../../img/GuiBalbinoFT.jpeg";
+
 import {
   Buildings,
   UserCircle,
   Lock,
-  Export,
   ArrowUDownLeft,
   PencilSimple,
   LockSimple,
@@ -19,6 +18,7 @@ import { UsuarioProps } from "../../@types/Usuario";
 import { useUsuario } from "../../hooks/useUsuario";
 import * as api from "../../services/api";
 import { EnviarGuia } from "./Componentes/EnviarGuia";
+import ImagemPadrao from "../../img/usuario padrao.png";
 
 export function Home() {
   const [isOpenEnviar, setIsOpenEnviar] = useState(false); /*Modal*/
@@ -39,12 +39,12 @@ export function Home() {
       return;
     }
     const { data } = await api.getUsuarioById(idUsuario);
-
     setUsuarios((prevState) => {
       return {
         ...prevState,
         nome: data.email,
         tipo_usuario: data.tipo_usuario,
+        avatar: data.avatar,
       };
     });
   };
@@ -84,7 +84,15 @@ export function Home() {
                 className="tela-home-botao-usuario"
                 onClick={HabilitarSubMenuUser}
               >
-                <img src={GuiBalbino} alt="Foto usuario" />
+                {usuarios.avatar ? (
+                  <img
+                    src={`http://192.168.1.99:3333/uploads/${usuarios.avatar}`}
+                    alt="Foto usuario"
+                  />
+                ) : (
+                  <img src={ImagemPadrao} alt="Foto usuario" />
+                )}
+
                 <p className="tela-home-nome-usuario">{usuarios.nome}</p>
               </button>
               <div
@@ -105,7 +113,7 @@ export function Home() {
                 >
                   <button>
                     <PencilSimple size={18} />
-                    Editar perfil
+                    Editar foto de perfil
                   </button>
                 </NavLink>
                 <NavLink
