@@ -59,7 +59,7 @@ export function TrocarSenhaToken() {
     }
   }
   return (
-    <body className="tela-trocarsenha-token-trocarsenhatoken">
+    <div className="tela-trocarsenha-token-trocarsenhatoken">
       <main className="tela-trocarsenha-token-main-trocarsenhatoken">
         <header className="tela-trocarsenha-token-header-trocarsenhatoken">
           <h1>Recuperar Senha</h1>
@@ -158,6 +158,6 @@ export function TrocarSenhaToken() {
           </div>
         </section>
       </main>
-    </body>
+    </div>
   );
 }

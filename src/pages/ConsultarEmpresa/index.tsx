@@ -100,7 +100,7 @@ export function ConsultaCliente() {
   };
 
   return (
-    <body className="alterarcadastrocliente">
+    <div className="alterarcadastrocliente">
       <main className="main-alterarcadastrarcliente">
         <header className="header-alterarcadcliente">
           <h1>Consulta Cliente</h1>
@@ -117,8 +117,8 @@ export function ConsultaCliente() {
                 type="radio"
                 name="tipo-pessoa"
                 className="input-tipo-pessoa"
-                value="PF"
-                checked={empresa.tipo_cliente === "PF"}
+                defaultValue="PF"
+                defaultChecked={empresa.tipo_cliente === "PF"}
               />
               <label htmlFor="tipo-pessoa" className="label-tipo-pessoa">
                 Pessoa fisica
@@ -129,8 +129,8 @@ export function ConsultaCliente() {
                 type="radio"
                 name="tipo-pessoa"
                 className="input-tipo-pessoa"
-                value="PJ"
-                checked={empresa.tipo_cliente === "PJ"}
+                defaultValue="PJ"
+                defaultChecked={empresa.tipo_cliente === "PJ"}
               />
               <label htmlFor="tipo-pessoa" className="label-tipo-pessoa">
                 Pessoa juridica
@@ -143,7 +143,7 @@ export function ConsultaCliente() {
               className="floatingInput__control ID"
               placeholder="Codigo da Empresa"
               name="nome"
-              value={idEmpresa || ""}
+              defaultValue={idEmpresa || ""}
             />
             <label className="floatingInput__label">Codigo da Empresa</label>
           </div>
@@ -153,7 +153,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="Razão social"
               name="nome"
-              value={empresa.nome || ""}
+              defaultValue={empresa.nome || ""}
             />
             <label className="floatingInput__label">Razão social</label>
           </div>
@@ -163,7 +163,9 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="CNPJ/CPF"
               name={empresa.tipo_cliente === "PF" ? "cpf" : "cnpj"}
-              value={empresa.tipo_cliente === "PF" ? empresa.cpf : empresa.cnpj}
+              defaultValue={
+                empresa.tipo_cliente === "PF" ? empresa.cpf : empresa.cnpj
+              }
             />
             <label className="floatingInput__label">CNPJ/CPF</label>
           </div>
@@ -173,7 +175,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="CEP"
               name="cep"
-              value={empresa.cep || ""}
+              defaultValue={empresa.cep || ""}
             />
             <label className="floatingInput__label">CEP</label>
           </div>
@@ -183,7 +185,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="Rua"
               name="rua"
-              value={empresa.rua || ""}
+              defaultValue={empresa.rua || ""}
             />
             <label className="floatingInput__label">Rua</label>
           </div>
@@ -193,7 +195,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="Cidade"
               name="cidade"
-              value={empresa.cidade || ""}
+              defaultValue={empresa.cidade || ""}
             />
             <label className="floatingInput__label">Cidade</label>
           </div>
@@ -203,7 +205,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="UF"
               name="uf"
-              value={empresa.uf || ""}
+              defaultValue={empresa.uf || ""}
             />
             <label className="floatingInput__label">UF</label>
           </div>
@@ -213,7 +215,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="Bairro"
               name="bairro"
-              value={empresa.bairro || ""}
+              defaultValue={empresa.bairro || ""}
             />
             <label className="floatingInput__label">Bairro</label>
           </div>
@@ -223,7 +225,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="Numero"
               name="numero"
-              value={empresa.numero || ""}
+              defaultValue={empresa.numero || ""}
             />
             <label className="floatingInput__label">Numero</label>
           </div>
@@ -233,7 +235,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="Complemento"
               name="complemento"
-              value={empresa.complemento || ""}
+              defaultValue={empresa.complemento || ""}
             />
             <label className="floatingInput__label">Complemento</label>
           </div>
@@ -243,7 +245,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="Inscrição Estadual"
               name="ie"
-              value={empresa.ie || ""}
+              defaultValue={empresa.ie || ""}
             />
             <label className="floatingInput__label">Inscrição Estadual</label>
           </div>
@@ -253,7 +255,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="ID contador responsavel"
               name="id"
-              value={colaborador.id || ""}
+              defaultValue={colaborador.id || ""}
             />
             <label className="floatingInput__label">
               ID contador responsavel
@@ -264,7 +266,7 @@ export function ConsultaCliente() {
               type="text"
               className="floatingInput__control"
               placeholder="Contador responsavel"
-              value={colaborador.nome || ""}
+              defaultValue={colaborador.nome || ""}
             />
             <label className="floatingInput__label">Contador responsavel</label>
           </div>
@@ -279,7 +281,7 @@ export function ConsultaCliente() {
               type="text"
               className="floatingInput__control"
               placeholder="CPF"
-              value={cliente.cpf || ""}
+              defaultValue={cliente.cpf || ""}
             />
             <label className="floatingInput__label">CPF</label>
           </div>
@@ -288,7 +290,7 @@ export function ConsultaCliente() {
               type="text"
               className="floatingInput__control"
               placeholder="Nome"
-              value={cliente.nome || ""}
+              defaultValue={cliente.nome || ""}
             />
             <label className="floatingInput__label">Nome</label>
           </div>
@@ -297,7 +299,7 @@ export function ConsultaCliente() {
               type="text"
               className="floatingInput__control"
               placeholder="RG"
-              value={cliente.rg || ""}
+              defaultValue={cliente.rg || ""}
             />
             <label className="floatingInput__label">RG</label>
           </div>
@@ -306,7 +308,7 @@ export function ConsultaCliente() {
               type="tel"
               className="floatingInput__control"
               placeholder="Telefone"
-              value={cliente.telefone || ""}
+              defaultValue={cliente.telefone || ""}
             />
             <label className="floatingInput__label">Telefone</label>
           </div>
@@ -315,7 +317,7 @@ export function ConsultaCliente() {
               type="email"
               className="floatingInput__control"
               placeholder="Email"
-              value={cliente.email || ""}
+              defaultValue={cliente.email || ""}
             />
             <label className="floatingInput__label">Email</label>
           </div>
@@ -325,12 +327,13 @@ export function ConsultaCliente() {
             <NavLink
               to="/empresas"
               className="input-bnt-cadastrocliente"
-              style={{ textDecoration: "none" }}>
+              style={{ textDecoration: "none" }}
+            >
               <button className="bnt-cadastrocliente">Voltar</button>
             </NavLink>
           </div>
         </section>
       </main>
-    </body>
+    </div>
   );
 }

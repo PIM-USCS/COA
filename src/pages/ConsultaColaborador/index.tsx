@@ -31,7 +31,7 @@ export function ConsultaColaborador() {
     ConsultaColaborador();
   }, [idColaborador]);
   return (
-    <body className="alterarcadastrocolaborador">
+    <div className="alterarcadastrocolaborador">
       <main className="main-alterarcadastrocolaborador">
         <header className="header-alterarcadastrocolaborador">
           <h2 className="h2-alterarcadastrocolaborador">
@@ -66,7 +66,8 @@ export function ConsultaColaborador() {
               <NavLink
                 to="/colaborador"
                 className="input-bnt-cadastrocolaborador"
-                style={{ textDecoration: "none" }}>
+                style={{ textDecoration: "none" }}
+              >
                 <button type="submit" className="bnt-cadastrocolaborador">
                   Voltar
                 </button>
@@ -75,6 +76,6 @@ export function ConsultaColaborador() {
           </form>
         </section>
       </main>
-    </body>
+    </div>
   );
 }

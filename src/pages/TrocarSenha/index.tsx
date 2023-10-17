@@ -4,7 +4,7 @@ import "./styles.css";
 export function TrocarSenha() {
   const navigate = useNavigate();
   return (
-    <body className="tela-trocarsenha-trocarsenha">
+    <div className="tela-trocarsenha-trocarsenha">
       <main className="tela-trocarsenha-main-trocarsenha">
         <header className="tela-trocarsenha-header-trocarsenha">
           <h1>Alterar Senha</h1>
@@ -64,6 +64,6 @@ export function TrocarSenha() {
           </section>
         </form>
       </main>
-    </body>
+    </div>
   );
 }

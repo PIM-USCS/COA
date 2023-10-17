@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 import { EmpresaProps } from "../../@types/Client";
 import maskData from "../../utils/maskData";
 import maskMoney from "../../utils/maskMoney";
-import LoadingIcon from "../../Components/Loading";
 
 export function CadastroCobranca() {
   const [cobranca, setCobranca] = useState<CobrancaProps>({} as CobrancaProps);
@@ -91,7 +90,7 @@ export function CadastroCobranca() {
   return (
     <>
       {/* <LoadingIcon /> */}
-      <body className="tela-cobranca-cadastrocobranca">
+      <div className="tela-cobranca-cadastrocobranca">
         <main className="tela-cobranca-main-cadastrocobranca">
           <header className="tela-cobranca-header-cadastrocobranca">
             <h2>Cadastrar Cobranca</h2>
@@ -250,7 +249,7 @@ export function CadastroCobranca() {
             </div>
           </section>
         </main>
-      </body>
+      </div>
     </>
   );
 }

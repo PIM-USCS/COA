@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import * as api from "../../services/api";
@@ -7,7 +7,7 @@ import { AtuUsuario } from "../../@types/Usuario";
 import { useUsuario } from "../../hooks/useUsuario";
 
 export function AlterarUsuario() {
-  const { idUsuario, setIdUsuario } = useUsuario();
+  const { idUsuario } = useUsuario();
   const [usuario, setUsuario] = useState<AtuUsuario>({
     id: idUsuario || "",
     nome: "",
@@ -56,7 +56,7 @@ export function AlterarUsuario() {
   }
 
   return (
-    <body className="cadastrousuario">
+    <div className="cadastrousuario">
       <main className="main-cadastrousuario">
         <header className="header-cadastrousuario">
           <h2>Alterar imagem do Usuário</h2>
@@ -79,6 +79,6 @@ export function AlterarUsuario() {
           </div>
         </section>
       </main>
-    </body>
+    </div>
   );
 }

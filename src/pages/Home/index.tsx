@@ -70,7 +70,7 @@ export function Home() {
         isOpenEnviar={isOpenEnviar}
         setIsOpenEnviar={setIsOpenEnviar}
       />
-      <body className="tela-home-container-grid-home">
+      <div className="tela-home-container-grid-home">
         <header className="tela-home-div-header-home">
           <div className="tela-home-div-header">
             <div className="tela-home-div-header-esquerda">
@@ -202,7 +202,7 @@ export function Home() {
             </div>
           </div>
         </section>
-      </body>
+      </div>
     </>
   );
 }

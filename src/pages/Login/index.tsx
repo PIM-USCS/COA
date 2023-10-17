@@ -42,7 +42,7 @@ export function Login() {
   }
 
   return (
-    <body className="tela-login-login">
+    <div className="tela-login-login">
       <main className="tela-login-main-login">
         <header className="tela-login-header-login">
           <h1>Login</h1>
@@ -68,7 +68,8 @@ export function Login() {
           <div className="tela-login-floatingInput">
             <button
               className="tela-login-esconder_senha"
-              onClick={esconderSenha}>
+              onClick={esconderSenha}
+            >
               <EyeSlash
                 size={22}
                 style={{ display: visualizarSenha ? "flex" : "none" }}
@@ -102,7 +103,8 @@ export function Login() {
             </div>
             <NavLink
               to="/recuperar-senha"
-              className="tela-login-esquecisenha-login">
+              className="tela-login-esquecisenha-login"
+            >
               <a>Esqueci minha senha</a>
             </NavLink>
           </div>
@@ -113,12 +115,13 @@ export function Login() {
                 desabilitarLogin ? "disabled" : ""
               }`}
               onClick={login}
-              disabled={desabilitarLogin}>
+              disabled={desabilitarLogin}
+            >
               login
             </button>
           </div>
         </section>
       </main>
-    </body>
+    </div>
   );
 }

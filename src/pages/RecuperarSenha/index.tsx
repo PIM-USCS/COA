@@ -37,7 +37,7 @@ export function RecuperarSenha() {
   return (
     <>
       <LoadingIcon isLoading={isLoading} />
-      <body className="tela-recuperar-senha-recuperarsenha">
+      <div className="tela-recuperar-senha-recuperarsenha">
         <main className="tela-recuperar-senha-main-recuperarsenha">
           <header className="tela-recuperar-senha-header-recuperarsenha">
             <h1>Recuperar Senha</h1>
@@ -79,7 +79,7 @@ export function RecuperarSenha() {
             </div>
           </section>
         </main>
-      </body>
+      </div>
     </>
   );
 }

@@ -48,7 +48,7 @@ export function AlterarCadastroColaborador() {
     ConsultaColaborador();
   }, []);
   return (
-    <body className="alterarcadastrocolaborador">
+    <div className="alterarcadastrocolaborador">
       <main className="main-alterarcadastrocolaborador">
         <header className="header-alterarcadastrocolaborador">
           <h2 className="h2-alterarcadastrocolaborador">
@@ -92,18 +92,20 @@ export function AlterarCadastroColaborador() {
             <div>
               <button
                 className="bnt-page-cadastrocolaborador"
-                onClick={confirmarCadastro}>
+                onClick={confirmarCadastro}
+              >
                 Alterar
               </button>
               <button
                 className="bnt-cadastrocolaborador-abandonar"
-                onClick={() => navigate(-1)}>
+                onClick={() => navigate(-1)}
+              >
                 abandonar alterações
               </button>
             </div>
           </div>
         </section>
       </main>
-    </body>
+    </div>
   );
 }

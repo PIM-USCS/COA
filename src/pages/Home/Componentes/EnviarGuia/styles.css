@@ -115,7 +115,7 @@
 }
 .fechar-modal {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 0 8px;
   margin-top: 8px;
 }

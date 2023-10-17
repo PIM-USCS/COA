@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useEmpresa } from "../../hooks/useEmpresa";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 import * as api from "../../services/api";
@@ -154,7 +154,7 @@ export function AlterarCadastroCliente() {
     ConsultaEmpresa();
   }, [idEmpresa]);
   return (
-    <body className="alterarcadastrocliente">
+    <div className="alterarcadastrocliente">
       <main className="main-alterarcadastrarcliente">
         <header className="header-alterarcadcliente">
           <h1>Alterar Dados Cliente</h1>
@@ -433,17 +433,21 @@ export function AlterarCadastroCliente() {
         </section>
         <section className="formulario-btn">
           <div className="btn">
-            <button className="bnt-page-cadastrocliente" onClick={alterarCadastro}>
+            <button
+              className="bnt-page-cadastrocliente"
+              onClick={alterarCadastro}
+            >
               editar
             </button>
             <button
               className="bnt-cadastrocliente-abandonar"
-              onClick={() => navigate(-1)}>
+              onClick={() => navigate(-1)}
+            >
               abandonar alterações
             </button>
           </div>
         </section>
       </main>
-    </body>
+    </div>
   );
 }

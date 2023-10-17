@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import { EmpresaProps } from "../../@types/Client";
 
 export function ConsultaCobranca() {
-  const [cobranca, setCobranca] = useState<CobrancaProps>({} as CobrancaProps);
+  const [cobranca] = useState<CobrancaProps>({} as CobrancaProps);
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
   const navigate = useNavigate();
 
@@ -33,7 +33,7 @@ export function ConsultaCobranca() {
   }
 
   return (
-    <body className="cadastrocobranca">
+    <div className="cadastrocobranca">
       <main className="main-cadastrocobranca">
         <header className="header-cadastrocobranca">
           <h2>Cadastrar Cobranca</h2>
@@ -107,6 +107,6 @@ export function ConsultaCobranca() {
           <div></div>
         </section>
       </main>
-    </body>
+    </div>
   );
 }

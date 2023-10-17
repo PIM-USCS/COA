@@ -32,11 +32,12 @@ export function EmpresaLista() {
   }, []);
 
   return (
-    <body className="container-geral">
+    <div className="container-geral">
       <header className="container-titulo">
         <button
           className="botao_return_empresa"
-          onClick={() => navigate("/home")}>
+          onClick={() => navigate("/home")}
+        >
           <ArrowLeft size={36} />
         </button>
         <h1>Listagem de empresas</h1>
@@ -81,10 +82,10 @@ export function EmpresaLista() {
           </div>
         ) : (
           empresa.map((empresa) => (
-            <Cliente empresa={empresa} cliente={cliente} />
+            <Cliente empresa={empresa} cliente={cliente} key={empresa.id} />
           ))
         )}
       </div>
-    </body>
+    </div>
   );
 }
