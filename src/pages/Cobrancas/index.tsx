@@ -8,11 +8,13 @@ import * as api from "../../services/api";
 import { ArrowLeft, IdentificationCard, WarningCircle } from "phosphor-react";
 import { CobrancaProps } from "../../@types/Cobranca";
 import { EmpresaProps } from "../../@types/Client";
+import { useCobranca } from "../../hooks/useCobranca";
 
 export function CobrancaLista() {
   const [cobranca, setCobranca] = useState<CobrancaProps[]>([]);
   const [empresa, setEmpresa] = useState<EmpresaProps[]>([]);
 
+  const { setIdCobranca } = useCobranca();
   const navigate = useNavigate();
 
   const getCobranca = async () => {
@@ -51,6 +53,14 @@ export function CobrancaLista() {
     consultaEmpresas();
   }, [cobranca]);
 
+  function EnviarRecibo(id: string) {
+    if (!id) {
+      return;
+    }
+    setIdCobranca(id);
+    navigate("/enviar-recibo");
+  }
+
   return (
     <main className="main-principal">
       <header className="tela-cobranca-header">
@@ -82,6 +92,7 @@ export function CobrancaLista() {
             <th>Vencimento</th>
             <th>Valor</th>
             <th>Status</th>
+            <th>Enviar recibo</th>
             <th>Alterar</th>
             <th>Excluir</th>
             <th>Consultar</th>
@@ -98,6 +109,14 @@ export function CobrancaLista() {
               <td>{cobrancaItem.vencimento_cobranca}</td>
               <td>{cobrancaItem.valor}</td>
               <td>{cobrancaItem.status}</td>
+              <td>
+                <button
+                  className="botao-table-edit"
+                  onClick={() => EnviarRecibo(cobrancaItem.id)}
+                >
+                  Enviar recibo
+                </button>
+              </td>
               <td>
                 <button className="botao-table-edit">Editar</button>
               </td>

@@ -16,6 +16,7 @@ import {
 } from "../@types/Colaborador";
 import { AtuUsuario, ResetarSenha, UsuarioProps } from "../@types/Usuario";
 import { CobrancaProps } from "../@types/Cobranca";
+import { ReciboProps } from "../@types/Recibo";
 
 /* DASHBOARD */
 
@@ -140,6 +141,19 @@ const patchAtualizaAvatar = (id: string, formData: FormData): AxiosPromise =>
   });
 /*USUARIO*/
 
+/*RECIBOS*/
+const postCreateRecibo = (
+  id_cobranca: string,
+  params: ReciboProps
+): AxiosPromise<ReciboProps> => xhr.post(`recibos/${id_cobranca}`, params);
+
+const patchAtualizaarquivo = (id: string, formData: FormData): AxiosPromise =>
+  xhr.patch(`recibos/anexo/${id}`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+/*RECIBOS*/
 /*UTILITÁRIOS*/
 
 const viaCep = (cep: string): AxiosPromise<EmpresaPropsViaCep> =>
@@ -178,4 +192,6 @@ export {
   getClientes,
   getGuiaByCliente,
   patchAtualizaAvatar,
+  patchAtualizaarquivo,
+  postCreateRecibo,
 };

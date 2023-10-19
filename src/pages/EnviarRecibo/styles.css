@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary: #028a0f;
+  --secondary: #191c24;
+  --light: #6c7293;
+  --dark: #000000;
+}
+/*Body*/
+.alterarcadastrorecibo {
+  font-family: arial, sans-serif;
+  background-color: var(--dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.main-alterarcadastrorecibo {
+  background-color: var(--secondary);
+  padding: 50px;
+  min-width: 450px;
+}
+.header-alterarcadastrorecibo {
+  display: flex;
+  justify-content: right;
+  color: white;
+}
+.h2-alterarcadastrorecibo {
+  display: flex;
+  width: 50%;
+}
+
+.form-alterarcadastrorecibo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  margin: 25px 0px 0px 0px;
+}
+.floatingInput {
+  position: relative;
+}
+.floatingInput__control {
+  background-color: var(--dark);
+  color: var(--light);
+  border-radius: 5px;
+  height: 70px;
+  width: 98%;
+  text-transform: uppercase;
+  border: transparent;
+  font-size: 15px;
+  margin: 0px 0px 25px 0px;
+}
+
+.floatingInput__control::placeholder {
+  opacity: 0;
+}
+.floatingInput__control:not(:placeholder-shown) + .floatingInput__label,
+.floatingInput__control:focus + .floatingInput__label {
+  top: 0.2rem;
+  font-size: 1.3rem;
+}
+.floatingInput__label {
+  color: var(--light);
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transition: all 0.2s;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+/*botão salvar*/
+.input-bnt-page-cadastrorecibo {
+  color: var(--light);
+  margin-top: 8px;
+}
+.input-bnt-page-cadastrorecibo::placeholder {
+  color: var(--light);
+}
+.bnt-page-cadastrorecibo {
+  all: unset;
+  margin-top: 12px;
+  border-radius: 5px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  background-color: var(--primary);
+  font-size: 16px;
+  flex-wrap: wrap;
+  font-family: "Opens-sans", sans-serif;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+  text-transform: uppercase;
+}
+.bnt-page-cadastrorecibo:hover {
+  background-color: rgb(109, 204, 71);
+  transition: 1s;
+}
+/*botao abandonar */
+.bnt-cadastrorecibo-abandonar {
+  all: unset;
+  margin-top: 12px;
+  border-radius: 5px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  background-color: rgb(172, 8, 8);
+  font-size: 16px;
+  flex-wrap: wrap;
+  font-family: "Opens-sans", sans-serif;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+  text-transform: uppercase;
+}
+.bnt-cadastrorecibo-abandonar:hover {
+  background-color: rgb(228, 123, 123);
+  transition: 1s;
+}

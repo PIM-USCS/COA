@@ -17,6 +17,7 @@ import { CadastroCobranca } from "./pages/CadastroCobranca";
 import { ConsultaCobranca } from "./pages/ConsultaCobranca";
 import { TrocarSenhaToken } from "./pages/TrocarSenhaToken";
 import { Dashboard } from "./pages/Dashboard";
+import { EnviarRecibo } from "./pages/EnviarRecibo";
 
 export function Router() {
   return (
@@ -45,6 +46,7 @@ export function Router() {
       <Route path="/consulta-cobrancas" element={<ConsultaCobranca />} />
       <Route path="/resetar-senha" element={<TrocarSenhaToken />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/enviar-recibo" element={<EnviarRecibo />} />
     </Routes>
   );
 }
