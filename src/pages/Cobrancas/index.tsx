@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 
 import "./styles.css";
@@ -5,11 +6,13 @@ import "./styles.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import * as api from "../../services/api";
 import { ArrowLeft, IdentificationCard, WarningCircle } from "phosphor-react";
-import { Cobranca } from "./Componentes/Cobranca";
 import { CobrancaProps } from "../../@types/Cobranca";
+import { EmpresaProps } from "../../@types/Client";
 
 export function CobrancaLista() {
   const [cobranca, setCobranca] = useState<CobrancaProps[]>([]);
+  const [empresa, setEmpresa] = useState<EmpresaProps[]>([]);
+
   const navigate = useNavigate();
 
   const getCobranca = async () => {
@@ -26,64 +29,88 @@ export function CobrancaLista() {
     getCobranca();
   }, []);
 
+  const consultaEmpresas = async () => {
+    const empresasConsultadas = await Promise.all(
+      cobranca.map(async (cobrancaItem) => {
+        if (cobrancaItem.id_empresa) {
+          const { data } = await api.getEmpresaByID(cobrancaItem.id_empresa);
+          return { id: cobrancaItem.id_empresa, nome: data.nome };
+        }
+        return null;
+      })
+    );
+
+    const empresasFiltradas = empresasConsultadas.filter(
+      (empresa) => empresa !== null
+    ) as EmpresaProps[];
+
+    setEmpresa(empresasFiltradas);
+  };
+
+  useEffect(() => {
+    consultaEmpresas();
+  }, [cobranca]);
+
   return (
-    <main className="container-geral-cobranca">
-      <header className="container-titulo-cobranca">
-        <button
-          className="botao_return_cobranca"
-          onClick={() => navigate("/home")}
-        >
-          <ArrowLeft size={36} />
-        </button>
-        <h1>Listagem de guias</h1>
+    <main className="main-principal">
+      <header className="tela-cobranca-header">
+        <div>
+          <button
+            className="tela-cobranca-return"
+            onClick={() => navigate("/home")}
+          >
+            <ArrowLeft size={36} />
+          </button>
+        </div>
+
+        <div className="div-cadastrar-cobranca">
+          <h1>Listagem de guias</h1>
+          <NavLink to="/cadastro-cobrancas" style={{ textDecoration: "none" }}>
+            <button>
+              <IdentificationCard size={32} weight="fill" />
+              Nova Guia
+            </button>
+          </NavLink>
+        </div>
       </header>
 
-      <div className="div-cadastrar-cobranca">
-        <NavLink to="/cadastro-cobrancas" style={{ textDecoration: "none" }}>
-          <button>
-            <IdentificationCard size={32} weight="fill" />
-            Nova Guia
-          </button>
-        </NavLink>
-      </div>
-      <div className="container-header-cobranca">
-        <div className="div-id-cobranca">
-          <p>ID</p>
-        </div>
-        <div className="div-empresa-cobranca">
-          <p>Empresa</p>
-        </div>
-        <div className="div-vencimento-cobranca">
-          <p>Vencimento</p>
-        </div>
-        <div className="div-valor-cobranca">
-          <p>Valor</p>
-        </div>
-        <div className="div-status-cobranca">
-          <p>Status</p>
-        </div>
-        <div className="div-alterar-cobranca">
-          <p>Alterar</p>
-        </div>
-        <div className="div-excluir-cobranca">
-          <p>Excluir</p>
-        </div>
-        <div className="div-consultar-cobranca">
-          <p>Consultar</p>
-        </div>
-      </div>
-      <div className="container-lista-cobranca">
-        {cobranca.length === 0 ? (
-          <div className="informativo">
-            <WarningCircle size={48} />
-            <p>Nenhuma cobrança cadastrada!</p>
-          </div>
-        ) : (
-          cobranca.map((cobranca) => (
-            <Cobranca key={cobranca.id} cobranca={cobranca} />
-          ))
-        )}
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Empresa</th>
+            <th>Vencimento</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Alterar</th>
+            <th>Excluir</th>
+            <th>Consultar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cobranca.map((cobrancaItem) => (
+            <tr key={cobrancaItem.id} className="tabela-row">
+              <td>{cobrancaItem.id}</td>
+              <td>
+                {empresa.find((emp) => emp.id === cobrancaItem.id_empresa)
+                  ?.nome || "N/A"}
+              </td>
+              <td>{cobrancaItem.vencimento_cobranca}</td>
+              <td>{cobrancaItem.valor}</td>
+              <td>{cobrancaItem.status}</td>
+              <td>
+                <button className="botao-table-edit">Editar</button>
+              </td>
+              <td>
+                <button className="botao-table-delete">Excluir</button>
+              </td>
+              <td>
+                <button className="botao-table-view">Consultar</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </main>
   );
 }

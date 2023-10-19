@@ -5,159 +5,36 @@
   --dark: #000000;
 }
 
-.container-geral {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: var(--dark);
-  color: white;
-  font-size: 22px;
-  font-family: "Roboto", sans-serif;
-}
-
-.container-titulo {
-  display: flex;
+.tela-empresa-header {
   width: 80%;
-
-  margin-top: 40px;
   justify-content: space-between;
-  font-family: "Roboto", sans-serif;
+  display: flex;
+  color: white;
 }
 
-.div-cadastrar {
-  width: 80%;
-  margin-top: 20px;
-  display: flex;
-  background-color: var(--secondary);
-  justify-content: end;
-  border-top-right-radius: 9px;
-  border-top-left-radius: 9px;
-}
-.div-cadastrar button {
+.tela-empresa-return {
   all: unset;
+  cursor: pointer;
+}
+
+.tela-empresa-return:hover {
   color: var(--primary);
-  background-color: var(--secondary);
-  border-radius: 9px;
-  cursor: pointer;
-  padding: 8px;
+}
+
+.div-cadastrar-empresa {
   display: flex;
-  gap: 8px;
-  font-size: 28px;
-  align-items: center;
+  gap: 18px;
 }
 
-.div-cadastrar button:hover {
-  color: rgb(172, 8, 8);
-  transition: 0.5s;
-}
-
-.container-header {
-  display: flex;
-  gap: 10px;
-  width: 80%;
-  background-color: var(--secondary);
-  font-family: "Roboto", sans-serif;
-}
-
-.div-id,
-.div-nome,
-.div-pessoa,
-.div-cnpj-cpf,
-.div-cnpj-cpf,
-.div-alterar,
-.div-excluir,
-.div-consultar {
-  margin-top: 25px;
-}
-
-.div-id {
-  width: 10%;
-  display: flex;
-  justify-content: center;
-}
-
-.div-nome {
-  display: flex;
-  justify-content: center;
-  width: 20%;
-}
-
-.div-pessoa {
-  display: flex;
-  justify-content: center;
-  width: 15%;
-}
-
-.div-cnpj-cpf {
-  display: flex;
-  justify-content: center;
-  width: 20%;
-}
-
-.div-alterar {
-  display: flex;
-  justify-content: center;
-  width: 10%;
-}
-.div-excluir {
-  display: flex;
-  justify-content: center;
-  width: 10%;
-}
-.div-consultar {
-  display: flex;
-  justify-content: center;
-  width: 10%;
-}
-.container-lista {
-  width: 80%;
-  background-color: var(--secondary);
-  height: 500px;
-  max-height: 500px;
-  border-bottom-left-radius: 9px;
-  border-bottom-right-radius: 9px;
-  overflow-y: scroll;
-  margin-bottom: 20px;
-}
-
-.container-lista::-webkit-scrollbar-track {
-  background-color: var(--light);
-}
-
-.container-lista::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  border-radius: 9px;
-  background: var(--light);
-}
-.container-lista::-webkit-scrollbar-thumb {
-  background: #dad7d7;
-  border-radius: 9px;
-}
-.container-lista::-webkit-scrollbar-track {
-  background: transparent;
-  padding: 2px;
-  height: 8px;
-}
-
-.informativo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 80%;
-  color: var(--light);
-  font-size: 32px;
-}
-
-.botao_return_empresa {
+.div-cadastrar-empresa button {
   all: unset;
-  cursor: pointer;
-  margin-top: 12px;
-}
-
-.botao_return_empresa:hover {
-  color: #028a0f;
+  color: white;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 190px;
+  background-color: var(--primary);
+  border-radius: 8px;
 }

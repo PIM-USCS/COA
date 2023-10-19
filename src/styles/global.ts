@@ -134,4 +134,79 @@ body, input, textarea, button
   border-radius: 99px;
 }
 
+
+
+/* STYLES DA TABLE */
+
+
+.main-principal {
+  font-family: Arial, sans-serif;
+  background-color: var(--dark);
+  display: flex;
+flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  overflow-x: auto;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: auto;
+}
+
+table {
+  width: 80%; /* Alterado para 80% */
+  height: 30%;
+  margin: 20px 0;
+  padding: 15px;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: var(--secondary);
+  color: white;
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid var(--dark);
+}
+
+table th {
+  background-color: var(--light); /* Alterado para a cor azul escura */
+}
+
+table tr:nth-child(even) {
+  background-color: var(--dark);
+}
+
+table tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+.botao-table-edit,
+.botao-table-delete,
+.botao-table-view {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 18px;
+}
+
+.botao-table-edit:hover,
+.botao-table-delete:hover,
+.botao-table-view:hover {
+  background-color: var(--dark);
+}
+
+table tr:hover {
+  background-color: var(--light); /* Alterado para a cor escura */
+}
+
+
 `;
