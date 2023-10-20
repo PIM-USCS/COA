@@ -90,6 +90,14 @@ export function CobrancaLista() {
     });
   }
 
+  function consultarCobranca(id: string) {
+    if (!id) {
+      return;
+    }
+    setIdCobranca(id);
+
+    navigate("/consultar-cobranca");
+  }
   return (
     <main className="main-principal">
       <header className="tela-cobranca-header">
@@ -120,6 +128,7 @@ export function CobrancaLista() {
             <th>Empresa</th>
             <th>Vencimento</th>
             <th>Valor</th>
+
             <th>Status</th>
             <th>Enviar recibo</th>
             <th>Alterar</th>
@@ -138,6 +147,7 @@ export function CobrancaLista() {
               <td>{cobrancaItem.vencimento_cobranca}</td>
               <td>{cobrancaItem.valor}</td>
               <td>{cobrancaItem.status}</td>
+
               <td>
                 <button
                   className="botao-table-edit"
@@ -158,7 +168,12 @@ export function CobrancaLista() {
                 </button>
               </td>
               <td>
-                <button className="botao-table-view">Consultar</button>
+                <button
+                  className="botao-table-view"
+                  onClick={() => consultarCobranca(cobrancaItem.id)}
+                >
+                  Consultar
+                </button>
               </td>
             </tr>
           ))}

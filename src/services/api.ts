@@ -156,6 +156,9 @@ const patchAtualizaarquivo = (id: string, formData: FormData): AxiosPromise =>
     },
   });
 
+const getReciboByIDCobranca = (id: string): AxiosPromise<ReciboProps> =>
+  xhr.get(`recibos/${id}`);
+
 /*RECIBOS*/
 /*UTILITÁRIOS*/
 
@@ -198,4 +201,5 @@ export {
   patchAtualizaarquivo,
   postCreateRecibo,
   deleteCobranca,
+  getReciboByIDCobranca,
 };

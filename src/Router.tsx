@@ -43,7 +43,7 @@ export function Router() {
       <Route path="/recuperar-senha" element={<RecuperarSenha />} />
       <Route path="/cobrancas" element={<CobrancaLista />} />
       <Route path="/cadastro-cobrancas" element={<CadastroCobranca />} />
-      <Route path="/consulta-cobrancas" element={<ConsultaCobranca />} />
+      <Route path="/consultar-cobranca" element={<ConsultaCobranca />} />
       <Route path="/resetar-senha" element={<TrocarSenhaToken />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/enviar-recibo" element={<EnviarRecibo />} />

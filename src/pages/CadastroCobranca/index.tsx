@@ -221,25 +221,6 @@ export function CadastroCobranca() {
             </div>
 
             <div>
-              <div className="tela-cobranca-div-recibos">
-                <h1>Recibos</h1>
-              </div>
-              <div className="tela-cobranca-div-recibos-input">
-                <label className="tela-cobranca-custom-file-upload">
-                  <input
-                    type="file"
-                    id="fileInput"
-                    style={{ display: "none" }}
-                    onChange={handleFileChange}
-                  />
-                  <span>Selecione um arquivo</span>
-                </label>
-                {nomeArquivo && (
-                  <div className="tela-cobranca-arquivo-selecionado">
-                    Arquivo selecionado: {nomeArquivo}
-                  </div>
-                )}
-              </div>
               <button
                 className="tela-cobranca-bnt-cadastrocobranca"
                 onClick={finalizarCadastro}
