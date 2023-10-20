@@ -10,6 +10,7 @@ import { CobrancaProps } from "../../@types/Cobranca";
 import { EmpresaProps } from "../../@types/Client";
 import { useCobranca } from "../../hooks/useCobranca";
 import Swal from "sweetalert2";
+import { recibos } from "../Home/Componentes/Guias";
 
 export function CobrancaLista() {
   const [cobranca, setCobranca] = useState<CobrancaProps[]>([]);

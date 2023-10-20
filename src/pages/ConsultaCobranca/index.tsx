@@ -8,13 +8,23 @@ import Swal from "sweetalert2";
 import { EmpresaProps } from "../../@types/Client";
 import { useCobranca } from "../../hooks/useCobranca";
 import { ReciboProps } from "../../@types/Recibo";
+import { ModalImagem } from "./Components/ModalImagem";
 
 export function ConsultaCobranca() {
   const [cobranca, setCobranca] = useState<CobrancaProps>({} as CobrancaProps);
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
   const [recibos, setRecibos] = useState<ReciboProps[]>([]);
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const [caminhoArquivo, setCaminhoArquivo] = useState<File | undefined>();
+
   const { idCobranca } = useCobranca();
   const navigate = useNavigate();
+
+  function openModalImagem(arquivo: File) {
+    setCaminhoArquivo(arquivo);
+    setIsOpenModal(true);
+  }
+
   async function consultaCobranca() {
     if (!idCobranca) {
       return;
@@ -107,109 +117,123 @@ export function ConsultaCobranca() {
   }, [idCobranca]);
 
   return (
-    <div className="cadastrocobranca">
-      <main className="main-cadastrocobranca">
-        <header className="header-cadastrocobranca">
-          <h2>Consulta Cobranca</h2>
-        </header>
-        <section>
-          <div className="floatingInput">
-            <input
-              type="text"
-              className="floatingInput__control"
-              placeholder="Id Empresa"
-              name="id"
-              value={empresa.id || ""}
-              readOnly
-            />
-            <label className="floatingInput__label">Id Empresa</label>
-          </div>
-          <div className="floatingInput">
-            <input
-              type="text"
-              className="floatingInput__control"
-              placeholder="Nome empresa"
-              name="nome"
-              value={empresa.nome || ""}
-              readOnly
-            />
-            <label className="floatingInput__label">Nome empresa</label>
-          </div>
+    <>
+      <ModalImagem
+        isOpenModal={isOpenModal}
+        setIsOpenModal={setIsOpenModal}
+        arquivo={caminhoArquivo}
+      />
+      <div className="cadastrocobranca">
+        <main className="main-cadastrocobranca">
+          <header className="header-cadastrocobranca">
+            <h2>Consulta Cobranca</h2>
+          </header>
+          <section>
+            <div className="floatingInput">
+              <input
+                type="text"
+                className="floatingInput__control"
+                placeholder="Id Empresa"
+                name="id"
+                value={empresa.id || ""}
+                readOnly
+              />
+              <label className="floatingInput__label">Id Empresa</label>
+            </div>
+            <div className="floatingInput">
+              <input
+                type="text"
+                className="floatingInput__control"
+                placeholder="Nome empresa"
+                name="nome"
+                value={empresa.nome || ""}
+                readOnly
+              />
+              <label className="floatingInput__label">Nome empresa</label>
+            </div>
 
-          <div className="floatingInput">
-            <input
-              type="text"
-              className="floatingInput__control"
-              placeholder="Data emissão"
-              name="emissao_cobranca"
-              value={cobranca.emissao_cobranca || ""}
-              readOnly
-            />
-            <label className="floatingInput__label">Data emissão</label>
-          </div>
-          <div className="floatingInput">
-            <input
-              type="text"
-              className="floatingInput__control"
-              placeholder="Data vencimento"
-              name="vencimento_cobranca"
-              value={cobranca.vencimento_cobranca || ""}
-              readOnly
-            />
-            <label className="floatingInput__label">Data vencimento</label>
-          </div>
-          <div className="floatingInput">
-            <input
-              type="text"
-              className="floatingInput__control"
-              placeholder="Valor"
-              name="valor"
-              value={cobranca.valor || ""}
-              readOnly
-            />
+            <div className="floatingInput">
+              <input
+                type="text"
+                className="floatingInput__control"
+                placeholder="Data emissão"
+                name="emissao_cobranca"
+                value={cobranca.emissao_cobranca || ""}
+                readOnly
+              />
+              <label className="floatingInput__label">Data emissão</label>
+            </div>
+            <div className="floatingInput">
+              <input
+                type="text"
+                className="floatingInput__control"
+                placeholder="Data vencimento"
+                name="vencimento_cobranca"
+                value={cobranca.vencimento_cobranca || ""}
+                readOnly
+              />
+              <label className="floatingInput__label">Data vencimento</label>
+            </div>
+            <div className="floatingInput">
+              <input
+                type="text"
+                className="floatingInput__control"
+                placeholder="Valor"
+                name="valor"
+                value={cobranca.valor || ""}
+                readOnly
+              />
 
-            <label className="floatingInput__label">Valor</label>
-          </div>
-          <div className="floatingInput">
-            <input
-              type="text"
-              className="floatingInput__control"
-              placeholder="Status"
-              name="status"
-              value={cobranca.status || ""}
-              readOnly
-            />
-            <label className="floatingInput__label">Status</label>
-          </div>
-          <div>
-            <h2 className="header-cadastrocobranca">Rebibos</h2>
-          </div>
-          <div>
-            <table style={{ fontSize: "22px" }}>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Data do Recibo</th>
-                  <th>Visualizar Imagem</th>
-                </tr>
-              </thead>
-              <tbody>
-                {recibos.map((recibo, index) => (
-                  <tr key={index}>
-                    <td>{recibo.id}</td>
-                    <td>{recibo.data_recibo}</td>
-                    <td>
-                      <button className="botao-table-view">
-                        Visualizar imagem
-                      </button>
-                    </td>
+              <label className="floatingInput__label">Valor</label>
+            </div>
+            <div className="floatingInput">
+              <input
+                type="text"
+                className="floatingInput__control"
+                placeholder="Status"
+                name="status"
+                value={cobranca.status || ""}
+                readOnly
+              />
+              <label className="floatingInput__label">Status</label>
+            </div>
+            <div>
+              <h2 className="header-cadastrocobranca">Rebibos</h2>
+            </div>
+            <div>
+              <table style={{ fontSize: "22px" }}>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Data do Recibo</th>
+                    <th>Visualizar Imagem</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      </main>
-    </div>
+                </thead>
+                <tbody>
+                  {recibos.map((recibo, index) => (
+                    <tr key={index}>
+                      <td>{recibo.id}</td>
+                      <td>{recibo.data_recibo}</td>
+                      <td>
+                        <button
+                          className="botao-table-view"
+                          onClick={() => {
+                            if (recibo.arquivo) {
+                              openModalImagem(recibo.arquivo);
+                            }
+                          }}
+                        >
+                          Visualizar imagem
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </>
   );
 }

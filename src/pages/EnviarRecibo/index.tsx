@@ -10,14 +10,14 @@ import { CobrancaProps } from "../../@types/Cobranca";
 interface ReciboProps {
   id?: string;
   data_recibo: string;
-  arquivo?: File | null;
+  anexo?: File | null;
 }
 
 export function EnviarRecibo() {
   const { idCobranca } = useCobranca();
   const [recibo, setRecibo] = useState<ReciboProps>({
     data_recibo: "",
-    arquivo: undefined,
+    anexo: undefined,
   });
   const [cobranca, setCobranca] = useState<CobrancaProps>({} as CobrancaProps);
 
@@ -54,19 +54,18 @@ export function EnviarRecibo() {
   }
 
   async function atualizaarquivo() {
-    await criarRecibo();
     try {
-      if (!recibo.arquivo) {
-        throw new Error("Por favor, selecione um avatar.");
+      if (!recibo.anexo) {
+        throw new Error("Por favor, selecione um recibo.");
       }
 
       const formData = new FormData();
-      formData.append("arquivo", recibo.arquivo);
+      formData.append("anexo", recibo.anexo);
 
       if (!recibo.id) {
         return;
       }
-      await api.patchAtualizaAvatar(recibo.id, formData);
+      await api.patchAtualizaarquivo(recibo.id, formData);
 
       Swal.fire({
         icon: "success",
@@ -82,10 +81,14 @@ export function EnviarRecibo() {
       Swal.fire({
         icon: "error",
         title: "Erro ao atualizar o avatar",
-        text: "error.message",
         confirmButtonText: "OK",
       });
     }
+  }
+
+  function teste() {
+    criarRecibo();
+    atualizaarquivo();
   }
 
   const mascaraDataRecibo = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -101,7 +104,7 @@ export function EnviarRecibo() {
     const file = e.target.files && e.target.files[0];
     setRecibo({
       ...recibo,
-      arquivo: file,
+      anexo: file,
     });
   }
 
@@ -128,16 +131,13 @@ export function EnviarRecibo() {
               <input
                 type="file"
                 className="floatingInput__control"
-                name="arquivo"
+                name="anexo"
                 accept="image/*"
                 onChange={handleFileChange}
               />
             </div>
             <div>
-              <button
-                className="bnt-page-cadastrorecibo"
-                onClick={atualizaarquivo}
-              >
+              <button className="bnt-page-cadastrorecibo" onClick={teste}>
                 enviar
               </button>
               <button
