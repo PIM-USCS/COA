@@ -109,6 +109,8 @@ const postCreateCobranca = (
   params: CobrancaProps
 ): AxiosPromise<CobrancaProps> => xhr.post(`cobrancas/${id_empresa}`, params);
 
+const deleteCobranca = (id: string) => xhr.delete(`cobrancas/${id}`);
+
 /* COBRANCA */
 
 /*USUARIO*/
@@ -153,6 +155,7 @@ const patchAtualizaarquivo = (id: string, formData: FormData): AxiosPromise =>
       "Content-Type": "multipart/form-data",
     },
   });
+
 /*RECIBOS*/
 /*UTILITÁRIOS*/
 
@@ -194,4 +197,5 @@ export {
   patchAtualizaAvatar,
   patchAtualizaarquivo,
   postCreateRecibo,
+  deleteCobranca,
 };

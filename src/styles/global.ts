@@ -154,7 +154,7 @@ flex-direction: column;
 }
 
 table {
-  width: 80%; /* Alterado para 80% */
+  width: 80%;
   height: 30%;
   margin: 20px 0;
   padding: 15px;
@@ -174,7 +174,7 @@ table td {
 }
 
 table th {
-  background-color: var(--light); /* Alterado para a cor azul escura */
+  background-color: var(--light); 
 }
 
 table tr:nth-child(even) {
@@ -204,9 +204,12 @@ table tr:hover {
   background-color: var(--dark);
 }
 
-table tr:hover {
-  background-color: var(--light); /* Alterado para a cor escura */
-}
+/* table tr:hover {
+  background-color: var(--light); 
+  
+}/* Alterado para a cor escura */
+
+
 
 
 `;

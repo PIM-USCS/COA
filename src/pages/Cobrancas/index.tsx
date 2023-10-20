@@ -9,6 +9,7 @@ import { ArrowLeft, IdentificationCard, WarningCircle } from "phosphor-react";
 import { CobrancaProps } from "../../@types/Cobranca";
 import { EmpresaProps } from "../../@types/Client";
 import { useCobranca } from "../../hooks/useCobranca";
+import Swal from "sweetalert2";
 
 export function CobrancaLista() {
   const [cobranca, setCobranca] = useState<CobrancaProps[]>([]);
@@ -59,6 +60,34 @@ export function CobrancaLista() {
     }
     setIdCobranca(id);
     navigate("/enviar-recibo");
+  }
+
+  async function DeletarCobranca(id: string) {
+    if (!id) {
+      return;
+    }
+    Swal.fire({
+      title: "Tem certeza que deseja deletar esta cobrança?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Não",
+      confirmButtonText: "Sim, desejo deletar!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await api.deleteCobranca(id);
+        Swal.fire({
+          icon: "success",
+          title: "Processo concluído!",
+          text: "Cobrança deletada com sucesso!",
+          confirmButtonText: "OK",
+          preConfirm: () => {
+            window.location.reload();
+          },
+        });
+      }
+    });
   }
 
   return (
@@ -121,7 +150,12 @@ export function CobrancaLista() {
                 <button className="botao-table-edit">Editar</button>
               </td>
               <td>
-                <button className="botao-table-delete">Excluir</button>
+                <button
+                  className="botao-table-delete"
+                  onClick={() => DeletarCobranca(cobrancaItem.id)}
+                >
+                  Excluir
+                </button>
               </td>
               <td>
                 <button className="botao-table-view">Consultar</button>
