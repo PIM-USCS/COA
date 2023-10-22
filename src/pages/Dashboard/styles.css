@@ -39,6 +39,7 @@
 }
 
 .div-01 {
+  margin-left: 20%;
   margin-bottom: auto;
   grid-area: div-01;
   height: 100%;
@@ -50,7 +51,7 @@
 }
 
 .tela-dash-input {
-  width: 60%;
+  width: 40%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -127,6 +128,7 @@
   padding: 15px;
   color: var(--light);
   border-radius: 20px;
+  margin: auto;
 }
 .div-03 {
   grid-area: div-03;
@@ -138,8 +140,10 @@
   padding: 15px;
   color: var(--light);
   border-radius: 20px;
+  margin: auto;
 }
 .div-14 {
+  margin: auto;
   align-items: center;
   grid-area: div-14;
   color: aliceblue;

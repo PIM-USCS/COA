@@ -1,6 +1,6 @@
 import "./styles.css";
 import { Chart } from "./componentes/graficosPizza";
-import { Buildings, FileSearch, User, UserCircle } from "phosphor-react";
+import { Buildings, FileSearch, MagnifyingGlass, User, UserCircle } from "phosphor-react";
 import { Linha } from "./componentes/graficosLinhas";
 import { Barra } from "./componentes/graficobarra";
 import { useEffect, useState } from "react";
@@ -153,9 +153,10 @@ export function Dashboard() {
                 [e.target.name]: e.target.value,
               })
             }
+            
           />
           <button onClick={getGuiasByCliente}>
-            <FileSearch size={30} color="#1d7c23" />
+          <MagnifyingGlass size={32} color="#1d7c23" />
           </button>
         </div>
 
