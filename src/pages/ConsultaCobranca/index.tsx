@@ -96,16 +96,11 @@ export function ConsultaCobranca() {
         return;
       }
       const response = await api.getReciboByIDCobranca(idCobranca);
-      const recibo = response.data;
 
-      if (recibo && recibo.id) {
-        setRecibos([
-          {
-            id: recibo.id,
-            data_recibo: recibo.data_recibo,
-            arquivo: recibo.arquivo,
-          },
-        ]);
+      const recibos = response.data;
+
+      if (recibos && recibos.length > 0) {
+        setRecibos(recibos);
       }
     } catch (error) {
       console.log(error);
@@ -210,8 +205,8 @@ export function ConsultaCobranca() {
                   </tr>
                 </thead>
                 <tbody>
-                  {recibos.map((recibo, index) => (
-                    <tr key={index}>
+                  {recibos.map((recibo) => (
+                    <tr key={recibo.id}>
                       <td>{recibo.id}</td>
                       <td>{recibo.data_recibo}</td>
                       <td>

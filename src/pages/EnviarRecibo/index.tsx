@@ -47,40 +47,36 @@ export function EnviarRecibo() {
 
       Swal.fire({
         icon: "error",
-        title: "Erro ao atualizar o recibo",
+        title: "Erro ao criar o recibo",
         confirmButtonText: "OK",
       });
     }
   }
-
   async function atualizaarquivo() {
     try {
-      if (!recibo.anexo) {
+      if (recibo.anexo && recibo.anexo instanceof File) {
+        const formData = new FormData();
+        formData.append("anexo", recibo.anexo);
+
+        await api.patchAtualizaarquivo("4", formData);
+
+        Swal.fire({
+          icon: "success",
+          title: "Arquivo atualizado com sucesso!",
+          confirmButtonText: "OK",
+          preConfirm: () => {
+            navigate(-1);
+          },
+        });
+      } else {
         throw new Error("Por favor, selecione um recibo.");
       }
-
-      const formData = new FormData();
-      formData.append("anexo", recibo.anexo);
-
-      if (!recibo.id) {
-        return;
-      }
-      await api.patchAtualizaarquivo(recibo.id, formData);
-
-      Swal.fire({
-        icon: "success",
-        title: "Cadastro atualizado com sucesso!",
-        confirmButtonText: "OK",
-        preConfirm: () => {
-          navigate(-1);
-        },
-      });
     } catch (error) {
-      console.error(error);
+      console.log(error);
 
       Swal.fire({
         icon: "error",
-        title: "Erro ao atualizar o avatar",
+        title: "Erro ao atualizar o arquivo",
         confirmButtonText: "OK",
       });
     }
@@ -137,7 +133,10 @@ export function EnviarRecibo() {
               />
             </div>
             <div>
-              <button className="bnt-page-cadastrorecibo" onClick={teste}>
+              <button
+                className="bnt-page-cadastrorecibo"
+                onClick={atualizaarquivo}
+              >
                 enviar
               </button>
               <button
