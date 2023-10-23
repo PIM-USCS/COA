@@ -1,6 +1,12 @@
 import "./styles.css";
 import { Chart } from "./componentes/graficosPizza";
-import { Buildings, FileSearch, MagnifyingGlass, User, UserCircle } from "phosphor-react";
+import {
+  Buildings,
+  FileSearch,
+  MagnifyingGlass,
+  User,
+  UserCircle,
+} from "phosphor-react";
 import { Linha } from "./componentes/graficosLinhas";
 import { Barra } from "./componentes/graficobarra";
 import { useEffect, useState } from "react";
@@ -10,6 +16,7 @@ import { EmpresaListaProps } from "../Empresas";
 import { ClienteProps, EmpresaProps } from "../../@types/Client";
 import { CobrancaProps } from "../../@types/Cobranca";
 import { Header } from "../../Components/Header";
+import Swal from "sweetalert2";
 export function Dashboard() {
   const [cobrancas, setCobrancas] = useState<CobrancaProps[]>([]);
   const [colaborador, setColaborador] = useState<ColaboradorListaProps[]>([]);
@@ -106,8 +113,15 @@ export function Dashboard() {
       const dadosCobrancas = response.data;
 
       setCobrancas(dadosCobrancas);
+      Swal.fire({
+        icon: "success",
+        title: "informações carregadas com sucesso!",
+      });
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        icon: "info",
+        title: "Não foi possivel localizar o cliente com este ID",
+      });
     }
   };
 
@@ -142,22 +156,23 @@ export function Dashboard() {
         </div>
         <div className="div-01">
           <h1 className="tela-dash-label">Buscar cliente</h1>
-          <input
-            type="text"
-            className="tela-dash-input"
-            name="id"
-            value={empresaConsulta.id || ""}
-            onChange={(e) =>
-              setEmpresaConsulta({
-                ...empresaConsulta,
-                [e.target.name]: e.target.value,
-              })
-            }
-            
-          />
-          <button onClick={getGuiasByCliente}>
-          <MagnifyingGlass size={32} color="#1d7c23" />
-          </button>
+          <div className="tela-dash-divinput">
+            <input
+              type="text"
+              className="tela-dash-input"
+              name="id"
+              value={empresaConsulta.id || ""}
+              onChange={(e) =>
+                setEmpresaConsulta({
+                  ...empresaConsulta,
+                  [e.target.name]: e.target.value,
+                })
+              }
+            />
+            <button onClick={getGuiasByCliente}>
+              <MagnifyingGlass size={32} color="#1d7c23" />
+            </button>
+          </div>
         </div>
 
         <div className="div-04">
@@ -193,6 +208,19 @@ export function Dashboard() {
           </div>
         </div>
 
+        <div className="div-07">
+          <div className="minibox">
+            <h1 className="dashbord-h3">Guias em Aberto</h1>
+            <p>
+              {totalAberto.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </p>
+            <p className="dashbord-h3">Quantidade: {cobrancasAberto.length} </p>
+          </div>
+        </div>
+
         <div className="div-12">
           <div className="minibox">
             <h1 className="dashbord-h3">proporçao de detalhe </h1>
@@ -207,19 +235,6 @@ export function Dashboard() {
               cobrancasPagas={cobrancasPagas}
               cobrancasVencidas={cobrancasVencidas}
             ></Chart>
-          </div>
-        </div>
-
-        <div className="div-07">
-          <div className="minibox">
-            <h1 className="dashbord-h3">Guias em Aberto</h1>
-            <p>
-              {totalAberto.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
-            </p>
-            <p className="dashbord-h3">Quantidade: {cobrancasAberto.length} </p>
           </div>
         </div>
 

@@ -39,8 +39,6 @@
 }
 
 .div-01 {
-  margin-left: 20%;
-  margin-bottom: auto;
   grid-area: div-01;
   height: 100%;
   width: 90%;
@@ -48,14 +46,38 @@
   padding: 15px;
   color: var(--light);
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .tela-dash-input {
-  width: 40%;
+  width: 10%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 10px;
+  background-color: var(--secondary);
+  color: white;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-right: none;
+  font-size: 20px;
+}
+
+.tela-dash-input:focus {
+  outline: none;
+}
+.tela-dash-divinput {
+  display: flex;
+  margin-top: 8px;
+}
+
+.tela-dash-divinput button {
+  all: unset;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-left: none;
+  padding-right: 9px;
 }
 
 .div-05 {
@@ -78,7 +100,6 @@
   height: 100%;
   width: 100%;
   background-color: var(--secondary);
-  padding: 15px;
   color: var(--light);
   border-radius: 20px;
 }
@@ -91,7 +112,7 @@
   height: 100%;
   width: 100%;
   background-color: var(--secondary);
-  padding: 15px;
+
   color: var(--light);
   border-radius: 20px;
 }
@@ -105,7 +126,6 @@
   height: 100%;
   width: 100%;
   background-color: var(--secondary);
-  padding: 15px;
   color: var(--light);
   border-radius: 20px;
 }
@@ -125,7 +145,7 @@
   height: 100%;
   width: 100%;
   background-color: var(--secondary);
-  padding: 15px;
+
   color: var(--light);
   border-radius: 20px;
   margin: auto;
@@ -137,7 +157,7 @@
   height: 100%;
   width: 100%;
   background-color: var(--secondary);
-  padding: 15px;
+  padding-top: 40px;
   color: var(--light);
   border-radius: 20px;
   margin: auto;
@@ -148,6 +168,17 @@
   grid-area: div-14;
   color: aliceblue;
   height: 100%;
-  width: 86%;
+  width: 100%;
   color: var(--light);
+}
+
+.div-12 {
+  grid-area: div-12;
+  color: var(--light);
+  height: 100%;
+  width: 100%;
+  background-color: var(--secondary);
+
+  color: var(--light);
+  border-radius: 20px;
 }
