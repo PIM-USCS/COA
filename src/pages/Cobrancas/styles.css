@@ -38,3 +38,54 @@
   background-color: var(--primary);
   border-radius: 8px;
 }
+
+.div-procurar-cliente {
+  display: flex;
+  margin-right: 160px;
+  gap: 18px;
+}
+
+.div-input-procurar-cliente {
+  display: flex;
+}
+
+.div-input-procurar-cliente input {
+  width: 120px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: var(--secondary);
+  color: white;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-right: none;
+  font-size: 20px;
+}
+
+.div-input-procurar-cliente input:focus {
+  outline: none;
+}
+
+.div-input-procurar-cliente button {
+  all: unset;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: var(--secondary);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-left: none;
+  color: #028a0f;
+  padding: 10px;
+  font-size: 20px;
+}
+
+#restaurar-filtros {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 50px;
+  margin-left: 8px;
+  border-radius: 8px;
+  background-color: var(--primary);
+}

@@ -5,7 +5,13 @@ import "./styles.css";
 
 import { NavLink, useNavigate } from "react-router-dom";
 import * as api from "../../services/api";
-import { ArrowLeft, IdentificationCard, WarningCircle } from "phosphor-react";
+import {
+  ArrowLeft,
+  House,
+  IdentificationCard,
+  MagnifyingGlass,
+  WarningCircle,
+} from "phosphor-react";
 import { CobrancaProps } from "../../@types/Cobranca";
 import { EmpresaProps } from "../../@types/Client";
 import { useCobranca } from "../../hooks/useCobranca";
@@ -15,6 +21,16 @@ import { recibos } from "../Home/Componentes/Guias";
 export function CobrancaLista() {
   const [cobranca, setCobranca] = useState<CobrancaProps[]>([]);
   const [empresa, setEmpresa] = useState<EmpresaProps[]>([]);
+  const [empresaIdFiltrado, setEmpresaIdFiltrado] = useState("");
+  const [filtroAtivo, setFiltroAtivo] = useState(false);
+
+  const handleFiltrarClick = () => {
+    setFiltroAtivo(true);
+  };
+
+  const handleNaoFiltrarClick = () => {
+    setFiltroAtivo(false);
+  };
 
   const { setIdCobranca } = useCobranca();
   const navigate = useNavigate();
@@ -112,6 +128,22 @@ export function CobrancaLista() {
         </div>
 
         <div className="div-cadastrar-cobranca">
+          <div className="div-procurar-cliente">
+            <h1>Buscar cliente</h1>
+            <div className="div-input-procurar-cliente">
+              <input
+                type="text"
+                value={empresaIdFiltrado || ""}
+                onChange={(e) => setEmpresaIdFiltrado(e.target.value)}
+              />
+              <button onClick={handleFiltrarClick}>
+                <MagnifyingGlass size={26} />
+              </button>
+              <button id="restaurar-filtros" onClick={handleNaoFiltrarClick}>
+                <House size={26} />
+              </button>
+            </div>
+          </div>
           <h1>Listagem de guias</h1>
           <NavLink to="/cadastro-cobrancas" style={{ textDecoration: "none" }}>
             <button>
@@ -138,46 +170,52 @@ export function CobrancaLista() {
           </tr>
         </thead>
         <tbody>
-          {cobranca.map((cobrancaItem) => (
-            <tr key={cobrancaItem.id} className="tabela-row">
-              <td>{cobrancaItem.id}</td>
-              <td>
-                {empresa.find((emp) => emp.id === cobrancaItem.id_empresa)
-                  ?.nome || "N/A"}
-              </td>
-              <td>{cobrancaItem.vencimento_cobranca}</td>
-              <td>{cobrancaItem.valor}</td>
-              <td>{cobrancaItem.status}</td>
-
-              <td>
-                <button
-                  className="botao-table-edit"
-                  onClick={() => EnviarRecibo(cobrancaItem.id)}
-                >
-                  Enviar recibo
-                </button>
-              </td>
-              <td>
-                <button className="botao-table-edit">Editar</button>
-              </td>
-              <td>
-                <button
-                  className="botao-table-delete"
-                  onClick={() => DeletarCobranca(cobrancaItem.id)}
-                >
-                  Excluir
-                </button>
-              </td>
-              <td>
-                <button
-                  className="botao-table-view"
-                  onClick={() => consultarCobranca(cobrancaItem.id)}
-                >
-                  Consultar
-                </button>
-              </td>
-            </tr>
-          ))}
+          {cobranca
+            .filter(
+              (cobrancaItem) =>
+                !filtroAtivo ||
+                (empresaIdFiltrado &&
+                  cobrancaItem.id_empresa === empresaIdFiltrado)
+            )
+            .map((cobrancaItem) => (
+              <tr key={cobrancaItem.id} className="tabela-row">
+                <td>{cobrancaItem.id}</td>
+                <td>
+                  {empresa.find((emp) => emp.id === cobrancaItem.id_empresa)
+                    ?.nome || "N/A"}
+                </td>
+                <td>{cobrancaItem.vencimento_cobranca}</td>
+                <td>{cobrancaItem.valor}</td>
+                <td>{cobrancaItem.status}</td>
+                <td>
+                  <button
+                    className="botao-table-edit"
+                    onClick={() => EnviarRecibo(cobrancaItem.id)}
+                  >
+                    Enviar recibo
+                  </button>
+                </td>
+                <td>
+                  <button className="botao-table-edit">Editar</button>
+                </td>
+                <td>
+                  <button
+                    className="botao-table-delete"
+                    onClick={() => DeletarCobranca(cobrancaItem.id)}
+                  >
+                    Excluir
+                  </button>
+                </td>
+                <td>
+                  <button
+                    className="botao-table-view"
+                    onClick={() => consultarCobranca(cobrancaItem.id)}
+                  >
+                    Consultar
+                  </button>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </main>
