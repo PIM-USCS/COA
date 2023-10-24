@@ -10,6 +10,9 @@ import { CobrancaProps } from "../../@types/Cobranca";
 interface ReciboProps {
   id?: string;
   data_recibo: string;
+}
+
+interface AnexoProps {
   anexo?: File | null;
 }
 
@@ -17,8 +20,9 @@ export function EnviarRecibo() {
   const { idCobranca } = useCobranca();
   const [recibo, setRecibo] = useState<ReciboProps>({
     data_recibo: "",
-    anexo: undefined,
   });
+
+  const [anexo, setAnexo] = useState<AnexoProps>({} as AnexoProps);
   const [cobranca, setCobranca] = useState<CobrancaProps>({} as CobrancaProps);
 
   const navigate = useNavigate();
@@ -41,7 +45,13 @@ export function EnviarRecibo() {
 
   async function criarRecibo() {
     try {
-      await api.postCreateRecibo(idCobranca, recibo);
+      const { data } = await api.postCreateRecibo(idCobranca, recibo);
+
+      const id = data.id?.toString();
+
+      if (id) {
+        await atualizaarquivo(id);
+      }
     } catch (error) {
       console.error(error);
 
@@ -52,13 +62,14 @@ export function EnviarRecibo() {
       });
     }
   }
-  async function atualizaarquivo() {
-    try {
-      if (recibo.anexo && recibo.anexo instanceof File) {
-        const formData = new FormData();
-        formData.append("anexo", recibo.anexo);
 
-        await api.patchAtualizaarquivo("4", formData);
+  async function atualizaarquivo(id: string) {
+    try {
+      if (anexo.anexo && anexo.anexo instanceof File) {
+        const formData = new FormData();
+        formData.append("anexo", anexo.anexo);
+
+        await api.patchAtualizaarquivo(id, formData);
 
         Swal.fire({
           icon: "success",
@@ -73,18 +84,7 @@ export function EnviarRecibo() {
       }
     } catch (error) {
       console.log(error);
-
-      Swal.fire({
-        icon: "error",
-        title: "Erro ao atualizar o arquivo",
-        confirmButtonText: "OK",
-      });
     }
-  }
-
-  function teste() {
-    criarRecibo();
-    atualizaarquivo();
   }
 
   const mascaraDataRecibo = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -98,8 +98,8 @@ export function EnviarRecibo() {
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files && e.target.files[0];
-    setRecibo({
-      ...recibo,
+    setAnexo({
+      ...anexo,
       anexo: file,
     });
   }
@@ -133,10 +133,7 @@ export function EnviarRecibo() {
               />
             </div>
             <div>
-              <button
-                className="bnt-page-cadastrorecibo"
-                onClick={atualizaarquivo}
-              >
+              <button className="bnt-page-cadastrorecibo" onClick={criarRecibo}>
                 enviar
               </button>
               <button

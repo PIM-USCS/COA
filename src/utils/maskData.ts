@@ -7,10 +7,11 @@ const maskData = (e: React.ChangeEvent<HTMLInputElement>) => {
   } else if (valorFormatado.length <= 4) {
     valorFormatado = `${valorFormatado.slice(0, 2)}/${valorFormatado.slice(2)}`;
   } else {
+    const anoAtual = new Date().getFullYear(); // Obtém o ano atual
     valorFormatado = `${valorFormatado.slice(0, 2)}/${valorFormatado.slice(
       2,
       4
-    )}/${valorFormatado.slice(4, 8)}`;
+    )}/${anoAtual}`;
   }
 
   return {

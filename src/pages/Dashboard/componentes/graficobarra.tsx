@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -20,45 +19,56 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top" as const,
-    },
-    title: {
-      display: true,
-      text: "Chart.js Bar Chart",
-    },
-  },
-};
+interface BarProps {
+  totalPago: number[];
+  totalAberto: number[];
+  totalVencido: number[];
+}
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
-
-const generateRandomData = (length: number) => {
-  const data = [];
-  for (let i = 0; i < length; i++) {
-    data.push(Math.floor(Math.random() * 1000)); // Gera números aleatórios entre 0 e 1000
-  }
-  return data;
-};
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: "Dataset 1",
-      data: generateRandomData(labels.length),
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+export function Barra({ totalAberto, totalPago, totalVencido }: BarProps) {
+  const data = {
+    labels: [
+      "Janeiro",
+      "Fevereiro",
+      "Março",
+      "Abril",
+      "Maio",
+      "Junho",
+      "Julho",
+      "Agosto",
+      "Setembro",
+      "Outubro",
+      "Novembro",
+      "Dezembro",
+    ],
+    datasets: [
+      {
+        label: "Valor guias vencidas",
+        data: totalVencido,
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+      {
+        label: "Valor guias em aberto",
+        data: totalAberto,
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
+      },
+      {
+        label: "Valor guias pagas",
+        data: totalPago,
+        backgroundColor: "rgba(75, 192, 192, 0.5)",
+      },
+    ],
+  };
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top" as const,
+      },
     },
-    {
-      label: "Dataset 2",
-      data: generateRandomData(labels.length),
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
-    },
-  ],
-};
+  };
 
-export function Barra() {
+  console.log(data);
+
   return <Bar options={options} data={data} />;
 }

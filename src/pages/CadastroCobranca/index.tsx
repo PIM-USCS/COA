@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import { CobrancaProps } from "../../@types/Cobranca";
@@ -12,7 +12,6 @@ export function CadastroCobranca() {
   const [cobranca, setCobranca] = useState<CobrancaProps>({} as CobrancaProps);
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
   const navigate = useNavigate();
-  const [nomeArquivo, setNomeArquivo] = useState("");
 
   const mascaraDataEmissao = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, valorFormatado } = maskData(e);
@@ -44,12 +43,6 @@ export function CadastroCobranca() {
     });
   };
 
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setNomeArquivo(file.name);
-    }
-  };
   async function finalizarCadastro() {
     try {
       await api.postCreateCobranca(empresa.id, cobranca);

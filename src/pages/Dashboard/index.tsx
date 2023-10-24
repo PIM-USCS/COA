@@ -61,6 +61,63 @@ export function Dashboard() {
       );
     return total + (valor || 0);
   }, 0);
+
+  const totaisMesAberto = Array.from({ length: 12 }, () => 0);
+  cobrancasAberto.forEach((cobranca) => {
+    const valor =
+      cobranca.valor &&
+      parseFloat(
+        cobranca.valor.replace("R$", "").replace(".", "").replace(",", ".")
+      );
+
+    const dataEmissaoString = cobranca.emissao_cobranca;
+    if (dataEmissaoString) {
+      const [dia, mes, ano] = dataEmissaoString.split("/").map(Number);
+      const dataEmissao = new Date(ano, mes - 1, dia); // Note que subtraímos 1 do mês (0 a 11)
+
+      const mesCobranca = dataEmissao.getMonth(); // Obtém o mês (0 a 11)
+
+      totaisMesAberto[mesCobranca] += valor || 0;
+    }
+  });
+
+  const totaisMesVencido = Array.from({ length: 12 }, () => 0);
+  cobrancasVencidas.forEach((cobranca) => {
+    const valor =
+      cobranca.valor &&
+      parseFloat(
+        cobranca.valor.replace("R$", "").replace(".", "").replace(",", ".")
+      );
+
+    const dataEmissaoString = cobranca.emissao_cobranca;
+    if (dataEmissaoString) {
+      const [dia, mes, ano] = dataEmissaoString.split("/").map(Number);
+      const dataEmissao = new Date(ano, mes - 1, dia); // Note que subtraímos 1 do mês (0 a 11)
+
+      const mesCobranca = dataEmissao.getMonth(); // Obtém o mês (0 a 11)
+
+      totaisMesVencido[mesCobranca] += valor || 0;
+    }
+  });
+
+  const totaisMesPagos = Array.from({ length: 12 }, () => 0);
+  cobrancasPagas.forEach((cobranca) => {
+    const valor =
+      cobranca.valor &&
+      parseFloat(
+        cobranca.valor.replace("R$", "").replace(".", "").replace(",", ".")
+      );
+
+    const dataEmissaoString = cobranca.emissao_cobranca;
+    if (dataEmissaoString) {
+      const [dia, mes, ano] = dataEmissaoString.split("/").map(Number);
+      const dataEmissao = new Date(ano, mes - 1, dia); // Note que subtraímos 1 do mês (0 a 11)
+
+      const mesCobranca = dataEmissao.getMonth(); // Obtém o mês (0 a 11)
+
+      totaisMesPagos[mesCobranca] += valor || 0;
+    }
+  });
   const [empresaConsulta, setEmpresaConsulta] = useState<EmpresaProps>(
     {} as EmpresaProps
   );
@@ -120,7 +177,8 @@ export function Dashboard() {
     } catch (error) {
       Swal.fire({
         icon: "info",
-        title: "Não foi possivel localizar o cliente com este ID",
+        title: "Não foi localizar guias desta empresa!",
+        text: "Verifique se a empresa existe ou se existem guias lançadas para esta empresa",
       });
     }
   };
@@ -204,7 +262,11 @@ export function Dashboard() {
         <div className="div-08">
           <div className="minibox">
             <h1 className="dashbord-h3">Foco</h1>
-            <Barra></Barra>
+            <Barra
+              totalAberto={totaisMesAberto}
+              totalPago={totaisMesPagos}
+              totalVencido={totaisMesVencido}
+            />
           </div>
         </div>
 
