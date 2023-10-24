@@ -129,7 +129,7 @@ export function CobrancaLista() {
 
         <div className="div-cadastrar-cobranca">
           <div className="div-procurar-cliente">
-            <h1>Buscar cliente</h1>
+            <h1>Buscar empresa</h1>
             <div className="div-input-procurar-cliente">
               <input
                 type="text"
