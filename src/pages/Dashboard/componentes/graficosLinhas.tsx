@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import {
   Chart as ChartJS,
@@ -9,8 +9,8 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -21,48 +21,57 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top' as const,
-    },
-    title: {
-      display: true,
-      text: 'Chart.js Line Chart',
-    },
-  },
-};
-
-const generateRandomData = (length: number) => {
-    const data = [];
-    for (let i = 0; i < length; i++) {
-      data.push(Math.floor(Math.random() * 1000)); // Gera números aleatórios entre 0 e 1000
-    }
-    return data;
-  };
-  
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  
+interface LinhaProps {
+  totalPago: number[];
+  totalAberto: number[];
+  totalVencido: number[];
+}
+export function Linha({ totalPago, totalAberto, totalVencido }: LinhaProps) {
   const data = {
-    labels,
+    labels: [
+      "Janeiro",
+      "Fevereiro",
+      "Março",
+      "Abril",
+      "Maio",
+      "Junho",
+      "Julho",
+      "Agosto",
+      "Setembro",
+      "Outubro",
+      "Novembro",
+      "Dezembro",
+    ],
     datasets: [
       {
-        label: 'Dataset 1',
-        data: generateRandomData(labels.length),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        label: "Valor guias vencidas",
+        data: totalVencido,
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
       {
-        label: 'Dataset 2',
-        data: generateRandomData(labels.length),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        label: "Valor guias em aberto",
+        data: totalAberto,
+        borderColor: "rgb(53, 162, 235)",
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
+      },
+      {
+        label: "Valor guias pagas",
+        data: totalPago,
+        borderColor: "rgba(75, 192, 192 )",
+        backgroundColor: "rgba(75, 192, 192, 0.5)",
       },
     ],
   };
-  
 
-export function Linha() {
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top" as const,
+      },
+    },
+  };
+
   return <Line options={options} data={data} />;
 }

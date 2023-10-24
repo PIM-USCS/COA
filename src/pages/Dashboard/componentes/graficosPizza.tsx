@@ -42,6 +42,7 @@ export function Chart({
   };
 
   const options = {
+    responsive: true,
     plugins: {
       legend: {
         labels: {

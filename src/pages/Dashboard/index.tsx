@@ -1,12 +1,6 @@
 import "./styles.css";
 import { Chart } from "./componentes/graficosPizza";
-import {
-  Buildings,
-  FileSearch,
-  MagnifyingGlass,
-  User,
-  UserCircle,
-} from "phosphor-react";
+import { Buildings, MagnifyingGlass, User, UserCircle } from "phosphor-react";
 import { Linha } from "./componentes/graficosLinhas";
 import { Barra } from "./componentes/graficobarra";
 import { useEffect, useState } from "react";
@@ -261,7 +255,7 @@ export function Dashboard() {
         </div>
         <div className="div-08">
           <div className="minibox">
-            <h1 className="dashbord-h3">Foco</h1>
+            <h1 className="dashbord-h3">Valores de guias</h1>
             <Barra
               totalAberto={totaisMesAberto}
               totalPago={totaisMesPagos}
@@ -285,8 +279,12 @@ export function Dashboard() {
 
         <div className="div-12">
           <div className="minibox">
-            <h1 className="dashbord-h3">proporçao de detalhe </h1>
-            <Linha></Linha>
+            <h1 className="dashbord-h3">Balanceamento de valores</h1>
+            <Linha
+              totalAberto={totaisMesAberto}
+              totalPago={totaisMesPagos}
+              totalVencido={totaisMesVencido}
+            ></Linha>
           </div>
         </div>
         <div className="div-14">

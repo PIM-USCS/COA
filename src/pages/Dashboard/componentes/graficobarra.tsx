@@ -68,7 +68,5 @@ export function Barra({ totalAberto, totalPago, totalVencido }: BarProps) {
     },
   };
 
-  console.log(data);
-
   return <Bar options={options} data={data} />;
 }
