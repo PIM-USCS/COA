@@ -18,6 +18,7 @@ import { ConsultaCobranca } from "./pages/ConsultaCobranca";
 import { TrocarSenhaToken } from "./pages/TrocarSenhaToken";
 import { Dashboard } from "./pages/Dashboard";
 import { EnviarRecibo } from "./pages/EnviarRecibo";
+import { AlterarCobranca } from "./pages/AlterarCobranca";
 
 export function Router() {
   return (
@@ -47,6 +48,7 @@ export function Router() {
       <Route path="/resetar-senha" element={<TrocarSenhaToken />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/enviar-recibo" element={<EnviarRecibo />} />
+      <Route path="/alterar-cobranca" element={<AlterarCobranca />} />
     </Routes>
   );
 }

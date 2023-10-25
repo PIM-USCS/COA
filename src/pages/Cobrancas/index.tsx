@@ -10,19 +10,19 @@ import {
   House,
   IdentificationCard,
   MagnifyingGlass,
-  WarningCircle,
 } from "phosphor-react";
 import { CobrancaProps } from "../../@types/Cobranca";
 import { EmpresaProps } from "../../@types/Client";
 import { useCobranca } from "../../hooks/useCobranca";
 import Swal from "sweetalert2";
-import { recibos } from "../Home/Componentes/Guias";
+import { useUsuario } from "../../hooks/useUsuario";
 
 export function CobrancaLista() {
   const [cobranca, setCobranca] = useState<CobrancaProps[]>([]);
   const [empresa, setEmpresa] = useState<EmpresaProps[]>([]);
   const [empresaIdFiltrado, setEmpresaIdFiltrado] = useState("");
   const [filtroAtivo, setFiltroAtivo] = useState(false);
+  const { idEmpresaUsuario } = useUsuario();
 
   const handleFiltrarClick = () => {
     setFiltroAtivo(true);
@@ -79,32 +79,52 @@ export function CobrancaLista() {
     navigate("/enviar-recibo");
   }
 
+  async function EditarCobranca(id: string) {
+    if (idEmpresaUsuario) {
+      Swal.fire({
+        icon: "error",
+        title: "Você não tem permissão para editar esta guia!",
+      });
+    }
+
+    if (id) {
+      setIdCobranca(id);
+      navigate("/alterar-cobranca");
+    }
+  }
+
   async function DeletarCobranca(id: string) {
-    if (!id) {
+    if (idEmpresaUsuario) {
+      Swal.fire({
+        icon: "error",
+        title: "Você não tem permissão para excluir esta guia!",
+      });
       return;
     }
-    Swal.fire({
-      title: "Tem certeza que deseja deletar esta cobrança?",
-      icon: "question",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      cancelButtonText: "Não",
-      confirmButtonText: "Sim, desejo deletar!",
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        await api.deleteCobranca(id);
-        Swal.fire({
-          icon: "success",
-          title: "Processo concluído!",
-          text: "Cobrança deletada com sucesso!",
-          confirmButtonText: "OK",
-          preConfirm: () => {
-            window.location.reload();
-          },
-        });
-      }
-    });
+    if (id) {
+      Swal.fire({
+        title: "Tem certeza que deseja deletar esta cobrança?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Não",
+        confirmButtonText: "Sim, desejo deletar!",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          await api.deleteCobranca(id);
+          Swal.fire({
+            icon: "success",
+            title: "Processo concluído!",
+            text: "Cobrança deletada com sucesso!",
+            confirmButtonText: "OK",
+            preConfirm: () => {
+              window.location.reload();
+            },
+          });
+        }
+      });
+    }
   }
 
   function consultarCobranca(id: string) {
@@ -115,6 +135,17 @@ export function CobrancaLista() {
 
     navigate("/consultar-cobranca");
   }
+
+  useEffect(() => {
+    if (idEmpresaUsuario) {
+      setEmpresaIdFiltrado(idEmpresaUsuario);
+      setFiltroAtivo(true);
+    }
+  }, [idEmpresaUsuario]);
+
+  useEffect(() => {
+    localStorage.setItem("idEmpresaUsuario", idEmpresaUsuario);
+  }, [idEmpresaUsuario]);
   return (
     <main className="main-principal">
       <header className="tela-cobranca-header">
@@ -128,7 +159,10 @@ export function CobrancaLista() {
         </div>
 
         <div className="div-cadastrar-cobranca">
-          <div className="div-procurar-cliente">
+          <div
+            className="div-procurar-cliente"
+            style={{ display: idEmpresaUsuario ? "none" : "flex" }}
+          >
             <h1>Buscar empresa</h1>
             <div className="div-input-procurar-cliente">
               <input
@@ -145,8 +179,14 @@ export function CobrancaLista() {
             </div>
           </div>
           <h1>Listagem de guias</h1>
-          <NavLink to="/cadastro-cobrancas" style={{ textDecoration: "none" }}>
-            <button>
+          <NavLink
+            to="/cadastro-cobrancas"
+            style={{
+              textDecoration: "none",
+              display: idEmpresaUsuario ? "none" : "flex",
+            }}
+          >
+            <button style={{ display: idEmpresaUsuario ? "none" : "flex" }}>
               <IdentificationCard size={32} weight="fill" />
               Nova Guia
             </button>
@@ -196,7 +236,12 @@ export function CobrancaLista() {
                   </button>
                 </td>
                 <td>
-                  <button className="botao-table-edit">Editar</button>
+                  <button
+                    className="botao-table-edit"
+                    onClick={() => EditarCobranca(cobrancaItem.id)}
+                  >
+                    Editar
+                  </button>
                 </td>
                 <td>
                   <button

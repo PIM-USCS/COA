@@ -15,7 +15,7 @@ import {
   ColaboradorProps,
 } from "../@types/Colaborador";
 import { AtuUsuario, ResetarSenha, UsuarioProps } from "../@types/Usuario";
-import { CobrancaProps } from "../@types/Cobranca";
+import { AtualizaCobrancaProps, CobrancaProps } from "../@types/Cobranca";
 import { ReciboProps } from "../@types/Recibo";
 
 /* DASHBOARD */
@@ -111,6 +111,11 @@ const postCreateCobranca = (
 
 const deleteCobranca = (id: string) => xhr.delete(`cobrancas/${id}`);
 
+const postAtualizaCobranca = (
+  id: string,
+  params: AtualizaCobrancaProps
+): AxiosPromise<AtualizaCobrancaProps> => xhr.put(`cobrancas/${id}`, params);
+
 /* COBRANCA */
 
 /*USUARIO*/
@@ -159,6 +164,8 @@ const patchAtualizaarquivo = (id: string, formData: FormData): AxiosPromise =>
 const getReciboByIDCobranca = (id: string): AxiosPromise<ReciboProps[]> =>
   xhr.get(`recibos/${id}`);
 
+const deleteRecibo = (id: string) => xhr.delete(`recibos/${id}`);
+
 /*RECIBOS*/
 /*UTILITÁRIOS*/
 
@@ -202,4 +209,6 @@ export {
   postCreateRecibo,
   deleteCobranca,
   getReciboByIDCobranca,
+  deleteRecibo,
+  postAtualizaCobranca,
 };

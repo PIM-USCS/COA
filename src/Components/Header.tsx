@@ -12,7 +12,7 @@ import ImagemPadrao from "../img/usuario padrao.png";
 export function Header() {
   const [isOpenUser, setIisOpenUser] = useState(false);
   const [usuarios, setUsuarios] = useState<UsuarioProps>({} as UsuarioProps);
-  const { idUsuario, setIdUsuario } = useUsuario();
+  const { idUsuario, setIdUsuario, setIdEmpresaUsuario } = useUsuario();
   function HabilitarSubMenuUser() {
     if (isOpenUser === false) {
       setIisOpenUser(true);
@@ -32,8 +32,14 @@ export function Header() {
         nome: data.email,
         tipo_usuario: data.tipo_usuario,
         avatar: data.avatar,
+        id_empresa: data.id_empresa,
       };
     });
+    if (data.id_empresa) {
+      setIdEmpresaUsuario(data.id_empresa);
+    } else {
+      setIdEmpresaUsuario("");
+    }
   };
 
   useEffect(() => {
