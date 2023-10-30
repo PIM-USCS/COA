@@ -113,21 +113,6 @@ export function Header() {
                 Editar foto de perfil
               </button>
             </NavLink>
-            <NavLink
-              to="/"
-              style={{
-                textDecoration: "none",
-                all: "unset",
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <button>
-                <Lock size={18} />
-                Alterar senha
-              </button>
-            </NavLink>
           </div>
         </div>
       </div>

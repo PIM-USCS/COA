@@ -20,5 +20,6 @@ export interface AtuUsuario {
 }
 
 export interface ResetarSenha {
+  email?: string;
   senha: string;
 }

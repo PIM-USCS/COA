@@ -140,6 +140,11 @@ const putRecuperarSenha = (
 ): AxiosPromise<ResetarSenha> =>
   xhr.put(`usuarios/recuperar-senha/${token}`, params);
 
+const putAtualizaUsuario = (
+  id: string,
+  params: ResetarSenha
+): AxiosPromise<ResetarSenha> => xhr.put(`usuarios/${id}`, params);
+
 const patchAtualizaAvatar = (id: string, formData: FormData): AxiosPromise =>
   xhr.patch(`usuarios/avatar/${id}`, formData, {
     headers: {
@@ -211,4 +216,5 @@ export {
   getReciboByIDCobranca,
   deleteRecibo,
   postAtualizaCobranca,
+  putAtualizaUsuario,
 };
