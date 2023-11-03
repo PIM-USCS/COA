@@ -85,6 +85,7 @@ export function CobrancaLista() {
         icon: "error",
         title: "Você não tem permissão para editar esta guia!",
       });
+      return;
     }
 
     if (id) {
@@ -152,8 +153,7 @@ export function CobrancaLista() {
         <div>
           <button
             className="tela-cobranca-return"
-            onClick={() => navigate("/home")}
-          >
+            onClick={() => navigate("/home")}>
             <ArrowLeft size={36} />
           </button>
         </div>
@@ -161,8 +161,7 @@ export function CobrancaLista() {
         <div className="div-cadastrar-cobranca">
           <div
             className="div-procurar-cliente"
-            style={{ display: idEmpresaUsuario ? "none" : "flex" }}
-          >
+            style={{ display: idEmpresaUsuario ? "none" : "flex" }}>
             <h1>Buscar empresa</h1>
             <div className="div-input-procurar-cliente">
               <input
@@ -184,8 +183,7 @@ export function CobrancaLista() {
             style={{
               textDecoration: "none",
               display: idEmpresaUsuario ? "none" : "flex",
-            }}
-          >
+            }}>
             <button style={{ display: idEmpresaUsuario ? "none" : "flex" }}>
               <IdentificationCard size={32} weight="fill" />
               Nova Guia
@@ -230,32 +228,28 @@ export function CobrancaLista() {
                 <td>
                   <button
                     className="botao-table-edit"
-                    onClick={() => EnviarRecibo(cobrancaItem.id)}
-                  >
+                    onClick={() => EnviarRecibo(cobrancaItem.id)}>
                     Enviar recibo
                   </button>
                 </td>
                 <td>
                   <button
                     className="botao-table-edit"
-                    onClick={() => EditarCobranca(cobrancaItem.id)}
-                  >
+                    onClick={() => EditarCobranca(cobrancaItem.id)}>
                     Editar
                   </button>
                 </td>
                 <td>
                   <button
                     className="botao-table-delete"
-                    onClick={() => DeletarCobranca(cobrancaItem.id)}
-                  >
+                    onClick={() => DeletarCobranca(cobrancaItem.id)}>
                     Excluir
                   </button>
                 </td>
                 <td>
                   <button
                     className="botao-table-view"
-                    onClick={() => consultarCobranca(cobrancaItem.id)}
-                  >
+                    onClick={() => consultarCobranca(cobrancaItem.id)}>
                     Consultar
                   </button>
                 </td>
