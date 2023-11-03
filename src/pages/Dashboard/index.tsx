@@ -171,7 +171,7 @@ export function Dashboard() {
     } catch (error) {
       Swal.fire({
         icon: "info",
-        title: "Não foi localizar guias desta empresa!",
+        title: "Não foi possivel localizar guias desta empresa!",
         text: "Verifique se a empresa existe ou se existem guias lançadas para esta empresa",
       });
     }
@@ -207,7 +207,7 @@ export function Dashboard() {
           </div>
         </div>
         <div className="div-01">
-          <h1 className="tela-dash-label">Buscar cliente</h1>
+          <h1 className="tela-dash-label">Buscar empresa</h1>
           <div className="tela-dash-divinput">
             <input
               type="text"
@@ -283,8 +283,7 @@ export function Dashboard() {
             <Linha
               totalAberto={totaisMesAberto}
               totalPago={totaisMesPagos}
-              totalVencido={totaisMesVencido}
-            ></Linha>
+              totalVencido={totaisMesVencido}></Linha>
           </div>
         </div>
         <div className="div-14">
@@ -293,8 +292,7 @@ export function Dashboard() {
             <Chart
               cobrancasAberto={cobrancasAberto}
               cobrancasPagas={cobrancasPagas}
-              cobrancasVencidas={cobrancasVencidas}
-            ></Chart>
+              cobrancasVencidas={cobrancasVencidas}></Chart>
           </div>
         </div>
 

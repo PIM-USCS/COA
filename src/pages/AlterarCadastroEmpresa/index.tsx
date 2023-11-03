@@ -20,6 +20,7 @@ interface EmpresaProps {
   bairro: string;
   numero: string;
   complemento: string;
+  tipo_cliente: string;
 }
 
 export function AlterarCadastroCliente() {
@@ -58,6 +59,7 @@ export function AlterarCadastroCliente() {
       cnpj: empresa.cnpj.toString(),
       ie: empresa.ie.toString(),
       complemento: empresa.complemento.toString(),
+      tipo_cliente: empresa.tipo_cliente.toString(),
     });
   }
 
@@ -165,6 +167,39 @@ export function AlterarCadastroCliente() {
           <br />
           <hr />
           <br />
+
+          <div className="tela-empresa-tipo-pessoa">
+            <div className="tela-empresa-div-tipo-pessoa">
+              <input
+                type="radio"
+                name="tipo-pessoa"
+                className="tela-empresa-input-tipo-pessoa"
+                value="PF"
+                checked={empresa.tipo_cliente === "PF"}
+                onChange={() => setEmpresa({ ...empresa, tipo_cliente: "PF" })}
+              />
+              <label
+                htmlFor="tipo-pessoa"
+                className="tela-empresa-label-tipo-pessoa">
+                Pessoa fisica
+              </label>
+            </div>
+            <div className="tela-empresa-div-tipo-pessoa">
+              <input
+                type="radio"
+                name="tipo-pessoa"
+                className="tela-empresa-input-tipo-pessoa"
+                value="PJ"
+                checked={empresa.tipo_cliente === "PJ"}
+                onChange={() => setEmpresa({ ...empresa, tipo_cliente: "PJ" })}
+              />
+              <label
+                htmlFor="tipo-pessoa"
+                className="tela-empresa-label-tipo-pessoa">
+                Pessoa juridica
+              </label>
+            </div>
+          </div>
           <div className="floatingInput">
             <input
               type="search"
@@ -435,14 +470,12 @@ export function AlterarCadastroCliente() {
           <div className="btn">
             <button
               className="bnt-page-cadastrocliente"
-              onClick={alterarCadastro}
-            >
+              onClick={alterarCadastro}>
               editar
             </button>
             <button
               className="bnt-cadastrocliente-abandonar"
-              onClick={() => navigate(-1)}
-            >
+              onClick={() => navigate(-1)}>
               abandonar alterações
             </button>
           </div>

@@ -8,8 +8,12 @@ import * as api from "../../services/api";
 import { ArrowLeft, IdentificationCard } from "phosphor-react";
 import { useColaborador } from "../../hooks/useColaborador";
 import Swal from "sweetalert2";
+import { EmpresaListaProps } from "../Empresas";
 
 export function ColaboradorLista() {
+  const [empresa, setEmpresa] = useState<EmpresaListaProps>(
+    {} as EmpresaListaProps
+  );
   const [colaborador, setColaborador] = useState<ColaboradorListaProps[]>([]);
   const navigate = useNavigate();
   const { idColaborador, setIdColaborador } = useColaborador();
@@ -29,32 +33,41 @@ export function ColaboradorLista() {
   }, []);
 
   async function excluirColaborador(id: string) {
-    if (!id) {
-      return;
-    }
-
-    Swal.fire({
-      title: "Tem certeza que deseja deletar este colaborador?",
-      icon: "question",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      cancelButtonText: "Não",
-      confirmButtonText: "Sim, desejo deletar!",
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        await api.deleteColaborador(id);
-        Swal.fire({
-          icon: "success",
-          title: "Processo concluido!",
-          text: "Colaborador deletado com sucesso!",
-          confirmButtonText: "OK",
-          preConfirm: () => {
-            window.location.reload();
-          },
-        });
+    try {
+      if (!id) {
+        return;
       }
-    });
+
+      Swal.fire({
+        title: "Tem certeza que deseja deletar este colaborador?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Não",
+        confirmButtonText: "Sim, desejo deletar!",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          await api.deleteColaborador(id);
+          Swal.fire({
+            icon: "success",
+            title: "Processo concluido!",
+            text: "Colaborador deletado com sucesso!",
+            confirmButtonText: "OK",
+            preConfirm: () => {
+              window.location.reload();
+            },
+          });
+        }
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "warning",
+        title: "Não foi possivel excluir o colaborador",
+        text: "Este colaborador está relacionado em alguma empresa",
+      });
+      console.error(error);
+    }
   }
 
   function alterarColaborador(id: string) {
@@ -79,8 +92,7 @@ export function ColaboradorLista() {
         <div>
           <button
             className="tela-colaborador-return"
-            onClick={() => navigate("/home")}
-          >
+            onClick={() => navigate("/home")}>
             <ArrowLeft size={36} />
           </button>
         </div>
@@ -88,8 +100,7 @@ export function ColaboradorLista() {
           <h1>Listagem de colaborador</h1>
           <NavLink
             to="/cadastro-colaborador"
-            style={{ textDecoration: "none" }}
-          >
+            style={{ textDecoration: "none" }}>
             <button>
               <IdentificationCard size={32} weight="fill" />
               Novo Colaborador
@@ -118,24 +129,21 @@ export function ColaboradorLista() {
               <td>
                 <button
                   className="botao-table-edit"
-                  onClick={() => alterarColaborador(colaboradores.id)}
-                >
+                  onClick={() => alterarColaborador(colaboradores.id)}>
                   Editar
                 </button>
               </td>
               <td>
                 <button
                   className="botao-table-delete"
-                  onClick={() => excluirColaborador(colaboradores.id)}
-                >
+                  onClick={() => excluirColaborador(colaboradores.id)}>
                   Excluir
                 </button>
               </td>
               <td>
                 <button
                   className="botao-table-view"
-                  onClick={() => consultarColaborador(colaboradores.id)}
-                >
+                  onClick={() => consultarColaborador(colaboradores.id)}>
                   Consultar
                 </button>
               </td>

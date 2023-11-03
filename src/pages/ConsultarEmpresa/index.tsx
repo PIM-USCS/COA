@@ -111,28 +111,32 @@ export function ConsultaCliente() {
           <br />
           <hr />
           <br />
-          <div className="tipo-pessoa">
-            <div className="div-tipo-pessoa">
+          <div className="tela-empresa-tipo-pessoa">
+            <div className="tela-empresa-div-tipo-pessoa">
               <input
                 type="radio"
                 name="tipo-pessoa"
-                className="input-tipo-pessoa"
-                defaultValue="PF"
-                defaultChecked={empresa.tipo_cliente === "PF"}
+                className="tela-empresa-input-tipo-pessoa"
+                value="PF"
+                checked={empresa.tipo_cliente === "PF"}
               />
-              <label htmlFor="tipo-pessoa" className="label-tipo-pessoa">
+              <label
+                htmlFor="tipo-pessoa"
+                className="tela-empresa-label-tipo-pessoa">
                 Pessoa fisica
               </label>
             </div>
-            <div className="div-tipo-pessoa">
+            <div className="tela-empresa-div-tipo-pessoa">
               <input
                 type="radio"
                 name="tipo-pessoa"
-                className="input-tipo-pessoa"
-                defaultValue="PJ"
-                defaultChecked={empresa.tipo_cliente === "PJ"}
+                className="tela-empresa-input-tipo-pessoa"
+                value="PJ"
+                checked={empresa.tipo_cliente === "PJ"}
               />
-              <label htmlFor="tipo-pessoa" className="label-tipo-pessoa">
+              <label
+                htmlFor="tipo-pessoa"
+                className="tela-empresa-label-tipo-pessoa">
                 Pessoa juridica
               </label>
             </div>
@@ -327,8 +331,7 @@ export function ConsultaCliente() {
             <NavLink
               to="/empresas"
               className="input-bnt-cadastrocliente"
-              style={{ textDecoration: "none" }}
-            >
+              style={{ textDecoration: "none" }}>
               <button className="bnt-cadastrocliente">Voltar</button>
             </NavLink>
           </div>

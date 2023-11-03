@@ -41,6 +41,7 @@ export interface AtuEmpresa {
   bairro: string;
   numero: string;
   complemento: string;
+  tipo_cliente: string;
 }
 
 export interface InativaAtivaEmpresa {
