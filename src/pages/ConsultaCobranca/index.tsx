@@ -40,6 +40,7 @@ export function ConsultaCobranca() {
           valor: data.valor,
           status: data.status,
           id_empresa: data.id_empresa,
+          descricao: data.descricao,
         };
       });
 
@@ -147,6 +148,19 @@ export function ConsultaCobranca() {
               <label className="floatingInput__label">Nome empresa</label>
             </div>
 
+            <div className="tela-cobranca-floatingInput">
+              <input
+                type="text"
+                className="tela-cobranca-floatingInput__control"
+                placeholder="Descrição"
+                name="descricao"
+                value={cobranca.descricao || ""}
+                readOnly
+              />
+              <label className="tela-cobranca-floatingInput__label">
+                Descrição
+              </label>
+            </div>
             <div className="floatingInput">
               <input
                 type="text"
@@ -216,8 +230,7 @@ export function ConsultaCobranca() {
                             if (recibo.arquivo) {
                               openModalImagem(recibo.arquivo);
                             }
-                          }}
-                        >
+                          }}>
                           Visualizar imagem
                         </button>
                       </td>

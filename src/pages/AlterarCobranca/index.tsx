@@ -72,6 +72,7 @@ export function AlterarCobranca() {
           valor: data.valor,
           status: data.status,
           id_empresa: data.id_empresa,
+          descricao: data.descricao,
         };
       });
 
@@ -178,6 +179,7 @@ export function AlterarCobranca() {
         vencimento_cobranca: cobranca.vencimento_cobranca?.toString(),
         status: cobranca.status?.toString(),
         valor: cobranca.valor?.toString(),
+        descricao: cobranca.descricao?.toString(),
       });
       Swal.fire({
         icon: "success",
@@ -257,6 +259,24 @@ export function AlterarCobranca() {
               <label className="floatingInput__label">Nome empresa</label>
             </div>
 
+            <div className="tela-cobranca-floatingInput">
+              <input
+                type="text"
+                className="tela-cobranca-floatingInput__control"
+                placeholder="Descrição"
+                name="descricao"
+                value={cobranca.descricao || ""}
+                onChange={(e) =>
+                  setCobranca({
+                    ...cobranca,
+                    [e.target.name]: e.target.value,
+                  })
+                }
+              />
+              <label className="tela-cobranca-floatingInput__label">
+                Descrição
+              </label>
+            </div>
             <div className="floatingInput">
               <input
                 type="text"
@@ -364,8 +384,7 @@ export function AlterarCobranca() {
                             if (recibo.arquivo) {
                               openModalImagem(recibo.arquivo);
                             }
-                          }}
-                        >
+                          }}>
                           Visualizar imagem
                         </button>
                       </td>
@@ -376,8 +395,7 @@ export function AlterarCobranca() {
                             if (recibo.id !== undefined) {
                               deletarRecibo(recibo.id);
                             }
-                          }}
-                        >
+                          }}>
                           Excluir recibo
                         </button>
                       </td>

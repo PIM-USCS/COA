@@ -126,7 +126,24 @@ export function CadastroCobranca() {
                 Nome empresa
               </label>
             </div>
-
+            <div className="tela-cobranca-floatingInput">
+              <input
+                type="text"
+                className="tela-cobranca-floatingInput__control"
+                placeholder="Descrição"
+                name="descricao"
+                value={cobranca.descricao || ""}
+                onChange={(e) =>
+                  setCobranca({
+                    ...cobranca,
+                    [e.target.name]: e.target.value,
+                  })
+                }
+              />
+              <label className="tela-cobranca-floatingInput__label">
+                Descrição
+              </label>
+            </div>
             <div className="tela-cobranca-floatingInput">
               <input
                 type="text"
@@ -216,8 +233,7 @@ export function CadastroCobranca() {
             <div>
               <button
                 className="tela-cobranca-bnt-cadastrocobranca"
-                onClick={finalizarCadastro}
-              >
+                onClick={finalizarCadastro}>
                 cadastrar
               </button>
             </div>

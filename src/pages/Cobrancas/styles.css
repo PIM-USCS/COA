@@ -41,8 +41,8 @@
 
 .div-procurar-cliente {
   display: flex;
-  margin-right: 160px;
   gap: 18px;
+  height: 40px;
 }
 
 .div-input-procurar-cliente {
