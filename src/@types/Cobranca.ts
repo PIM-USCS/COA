@@ -6,6 +6,7 @@ export interface CobrancaProps {
   arquivo?: string;
   valor?: string;
   status?: string;
+  descricao: string;
 }
 
 export interface AtualizaCobrancaProps {
@@ -15,4 +16,5 @@ export interface AtualizaCobrancaProps {
   emissao_cobranca?: string;
   valor?: string;
   status?: string;
+  descricao?: string;
 }

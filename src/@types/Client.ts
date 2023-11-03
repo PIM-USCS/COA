@@ -13,6 +13,7 @@ export interface EmpresaProps {
   numero: string;
   complemento: string;
   id_colaborador: string;
+  ativa: string;
 }
 
 export interface EmpresaPropsViaCep {
@@ -40,6 +41,10 @@ export interface AtuEmpresa {
   bairro: string;
   numero: string;
   complemento: string;
+}
+
+export interface InativaAtivaEmpresa {
+  ativa: string;
 }
 
 export interface ClienteProps {

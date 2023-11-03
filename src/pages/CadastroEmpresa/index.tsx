@@ -164,6 +164,7 @@ export function CadastroCliente() {
     try {
       const params = {
         ...empresa,
+        ativa: "S",
         id_colaborador: colaborador.id,
       };
       const responseEmpresa = await api.postCreateEmpresa(params);
@@ -247,8 +248,7 @@ export function CadastroCliente() {
               />
               <label
                 htmlFor="tipo-pessoa"
-                className="tela-empresa-label-tipo-pessoa"
-              >
+                className="tela-empresa-label-tipo-pessoa">
                 Pessoa fisica
               </label>
             </div>
@@ -263,8 +263,7 @@ export function CadastroCliente() {
               />
               <label
                 htmlFor="tipo-pessoa"
-                className="tela-empresa-label-tipo-pessoa"
-              >
+                className="tela-empresa-label-tipo-pessoa">
                 Pessoa juridica
               </label>
             </div>
@@ -578,8 +577,7 @@ export function CadastroCliente() {
           <div className="tela-empresa-floatingInput">
             <button
               className="tela-empresa-esconder_senha"
-              onClick={esconderSenha}
-            >
+              onClick={esconderSenha}>
               <EyeSlash
                 size={22}
                 style={{ display: visualizarSenha ? "flex" : "none" }}
@@ -607,8 +605,7 @@ export function CadastroCliente() {
           <div className="tela-empresa-floatingInput">
             <button
               className="tela-empresa-esconder_senha"
-              onClick={esconderSenhaConfirmar}
-            >
+              onClick={esconderSenhaConfirmar}>
               <EyeSlash
                 size={22}
                 style={{
@@ -640,8 +637,7 @@ export function CadastroCliente() {
           <div className="tela-empresa-btn">
             <button
               className="tela-empresa-bnt-cadastrocliente"
-              onClick={finalizarCadastro}
-            >
+              onClick={finalizarCadastro}>
               Cadastrar
             </button>
           </div>

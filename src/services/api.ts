@@ -7,6 +7,7 @@ import {
   ClienteProps,
   EmpresaProps,
   EmpresaPropsViaCep,
+  InativaAtivaEmpresa,
 } from "../@types/Client";
 import { EmpresaListaProps } from "../pages/Empresas";
 import {
@@ -48,6 +49,11 @@ const postAtualizaEmpresa = (
 ): AxiosPromise<AtuEmpresa> => xhr.put(`empresas/${id}`, params);
 
 const deleteEmpresa = (id: string) => xhr.delete(`empresas/${id}`);
+
+const putInativaAtivaEmpresa = (
+  id: string,
+  params: InativaAtivaEmpresa
+): AxiosPromise<InativaAtivaEmpresa> => xhr.put(`empresas/ativa/${id}`, params);
 
 /*EMPRESA*/
 
@@ -217,4 +223,5 @@ export {
   deleteRecibo,
   postAtualizaCobranca,
   putAtualizaUsuario,
+  putInativaAtivaEmpresa,
 };

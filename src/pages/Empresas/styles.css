@@ -38,3 +38,19 @@
   background-color: var(--primary);
   border-radius: 8px;
 }
+
+#visualizar-inativas-empresas {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+#resetar-inativas-empresas {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+}
