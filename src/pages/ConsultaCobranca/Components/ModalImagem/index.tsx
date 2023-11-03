@@ -14,14 +14,13 @@ export function ModalImagem({ isOpenModal, setIsOpenModal, arquivo }: Modal) {
   return (
     <main
       className="main-modal-imagem"
-      style={{ display: isOpenModal ? "flex" : "none" }}
-    >
+      style={{ display: isOpenModal ? "flex" : "none" }}>
       <div className="div-modal-imagem">
         <button onClick={closeModal}>
           <X size={32} />
         </button>
         <img
-          src={`http://192.168.1.99:3333/uploads/${arquivo}`}
+          src={`http://localhost:3333/uploads/${arquivo}`}
           alt="Foto recibo"
         />
       </div>
