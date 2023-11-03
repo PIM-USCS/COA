@@ -15,7 +15,7 @@ box-sizing: border-box;
   --dark: #000000;
 }
 body{
-     background: ${(props) => props.theme.background}; 
+     background: var(--dark)
 }
 
 
