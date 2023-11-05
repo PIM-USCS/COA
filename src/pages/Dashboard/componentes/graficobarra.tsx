@@ -35,9 +35,8 @@ export const options = {
   },
   layout: {
     padding: {
-      top: 
+      top: 15, // Ajuste o valor conforme necessário para adicionar espaço à esquerda (gap)
     },
-    heigh
   },
 };
 
