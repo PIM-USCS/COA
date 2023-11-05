@@ -185,11 +185,23 @@ export function Dashboard() {
       <main className="tela-dash-body">
         <div className="div-03">
           <div className="minibox">
+            <div className="miniminibox">
             <Buildings size={32} color="#1d7c23" />
+            <p>
+              Empresas Ativas:{" "}
+              {empresas.length === 0 ? 0 : quantidadeEmpresas}
+            </p>
+            <Buildings size={32} color="#ff0000" />
+            <p>
+              Empresas Desativadas:{" "}
+              {empresas.length === 0 ? 0 : quantidadeEmpresas}
+            </p>
+            <Buildings size={32} color="#0000ff" />
             <p>
               Quantidade de empresas:{" "}
               {empresas.length === 0 ? 0 : quantidadeEmpresas}
             </p>
+            </div>
           </div>
           <div className="minibox">
             <User size={32} color="#1d7c23" />
@@ -205,7 +217,7 @@ export function Dashboard() {
               {colaborador.length === 0 ? 0 : quantidadeColaboradores}
             </p>
           </div>
-        </div>
+        </div>minibox1
         <div className="div-01">
           <h1 className="tela-dash-label">Buscar empresa</h1>
           <div className="tela-dash-divinput">
@@ -254,12 +266,10 @@ export function Dashboard() {
           </div>
         </div>
         <div className="div-08">
-          <div className="minibox">
+          <div className="minibox1">
             <h1 className="dashbord-h3">Valores de guias</h1>
             <Barra
-              totalAberto={totaisMesAberto}
-              totalPago={totaisMesPagos}
-              totalVencido={totaisMesVencido}
+
             />
           </div>
         </div>

@@ -15,8 +15,24 @@
   box-shadow: #ccc 0 0 0 2px;
   overflow-wrap: break-word;
   margin-left: 20px;
-}
 
+}
+.minibox1{
+  padding: 15px;
+  width: 90%;
+  height: 90%;
+  margin-top: 20px;
+  background-color: var(--secondary);
+  border-radius: 20px;
+  overflow-y: auto;
+  box-shadow: #ccc 0 0 0 2px;
+  overflow-wrap: break-word;
+  margin-left: 20px;
+}
+.miniminibox{
+  display: flex;
+  gap: 2.5%;
+}
 .tela-dash-body {
   background-color: var(--secondary);
   display: grid;
@@ -129,13 +145,14 @@
 /*VALORES DE GUIAS*/
 .div-08 {
   grid-area: div-08;
-  color: var(--light);
+  margin: auto;
+  align-items: center;
+  color: aliceblue;
   height: 100%;
   width: 100%;
-  background-color: var(--secondary);
   color: var(--light);
-  border-radius: 20px;
 }
+
 .div-09 {
   grid-area: div-09;
   color: aliceblue;
@@ -167,9 +184,9 @@
 }
 
 .div-14 {
+  grid-area: div-14;
   margin: auto;
   align-items: center;
-  grid-area: div-14;
   color: aliceblue;
   height: 100%;
   width: 100%;

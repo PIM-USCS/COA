@@ -55,6 +55,7 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.23.0",
+    "@faker-js/faker": "^8.2.0",
     "@jest/globals": "^29.7.0",
     "@types/axios": "^0.14.0",
     "@types/faker": "^6.6.9",
