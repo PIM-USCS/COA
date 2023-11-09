@@ -68,8 +68,7 @@ export function Header() {
               width: "100%",
               display: "flex",
               justifyContent: "center",
-            }}
-          >
+            }}>
             <button className="tela-home-botao-home">
               <img src={Logo} alt="Logo" />
               <h2>COA</h2>
@@ -79,11 +78,10 @@ export function Header() {
         <div className="tela-home-div-header-direita">
           <button
             className="tela-home-botao-usuario"
-            onClick={HabilitarSubMenuUser}
-          >
+            onClick={HabilitarSubMenuUser}>
             {usuarios.avatar ? (
               <img
-                src={`http://192.168.1.99:3333/uploads/${usuarios.avatar}`}
+                src={`http://localhost/uploads/${usuarios.avatar}`}
                 alt="Foto usuario"
               />
             ) : (
@@ -96,8 +94,7 @@ export function Header() {
             className="tela-home-submenu-usuario"
             style={{
               display: isOpenUser ? "flex" : "none",
-            }}
-          >
+            }}>
             <NavLink
               to="/alterar-usuario"
               style={{
@@ -106,8 +103,7 @@ export function Header() {
                 width: "100%",
                 display: "flex",
                 justifyContent: "center",
-              }}
-            >
+              }}>
               <button>
                 <PencilSimple size={18} />
                 Editar foto de perfil

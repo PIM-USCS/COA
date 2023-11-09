@@ -18,7 +18,6 @@ export function ConsultaCobranca() {
   const [caminhoArquivo, setCaminhoArquivo] = useState<File | undefined>();
 
   const { idCobranca } = useCobranca();
-  const navigate = useNavigate();
 
   function openModalImagem(arquivo: File) {
     setCaminhoArquivo(arquivo);
