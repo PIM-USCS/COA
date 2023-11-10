@@ -16,7 +16,12 @@ import {
   ColaboradorProps,
 } from "../@types/Colaborador";
 import { AtuUsuario, ResetarSenha, UsuarioProps } from "../@types/Usuario";
-import { AtualizaCobrancaProps, CobrancaProps } from "../@types/Cobranca";
+import {
+  AtualizaCobrancaProps,
+  CobrancaProps,
+  TiposguiaAtualizaProps,
+  TiposguiaProps,
+} from "../@types/Cobranca";
 import { ReciboProps } from "../@types/Recibo";
 
 /* DASHBOARD */
@@ -124,6 +129,27 @@ const postAtualizaCobranca = (
 
 /* COBRANCA */
 
+/* TIPOS GUIA */
+
+const getTiposguia = (): AxiosPromise<TiposguiaProps[]> =>
+  xhr.get(`tiposguia/`);
+
+const getTiposguiaByID = (id: string): AxiosPromise<TiposguiaProps> =>
+  xhr.get(`tiposguia/${id}`);
+
+const deleteTipoguia = (id: string) => xhr.delete(`tiposguia/${id}`);
+
+const postCreateTipoguia = (
+  params: TiposguiaProps
+): AxiosPromise<TiposguiaProps> => xhr.post(`tiposguia/`, params);
+
+const putAtualizaTipoguia = (
+  id: string,
+  params: TiposguiaAtualizaProps
+): AxiosPromise<TiposguiaAtualizaProps> => xhr.put(`cobrancas/${id}`, params);
+
+/* TIPOS GUIA */
+
 /*USUARIO*/
 const checkLogin = (params: UsuarioProps): AxiosPromise<UsuarioProps> =>
   xhr.post(`sessions/`, params);
@@ -224,4 +250,9 @@ export {
   postAtualizaCobranca,
   putAtualizaUsuario,
   putInativaAtivaEmpresa,
+  getTiposguia,
+  deleteTipoguia,
+  postCreateTipoguia,
+  putAtualizaTipoguia,
+  getTiposguiaByID,
 };

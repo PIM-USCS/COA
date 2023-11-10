@@ -1,0 +1,40 @@
+:root {
+  --primary: #028a0f;
+  --secondary: #191c24;
+  --light: #6c7293;
+  --dark: #000000;
+}
+
+.tela-tiposguia-header {
+  width: 80%;
+  justify-content: space-between;
+  display: flex;
+  color: white;
+}
+
+.tela-tiposguia-return {
+  all: unset;
+  cursor: pointer;
+}
+
+.tela-tiposguia-return:hover {
+  color: var(--primary);
+}
+
+.div-cadastrar-tiposguia {
+  display: flex;
+  gap: 18px;
+}
+
+.div-cadastrar-tiposguia button {
+  all: unset;
+  color: white;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 190px;
+  background-color: var(--primary);
+  border-radius: 8px;
+}

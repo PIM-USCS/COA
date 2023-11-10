@@ -1,0 +1,159 @@
+:root {
+  --primary: #028a0f;
+  --secondary: #191c24;
+  --light: #6c7293;
+  --dark: #000000;
+}
+
+.tela-tiposguia-cadastrotiposguia {
+  font-family: arial, sans-serif;
+  background-color: var(--dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.tela-tiposguia-main-cadastrotiposguia {
+  background-color: var(--secondary);
+  padding: 50px;
+  min-width: 450px;
+}
+.tela-tiposguia-header-cadastrotiposguia {
+  display: flex;
+  justify-content: right;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.tela-tiposguia-form-cadastrotiposguia {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+.tela-tiposguia-floatingInput {
+  position: relative;
+}
+.tela-tiposguia-floatingInput__control {
+  background-color: var(--dark);
+  color: var(--light);
+  border-radius: 5px;
+  height: 70px;
+  width: 98%;
+  border: transparent;
+  font-size: 15px;
+  margin: 0px 0px 25px 0px;
+  padding: 20px;
+  padding-bottom: 5px;
+}
+
+.tela-tiposguia-floatingInput__control::placeholder {
+  opacity: 0;
+}
+.tela-tiposguia-floatingInput__control:not(:placeholder-shown)
+  + .tela-tiposguia-floatingInput__label,
+.tela-tiposguia-floatingInput__control:focus
+  + .tela-tiposguia-floatingInput__label {
+  top: 0.2rem;
+  font-size: 1.3rem;
+}
+
+.tela-tiposguia-floatingInput__label {
+  color: var(--light);
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transition: all 0.2s;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+/*botão salvar*/
+.tela-tiposguia-input-bnt-cadastrotiposguia {
+  color: var(--light);
+  margin-top: 8px;
+}
+.tela-tiposguia-input-bnt-cadastrotiposguia::placeholder {
+  color: var(--light);
+}
+.tela-tiposguia-bnt-cadastrotiposguia {
+  all: unset;
+  margin-top: 12px;
+  border-radius: 5px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  background-color: var(--primary);
+  font-size: 16px;
+  flex-wrap: wrap;
+  font-family: "Opens-sans", sans-serif;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+  text-transform: uppercase;
+}
+.tela-tiposguia-bnt-cadastrotiposguia:hover {
+  background-color: rgb(172, 8, 8);
+  transition: 1s;
+}
+.tela-tiposguia-bnt-cadastrotiposguia.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.tela-tiposguia-formulario-login-tiposguia {
+  margin: 25px 0px 50px 0px;
+}
+
+.tela-tiposguia-formulario-login-tiposguia h2 {
+  color: white;
+}
+
+.tela-tiposguia-esconder_senha {
+  all: unset;
+  color: var(--light);
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  right: 0;
+  bottom: 50%;
+  margin-right: 22px;
+}
+
+.tela-tiposguia-input-tipo-usuario {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  outline: none;
+  background-color: black;
+  cursor: pointer;
+}
+
+.tela-tiposguia-input-tipo-usuario:checked {
+  background-color: var(--primary);
+}
+
+.tela-tiposguia-tipo-usuario {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.tela-tiposguia-div-tipo-usuario {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.tela-tiposguia-label-tipo-usuario {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  color: var(--light);
+}

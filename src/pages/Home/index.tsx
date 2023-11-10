@@ -70,8 +70,7 @@ export function Home() {
               className="tela-home-div-botoes"
               style={{
                 display: usuarios.tipo_usuario !== "1" ? "none" : "flex",
-              }}
-            >
+              }}>
               <NavLink to="/dashboard" style={{ textDecoration: "none" }}>
                 <button className="tela-home-botao-secundario">
                   <ChartLineUp size={30} />
@@ -83,8 +82,7 @@ export function Home() {
               className="tela-home-div-botoes"
               style={{
                 display: usuarios.tipo_usuario !== "1" ? "none" : "flex",
-              }}
-            >
+              }}>
               <NavLink to="/empresas" style={{ textDecoration: "none" }}>
                 <button className="tela-home-botao-secundario">
                   <Buildings size={30} />
@@ -96,8 +94,7 @@ export function Home() {
               className="tela-home-div-botoes"
               style={{
                 display: usuarios.tipo_usuario !== "1" ? "none" : "flex",
-              }}
-            >
+              }}>
               <NavLink to="/colaborador" style={{ textDecoration: "none" }}>
                 <button className="tela-home-botao-secundario">
                   <UserCircle size={30} />
@@ -110,6 +107,14 @@ export function Home() {
                 <button className="tela-home-botao-secundario">
                   <Files size={30} />
                   Guias
+                </button>
+              </NavLink>
+            </div>
+            <div className="tela-home-div-botoes">
+              <NavLink to="/tiposguia" style={{ textDecoration: "none" }}>
+                <button className="tela-home-botao-secundario">
+                  <Files size={30} />
+                  Tipos de guias
                 </button>
               </NavLink>
             </div>

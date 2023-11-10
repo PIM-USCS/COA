@@ -19,6 +19,9 @@ import { TrocarSenhaToken } from "./pages/TrocarSenhaToken";
 import { Dashboard } from "./pages/Dashboard";
 import { EnviarRecibo } from "./pages/EnviarRecibo";
 import { AlterarCobranca } from "./pages/AlterarCobranca";
+import { TiposguiaLista } from "./pages/Tiposguia";
+import { CadastroTiposguia } from "./pages/CadastroTiposguia";
+import { AlterarTipoguia } from "./pages/AlterarTiposguia";
 
 export function Router() {
   return (
@@ -49,6 +52,9 @@ export function Router() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/enviar-recibo" element={<EnviarRecibo />} />
       <Route path="/alterar-cobranca" element={<AlterarCobranca />} />
+      <Route path="/tiposguia" element={<TiposguiaLista />} />
+      <Route path="/cadastro-tiposguia" element={<CadastroTiposguia />} />
+      <Route path="/alterar-tipoguia" element={<AlterarTipoguia />} />
     </Routes>
   );
 }

@@ -18,3 +18,12 @@ export interface AtualizaCobrancaProps {
   status?: string;
   descricao?: string;
 }
+
+export interface TiposguiaProps {
+  id: string;
+  descricao: string;
+}
+
+export interface TiposguiaAtualizaProps {
+  descricao: string;
+}
