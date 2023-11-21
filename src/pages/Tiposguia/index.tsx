@@ -72,14 +72,6 @@ export function TiposguiaLista() {
     navigate("/alterar-tipoguia");
   }
 
-  function consultarTipoguia(id: string) {
-    if (!id) {
-      return;
-    }
-    setIdTipoguia(id);
-    navigate("/consultar-tipoguia");
-  }
-
   return (
     <main className="main-principal">
       <header className="tela-tiposguia-header">
@@ -108,7 +100,6 @@ export function TiposguiaLista() {
             <th>Descrição</th>
             <th>Alterar</th>
             <th>Excluir</th>
-            <th>Consultar</th>
           </tr>
         </thead>
         <tbody>
@@ -128,14 +119,6 @@ export function TiposguiaLista() {
                   className="botao-table-delete"
                   onClick={() => excluirTipoguia(tipoguia.id)}>
                   Excluir
-                </button>
-              </td>
-              <td>
-                <button
-                  className="botao-table-view"
-                  // onClick={() => consultarColaborador(tipoguia.id)}
-                >
-                  Consultar
                 </button>
               </td>
             </tr>

@@ -18,11 +18,8 @@ export function AlterarTipoguia() {
   async function alterarCadastro() {
     try {
       await api.putAtualizaTipoguia(idTipoguia, {
-        descricao: tiposguia.descricao.toString(),
+        descricao: tiposguia?.descricao?.toString(),
       });
-    } catch (error) {
-      console.error(error);
-    } finally {
       Swal.fire({
         icon: "success",
         title: "Cadastro alterado com sucesso!",
@@ -30,6 +27,8 @@ export function AlterarTipoguia() {
           navigate(-1);
         },
       });
+    } catch (error) {
+      console.error(error);
     }
   }
 

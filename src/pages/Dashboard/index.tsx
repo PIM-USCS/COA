@@ -17,6 +17,10 @@ export function Dashboard() {
   const quantidadeColaboradores = colaborador.length;
   const [empresas, setEmpresas] = useState<EmpresaListaProps[]>([]);
   const quantidadeEmpresas = empresas.length;
+  const [quantidadeEmpresasAtivas, setQuantidadeEmpresasAtivas] = useState(0);
+  const [quantidadeEmpresasInativas, setQuantidadeEmpresasInativas] =
+    useState(0);
+
   const [clientes, setClientes] = useState<ClienteProps[]>([]);
   const quantidadeClientes = clientes.length;
   const cobrancasVencidas = cobrancas.filter(
@@ -134,7 +138,20 @@ export function Dashboard() {
     try {
       const { data } = await api.getEmpresa();
 
+      let countEmpresasAtivas = 0;
+      let countEmpresasInativas = 0;
+
+      data.forEach((empresa) => {
+        if (empresa.ativa === "S") {
+          countEmpresasAtivas += 1;
+        } else if (empresa.ativa === "N") {
+          countEmpresasInativas += 1;
+        }
+      });
+
       setEmpresas(data);
+      setQuantidadeEmpresasAtivas(countEmpresasAtivas);
+      setQuantidadeEmpresasInativas(countEmpresasInativas);
     } catch (error) {
       console.error(error);
     }
@@ -186,21 +203,21 @@ export function Dashboard() {
         <div className="div-03">
           <div className="minibox">
             <div className="miniminibox">
-            <Buildings size={32} color="#1d7c23" />
-            <p>
-              Empresas Ativas:{" "}
-              {empresas.length === 0 ? 0 : quantidadeEmpresas}
-            </p>
-            <Buildings size={32} color="#ff0000" />
-            <p>
-              Empresas Desativadas:{" "}
-              {empresas.length === 0 ? 0 : quantidadeEmpresas}
-            </p>
-            <Buildings size={32} color="#0000ff" />
-            <p>
-              Quantidade de empresas:{" "}
-              {empresas.length === 0 ? 0 : quantidadeEmpresas}
-            </p>
+              <Buildings size={32} color="#1d7c23" />
+              <p>
+                Empresas Ativas:{" "}
+                {empresas.length === 0 ? 0 : quantidadeEmpresasAtivas}
+              </p>
+              <Buildings size={32} color="#ff0000" />
+              <p>
+                Empresas Desativadas:{" "}
+                {empresas.length === 0 ? 0 : quantidadeEmpresasInativas}
+              </p>
+              <Buildings size={32} color="#0000ff" />
+              <p>
+                Quantidade de empresas:{" "}
+                {empresas.length === 0 ? 0 : quantidadeEmpresas}
+              </p>
             </div>
           </div>
           <div className="minibox">
@@ -217,7 +234,8 @@ export function Dashboard() {
               {colaborador.length === 0 ? 0 : quantidadeColaboradores}
             </p>
           </div>
-        </div>minibox1
+        </div>
+        minibox1
         <div className="div-01">
           <h1 className="tela-dash-label">Buscar empresa</h1>
           <div className="tela-dash-divinput">
@@ -238,7 +256,6 @@ export function Dashboard() {
             </button>
           </div>
         </div>
-
         <div className="div-04">
           <div className="minibox">
             <h1 className="dashbord-h1">Guias vencidas</h1>
@@ -269,11 +286,12 @@ export function Dashboard() {
           <div className="minibox1">
             <h1 className="dashbord-h3">Valores de guias</h1>
             <Barra
-
+              totalAberto={totaisMesAberto}
+              totalPago={totaisMesPagos}
+              totalVencido={totaisMesVencido}
             />
           </div>
         </div>
-
         <div className="div-07">
           <div className="minibox">
             <h1 className="dashbord-h3">Guias em Aberto</h1>
@@ -286,7 +304,6 @@ export function Dashboard() {
             <p className="dashbord-h3">Quantidade: {cobrancasAberto.length} </p>
           </div>
         </div>
-
         <div className="div-12">
           <div className="minibox">
             <h1 className="dashbord-h3">Balanceamento de valores</h1>
@@ -305,7 +322,6 @@ export function Dashboard() {
               cobrancasVencidas={cobrancasVencidas}></Chart>
           </div>
         </div>
-
         <div className="div-11">
           <p>&copy; 2023 Dashboard Financeiro</p>
         </div>

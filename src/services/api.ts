@@ -146,7 +146,7 @@ const postCreateTipoguia = (
 const putAtualizaTipoguia = (
   id: string,
   params: TiposguiaAtualizaProps
-): AxiosPromise<TiposguiaAtualizaProps> => xhr.put(`cobrancas/${id}`, params);
+): AxiosPromise<TiposguiaAtualizaProps> => xhr.put(`tiposguia/${id}`, params);
 
 /* TIPOS GUIA */
 
