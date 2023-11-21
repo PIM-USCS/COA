@@ -81,7 +81,7 @@ export function Header() {
             onClick={HabilitarSubMenuUser}>
             {usuarios.avatar ? (
               <img
-                src={`http://localhost/uploads/${usuarios.avatar}`}
+                src={`http://localhost:3333/uploads/${usuarios.avatar}`}
                 alt="Foto usuario"
               />
             ) : (
