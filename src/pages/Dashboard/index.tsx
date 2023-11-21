@@ -235,7 +235,7 @@ export function Dashboard() {
             </p>
           </div>
         </div>
-        minibox1
+
         <div className="div-01">
           <h1 className="tela-dash-label">Buscar empresa</h1>
           <div className="tela-dash-divinput">
