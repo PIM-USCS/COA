@@ -561,6 +561,9 @@ export function CadastroCliente() {
             <input
               type="email"
               className="tela-empresa-floatingInput__control"
+              style={{
+                textTransform: "lowercase",
+              }}
               placeholder="E-mail de login"
               name="email"
               value={usuario.email || ""}
@@ -593,6 +596,9 @@ export function CadastroCliente() {
               placeholder="Senha"
               name="senha"
               value={usuario.senha || ""}
+              style={{
+                textTransform: "lowercase",
+              }}
               onChange={(e) =>
                 setUsuario({
                   ...usuario,
@@ -623,6 +629,9 @@ export function CadastroCliente() {
               type={visualizarConfirmarSenha ? "text" : "password"}
               id="senha-cadastrocliente"
               className="tela-empresa-floatingInput__control"
+              style={{
+                textTransform: "lowercase",
+              }}
               placeholder="Senha"
               name="senha"
               value={confirmarSenha || ""}
