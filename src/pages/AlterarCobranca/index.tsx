@@ -72,7 +72,7 @@ export function AlterarCobranca() {
           valor: data.valor,
           status: data.status,
           id_empresa: data.id_empresa,
-          descricao: data.descricao,
+          descricao: data.tipoguia,
         };
       });
 
@@ -179,7 +179,7 @@ export function AlterarCobranca() {
         vencimento_cobranca: cobranca.vencimento_cobranca?.toString(),
         status: cobranca.status?.toString(),
         valor: cobranca.valor?.toString(),
-        descricao: cobranca.descricao?.toString(),
+        tipoguia: cobranca.tipoguia?.toString(),
       });
       Swal.fire({
         icon: "success",
@@ -265,7 +265,7 @@ export function AlterarCobranca() {
                 className="tela-cobranca-floatingInput__control"
                 placeholder="Descrição"
                 name="descricao"
-                value={cobranca.descricao || ""}
+                value={cobranca.tipoguia || ""}
                 onChange={(e) =>
                   setCobranca({
                     ...cobranca,

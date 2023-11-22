@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
-import { CobrancaProps } from "../../@types/Cobranca";
+import { CobrancaProps, TiposguiaProps } from "../../@types/Cobranca";
 import * as api from "../../services/api";
 import Swal from "sweetalert2";
 import { EmpresaProps } from "../../@types/Client";
@@ -11,6 +11,7 @@ import maskMoney from "../../utils/maskMoney";
 export function CadastroCobranca() {
   const [cobranca, setCobranca] = useState<CobrancaProps>({} as CobrancaProps);
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
+  const [tipoGuia, setTipoGuia] = useState<TiposguiaProps[]>([]);
   const navigate = useNavigate();
 
   const mascaraDataEmissao = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -80,6 +81,19 @@ export function CadastroCobranca() {
     }
   }
 
+  async function consultaTipoGuia() {
+    try {
+      const { data } = await api.getTiposguia();
+
+      setTipoGuia(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    consultaTipoGuia();
+  }, []);
   return (
     <>
       {/* <LoadingIcon /> */}
@@ -126,21 +140,27 @@ export function CadastroCobranca() {
                 Nome empresa
               </label>
             </div>
-            <div className="tela-cobranca-floatingInput">
-              <input
-                type="text"
-                className="tela-cobranca-floatingInput__control"
-                placeholder="Descrição"
-                name="descricao"
-                value={cobranca.descricao || ""}
+            <div className="tela-tiposguia-floatingInput">
+              <select
+                className="tela-tiposguia-floatingInput__control"
+                name="tipoguia"
+                value={cobranca.tipoguia || ""}
                 onChange={(e) =>
                   setCobranca({
                     ...cobranca,
                     [e.target.name]: e.target.value,
                   })
-                }
-              />
-              <label className="tela-cobranca-floatingInput__label">
+                }>
+                <option value="" disabled>
+                  Selecione o tipo da guia
+                </option>
+                {tipoGuia.map((tipo) => (
+                  <option key={tipo.id} value={tipo.id}>
+                    {tipo.descricao}
+                  </option>
+                ))}
+              </select>
+              <label className="tela-tiposguia-floatingInput__label">
                 Descrição
               </label>
             </div>

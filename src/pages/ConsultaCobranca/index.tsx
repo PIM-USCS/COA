@@ -16,6 +16,7 @@ export function ConsultaCobranca() {
   const [recibos, setRecibos] = useState<ReciboProps[]>([]);
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [caminhoArquivo, setCaminhoArquivo] = useState<File | undefined>();
+  const [tipoGuiaDescricao, setTipoGuiaDescricao] = useState<string>("");
 
   const { idCobranca } = useCobranca();
 
@@ -39,7 +40,7 @@ export function ConsultaCobranca() {
           valor: data.valor,
           status: data.status,
           id_empresa: data.id_empresa,
-          descricao: data.descricao,
+          tipoguia: data.tipoguia,
         };
       });
 
@@ -48,6 +49,12 @@ export function ConsultaCobranca() {
       }
       if (data.id) {
         consultaRecibo(data.id);
+      }
+
+      const tipoGuiaResponse = await api.getTiposguiaByID(data.tipoguia);
+
+      if (tipoGuiaResponse.data) {
+        setTipoGuiaDescricao(tipoGuiaResponse.data.descricao);
       }
     } catch (error) {
       Swal.fire({
@@ -153,7 +160,7 @@ export function ConsultaCobranca() {
                 className="tela-cobranca-floatingInput__control"
                 placeholder="Descrição"
                 name="descricao"
-                value={cobranca.descricao || ""}
+                value={tipoGuiaDescricao || ""}
                 readOnly
               />
               <label className="tela-cobranca-floatingInput__label">
