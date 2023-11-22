@@ -42,6 +42,7 @@ export interface AtuEmpresa {
   numero: string;
   complemento: string;
   tipo_cliente: string;
+  id_colaborador: string;
 }
 
 export interface InativaAtivaEmpresa {

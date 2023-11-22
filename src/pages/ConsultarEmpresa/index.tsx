@@ -119,6 +119,7 @@ export function ConsultaCliente() {
                 className="tela-empresa-input-tipo-pessoa"
                 value="PF"
                 checked={empresa.tipo_cliente === "PF"}
+                readOnly
               />
               <label
                 htmlFor="tipo-pessoa"
@@ -133,6 +134,7 @@ export function ConsultaCliente() {
                 className="tela-empresa-input-tipo-pessoa"
                 value="PJ"
                 checked={empresa.tipo_cliente === "PJ"}
+                readOnly
               />
               <label
                 htmlFor="tipo-pessoa"
@@ -148,6 +150,7 @@ export function ConsultaCliente() {
               placeholder="Codigo da Empresa"
               name="nome"
               defaultValue={idEmpresa || ""}
+              readOnly
             />
             <label className="floatingInput__label">Codigo da Empresa</label>
           </div>
@@ -158,6 +161,7 @@ export function ConsultaCliente() {
               placeholder="Razão social"
               name="nome"
               defaultValue={empresa.nome || ""}
+              readOnly
             />
             <label className="floatingInput__label">Razão social</label>
           </div>
@@ -170,6 +174,7 @@ export function ConsultaCliente() {
               defaultValue={
                 empresa.tipo_cliente === "PF" ? empresa.cpf : empresa.cnpj
               }
+              readOnly
             />
             <label className="floatingInput__label">CNPJ/CPF</label>
           </div>
@@ -180,6 +185,7 @@ export function ConsultaCliente() {
               placeholder="CEP"
               name="cep"
               defaultValue={empresa.cep || ""}
+              readOnly
             />
             <label className="floatingInput__label">CEP</label>
           </div>
@@ -190,6 +196,7 @@ export function ConsultaCliente() {
               placeholder="Rua"
               name="rua"
               defaultValue={empresa.rua || ""}
+              readOnly
             />
             <label className="floatingInput__label">Rua</label>
           </div>
@@ -200,6 +207,7 @@ export function ConsultaCliente() {
               placeholder="Cidade"
               name="cidade"
               defaultValue={empresa.cidade || ""}
+              readOnly
             />
             <label className="floatingInput__label">Cidade</label>
           </div>
@@ -210,6 +218,7 @@ export function ConsultaCliente() {
               placeholder="UF"
               name="uf"
               defaultValue={empresa.uf || ""}
+              readOnly
             />
             <label className="floatingInput__label">UF</label>
           </div>
@@ -220,6 +229,7 @@ export function ConsultaCliente() {
               placeholder="Bairro"
               name="bairro"
               defaultValue={empresa.bairro || ""}
+              readOnly
             />
             <label className="floatingInput__label">Bairro</label>
           </div>
@@ -230,6 +240,7 @@ export function ConsultaCliente() {
               placeholder="Numero"
               name="numero"
               defaultValue={empresa.numero || ""}
+              readOnly
             />
             <label className="floatingInput__label">Numero</label>
           </div>
@@ -240,6 +251,7 @@ export function ConsultaCliente() {
               placeholder="Complemento"
               name="complemento"
               defaultValue={empresa.complemento || ""}
+              readOnly
             />
             <label className="floatingInput__label">Complemento</label>
           </div>
@@ -250,6 +262,7 @@ export function ConsultaCliente() {
               placeholder="Inscrição Estadual"
               name="ie"
               defaultValue={empresa.ie || ""}
+              readOnly
             />
             <label className="floatingInput__label">Inscrição Estadual</label>
           </div>
@@ -260,6 +273,7 @@ export function ConsultaCliente() {
               placeholder="ID contador responsavel"
               name="id"
               defaultValue={colaborador.id || ""}
+              readOnly
             />
             <label className="floatingInput__label">
               ID contador responsavel
@@ -271,6 +285,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="Contador responsavel"
               defaultValue={colaborador.nome || ""}
+              readOnly
             />
             <label className="floatingInput__label">Contador responsavel</label>
           </div>
@@ -286,6 +301,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="CPF"
               defaultValue={cliente.cpf || ""}
+              readOnly
             />
             <label className="floatingInput__label">CPF</label>
           </div>
@@ -295,6 +311,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="Nome"
               defaultValue={cliente.nome || ""}
+              readOnly
             />
             <label className="floatingInput__label">Nome</label>
           </div>
@@ -304,6 +321,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="RG"
               defaultValue={cliente.rg || ""}
+              readOnly
             />
             <label className="floatingInput__label">RG</label>
           </div>
@@ -313,6 +331,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="Telefone"
               defaultValue={cliente.telefone || ""}
+              readOnly
             />
             <label className="floatingInput__label">Telefone</label>
           </div>
@@ -322,6 +341,7 @@ export function ConsultaCliente() {
               className="floatingInput__control"
               placeholder="Email"
               defaultValue={cliente.email || ""}
+              readOnly
             />
             <label className="floatingInput__label">Email</label>
           </div>

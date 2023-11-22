@@ -6,27 +6,16 @@ import "./styles.css";
 
 import * as api from "../../services/api";
 import Swal from "sweetalert2";
-import { ClienteProps } from "../../@types/Client";
-interface EmpresaProps {
-  id: string;
-  cpf: string;
-  cnpj: string;
-  ie: string;
-  nome: string;
-  cep: string;
-  rua: string;
-  cidade: string;
-  uf: string;
-  bairro: string;
-  numero: string;
-  complemento: string;
-  tipo_cliente: string;
-}
+import { ClienteProps, EmpresaProps } from "../../@types/Client";
+import { ColaboradorProps } from "../../@types/Colaborador";
 
 export function AlterarCadastroCliente() {
   const { idEmpresa, idCliente } = useEmpresa();
   const [empresa, setEmpresa] = useState<EmpresaProps>({} as EmpresaProps);
   const [cliente, setCliente] = useState<ClienteProps>({} as ClienteProps);
+  const [colaborador, setColaborador] = useState<ColaboradorProps>(
+    {} as ColaboradorProps
+  );
   const navigate = useNavigate();
 
   async function alterarCadastro() {
@@ -60,6 +49,7 @@ export function AlterarCadastroCliente() {
       ie: empresa.ie.toString(),
       complemento: empresa.complemento.toString(),
       tipo_cliente: empresa.tipo_cliente.toString(),
+      id_colaborador: empresa.id_colaborador,
     });
   }
 
@@ -92,7 +82,9 @@ export function AlterarCadastroCliente() {
       cep: data.cep,
       cnpj: data.cnpj,
       ie: data.ie,
+      id_colaborador: data.id_colaborador,
     });
+    await ConsultaColaborador(data.id_colaborador);
   };
 
   const ConsultaCliente = async () => {
@@ -111,6 +103,17 @@ export function AlterarCadastroCliente() {
     });
   };
 
+  const ConsultaColaborador = async (colaboradorId: string) => {
+    const { data } = await api.getColaboradorByID(colaboradorId);
+
+    setColaborador((prevState) => {
+      return {
+        ...prevState,
+        id: data.id,
+        nome: data.nome,
+      };
+    });
+  };
   const ConsultaCEP = async (event: any) => {
     const cep = event.target.value;
 
@@ -147,6 +150,31 @@ export function AlterarCadastroCliente() {
       });
     }
   };
+
+  async function consultaColaboradorByID() {
+    try {
+      const { data } = await api.getColaboradorByID(empresa.id_colaborador);
+      setColaborador({
+        ...colaborador,
+        id: data.id,
+        nome: data.nome,
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "warning",
+        title: "Não localizamos o colaborador com este ID!",
+        text: "Gostaria de cadastrar?",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Não",
+        confirmButtonText: "Sim",
+        preConfirm: () => {
+          navigate("/cadastro-colaborador");
+        },
+      });
+    }
+  }
 
   useEffect(() => {
     ConsultaCliente();
@@ -371,11 +399,32 @@ export function AlterarCadastroCliente() {
             />
             <label className="floatingInput__label">Inscrição Estadual</label>
           </div>
+          <div className="tela-empresa-floatingInput">
+            <input
+              type="text"
+              className="tela-empresa-floatingInput__control"
+              placeholder="ID contador responsavel"
+              name="id_colaborador"
+              value={empresa.id_colaborador || ""}
+              onChange={(e) =>
+                setEmpresa({
+                  ...empresa,
+                  [e.target.name]: e.target.value,
+                })
+              }
+              onBlur={consultaColaboradorByID}
+            />
+            <label className="tela-empresa-floatingInput__label">
+              ID contador responsavel
+            </label>
+          </div>
           <div className="floatingInput">
             <input
               type="text"
               className="floatingInput__control"
               placeholder="Contador responsavel"
+              defaultValue={colaborador.nome || ""}
+              readOnly
             />
             <label className="floatingInput__label">Contador responsavel</label>
           </div>
