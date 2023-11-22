@@ -106,7 +106,9 @@ export function TiposguiaLista() {
           {tiposguia.map((tipoguia) => (
             <tr key={tipoguia.id} className="tabela-row">
               <td>{tipoguia.id}</td>
-              <td>{tipoguia.descricao}</td>
+              <td style={{ textTransform: "uppercase" }}>
+                {tipoguia.descricao}
+              </td>
               <td>
                 <button
                   className="botao-table-edit"

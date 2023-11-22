@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
-import { CobrancaProps } from "../../@types/Cobranca";
+import { CobrancaProps, TiposguiaProps } from "../../@types/Cobranca";
 import * as api from "../../services/api";
 import Swal from "sweetalert2";
 import { EmpresaProps } from "../../@types/Client";
@@ -18,6 +18,7 @@ export function AlterarCobranca() {
   const [recibos, setRecibos] = useState<ReciboProps[]>([]);
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [caminhoArquivo, setCaminhoArquivo] = useState<File | undefined>();
+  const [tipoGuia, setTipoGuia] = useState<TiposguiaProps[]>([]);
 
   const { idCobranca } = useCobranca();
   const navigate = useNavigate();
@@ -72,7 +73,7 @@ export function AlterarCobranca() {
           valor: data.valor,
           status: data.status,
           id_empresa: data.id_empresa,
-          descricao: data.tipoguia,
+          tipoguia: data.tipoguia,
         };
       });
 
@@ -116,6 +117,20 @@ export function AlterarCobranca() {
       });
     }
   }
+
+  async function consultaTipoGuia() {
+    try {
+      const { data } = await api.getTiposguia();
+
+      setTipoGuia(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    consultaTipoGuia();
+  }, []);
 
   useEffect(() => {
     if (cobranca.id_empresa) {
@@ -259,21 +274,34 @@ export function AlterarCobranca() {
               <label className="floatingInput__label">Nome empresa</label>
             </div>
 
-            <div className="tela-cobranca-floatingInput">
-              <input
-                type="text"
-                className="tela-cobranca-floatingInput__control"
-                placeholder="Descrição"
-                name="descricao"
+            <div className="tela-tiposguia-floatingInput">
+              <select
+                className="tela-tiposguia-floatingInput__control"
+                name="tipoguia"
                 value={cobranca.tipoguia || ""}
+                style={{ textTransform: "uppercase" }}
                 onChange={(e) =>
                   setCobranca({
                     ...cobranca,
                     [e.target.name]: e.target.value,
                   })
-                }
-              />
-              <label className="tela-cobranca-floatingInput__label">
+                }>
+                <option
+                  value=""
+                  disabled
+                  style={{ textTransform: "uppercase" }}>
+                  Selecione o tipo da guia
+                </option>
+                {tipoGuia.map((tipo) => (
+                  <option
+                    key={tipo.id}
+                    value={tipo.id}
+                    style={{ textTransform: "uppercase" }}>
+                    {tipo.descricao}
+                  </option>
+                ))}
+              </select>
+              <label className="tela-tiposguia-floatingInput__label">
                 Descrição
               </label>
             </div>

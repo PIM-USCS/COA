@@ -41,6 +41,7 @@ export function CadastroTiposguia() {
             <input
               type="text"
               className="tela-tiposguia-floatingInput__control"
+              style={{ textTransform: "uppercase" }}
               placeholder="Descrição"
               name="descricao"
               value={tiposguia.descricao || ""}

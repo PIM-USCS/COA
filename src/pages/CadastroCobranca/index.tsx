@@ -145,17 +145,24 @@ export function CadastroCobranca() {
                 className="tela-tiposguia-floatingInput__control"
                 name="tipoguia"
                 value={cobranca.tipoguia || ""}
+                style={{ textTransform: "uppercase" }}
                 onChange={(e) =>
                   setCobranca({
                     ...cobranca,
                     [e.target.name]: e.target.value,
                   })
                 }>
-                <option value="" disabled>
+                <option
+                  value=""
+                  disabled
+                  style={{ textTransform: "uppercase" }}>
                   Selecione o tipo da guia
                 </option>
                 {tipoGuia.map((tipo) => (
-                  <option key={tipo.id} value={tipo.id}>
+                  <option
+                    key={tipo.id}
+                    value={tipo.id}
+                    style={{ textTransform: "uppercase" }}>
                     {tipo.descricao}
                   </option>
                 ))}
